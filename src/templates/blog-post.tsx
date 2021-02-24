@@ -1,18 +1,18 @@
-import React from "react"
-import { Link, graphql, PageProps } from "gatsby"
+import React from "react";
+import { Link, graphql, PageProps } from "gatsby";
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Bio from "../components/bio";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const BlogPostTemplate: React.FC<
   PageProps<GatsbyTypes.BlogPostBySlugQuery>
 > = ({ data, location }) => {
-  const post = data.markdownRemark
-  const siteTitle = data.site?.siteMetadata?.title || `Title`
-  const postTitle = post?.frontmatter?.title as string
-  const postDescription = post?.frontmatter?.description || post?.excerpt
-  const { previous, next } = data
+  const post = data.markdownRemark;
+  const siteTitle = data.site?.siteMetadata?.title || `Title`;
+  const postTitle = post?.frontmatter?.title as string;
+  const postDescription = post?.frontmatter?.description || post?.excerpt;
+  const { previous, next } = data;
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -62,10 +62,10 @@ const BlogPostTemplate: React.FC<
         </ul>
       </nav>
     </Layout>
-  )
-}
+  );
+};
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug(
@@ -105,4 +105,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

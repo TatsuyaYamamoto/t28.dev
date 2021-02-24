@@ -1,16 +1,16 @@
-import React from "react"
-import { Link, graphql, PageProps } from "gatsby"
+import React from "react";
+import { Link, graphql, PageProps } from "gatsby";
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Bio from "../components/bio";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   data,
   location,
 }) => {
-  const siteTitle = data.site?.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  const siteTitle = data.site?.siteMetadata?.title || `Title`;
+  const posts = data.allMarkdownRemark.nodes;
 
   if (posts.length === 0) {
     return (
@@ -23,7 +23,7 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
           gatsby-config.js).
         </p>
       </Layout>
-    )
+    );
   }
 
   return (
@@ -31,11 +31,11 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
       <SEO title="All posts" />
       <Bio />
       <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const slug = post.fields?.slug as string
-          const title = post.frontmatter?.title || slug
+        {posts.map((post) => {
+          const slug = post.fields?.slug as string;
+          const title = post.frontmatter?.title || slug;
           const description =
-            post.frontmatter?.description || (post.excerpt as string)
+            post.frontmatter?.description || (post.excerpt as string);
 
           return (
             <li key={slug}>
@@ -60,14 +60,14 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
                 </section>
               </article>
             </li>
-          )
+          );
         })}
       </ol>
     </Layout>
-  )
-}
+  );
+};
 
-export default BlogIndex
+export default BlogIndex;
 
 export const pageQuery = graphql`
   query BlogIndex {
@@ -90,4 +90,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
