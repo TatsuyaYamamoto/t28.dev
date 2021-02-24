@@ -10,7 +10,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 
 const Bio = () => {
-  const data = useStaticQuery(graphql`
+  const data = useStaticQuery<GatsbyTypes.BioQueryQuery>(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
