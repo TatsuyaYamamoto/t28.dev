@@ -12,6 +12,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-typegen`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

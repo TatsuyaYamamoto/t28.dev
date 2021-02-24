@@ -1,3 +1,6 @@
+# gatsby-plugin-typegen
+src/__generated__/gatsby-types.ts
+
 # Logs
 logs
 *.log
