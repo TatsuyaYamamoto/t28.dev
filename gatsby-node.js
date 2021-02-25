@@ -114,3 +114,24 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
   `);
 };
+
+exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
+  const config = getConfig();
+
+  config.module.rules = config.module.rules.map((rule) => {
+    if (
+      // isEslintLoaderRule
+      Array.isArray(rule.use) &&
+      rule.use[0].loader.match(/\/eslint-loader\//)
+    ) {
+      // overwrite webpack Module Rule.test assertion for TypeScript.
+      // gatsby's default value is /\.jsx?$/
+      // https://github.com/gatsbyjs/gatsby/blob/gatsby%402.32.0/packages/gatsby/src/utils/webpack-utils.ts#L491
+      rule.test = /\.[jt]sx?$/;
+    }
+
+    return rule;
+  });
+
+  actions.replaceWebpackConfig(config);
+};
