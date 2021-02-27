@@ -52,15 +52,16 @@ const Bio: React.FC = () => {
           }}
         />
       )}
-      {author?.name && (
-        <p>
-          Written by <strong>{author.name}</strong> {author?.summary || null}
-          {` `}
-          <OutboundLink href={`https://twitter.com/${social?.twitter || ``}`}>
-            You should follow them on Twitter
-          </OutboundLink>
-        </p>
-      )}
+      <p>
+        {author?.summary || ``}
+        <br />
+        <OutboundLink
+          href={`https://twitter.com/${social?.twitter || ``}`}
+          target="_blank"
+        >
+          {author?.name}
+        </OutboundLink>
+      </p>
     </div>
   );
 };

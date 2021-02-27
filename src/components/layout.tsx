@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, PageProps } from "gatsby";
+import { graphql, Link, PageProps, useStaticQuery } from "gatsby";
 import { OutboundLink } from "gatsby-plugin-google-gtag";
 
 interface Props {
@@ -8,6 +8,22 @@ interface Props {
 }
 
 const Layout: React.FC<Props> = ({ location, title, children }) => {
+  const data = useStaticQuery<GatsbyTypes.LayoutQueryQuery>(graphql`
+    query LayoutQuery {
+      site {
+        siteMetadata {
+          author {
+            name
+            summary
+          }
+          social {
+            twitter
+          }
+        }
+      }
+    }
+  `);
+
   // @ts-ignore
   const rootPath = `${__PATH_PREFIX__}/`;
   const isRootPath = location.pathname === rootPath;
@@ -26,15 +42,19 @@ const Layout: React.FC<Props> = ({ location, title, children }) => {
       </Link>
     );
   }
+  const socialName = data.site?.siteMetadata?.author?.name;
+  const socialScreenName = data.site?.siteMetadata?.social?.twitter;
+  const socialAccountUrl = `https://twitter.com/${socialScreenName}`;
 
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
       <header className="global-header">{header}</header>
       <main>{children}</main>
       <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <OutboundLink href="https://www.gatsbyjs.com">Gatsby</OutboundLink>
+        {`© ${new Date().getFullYear()} `}
+        <OutboundLink href={socialAccountUrl} target="_blank">
+          {socialName}
+        </OutboundLink>
       </footer>
     </div>
   );
