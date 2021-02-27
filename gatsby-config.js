@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `t28.dev`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `@T28_tatsuya`,
+      summary: `LLer and programmer.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `@T28_tatsuyaが、あれこれ書いている。`,
+    siteUrl: `https://t28.dev`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `@T28_tatsuya`,
     },
   },
   plugins: [
@@ -73,7 +73,7 @@ module.exports = {
         short_name: `GatsbyJS`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        // theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `content/assets/icon.png`,
       },
