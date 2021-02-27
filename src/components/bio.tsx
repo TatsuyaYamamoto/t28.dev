@@ -8,6 +8,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Image from "gatsby-image";
+import { OutboundLink } from "gatsby-plugin-google-gtag";
 
 const Bio: React.FC = () => {
   const data = useStaticQuery<GatsbyTypes.BioQueryQuery>(graphql`
@@ -55,9 +56,9 @@ const Bio: React.FC = () => {
         <p>
           Written by <strong>{author.name}</strong> {author?.summary || null}
           {` `}
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>
+          <OutboundLink href={`https://twitter.com/${social?.twitter || ``}`}>
             You should follow them on Twitter
-          </a>
+          </OutboundLink>
         </p>
       )}
     </div>

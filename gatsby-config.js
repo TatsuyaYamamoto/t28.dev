@@ -51,12 +51,20 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+
+    // https://www.gatsbyjs.com/plugins/gatsby-plugin-google-gtag/?=gatsby-plugin-google-gtag
+    // NOTE: This plugin only works in production mode!
+    // To test your Global Site Tag is installed and firing events correctly run: gatsby build && gatsby serve.
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingIds: [`G-BGKVY5GV23`],
+        pluginConfig: {
+          head: true,
+        },
       },
     },
+
     `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,

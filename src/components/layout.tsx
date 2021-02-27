@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, PageProps } from "gatsby";
+import { OutboundLink } from "gatsby-plugin-google-gtag";
 
 interface Props {
   title: string;
@@ -33,7 +34,7 @@ const Layout: React.FC<Props> = ({ location, title, children }) => {
       <footer>
         © {new Date().getFullYear()}, Built with
         {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
+        <OutboundLink href="https://www.gatsbyjs.com">Gatsby</OutboundLink>
       </footer>
     </div>
   );
