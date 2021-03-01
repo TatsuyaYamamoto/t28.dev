@@ -16,14 +16,14 @@ type Props = {
     | { name: string; content: string }
     | { property: string; content: string }
   )[];
-  title: string;
+  pageTitle?: string;
 };
 
 const SEO: React.FC<Props> = ({
   description = ``,
-  lang = `en`,
+  lang = `ja`,
   meta = [],
-  title,
+  pageTitle,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -42,7 +42,8 @@ const SEO: React.FC<Props> = ({
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const defaultTitle = site.siteMetadata?.title;
+  const siteTitle = site.siteMetadata?.title;
+  const title = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle;
 
   return (
     <Helmet
@@ -50,7 +51,6 @@ const SEO: React.FC<Props> = ({
         lang,
       }}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : undefined}
       meta={[
         {
           name: `description`,

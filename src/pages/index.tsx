@@ -12,23 +12,9 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   const siteTitle = data.site?.siteMetadata?.title || `Title`;
   const posts = data.allMarkdownRemark.nodes;
 
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    );
-  }
-
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO />
       <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {

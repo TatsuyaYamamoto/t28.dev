@@ -16,7 +16,7 @@ const BlogPostTemplate: React.FC<
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title={postTitle} description={postDescription} />
+      <SEO pageTitle={postTitle} description={postDescription} />
       <article
         className="blog-post"
         itemScope
