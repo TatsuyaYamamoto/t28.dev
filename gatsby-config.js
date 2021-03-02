@@ -12,6 +12,8 @@ module.exports = {
     },
   },
   plugins: [
+    // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sitemap
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-typegen`,
     {
       resolve: `gatsby-source-filesystem`,
