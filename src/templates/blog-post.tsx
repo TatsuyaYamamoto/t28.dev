@@ -1,40 +1,28 @@
 import React from "react";
 import { Link, graphql, PageProps } from "gatsby";
 
-import Bio from "../components/bio";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import BlogPost from "../components/BlogPost";
 
 const BlogPostTemplate: React.FC<
   PageProps<GatsbyTypes.BlogPostBySlugQuery>
 > = ({ data, location }) => {
-  const post = data.markdownRemark;
-  const siteTitle = data.site?.siteMetadata?.title || `Title`;
-  const postTitle = post?.frontmatter?.title as string;
+  const { post, site, previous, next } = data;
+  const siteTitle = site?.siteMetadata?.title || `Title`;
+  const postTitle = post?.frontmatter?.title;
+  const postDate = post?.frontmatter?.date;
   const postDescription = post?.frontmatter?.description || post?.excerpt;
-  const { previous, next } = data;
+  const html = post?.html;
+
+  if (!postTitle || !postDate || !html) {
+    return <div />;
+  }
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO pageTitle={postTitle} description={postDescription} />
-      <article
-        className="blog-post"
-        itemScope
-        itemType="http://schema.org/Article"
-      >
-        <header>
-          <h1 itemProp="headline">{postTitle}</h1>
-          <p>{post?.frontmatter?.date}</p>
-        </header>
-        <section
-          dangerouslySetInnerHTML={{ __html: post?.html as string }}
-          itemProp="articleBody"
-        />
-        <hr />
-        <footer>
-          <Bio />
-        </footer>
-      </article>
+      <BlogPost title={postTitle} date={postDate} html={html} />
       <nav className="blog-post-nav">
         <ul
           style={{
@@ -43,6 +31,7 @@ const BlogPostTemplate: React.FC<
             justifyContent: `space-between`,
             listStyle: `none`,
             padding: 0,
+            margin: "var(--spacing-5) var(--spacing-0)",
           }}
         >
           <li>
@@ -78,7 +67,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(id: { eq: $id }) {
+    post: markdownRemark(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
       html

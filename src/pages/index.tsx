@@ -5,18 +5,20 @@ import Bio from "../components/bio";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
+import styles from "../styles/pages-index.module.scss";
+
 const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   data,
   location,
 }) => {
   const siteTitle = data.site?.siteMetadata?.title || `Title`;
-  const posts = data.allMarkdownRemark.nodes;
+  const posts = data.post.nodes;
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO />
       <Bio />
-      <ol style={{ listStyle: `none` }}>
+      <ol style={{ listStyle: `none`, padding: 0 }}>
         {posts.map((post) => {
           const slug = post.fields?.slug as string;
           const title = post.frontmatter?.title || slug;
@@ -26,7 +28,7 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
           return (
             <li key={slug}>
               <article
-                className="post-list-item"
+                className={styles.postListItem}
                 itemScope
                 itemType="http://schema.org/Article"
               >
@@ -62,7 +64,9 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    post: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       nodes {
         excerpt
         fields {
