@@ -12,6 +12,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-sass`,
     // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sitemap
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-typegen`,
