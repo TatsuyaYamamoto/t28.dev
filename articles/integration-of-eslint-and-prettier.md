@@ -2,6 +2,13 @@
 title: ESLintとPrettierを組み合わせて使う (長いものを整理してから巻かれる 2021春)
 date: 2021-03-15
 description: "ESLint と Prettier を組み合わせて使う方法とその根拠(公式ドキュメント)を整理して、安心して長いものに巻かれるようになる記事"
+topics:
+  - JavaScript
+  - Prettier
+  - ESLint
+published: true
+type: tech
+emoji: 🌸
 ---
 
 **何この記事？**
