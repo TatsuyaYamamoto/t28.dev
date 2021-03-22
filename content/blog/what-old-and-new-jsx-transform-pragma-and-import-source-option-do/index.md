@@ -1,7 +1,7 @@
 ---
 title: 新旧 JSX Transform と @jsx・@jsxImportSource がやっていることにちょっとだけ詳しくなる
 date: 2021-03-22
-description: "React v17で提供される 新しいJSX Transformと以前のJSX Transformの違いを知って、pragma, import source optionが"
+description: "React v17で提供される 新しいJSX Transformと以前のJSX Transformの違いを知って、pragma, import source optionが行っていることを理解する記事"
 ---
 
 ## 何この記事？
@@ -126,7 +126,7 @@ import React from "react";
 const App = () => <h1>Hello World</h1>;
 ```
 
-こう(↓)してたもの (前述の変換と同じ)が、
+こう(↓)変換してたもの (前述の変換と同じ)が、
 
 ```js
 import React from "react";
@@ -139,7 +139,7 @@ const App = () => React.createElement("h1", null, "Hello world");
 const App = () => <h1>Hello World</h1>;
 ```
 
-こう(↓)するように変わりました。
+こう(↓)変換するように変わりました。
 
 ```js
 import { jsx as _jsx } from "react/jsx-runtime";
@@ -164,7 +164,7 @@ const App = () => _jsx("h1", { children: "Hello world" });
 const hoge = <div>children</div>;
 ```
 
-このように(↓)、自動でインポートしてくれる `require("react/jsx-runtime")` を
+このように(↓)、変換時に自動でインポートしてくれる `require("react/jsx-runtime")` を
 
 ```js
 var _jsxRuntime = require("react/jsx-runtime");
@@ -181,7 +181,7 @@ const hoge = /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
 const hoge = <div>children</div>;
 ```
 
-`require("hogehoge/jsx-runtime")` に変えてインポートさせること出来ます。
+変換時に自動インポートするものを `require("hogehoge/jsx-runtime")` に変えることが出来る。
 
 ```js
 var _jsxRuntime = require("hogehoge/jsx-runtime");
