@@ -13,14 +13,16 @@ pre-commit hook を行うために [husky](https://github.com/typicode/husky) �
 
 ## 背景
 
-1. [husky v5 でライセンスが変わる](https://blog.typicode.com/husky-5/)
-1. lint-staged をセットアップするための mrm の依存関係 が [husky から simple-git-hooks](https://github.com/sapegin/mrm/commit/8ecd2ce0816fb06c395276250fa85dea6f93686d) に変わる
+1. [husky v5 でライセンスが変わる](https://blog.typicode.com/husky-5/) 。
+1. lint-staged をセットアップするための mrm の依存関係 が [husky から simple-git-hooks](https://github.com/sapegin/mrm/commit/8ecd2ce0816fb06c395276250fa85dea6f93686d) に変わる。
 1. husky v4 と v5 で設定の仕方が随分変わったのか... mrm に合わせて今後は simple-git-hooks を使ってみようかなぁ...🤔
-1. [husky v6 でライセンスが MIT に戻る](https://github.com/typicode/husky/releases/tag/v6.0.0)
+1. [husky v6 でライセンスが MIT に戻る](https://github.com/typicode/husky/releases/tag/v6.0.0) 。
 1. mrm が 再び [husky (v6) を使う](https://github.com/sapegin/mrm/commit/133fe08b0895b0c994c55d39e0f43af0672fe1f9) ようになる。
 1. husky v4 (今までの形式)、husky v6 (新しい形式)、simple-git-hooks、どれを使おうかなぁ...😇
 
 ## ライブラリ毎の違いを確認する (差分まとめ)
+
+※ 自分調べ
 
 |                      | husky v4                      | husky v6                       | simple-git-hooks                  |
 | :------------------- | :---------------------------- | :----------------------------- | :-------------------------------- |
@@ -158,7 +160,7 @@ $ cat ./package.json | jq '.["simple-git-hooks"]'
 ```
 
 (↓) [simple-git-hooks の usage](https://github.com/toplenboren/simple-git-hooks#add-simple-git-hooks-to-the-project)
-通りに package.json 内の設定反映させると、.git/hooks 配下に対応した git-hooks 用の shell script が作成される。
+通りに package.json 内の設定を反映させると、.git/hooks 配下に対応した git-hooks 用の shell script が作成される。
 この shell script 内に package.json 内のコマンドがコピー(?)される。
 
 ```shell
@@ -181,11 +183,11 @@ npx lint-staged
 [Why husky has dropped conventional JS config](https://blog.typicode.com/husky-git-hooks-javascript-config/)
 
 - v4 の構成には課題があった。
-  1. すべての git-hooks ファイルを .git/hooks 配下に設置するため、必要ない (ユーザー側が定義していない) git-hooks, node script も実行される。
+  1. すべての git-hooks ファイルを .git/hooks 配下に設置するため、必要ない (ユーザー側が定義していない) git-hooks と node が実行される。
   2. git-hooks を実現するための実装が .git/hooks と js 側で 2 つある。
 - Git 2.9 で導入された `core.hooksPath` を使うことで、課題を解消した。
 
-README 上段に記載されている `Modern native Git hooks` はこれのことか。
+[README 上段](https://github.com/typicode/husky#husky) に記載されている `Modern native Git hooks` はこれのことか。
 native(.git/hooks) の機能を使いやすくするためのラッパー(husky の js) を(一部)取り除いたのだから、シンプルになるのは当たり前ですね。
 
 v4 の課題(遅い、実装が重複する)はラッパーとしては仕方ないデメリットの気もする...。
