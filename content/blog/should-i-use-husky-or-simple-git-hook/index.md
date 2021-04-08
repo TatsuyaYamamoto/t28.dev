@@ -1,7 +1,7 @@
+---
 title: husky(v4, v6) と simple-git-hooks どちらを使うべきか
-date: 2021-03-08
+date: 2021-04-08
 description: "Node.js を使用するプロジェクトにおいて、git-hooks を実現するために husky、simple-git-hooks どちらを使うべきか考える記事"
-
 ---
 
 ## なにこれ？
