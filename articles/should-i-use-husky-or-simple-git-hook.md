@@ -219,3 +219,7 @@ v4 の課題(遅い、実装が重複する)はラッパーとしては仕方な
   - "[Husky provides some safe guards](https://blog.typicode.com/husky-git-hooks-javascript-config/#but)" に期待して、husky を使うことにします。
 
 `hooksPath` を使って独自で git-hooks を実装するパターンも無くはないでしょうが、「husky を使ってる(ドキュメントがある)」という状態の方が他の人や未来の自分にとっても分かりやすいかなぁ...。
+
+---
+
+この記事は [t28.dev/should-i-use-husky-or-simple-git-hook/](https://t28.dev/should-i-use-husky-or-simple-git-hook/) で公開しているものをコピペしたりごにょったりしたものです。
