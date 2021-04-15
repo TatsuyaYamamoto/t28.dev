@@ -31,11 +31,16 @@ pre-commit hook を行うために [husky](https://github.com/typicode/husky) �
 
 ※ 自分調べ
 
-|                      | husky v4                      | husky v6                       | simple-git-hooks                  |
-| :------------------- | :---------------------------- | :----------------------------- | :-------------------------------- |
-| 初期設定             | `npm i {,husky}` 時に行われる | `npx husky install` を実行する | `npx simple-git-hooks` を実行する |
-| git-hooks 定義場所   | package.json                  | .husky 配下の shell script     | package.json                      |
-| git-hooks の反映方法 | 不要                          | 不要                           | `npx simple-git-hooks`            |
+|                      | husky v4                                                             | husky v5                                                                                                     | husky v6                                                             | simple-git-hooks                                                                       |
+| :------------------- | :------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------- | :------------------------------------------------------------------------------------- |
+| 初期設定             | `npm i {,husky}` 時に行われる                                        | `npx husky install` を実行する                                                                               | <= v5 と同じ                                                         | `npx simple-git-hooks` を実行する                                                      |
+| git-hooks 定義場所   | package.json                                                         | .husky 配下の shell script                                                                                   | <= v5 と同じ                                                         | package.json                                                                           |
+| git-hooks の反映方法 | 不要                                                                 | 不要                                                                                                         | <= v5 と同じ                                                         | `npx simple-git-hooks`                                                                 |
+| ライセンス           | [MIT License](https://github.com/typicode/husky/blob/v4.3.8/LICENSE) | [The Parity Public License 7.0.0](https://github.com/typicode/husky/blob/v5.2.0/LICENSE-PARITY) (OSS は MIT) | [MIT License](https://github.com/typicode/husky/blob/v6.0.0/LICENSE) | [MIT License](https://github.com/toplenboren/simple-git-hooks/blob/master/LICENSE.txt) |
+
+- husky v5 で使い方が変わっている(v6 でも変更後の使い方を継続している)。
+- husky v4 が deprecated した訳ではない ([v5.0.0 リリース後にも v4 系のパッチリリースがある](https://github.com/typicode/husky/releases))。
+- [The Parity Public License](https://paritylicense.com/versions/7.0.0.html) というのを初めて見ましたが、組み込んだソフトウェアも公開しないと行けないっぽい。つまり商用利用、実質不可。
 
 ## ライブラリ毎の違いを確認する (CLI から)
 
@@ -202,7 +207,7 @@ v4 の課題(遅い、実装が重複する)はラッパーとしては仕方な
 [Why husky doesn't autoinstall anymore](https://blog.typicode.com/husky-git-hooks-autoinstall/)
 
 - husky を install したときに git-hooks を自動でインストールしなくなった。
-- 代わりに、npm prepare を用いて`husky install`を実行する。
+- 代わりに、[npm prepare](https://docs.npmjs.com/cli/v7/using-npm/scripts#life-cycle-scripts) を用いて`husky install`を実行する。
 - package manager のお作法が変わった。
   - package manager の best practice として、postinstall はコンパイルのみに使用することになっている。
   - package manager の cache 機能により、husky が期待する postinstall が実行されないケースが出てきた。
