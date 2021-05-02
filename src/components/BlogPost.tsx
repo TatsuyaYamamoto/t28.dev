@@ -2,7 +2,7 @@ import React from "react";
 
 import Bio from "./bio";
 
-import styles from "./BlogPost.module.scss";
+import * as styles from "./BlogPost.module.scss";
 
 export interface BlogPostProps {
   title: string;

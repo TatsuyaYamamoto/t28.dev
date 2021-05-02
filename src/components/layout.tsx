@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, Link, PageProps, useStaticQuery } from "gatsby";
 import { OutboundLink } from "gatsby-plugin-google-gtag";
 
-import styles from "./layout.module.scss";
+import * as styles from "./layout.module.scss";
 
 interface Props {
   title: string;

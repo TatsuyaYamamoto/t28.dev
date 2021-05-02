@@ -5,7 +5,7 @@ import Bio from "../components/bio";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-import styles from "../styles/pages-index.module.scss";
+import * as styles from "../styles/pages-index.module.scss";
 
 const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   data,

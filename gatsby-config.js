@@ -12,10 +12,10 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-image`,
     `gatsby-plugin-sass`,
     // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sitemap
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-typegen`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -26,7 +26,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/assets`,
+        path: `${__dirname}/src/assets`,
         name: `assets`,
       },
     },
@@ -81,7 +81,7 @@ module.exports = {
         background_color: `#ffffff`,
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/icon.png`,
+        icon: `src/assets/images/icon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
