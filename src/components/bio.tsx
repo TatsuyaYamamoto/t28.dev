@@ -35,15 +35,20 @@ const Bio: React.FC = () => {
 
   return (
     <div className="bio">
-      <StaticImage
-        alt="Profile picture"
-        src="../assets/images/profile-pic.jpg"
-        className="bio-avatar"
-        width={50}
-        height={50}
-        quality={95}
-      />
-      <p>
+      <div className="bio-left">
+        <StaticImage
+          alt="Profile picture"
+          src="../assets/images/profile-pic.jpg"
+          width={50}
+          height={50}
+          aspectRatio={1}
+          quality={95}
+          imgStyle={{
+            borderRadius: `50px`,
+          }}
+        />
+      </div>
+      <div className="bio-right">
         {author?.summary || ``}
         <br />
         <OutboundLink
@@ -52,7 +57,7 @@ const Bio: React.FC = () => {
         >
           {author?.name}
         </OutboundLink>
-      </p>
+      </div>
     </div>
   );
 };

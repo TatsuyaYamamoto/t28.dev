@@ -145,15 +145,9 @@ a {
 
 .bio {
   display: flex;
+  padding: var(--spacing-4);
 }
 
-.bio p {
-  margin-bottom: var(--spacing-0);
-}
-
-.bio-avatar {
-  margin-right: var(--spacing-4);
-  margin-bottom: var(--spacing-0);
-  min-width: 50px;
-  border-radius: 100%;
+.bio-right {
+  margin-left: var(--spacing-4);
 }
