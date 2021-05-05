@@ -1,0 +1,33 @@
+.root {
+  padding: 10px;
+
+  overflow: auto;
+
+  border: 1px solid #dfdfdf;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgb(67 133 187 / 7%);
+
+  background-color: #fcfcfc;
+}
+
+.tocBody {
+  font-size: 13px;
+
+  ul {
+    padding-inline-start: 15px;
+  }
+
+  & > ul {
+    padding-inline-start: 0;
+  }
+
+  li {
+    position: relative;
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: unset;
+  }
+}

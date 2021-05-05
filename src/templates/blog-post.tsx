@@ -6,6 +6,7 @@ import SEO from "../components/seo";
 import BlogPost from "../components/BlogPost";
 
 import * as styles from "../styles/templates-blog-post.module.scss";
+import BlogPostSideMenu from "../components/BlogPostSideMenu";
 
 const BlogPostTemplate: React.FC<
   PageProps<GatsbyTypes.BlogPostBySlugQuery>
@@ -16,6 +17,7 @@ const BlogPostTemplate: React.FC<
   const postDate = post?.frontmatter?.date;
   const postDescription = post?.frontmatter?.description || post?.excerpt;
   const html = post?.html;
+  const tableOfContents = post?.tableOfContents;
 
   if (!postTitle || !postDate || !html) {
     return <div />;
@@ -25,7 +27,14 @@ const BlogPostTemplate: React.FC<
     <Layout location={location} title={siteTitle}>
       <SEO pageTitle={postTitle} description={postDescription} />
       <div className={styles.blogPostMain}>
-        <BlogPost title={postTitle} date={postDate} html={html} />
+        <div className={styles.blogPostContent}>
+          <BlogPost title={postTitle} date={postDate} html={html} />
+        </div>
+        <aside className={styles.blogPostSideMenu}>
+          <div className={styles.blogPostSideMenuInner}>
+            <BlogPostSideMenu tableOfContents={tableOfContents} />
+          </div>
+        </aside>
       </div>
       <nav className={styles.blogPostNav}>
         <ul className={styles.blogPostNavList}>
@@ -71,6 +80,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
       }
+      tableOfContents(maxDepth: 3)
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
       fields {

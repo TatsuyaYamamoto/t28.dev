@@ -1,10 +1,25 @@
 @import "../styles/mixins";
 
+$side_menu_width: 250px;
+
 .blogPostMain {
   @include container;
 
   display: flex;
   justify-content: space-between;
+}
+
+.blogPostContent {
+  width: calc(100% - #{$side_menu_width} - 30px);
+}
+
+.blogPostSideMenu {
+  width: $side_menu_width;
+}
+
+.blogPostSideMenuInner {
+  position: sticky;
+  top: 20px;
 }
 
 .blogPostNav {
