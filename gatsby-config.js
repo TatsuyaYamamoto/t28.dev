@@ -49,10 +49,12 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          // `gatsby-remark-autolink-headers` must be before `gatsby-remark-prismjs`,
+          // https://www.gatsbyjs.com/plugins/gatsby-remark-autolink-headers/?=header#how-to-use
+          `gatsby-remark-autolink-headers`,
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
-          `gatsby-remark-autolink-headers`
         ],
       },
     },
