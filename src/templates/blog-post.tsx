@@ -5,6 +5,8 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import BlogPost from "../components/BlogPost";
 
+import * as styles from "../styles/templates-blog-post.module.scss";
+
 const BlogPostTemplate: React.FC<
   PageProps<GatsbyTypes.BlogPostBySlugQuery>
 > = ({ data, location }) => {
@@ -22,18 +24,11 @@ const BlogPostTemplate: React.FC<
   return (
     <Layout location={location} title={siteTitle}>
       <SEO pageTitle={postTitle} description={postDescription} />
-      <BlogPost title={postTitle} date={postDate} html={html} />
-      <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-            margin: "var(--spacing-5) var(--spacing-0)",
-          }}
-        >
+      <div className={styles.blogPostMain}>
+        <BlogPost title={postTitle} date={postDate} html={html} />
+      </div>
+      <nav className={styles.blogPostNav}>
+        <ul className={styles.blogPostNavList}>
           <li>
             {previous && (
               <Link to={previous.fields?.slug || `/`} rel="prev">

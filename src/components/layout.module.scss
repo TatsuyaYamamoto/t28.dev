@@ -1,3 +1,5 @@
+@import "../styles/mixins";
+
 .header-link-home {
   font-weight: var(--fontWeight-bold);
   font-family: var(--font-heading);
@@ -10,32 +12,27 @@
   margin: 0;
 }
 
-.global-wrapper {
-  margin: 0 auto;
-  max-width: 800px;
-  padding: var(--spacing-10) var(--spacing-2);
-}
-
-.global-wrapper[data-is-root-path="true"] .bio {
-  margin-bottom: var(--spacing-20);
-}
-
-.global-header {
-  margin-bottom: var(--spacing-12);
+.appHeader {
+  margin: var(--spacing-12) 0;
 
   a {
     color: var(--color-primary);
-    text-decoration: none;
   }
 }
 
-.footer {
-  background-color: #ffffff;
-  text-align: center;
-  padding: var(--spacing-6) var(--spacing-0);
+.headerInner {
+  @include container;
+}
 
-  a {
-    text-decoration: none;
-    color: #000000;
-  }
+.appFooter {
+  margin-top: var(--spacing-12);
+}
+
+.footerInner {
+  @include container;
+}
+
+.footerCopyRight {
+  padding: 20px 0;
+  text-align: center;
 }

@@ -10,6 +10,8 @@ import { useStaticQuery, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { OutboundLink } from "gatsby-plugin-google-gtag";
 
+import * as styles from "./bio.module.scss";
+
 const Bio: React.FC = () => {
   const data = useStaticQuery<GatsbyTypes.BioQueryQuery>(graphql`
     query BioQuery {
@@ -34,7 +36,7 @@ const Bio: React.FC = () => {
   const avatar = data?.avatar?.childImageSharp?.fixed;
 
   return (
-    <div className="bio">
+    <div className={styles.bio}>
       <div className="bio-left">
         <StaticImage
           alt="Profile picture"
@@ -48,7 +50,7 @@ const Bio: React.FC = () => {
           }}
         />
       </div>
-      <div className="bio-right">
+      <div className={styles.bioRight}>
         {author?.summary || ``}
         <br />
         <OutboundLink

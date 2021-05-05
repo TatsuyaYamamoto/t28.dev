@@ -1,0 +1,21 @@
+@import "../styles/mixins";
+
+.blogPostMain {
+  @include container;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.blogPostNav {
+  @include container;
+}
+
+.blogPostNavList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-5) var(--spacing-0);
+}

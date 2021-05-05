@@ -142,12 +142,3 @@ h6 > a {
 a {
   color: var(--color-primary);
 }
-
-.bio {
-  display: flex;
-  padding: var(--spacing-4);
-}
-
-.bio-right {
-  margin-left: var(--spacing-4);
-}
