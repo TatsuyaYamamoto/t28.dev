@@ -11,10 +11,18 @@ $side_menu_width: 250px;
 
 .blogPostContent {
   width: calc(100% - #{$side_menu_width} - 30px);
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
 }
 
 .blogPostSideMenu {
   width: $side_menu_width;
+
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
 }
 
 .blogPostSideMenuInner {
@@ -33,4 +41,15 @@ $side_menu_width: 250px;
   list-style: none;
   padding: 0;
   margin: var(--spacing-5) var(--spacing-0);
+}
+
+.fab {
+  display: none;
+
+  @media screen and (max-width: 800px) {
+    display: block;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+  }
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, MouseEvent, FC } from "react";
 import { Link, graphql, PageProps } from "gatsby";
 
 import Layout from "../components/layout";
@@ -7,10 +7,13 @@ import BlogPost from "../components/BlogPost";
 
 import * as styles from "../styles/templates-blog-post.module.scss";
 import BlogPostSideMenu from "../components/BlogPostSideMenu";
+import MobileFab from "../components/MobileFab";
+import MobileToc from "../components/MobileToc";
 
-const BlogPostTemplate: React.FC<
-  PageProps<GatsbyTypes.BlogPostBySlugQuery>
-> = ({ data, location }) => {
+const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({
+  data,
+  location,
+}) => {
   const { post, site, previous, next } = data;
   const siteTitle = site?.siteMetadata?.title || `Title`;
   const postTitle = post?.frontmatter?.title;
@@ -19,9 +22,19 @@ const BlogPostTemplate: React.FC<
   const html = post?.html;
   const tableOfContents = post?.tableOfContents;
 
+  const [mobileTocEl, setMobileTocEl] = useState<HTMLElement | null>(null);
+
   if (!postTitle || !postDate || !html) {
     return <div />;
   }
+
+  const handleMobileFabClick = (e: MouseEvent<HTMLElement>) => {
+    setMobileTocEl(e.currentTarget);
+  };
+
+  const onMobileTocClose = () => {
+    setMobileTocEl(null);
+  };
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -54,6 +67,14 @@ const BlogPostTemplate: React.FC<
           </li>
         </ul>
       </nav>
+      <div className={styles.fab}>
+        <MobileFab onClick={handleMobileFabClick} />
+        <MobileToc
+          el={mobileTocEl}
+          tableOfContents={tableOfContents}
+          onClose={onMobileTocClose}
+        />
+      </div>
     </Layout>
   );
 };
