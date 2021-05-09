@@ -9,25 +9,3 @@
 
   background-color: #fcfcfc;
 }
-
-.tocBody {
-  font-size: 13px;
-
-  ul {
-    padding-inline-start: 15px;
-  }
-
-  & > ul {
-    padding-inline-start: 0;
-  }
-
-  li {
-    position: relative;
-    list-style: none;
-  }
-
-  a {
-    text-decoration: none;
-    color: unset;
-  }
-}

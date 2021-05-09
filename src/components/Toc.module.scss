@@ -1,0 +1,25 @@
+.toc {
+  font-size: 13px;
+
+  ul {
+    padding-inline-start: 15px;
+  }
+
+  & > ul {
+    padding-inline-start: 0;
+  }
+
+  li {
+    position: relative;
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: #989898;
+  }
+
+  a[data-toc-active] {
+    color: #000000;
+  }
+}

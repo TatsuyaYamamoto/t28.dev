@@ -1,14 +1,15 @@
-import React, { useState, MouseEvent, FC } from "react";
+import React, { useState, MouseEvent, FC, useMemo } from "react";
 import { Link, graphql, PageProps } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import BlogPost from "../components/BlogPost";
 
-import * as styles from "../styles/templates-blog-post.module.scss";
 import BlogPostSideMenu from "../components/BlogPostSideMenu";
 import MobileFab from "../components/MobileFab";
 import MobileToc from "../components/MobileToc";
+
+import * as styles from "../styles/templates-blog-post.module.scss";
 
 const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({
   data,
@@ -20,7 +21,14 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({
   const postDate = post?.frontmatter?.date;
   const postDescription = post?.frontmatter?.description || post?.excerpt;
   const html = post?.html;
-  const tableOfContents = post?.tableOfContents;
+  // @ts-ignore TODO
+  const headings = post?.headings;
+  const tocHeadings = useMemo(
+    () => headings.filter((heading: { depth: number }) => heading.depth <= 3),
+    [headings]
+  );
+  // @ts-ignore TODO
+  const tableOfContents = post.tableOfContents;
 
   const [mobileTocEl, setMobileTocEl] = useState<HTMLElement | null>(null);
 
@@ -32,8 +40,16 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({
     setMobileTocEl(e.currentTarget);
   };
 
-  const onMobileTocClose = () => {
+  const onTocSelect = (id: string) => {
+    document.getElementById(id)?.scrollIntoView();
+  };
+
+  const onMobileTocSelect = (id: string | null) => {
     setMobileTocEl(null);
+
+    if (id) {
+      document.getElementById(id)?.scrollIntoView();
+    }
   };
 
   return (
@@ -45,7 +61,11 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({
         </div>
         <aside className={styles.blogPostSideMenu}>
           <div className={styles.blogPostSideMenuInner}>
-            <BlogPostSideMenu tableOfContents={tableOfContents} />
+            <BlogPostSideMenu
+              headings={tocHeadings}
+              tableOfContents={tableOfContents}
+              onSelect={onTocSelect}
+            />
           </div>
         </aside>
       </div>
@@ -71,8 +91,9 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({
         <MobileFab onClick={handleMobileFabClick} />
         <MobileToc
           el={mobileTocEl}
+          headings={tocHeadings}
           tableOfContents={tableOfContents}
-          onClose={onMobileTocClose}
+          onSelect={onMobileTocSelect}
         />
       </div>
     </Layout>
@@ -102,6 +123,10 @@ export const pageQuery = graphql`
         description
       }
       tableOfContents(maxDepth: 3)
+      headings {
+        id
+        depth
+      }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
       fields {

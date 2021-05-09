@@ -1,20 +1,3 @@
-.toc {
+.root {
   padding: 20px;
-
-  a {
-    color: #000000;
-    text-decoration: none;
-  }
-
-  ul {
-    padding-inline-start: 15px;
-  }
-
-  & > ul {
-    padding-inline-start: 0;
-  }
-
-  li {
-    list-style: none;
-  }
 }

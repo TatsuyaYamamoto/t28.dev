@@ -1,22 +1,26 @@
-import React, { FC, MouseEvent } from "react";
+import React, { FC } from "react";
 import Popover from "@material-ui/core/Popover";
 
 import * as styles from "./MobileToc.module.scss";
+import Toc from "./Toc";
 
 export interface MobileTocProps {
   el: HTMLElement | null;
+  headings: { id: string; value: string; depth: number }[];
   tableOfContents: string;
-  onClose: () => void;
+  onSelect: (id: string | null) => void;
 }
 
 const MobileToc: FC<MobileTocProps> = (props) => {
-  const { el, tableOfContents, onClose } = props;
+  const { el, headings, onSelect, tableOfContents } = props;
   const open = Boolean(el);
 
-  const onClickToc = (e: MouseEvent<HTMLElement>) => {
-    if ((e.target as HTMLElement).tagName === "A") {
-      onClose();
-    }
+  const onClose = () => {
+    onSelect(null);
+  };
+
+  const onClickToc = (id: string) => {
+    onSelect(id);
   };
 
   return (
@@ -33,11 +37,13 @@ const MobileToc: FC<MobileTocProps> = (props) => {
       }}
       onClose={onClose}
     >
-      <div
-        dangerouslySetInnerHTML={{ __html: tableOfContents }}
-        className={styles.toc}
-        onClick={onClickToc}
-      />
+      <div className={styles.root}>
+        <Toc
+          headings={headings}
+          tableOfContents={tableOfContents}
+          onClick={onClickToc}
+        />
+      </div>
     </Popover>
   );
 };
