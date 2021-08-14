@@ -1,14 +1,14 @@
 @import "../styles/mixins";
 
-.header-link-home {
+.rootPageHeading1 {
+  font-size: var(--fontSize-7);
+  margin: 0;
+}
+
+.blogPageHeading1 {
   font-weight: var(--fontWeight-bold);
   text-decoration: none;
   font-size: var(--fontSize-2);
-}
-
-.main-heading {
-  font-size: var(--fontSize-7);
-  margin: 0;
 }
 
 .appHeader {

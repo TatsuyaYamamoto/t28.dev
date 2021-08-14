@@ -38,11 +38,11 @@ const Layout: React.FC<Props> = ({ location, title, children }) => {
       <header className={styles.appHeader}>
         <div className={styles.headerInner}>
           {isRootPath ? (
-            <h1 className={styles.mainHeading}>
+            <h1 className={styles.rootPageHeading1}>
               <Link to="/">{title}</Link>
             </h1>
           ) : (
-            <Link className={styles.headerLinkHome} to="/">
+            <Link to="/" className={styles.blogPageHeading1}>
               {title}
             </Link>
           )}

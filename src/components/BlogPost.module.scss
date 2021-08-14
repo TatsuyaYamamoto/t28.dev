@@ -16,6 +16,23 @@
     }
   }
 
+  h1 {
+    font-weight: var(--fontWeight-black);
+    font-size: var(--fontSize-5);
+  }
+
+  h2 {
+    font-size: var(--fontSize-4);
+  }
+
+  h3 {
+    font-size: var(--fontSize-3);
+  }
+
+  h4 {
+    font-size: var(--fontSize-2);
+  }
+
   a {
     color: var(--color-primary);
 
