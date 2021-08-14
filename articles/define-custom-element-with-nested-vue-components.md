@@ -131,3 +131,7 @@ customElements.define("my-element", myCustomElement);
 ```
 
 SFC がより小さい SFC を配下に持たせるのはコンポーネントの設計としては自然だし、オフィシャルでサポートしてくると嬉しいですね...🤔
+
+---
+
+この記事は [t28.dev/define-custom-element-with-nested-vue-components](https://t28.dev/define-custom-element-with-nested-vue-components/) で公開しているものをコピペしたりごにょったりしたものです。
