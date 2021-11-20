@@ -4,7 +4,7 @@ date: 2021-11-12
 description: ""
 ---
 
-- 例によって UIT INSIDE に向けて、 Vue の Web components ビルドについて色々文書化しておく
+- [例によって UIT INSIDE](https://uit-inside.linecorp.com/episode/104) に向けて、 Vue の Web components ビルドについて色々文書化しておく
 - これを書いた時点の Vue3 は v3.2.21
 
 ---
