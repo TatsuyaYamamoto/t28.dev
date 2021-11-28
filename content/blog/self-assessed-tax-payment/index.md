@@ -1,11 +1,11 @@
 ---
-title: "根拠を添えて納得する、副業個人事業主が申告するべき税金"
+title: "根拠を添えて納得する、副業者が申告するべき税金"
 date: "2021-11-26"
 ---
 
 「副業するなら確定申告しなくちゃ」とか「確定申告は 20 万円以上だっけ？」等なんとなく聞く話ですが、いざ当事者になったら[適当に](https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2024.htm) [済ませる訳にも](https://www.city.shibuya.tokyo.jp/kurashi/zeikin/juminzei/n1_5entaikin.html) [いかないですね](https://ja.wikipedia.org/wiki/%E8%84%B1%E7%A8%8E) 。
 
-極力、[国税庁のサイト](https://www.nta.go.jp/) を参照しながら、副業個人事業主が納めないといけない税金を整理します。
+極力、[国税庁のサイト](https://www.nta.go.jp/) を参照しながら、副業者が納めないといけない税金を整理します。
 
 ## 税金は自分で申告する
 
@@ -25,7 +25,7 @@ https://www.nta.go.jp/taxes/shiraberu/shinkoku/tebiki2017/b/01/1_07.htm
 
 収入と所得の違いは[ググる](https://www.google.com/search?q=%E5%8F%8E%E5%85%A5+%E6%89%80%E5%BE%97+%E9%81%95%E3%81%84) 。
 
-個人事業主の取得に対する税金(所得課税)は "[財務省 - 税の種類に関する資料](https://www.mof.go.jp/tax_policy/summary/condition/a01.htm)" に寄ると以下の通り。
+所得に対する税金(所得課税)は "[財務省 - 税の種類に関する資料](https://www.mof.go.jp/tax_policy/summary/condition/a01.htm)" に寄ると以下の通り。
 
 - 国税
   - 所得税
@@ -80,7 +80,7 @@ https://www.nta.go.jp/taxes/shiraberu/shinkoku/tebiki2017/b/01/1_07.htm
 同じく[国税庁の確定申告特集](https://www.nta.go.jp/taxes/shiraberu/shinkoku/tokushu/hajimete.htm) によると、
 
 - 源泉徴収されている給与を 1 箇所から受けていて（つまり、一般的なサラリーマンをしていて）、
-- それ以外の取得(今回は副業によるもの)が 20 万円を超える
+- それ以外の所得(今回は副業によるもの)が 20 万円を超える
 
 場合、確定申告をする必要がある。
 
@@ -108,7 +108,7 @@ https://www.nta.go.jp/taxes/shiraberu/shinkoku/tebiki2017/b/01/1_07.htm
 
 ## 結論
 
-以上のことから、額(例えばよく聞く 20 万円とか)に**関係なく**、「副業の所得があれば、取得税・住民税の申告のために **確定申告**の手続きをした方が良い」ことが分かりました。
+以上のことから、額(例えばよく聞く 20 万円とか)に**関係なく**、「副業の所得があれば、所得税・住民税の申告のために **確定申告**の手続きをした方が良い」ことが分かりました。
 
 （👆 の"良い"は申告の手続きコストの話で、納税自体は義務です。念の為）
 
@@ -122,3 +122,5 @@ https://www.nta.go.jp/taxes/shiraberu/shinkoku/tebiki2017/b/01/1_07.htm
 > 税金が生じないのですから、提出しても納付税額がないから申告しなくても良いということなのですね。
 >
 > 実は、住民税の申告をしないと不利益が生じてしまう可能性があります。そのため、赤字で所得がマイナスとなるような方であっても、住民税の申告をした方が良いケースはあるのです。
+
+https://shares-market.jp/fukugyo/07
