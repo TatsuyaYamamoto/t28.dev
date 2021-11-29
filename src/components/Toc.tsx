@@ -1,26 +1,59 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, {
+  FC,
+  MouseEvent,
+  useRef,
+  useState,
+  useEffect,
+  useMemo,
+} from "react";
+
 import { isHTMLAnchorElement } from "../helpers/type-gurad";
 
 import * as styles from "./Toc.module.scss";
 
+export interface TableOfContents {
+  items: TableOfContentsItem[];
+}
+
+export interface TableOfContentsItem {
+  url: string;
+  title: string;
+  items?: TableOfContentsItem[];
+}
+
 export interface TocProps {
-  headings: { id: string; value: string; depth: number }[];
-  tableOfContents: string;
+  tableOfContents: TableOfContents;
   onClick: (id: string) => void;
 }
 
 const Toc: FC<TocProps> = (props) => {
-  const { headings, tableOfContents, onClick } = props;
+  const { tableOfContents, onClick } = props;
   const tocElRef = useRef<HTMLDivElement>(null);
   const [activeHeadingId, setActiveHeadingId] = useState<string | null>(null);
+  const ids = useMemo(() => {
+    const parseUrlAsId = (items: TableOfContentsItem[]): string[] => {
+      return items.reduce<string[]>((prev, current) => {
+        const id = current.url.replace("#", "");
+        prev.push(id);
+
+        if (current.items) {
+          prev.push(...parseUrlAsId(current.items));
+        }
+
+        return prev;
+      }, []);
+    };
+
+    return parseUrlAsId(tableOfContents.items);
+  }, [tableOfContents.items]);
 
   const getAboveId = (inputId: string) => {
-    const inputHeadingIndex = headings.findIndex(
-      (candidate) => candidate.id === inputId
+    const inputHeadingIndex = ids.findIndex(
+      (candidateId) => candidateId === inputId
     );
     const aboveIdIndex = inputHeadingIndex - 1;
 
-    return headings[0 < aboveIdIndex ? aboveIdIndex : 0].id;
+    return ids[0 < aboveIdIndex ? aboveIdIndex : 0];
   };
 
   const onLeave = (id: string, direction: "upward" | "downward") => {
@@ -33,7 +66,7 @@ const Toc: FC<TocProps> = (props) => {
   };
 
   const onIntersect: IntersectionObserverCallback = (entries) => {
-    if (/* first callback */ entries.length === headings.length) {
+    if (/* first callback */ entries.length === ids.length) {
       let minDiff = Number.MAX_VALUE;
       let minDiffId = null;
 
@@ -61,10 +94,8 @@ const Toc: FC<TocProps> = (props) => {
       const { id } = entry.target;
 
       const { top: rootTop, bottom: rootBottom } = entry.rootBounds;
-      const {
-        top: boundingTop,
-        bottom: boundingBottom,
-      } = entry.boundingClientRect;
+      const { top: boundingTop, bottom: boundingBottom } =
+        entry.boundingClientRect;
 
       if (!entry.isIntersecting) {
         if (rootBottom < boundingTop) {
@@ -78,30 +109,38 @@ const Toc: FC<TocProps> = (props) => {
     });
   };
 
-  useEffect(() => {
-    const clickHandler = (e: MouseEvent) => {
-      e.preventDefault();
+  const onClickAnchor = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
 
-      if (!isHTMLAnchorElement(e.target)) {
-        return;
-      }
+    if (!isHTMLAnchorElement(e.target)) {
+      return;
+    }
 
-      const id = decodeURIComponent(e.target.href.split("#")[1]);
-      onClick(id);
-    };
+    const id = decodeURIComponent(e.target.href.split("#")[1]);
+    onClick(id);
+  };
 
-    tocElRef.current?.addEventListener("click", clickHandler);
-    return () => {
-      tocElRef.current?.removeEventListener("click", clickHandler);
-    };
-  }, []);
+  const renderList = (items: TableOfContentsItem[]) => {
+    return (
+      <ul>
+        {items.map(({ url, title, items }) => (
+          <li key={url}>
+            <a href={url} onClick={onClickAnchor}>
+              {title}
+            </a>
+            {items && renderList(items)}
+          </li>
+        ))}
+      </ul>
+    );
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(onIntersect, {
       rootMargin: "-10% 0px -80%",
     });
 
-    headings.forEach(({ id }) => {
+    ids.forEach((id) => {
       const el = document.getElementById(id);
       if (el) {
         observer.observe(el);
@@ -111,7 +150,7 @@ const Toc: FC<TocProps> = (props) => {
     return () => {
       observer.disconnect();
     };
-  }, [headings]);
+  }, [ids]);
 
   useEffect(() => {
     if (!activeHeadingId) {
@@ -131,11 +170,9 @@ const Toc: FC<TocProps> = (props) => {
   }, [activeHeadingId]);
 
   return (
-    <div
-      ref={tocElRef}
-      className={styles.toc}
-      dangerouslySetInnerHTML={{ __html: tableOfContents }}
-    />
+    <div ref={tocElRef} className={styles.toc}>
+      {renderList(tableOfContents.items)}
+    </div>
   );
 };
 

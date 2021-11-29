@@ -2,17 +2,16 @@ import React, { FC } from "react";
 import Popover from "@material-ui/core/Popover";
 
 import * as styles from "./MobileToc.module.scss";
-import Toc from "./Toc";
+import Toc, { TableOfContents } from "./Toc";
 
 export interface MobileTocProps {
   el: HTMLElement | null;
-  headings: { id: string; value: string; depth: number }[];
-  tableOfContents: string;
+  tableOfContents: TableOfContents;
   onSelect: (id: string | null) => void;
 }
 
 const MobileToc: FC<MobileTocProps> = (props) => {
-  const { el, headings, onSelect, tableOfContents } = props;
+  const { el, onSelect, tableOfContents } = props;
   const open = Boolean(el);
 
   const onClose = () => {
@@ -38,11 +37,7 @@ const MobileToc: FC<MobileTocProps> = (props) => {
       onClose={onClose}
     >
       <div className={styles.root}>
-        <Toc
-          headings={headings}
-          tableOfContents={tableOfContents}
-          onClick={onClickToc}
-        />
+        <Toc tableOfContents={tableOfContents} onClick={onClickToc} />
       </div>
     </Popover>
   );

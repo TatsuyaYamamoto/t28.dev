@@ -12,6 +12,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-typegen`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sass`,
     // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-sitemap
@@ -31,9 +32,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {

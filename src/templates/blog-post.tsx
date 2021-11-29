@@ -8,6 +8,7 @@ import BlogPost from "../components/BlogPost";
 import BlogPostSideMenu from "../components/BlogPostSideMenu";
 import MobileFab from "../components/MobileFab";
 import MobileToc from "../components/MobileToc";
+import { TableOfContents } from "../components/Toc";
 
 import * as styles from "../styles/templates-blog-post.module.scss";
 
@@ -16,23 +17,17 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({
   location,
 }) => {
   const { post, site, previous, next } = data;
+
   const siteTitle = site?.siteMetadata?.title || `Title`;
   const postTitle = post?.frontmatter?.title;
   const postDate = post?.frontmatter?.date;
   const postDescription = post?.frontmatter?.description || post?.excerpt;
-  const html = post?.html;
-  // @ts-ignore TODO
-  const headings = post?.headings;
-  const tocHeadings = useMemo(
-    () => headings.filter((heading: { depth: number }) => heading.depth <= 3),
-    [headings]
-  );
-  // @ts-ignore TODO
-  const tableOfContents = post.tableOfContents;
+  const body = post?.body;
+  const tableOfContents = (post?.tableOfContents ?? {}) as TableOfContents;
 
   const [mobileTocEl, setMobileTocEl] = useState<HTMLElement | null>(null);
 
-  if (!postTitle || !postDate || !html) {
+  if (!postTitle || !postDate || !body) {
     return <div />;
   }
 
@@ -57,12 +52,11 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({
       <SEO pageTitle={postTitle} description={postDescription} />
       <div className={styles.blogPostMain}>
         <div className={styles.blogPostContent}>
-          <BlogPost title={postTitle} date={postDate} html={html} />
+          <BlogPost title={postTitle} date={postDate} body={body} />
         </div>
         <aside className={styles.blogPostSideMenu}>
           <div className={styles.blogPostSideMenuInner}>
             <BlogPostSideMenu
-              headings={tocHeadings}
               tableOfContents={tableOfContents}
               onSelect={onTocSelect}
             />
@@ -91,7 +85,6 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({
         <MobileFab onClick={handleMobileFabClick} />
         <MobileToc
           el={mobileTocEl}
-          headings={tocHeadings}
           tableOfContents={tableOfContents}
           onSelect={onMobileTocSelect}
         />
@@ -113,22 +106,22 @@ export const pageQuery = graphql`
         title
       }
     }
-    post: markdownRemark(id: { eq: $id }) {
+    post: mdx(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
-      html
+      body
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY/MM/DD")
         description
       }
       tableOfContents(maxDepth: 3)
       headings {
-        id
+        value
         depth
       }
     }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
+    previous: mdx(id: { eq: $previousPostId }) {
       fields {
         slug
       }
@@ -136,7 +129,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    next: markdownRemark(id: { eq: $nextPostId }) {
+    next: mdx(id: { eq: $nextPostId }) {
       fields {
         slug
       }

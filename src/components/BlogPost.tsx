@@ -1,4 +1,5 @@
 import React from "react";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import Bio from "./bio";
 
@@ -7,11 +8,11 @@ import * as styles from "./BlogPost.module.scss";
 export interface BlogPostProps {
   title: string;
   date: string;
-  html: string;
+  body: string;
 }
 
 const BlogPost: React.FC<BlogPostProps> = (props) => {
-  const { title, date, html } = props;
+  const { title, date, body } = props;
 
   return (
     <article
@@ -23,7 +24,7 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
         <h1 itemProp="headline">{title}</h1>
         <p>{date}</p>
       </header>
-      <section dangerouslySetInnerHTML={{ __html: html }} />
+      <MDXRenderer>{body}</MDXRenderer>
       <footer>
         <Bio />
       </footer>
