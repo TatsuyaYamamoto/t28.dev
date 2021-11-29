@@ -38,9 +38,9 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 600,
-              wrapperStyle:`
+              wrapperStyle: `
                 box-shadow: 0 0px 5px 2px rgb(240 240 250);
-              `
+              `,
             },
           },
           {
@@ -73,8 +73,6 @@ module.exports = {
         },
       },
     },
-
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -88,9 +86,5 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-gatsby-cloud`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };
