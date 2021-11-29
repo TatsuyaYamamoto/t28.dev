@@ -10,16 +10,14 @@ interface Props {
 }
 
 const Layout: React.FC<Props> = ({ location, title, children }) => {
-  const data = useStaticQuery<GatsbyTypes.LayoutQueryQuery>(graphql`
-    query LayoutQuery {
+  const data = useStaticQuery<GatsbyTypes.LayoutQuery>(graphql`
+    query Layout {
       site {
         siteMetadata {
           author {
             name
             summary
-          }
-          social {
-            twitter
+            twitterUrl
           }
         }
       }
@@ -30,8 +28,7 @@ const Layout: React.FC<Props> = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
   const isRootPath = location.pathname === rootPath;
   const socialName = data.site?.siteMetadata?.author?.name;
-  const socialScreenName = data.site?.siteMetadata?.social?.twitter;
-  const socialAccountUrl = `https://twitter.com/${socialScreenName}`;
+  const twitterUrl = data.site?.siteMetadata?.author?.twitterUrl;
 
   return (
     <div data-is-root-path={isRootPath}>
@@ -53,7 +50,7 @@ const Layout: React.FC<Props> = ({ location, title, children }) => {
         <div className={styles.footerInner}>
           <div className={styles.footerCopyRight}>
             {`© ${new Date().getFullYear()} `}
-            <OutboundLink href={socialAccountUrl} target="_blank">
+            <OutboundLink href={twitterUrl} target="_blank">
               {socialName}
             </OutboundLink>
           </div>

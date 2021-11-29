@@ -1,10 +1,3 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
@@ -13,16 +6,14 @@ import { OutboundLink } from "gatsby-plugin-google-gtag";
 import * as styles from "./bio.module.scss";
 
 const Bio: React.FC = () => {
-  const data = useStaticQuery<GatsbyTypes.BioQueryQuery>(graphql`
-    query BioQuery {
+  const data = useStaticQuery<GatsbyTypes.BioQuery>(graphql`
+    query Bio {
       site {
         siteMetadata {
           author {
             name
             summary
-          }
-          social {
-            twitter
+            twitterUrl
           }
         }
       }
@@ -30,10 +21,9 @@ const Bio: React.FC = () => {
   `);
 
   // Set these values by editing "siteMetadata" in gatsby-config.js
-  const author = data.site?.siteMetadata?.author;
-  const social = data.site?.siteMetadata?.social;
-
-  const avatar = data?.avatar?.childImageSharp?.fixed;
+  const authorName = data.site?.siteMetadata?.author?.name;
+  const authorSummary = data.site?.siteMetadata?.author?.summary;
+  const twitterUrl = data.site?.siteMetadata?.author?.twitterUrl;
 
   return (
     <div className={styles.bio}>
@@ -51,13 +41,10 @@ const Bio: React.FC = () => {
         />
       </div>
       <div className={styles.bioRight}>
-        {author?.summary || ``}
+        {authorSummary}
         <br />
-        <OutboundLink
-          href={`https://twitter.com/${social?.twitter || ``}`}
-          target="_blank"
-        >
-          {author?.name}
+        <OutboundLink href={twitterUrl} target="_blank">
+          {authorName}
         </OutboundLink>
       </div>
     </div>

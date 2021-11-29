@@ -4,12 +4,10 @@ module.exports = {
     author: {
       name: `@T28_tatsuya`,
       summary: `LLer and programmer.`,
+      twitterUrl: `https://twitter.com/T28_tatsuya`,
     },
     description: `@T28_tatsuyaが、あれこれ書いている。`,
     siteUrl: `https://t28.dev`,
-    social: {
-      twitter: `@T28_tatsuya`,
-    },
   },
   plugins: [
     `gatsby-plugin-typegen`,
