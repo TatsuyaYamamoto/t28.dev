@@ -17,6 +17,14 @@ $side_menu_width: 250px;
   }
 }
 
+.collectionPostContent {
+  width: calc(100% - 30px);
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
+}
+
 .blogPostSideMenu {
   width: $side_menu_width;
 

@@ -1,24 +1,31 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
+const blogPostTemplate = path.resolve(`./src/templates/blog-post.tsx`);
+const collectionPostTemplate = path.resolve(
+  `./src/templates/collection-post.tsx`
+);
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
-  // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
-
-  // Get all markdown blog posts sorted by date
-  const result = await graphql(
+  const {
+    data: {
+      allMdx: { nodes: blogPosts },
+    },
+  } = await graphql(
     `
       {
         allMdx(
           sort: { fields: [frontmatter___date], order: ASC }
+          filter: { fields: { type: { eq: "blog" } } }
           limit: 1000
         ) {
           nodes {
             id
             fields {
               slug
+              type
             }
           }
         }
@@ -26,49 +33,80 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
   );
 
-  if (result.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading your blog posts`,
-      result.errors
-    );
-    return;
-  }
+  blogPosts.forEach((post, index) => {
+    const previousPostId = index === 0 ? null : blogPosts[index - 1].id;
+    const nextPostId =
+      index === blogPosts.length - 1 ? null : blogPosts[index + 1].id;
 
-  const posts = result.data.allMdx.nodes;
-
-  // Create blog posts pages
-  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
-  // `context` is available in the template as a prop and as a variable in GraphQL
-
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      const previousPostId = index === 0 ? null : posts[index - 1].id;
-      const nextPostId =
-        index === posts.length - 1 ? null : posts[index + 1].id;
-
-      createPage({
-        path: post.fields.slug,
-        component: blogPost,
-        context: {
-          id: post.id,
-          previousPostId,
-          nextPostId,
-        },
-      });
+    createPage({
+      path: post.fields.slug,
+      component: blogPostTemplate,
+      context: {
+        id: post.id,
+        previousPostId,
+        nextPostId,
+      },
     });
-  }
+  });
+
+  const {
+    data: {
+      allMdx: { nodes: collectionPosts },
+    },
+  } = await graphql(
+    `
+      {
+        allMdx(
+          sort: { fields: [frontmatter___date], order: ASC }
+          filter: { fields: { type: { eq: "collection" } } }
+          limit: 1000
+        ) {
+          nodes {
+            id
+            fields {
+              slug
+              type
+            }
+          }
+        }
+      }
+    `
+  );
+
+  collectionPosts.forEach((post) => {
+    createPage({
+      path: post.fields.slug,
+      component: collectionPostTemplate,
+      context: { id: post.id },
+    });
+  });
 };
 
+/**
+ *
+ * @param {import('gatsby').CreateNodeArgs["node"]} node
+ * @param {import('gatsby').CreateNodeArgs["actions"]} actions
+ * @param getNode
+ */
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `Mdx`) {
-    const value = createFilePath({ node, getNode });
-
+    const slug = createFilePath({ node, getNode });
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: slug,
+    });
+
+    const filePathPattern = new RegExp(
+      `^${__dirname}/content/(?<type>[0-9a-zA-Z]+)/.+`
+    );
+    const { groups } = filePathPattern.exec(node.fileAbsolutePath);
+    createNodeField({
+      name: `type`,
+      node,
+      value: groups.type,
     });
   }
 };

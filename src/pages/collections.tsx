@@ -1,14 +1,14 @@
-import React from "react";
+import React, { FC } from "react";
 import { graphql, PageProps } from "gatsby";
 
 import Layout from "../components/layout";
 import Bio from "../components/bio";
 import SEO from "../components/seo";
+import CollectionList from "../components/CollectionList";
 
 import * as styles from "../styles/pages-index.module.scss";
-import BlogList from "../components/BlogList";
 
-const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
+const CollectionsPage: FC<PageProps<GatsbyTypes.CollectionsPageQuery>> = ({
   data,
   location,
 }) => {
@@ -27,16 +27,16 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
         <Bio />
       </div>
       <div className={styles.listSection}>
-        <BlogList posts={posts} />
+        <CollectionList posts={posts} />
       </div>
     </Layout>
   );
 };
 
-export default BlogIndex;
+export default CollectionsPage;
 
 export const pageQuery = graphql`
-  query BlogIndex {
+  query CollectionsPage {
     site {
       siteMetadata {
         title
@@ -44,7 +44,7 @@ export const pageQuery = graphql`
     }
     posts: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fields: { type: { eq: "blog" } } }
+      filter: { fields: { type: { eq: "collection" } } }
     ) {
       nodes {
         excerpt
