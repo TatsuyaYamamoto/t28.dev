@@ -4,11 +4,11 @@ import { graphql, PageProps } from "gatsby";
 import Layout from "../components/layout";
 import Bio from "../components/bio";
 import SEO from "../components/seo";
-import CollectionList from "../components/CollectionList";
+import RoundupList from "../components/RoundupList";
 
 import * as styles from "../styles/pages-index.module.scss";
 
-const CollectionsPage: FC<PageProps<GatsbyTypes.CollectionsPageQuery>> = ({
+const RoundupsPage: FC<PageProps<GatsbyTypes.RoundupsQuery>> = ({
   data,
   location,
 }) => {
@@ -27,16 +27,16 @@ const CollectionsPage: FC<PageProps<GatsbyTypes.CollectionsPageQuery>> = ({
         <Bio />
       </div>
       <div className={styles.listSection}>
-        <CollectionList posts={posts} />
+        <RoundupList posts={posts} />
       </div>
     </Layout>
   );
 };
 
-export default CollectionsPage;
+export default RoundupsPage;
 
 export const pageQuery = graphql`
-  query CollectionsPage {
+  query Roundups {
     site {
       siteMetadata {
         title
@@ -44,7 +44,7 @@ export const pageQuery = graphql`
     }
     posts: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fields: { type: { eq: "collection" } } }
+      filter: { fields: { type: { eq: "roundup" } } }
     ) {
       nodes {
         excerpt

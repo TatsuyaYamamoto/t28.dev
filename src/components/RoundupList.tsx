@@ -11,7 +11,7 @@ interface Props {
   }[];
 }
 
-const CollectionList: FC<Props> = (props) => {
+const RoundupList: FC<Props> = (props) => {
   const { posts } = props;
 
   return (
@@ -42,4 +42,4 @@ const CollectionList: FC<Props> = (props) => {
   );
 };
 
-export default CollectionList;
+export default RoundupList;

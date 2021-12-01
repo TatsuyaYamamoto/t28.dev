@@ -8,7 +8,7 @@ export interface Props {
   body: string;
 }
 
-const CollectionPost: FC<Props> = (props) => {
+const RoundupPost: FC<Props> = (props) => {
   const { title, body } = props;
 
   return (
@@ -25,4 +25,4 @@ const CollectionPost: FC<Props> = (props) => {
   );
 };
 
-export default CollectionPost;
+export default RoundupPost;

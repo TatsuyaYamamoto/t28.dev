@@ -2,9 +2,7 @@ const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 const blogPostTemplate = path.resolve(`./src/templates/blog-post.tsx`);
-const collectionPostTemplate = path.resolve(
-  `./src/templates/collection-post.tsx`
-);
+const roundupPostTemplate = path.resolve(`./src/templates/roundup-post.tsx`);
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
@@ -56,14 +54,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const {
     data: {
-      allMdx: { nodes: collectionPosts },
+      allMdx: { nodes: roundupPosts },
     },
   } = await graphql(
     `
       {
         allMdx(
           sort: { fields: [frontmatter___date], order: ASC }
-          filter: { fields: { type: { eq: "collection" } } }
+          filter: { fields: { type: { eq: "roundup" } } }
           limit: 1000
         ) {
           nodes {
@@ -78,10 +76,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
   );
 
-  collectionPosts.forEach((post) => {
+  roundupPosts.forEach((post) => {
     createPage({
       path: post.fields.slug,
-      component: collectionPostTemplate,
+      component: roundupPostTemplate,
       context: { id: post.id },
     });
   });

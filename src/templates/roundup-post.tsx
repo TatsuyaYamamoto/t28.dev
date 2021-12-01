@@ -3,13 +3,14 @@ import { graphql, PageProps } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import CollectionPost from "../components/CollectionPost";
+import RoundupPost from "../components/RoundupPost";
 
 import * as styles from "../styles/templates-blog-post.module.scss";
 
-const CollectionPostTemplate: FC<
-  PageProps<GatsbyTypes.CollectionPostBySlugQuery>
-> = ({ data, location }) => {
+const RoundupPostTemplate: FC<PageProps<GatsbyTypes.RoundupPostQuery>> = ({
+  data,
+  location,
+}) => {
   const { post, site } = data;
 
   const siteTitle = site?.siteMetadata?.title || `Title`;
@@ -25,18 +26,18 @@ const CollectionPostTemplate: FC<
     <Layout location={location} title={siteTitle}>
       <SEO pageTitle={postTitle} description={postDescription} />
       <div className={styles.blogPostMain}>
-        <div className={styles.collectionPostContent}>
-          <CollectionPost title={postTitle} body={body} />
+        <div className={styles.roundupPostContent}>
+          <RoundupPost title={postTitle} body={body} />
         </div>
       </div>
     </Layout>
   );
 };
 
-export default CollectionPostTemplate;
+export default RoundupPostTemplate;
 
 export const pageQuery = graphql`
-  query CollectionPostBySlug($id: String!) {
+  query RoundupPost($id: String!) {
     site {
       siteMetadata {
         title

@@ -25,8 +25,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/collection`,
-        name: `collection`,
+        path: `${__dirname}/content/roundup`,
+        name: `roundup`,
       },
     },
     {
