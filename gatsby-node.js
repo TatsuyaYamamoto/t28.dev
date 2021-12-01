@@ -27,6 +27,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               slug
               type
             }
+            frontmatter {
+              roundup
+            }
           }
         }
       }
@@ -34,6 +37,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   );
 
   blogPosts.forEach((post, index) => {
+    const roundupPostSlug = post.frontmatter.roundup;
     const previousPostId = index === 0 ? null : blogPosts[index - 1].id;
     const nextPostId =
       index === blogPosts.length - 1 ? null : blogPosts[index + 1].id;
@@ -43,6 +47,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: blogPostTemplate,
       context: {
         id: post.id,
+        roundupPostSlug,
         previousPostId,
         nextPostId,
       },

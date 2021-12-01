@@ -1,6 +1,7 @@
 ---
 title: "根拠を添えて納得する、副業者が申告するべき税金"
 date: "2021-11-26"
+roundup: "/side-business/"
 ---
 
 「副業するなら確定申告しなくちゃ」とか「確定申告は 20 万円以上だっけ？」等なんとなく聞く話ですが、いざ当事者になったら[適当に](https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2024.htm) [済ませる訳にも](https://www.city.shibuya.tokyo.jp/kurashi/zeikin/juminzei/n1_5entaikin.html) [いかないですね](https://ja.wikipedia.org/wiki/%E8%84%B1%E7%A8%8E) 。

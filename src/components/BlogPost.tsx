@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import Bio from "./bio";
@@ -9,10 +10,14 @@ export interface BlogPostProps {
   title: string;
   date: string;
   body: string;
+  roundup?: {
+    slug: string;
+    title: string;
+  };
 }
 
 const BlogPost: React.FC<BlogPostProps> = (props) => {
-  const { title, date, body } = props;
+  const { title, date, body, roundup } = props;
 
   return (
     <article
@@ -22,7 +27,12 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
     >
       <header>
         <h1 itemProp="headline">{title}</h1>
-        <p>{date}</p>
+        <div>{date}</div>
+        {roundup && (
+          <div>
+            {`Rounded-up in: `} <Link to={roundup.slug}>{roundup.title}</Link>
+          </div>
+        )}
       </header>
       <MDXRenderer>{body}</MDXRenderer>
       <footer>

@@ -16,7 +16,7 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({
   data,
   location,
 }) => {
-  const { post, site, previous, next } = data;
+  const { post, roundupPost, site, previous, next } = data;
 
   const siteTitle = site?.siteMetadata?.title || `Title`;
   const postTitle = post?.frontmatter?.title;
@@ -24,6 +24,13 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({
   const postDescription = post?.frontmatter?.description || post?.excerpt;
   const body = post?.body;
   const tableOfContents = (post?.tableOfContents ?? {}) as TableOfContents;
+  const roundup =
+    roundupPost?.fields?.slug && roundupPost.frontmatter?.title
+      ? {
+          slug: roundupPost.fields.slug,
+          title: roundupPost.frontmatter.title,
+        }
+      : undefined;
 
   const [mobileTocEl, setMobileTocEl] = useState<HTMLElement | null>(null);
 
@@ -52,7 +59,12 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({
       <SEO pageTitle={postTitle} description={postDescription} />
       <div className={styles.blogPostMain}>
         <div className={styles.blogPostContent}>
-          <BlogPost title={postTitle} date={postDate} body={body} />
+          <BlogPost
+            title={postTitle}
+            date={postDate}
+            body={body}
+            roundup={roundup}
+          />
         </div>
         <aside className={styles.blogPostSideMenu}>
           <div className={styles.blogPostSideMenuInner}>
@@ -98,6 +110,7 @@ export default BlogPostTemplate;
 export const pageQuery = graphql`
   query BlogPostBySlug(
     $id: String!
+    $roundupPostSlug: String
     $previousPostId: String
     $nextPostId: String
   ) {
@@ -114,11 +127,20 @@ export const pageQuery = graphql`
         title
         date(formatString: "YYYY/MM/DD")
         description
+        roundup
       }
       tableOfContents(maxDepth: 3)
       headings {
         value
         depth
+      }
+    }
+    roundupPost: mdx(fields: { slug: { eq: $roundupPostSlug } }) {
+      fields {
+        slug
+      }
+      frontmatter {
+        title
       }
     }
     previous: mdx(id: { eq: $previousPostId }) {
