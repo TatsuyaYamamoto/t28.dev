@@ -10,6 +10,7 @@ module.exports = {
     siteUrl: `https://t28.dev`,
   },
   plugins: [
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-typegen`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sass`,
