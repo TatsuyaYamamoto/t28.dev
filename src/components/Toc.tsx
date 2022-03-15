@@ -12,7 +12,7 @@ import { isHTMLAnchorElement } from "../helpers/type-gurad";
 import * as styles from "./Toc.module.scss";
 
 export interface TableOfContents {
-  items: TableOfContentsItem[];
+  items?: TableOfContentsItem[];
 }
 
 export interface TableOfContentsItem {
@@ -30,6 +30,7 @@ const Toc: FC<TocProps> = (props) => {
   const { tableOfContents, onClick } = props;
   const tocElRef = useRef<HTMLDivElement>(null);
   const [activeHeadingId, setActiveHeadingId] = useState<string | null>(null);
+  const tocItems = tableOfContents.items ?? [];
   const ids = useMemo(() => {
     const parseUrlAsId = (items: TableOfContentsItem[]): string[] => {
       return items.reduce<string[]>((prev, current) => {
@@ -44,8 +45,8 @@ const Toc: FC<TocProps> = (props) => {
       }, []);
     };
 
-    return parseUrlAsId(tableOfContents.items);
-  }, [tableOfContents.items]);
+    return parseUrlAsId(tocItems);
+  }, [tocItems]);
 
   const getAboveId = (inputId: string) => {
     const inputHeadingIndex = ids.findIndex(
@@ -171,7 +172,11 @@ const Toc: FC<TocProps> = (props) => {
 
   return (
     <div ref={tocElRef} className={styles.toc}>
-      {renderList(tableOfContents.items)}
+      {tocItems.length === 0 ? (
+        <div className={styles.empty}>-- EMPTY --</div>
+      ) : (
+        renderList(tocItems)
+      )}
     </div>
   );
 };
