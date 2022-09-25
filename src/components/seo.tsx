@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 type Props = {
   description?: string;
+  ogpImageUrl?: string;
   lang?: string;
   meta?: (
     | { name: string; content: string }
@@ -19,12 +20,7 @@ type Props = {
   pageTitle?: string;
 };
 
-const SEO: React.FC<Props> = ({
-  description = ``,
-  lang = `ja`,
-  meta = [],
-  pageTitle,
-}) => {
+const SEO: React.FC<Props> = (props) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -32,6 +28,7 @@ const SEO: React.FC<Props> = ({
           siteMetadata {
             title
             description
+            defaultOgpImageUrl
             social {
               twitter
             }
@@ -41,9 +38,14 @@ const SEO: React.FC<Props> = ({
     `
   );
 
-  const metaDescription = description || site.siteMetadata.description;
+  const lang = props.lang ?? "ja";
+  const metaDescription =
+    props.description ?? site.siteMetadata.description ?? "";
   const siteTitle = site.siteMetadata?.title;
-  const title = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle;
+  const ogpImage = props.ogpImageUrl ?? site.siteMetadata?.defaultOgpImageUrl;
+  const title = props.pageTitle
+    ? `${props.pageTitle} | ${siteTitle}`
+    : siteTitle;
 
   return (
     <Helmet
@@ -69,6 +71,10 @@ const SEO: React.FC<Props> = ({
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: ogpImage,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
@@ -84,7 +90,7 @@ const SEO: React.FC<Props> = ({
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ].concat(props.meta ?? [])}
     />
   );
 };

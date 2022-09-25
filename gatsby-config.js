@@ -8,6 +8,7 @@ module.exports = {
     },
     description: `@T28_tatsuyaが、あれこれ書いている。`,
     siteUrl: `https://t28.dev`,
+    defaultOgpImageUrl: `https://t28.dev/dairi@4x.png`,
   },
   plugins: [
     `gatsby-plugin-netlify`,
