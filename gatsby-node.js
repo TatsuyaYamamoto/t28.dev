@@ -105,11 +105,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const filePathPattern = new RegExp(
       `^${__dirname}/content/(?<type>[0-9a-zA-Z]+)/.+`
     );
-    const { groups } = filePathPattern.exec(node.fileAbsolutePath);
+    const {
+      groups: { type },
+    } = filePathPattern.exec(node.fileAbsolutePath);
     createNodeField({
       name: `type`,
       node,
-      value: groups.type,
+      value: type,
     });
   }
 };
