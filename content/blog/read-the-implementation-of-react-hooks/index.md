@@ -4,7 +4,7 @@ date: 2021-11-21
 ---
 
 - ["React Hooks の deps にオブジェクトを渡す"](../use-object-as-react-hooks-deps) の副産物
-- React Hooks の deps がどうやって行われているか、まで、実装を~~適当に端折って~~追う。
+- React Hooks の deps がどのように評価されているか、実装を~~適当に端折って~~追う。
 
 ---
 
@@ -15,11 +15,11 @@ date: 2021-11-21
   - [Effect Hook](https://ja.reactjs.org/docs/hooks-overview.html#effect-hook) (例えば `useEffect`) では、関数コンポーネントで副作用が発生する処理が実装出来る。
   - [deps(第 2 引数)](https://ja.reactjs.org/docs/hooks-reference.html#conditionally-firing-an-effect) で 副作用が依存している値を指定することで、副作用処理の実行を制御出来る。
 
-...訳ですが、副作用が依存している deps が更新されたかどうか、をどのように評価しているか知りたくなりました。
+...わけですが、副作用が依存している deps が更新されたかどうかをどのように評価しているか知りたくなりました。
 
 ## ReactFiberHooks
 
-[React](https://github.com/facebook/react/blob/v17.0.2/packages/react/package.json#L22) が [export](https://github.com/facebook/react/blob/v17.0.2/packages/react/index.js#L50) している [useEffect の実態](https://github.com/facebook/react/blob/v17.0.2/packages/react/src/React.js#L39) は [ReactHooks.js](https://github.com/facebook/react/blob/v17.0.2/packages/react/src/ReactHooks.js#L101) で定義されています。
+[React](https://github.com/facebook/react/blob/v17.0.2/packages/react/package.json#L22) が [export](https://github.com/facebook/react/blob/v17.0.2/packages/react/index.js#L50) している [useEffect](https://github.com/facebook/react/blob/v17.0.2/packages/react/src/React.js#L39) は [ReactHooks.js](https://github.com/facebook/react/blob/v17.0.2/packages/react/src/ReactHooks.js#L101) で定義されています。
 
 ```flow js
 export function useEffect(
@@ -31,7 +31,7 @@ export function useEffect(
 }
 ```
 
-[resolveDispatcher](https://github.com/facebook/react/blob/v17.0.2/packages/react/src/ReactHooks.js#L25) から [**現在の**](https://github.com/facebook/react/blob/v17.0.2/packages/react/src/ReactHooks.js#L26) dispatcher ([ReactCurrentDispatcher](https://github.com/facebook/react/blob/v17.0.2/packages/react/src/ReactCurrentDispatcher.js)) を取得して、useEffect を処理させているようです。
+[resolveDispatcher](https://github.com/facebook/react/blob/v17.0.2/packages/react/src/ReactHooks.js#L25) から [**現在の**](https://github.com/facebook/react/blob/v17.0.2/packages/react/src/ReactHooks.js#L26) dispatcher ([ReactCurrentDispatcher](https://github.com/facebook/react/blob/v17.0.2/packages/react/src/ReactCurrentDispatcher.js)) を取得して、実際の useEffect の処理を実行しているようです。
 "current" が付く Dispatcher なので、Dispatcher は色々状態を持つようですね。
 
 ~~横着して grep した結果、~~ `ReactCurrentDispatcher.current` に [Dispatcher](https://github.com/facebook/react/blob/v17.0.2/packages/react-reconciler/src/ReactInternalTypes.js#L260) オブジェクトを代入しているのは [ReactFiberHooks](https://github.com/facebook/react/blob/v17.0.2/packages/react-reconciler/src/ReactFiberHooks.new.js) っぽい。

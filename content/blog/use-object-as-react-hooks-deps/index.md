@@ -5,7 +5,7 @@ date: 2021-11-21
 
 ## deps について (復習)
 
-関数コンポーネント内では副作用がある処理は [`useEffect(didUpdate)`](https://en.reactjs.org/docs/hooks-reference.html#useeffect) で書きます。
+関数コンポーネント内では副作用がある処理は [`useEffect(didUpdate)`](https://en.reactjs.org/docs/hooks-reference.html#useeffect) に書きます。
 デフォルトでは `didUpdate` はレンダー毎に毎回呼び出されますが、パフォーマンスのために副作用が依存している変数を **deps** として登録して、`didUpdate`を必要なときだけ実行するように出来ます。
 
 ```js
@@ -28,7 +28,7 @@ deps に渡せる(渡すべき)値は [API Reference](https://en.reactjs.org/doc
 
 という言及のみで、「どんな値が渡せるか」の言及はありません[^1]。
 
-[実装上は`Object.is` で比較できるもの](../read-the-implementation-of-react-hooks) であることが分かったので、[Same-value](https://developer.mozilla.org/ja/docs/Web/JavaScript/Equality_comparisons_and_sameness#same-value_equality) として比較が出来るものが、deps に渡せる値になります(👇 のときに等しいと評価してよい値)。
+実装上は`Object.is` で比較できるものであることが分かった([別記事](../read-the-implementation-of-react-hooks))ので、[Same-value](https://developer.mozilla.org/ja/docs/Web/JavaScript/Equality_comparisons_and_sameness#same-value_equality) として比較が出来るものが、deps に渡せる値になります(👇 のときに等しいと評価してよい値)。
 
 > - どちらも undefined
 > - どちらも null
@@ -37,9 +37,7 @@ deps に渡せる(渡すべき)値は [API Reference](https://en.reactjs.org/doc
 > - どちらも同じオブジェクト
 > - どちらも数で、どちらも +0、どちらも -0、どちらも NaN、あるいはどちらもゼロ以外で NaN でなく、同じ数値を持つ
 
-つまり deps の要素として Object や Array を渡した場合、プロパティや要素に対して (shallow/deep 問わず) 等価性比較を行いません（deps に渡せなくはないが、使用者にとって期待の振る舞いをしない）。
-
-👇 の通り、deps として Object や Array を比較させるには、"オブジェクト自体が同じ" でないといけないことが分かります。
+つまり deps の要素として Object や Array を渡した場合、プロパティや要素に対して等価性比較を行わず、"オブジェクト自体が同じかどうか"で比較されます。
 
 ![Object.is() sample](./object_is_sample.jpg)
 
