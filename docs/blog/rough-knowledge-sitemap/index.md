@@ -8,7 +8,7 @@ description: "新しいサイト用のsitemapを登録するにあたって、�
 
 ![add sitemap sample](./add-sitemap-sample.jpg)
 
-あーあれね、サイト内のページの構造を書いたやつ...😊 
+あーあれね、サイト内のページの構造を書いたやつ...😊
 
 [脳みそ止めて plugin を探してもいいですが](https://www.gatsbyjs.com/plugins?=sitemap) 、せっかくなので簡単に調べてみます。
 

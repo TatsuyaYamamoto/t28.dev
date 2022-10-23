@@ -103,7 +103,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     });
 
     const filePathPattern = new RegExp(
-      `^${__dirname}/content/(?<type>[0-9a-zA-Z]+)/.+`
+      `^${__dirname}/docs/(?<type>[0-9a-zA-Z]+)/.+`
     );
     const {
       groups: { type },
