@@ -3,7 +3,25 @@ title: "tsconfig/bases 内の tsconfig.json を (自分が知りたい範囲で)
 date: 2023-03-01
 ---
 
-## `Node 16` and `Node 16 + Strictest`
+## tsconfig/bases?
+
+コミュニティでメンテナンスされている 環境毎のおすすめ tsconfig、及びそのリポジトリ ([tsconfig/bases](https://github.com/tsconfig/bases)) のこと。
+雑多になりがちな tsconfig.json がスッキリするし、コミュニティで決めてくれたいい感じの設定に乗っかれて楽なので、私はよく使っています。
+
+```json
+{
+  "extends": "なにか",
+  "compilerOptions": {
+    // ちょこっと
+  }
+}
+```
+
+## 設定を比較してみる
+
+前述の通り、tsconfig/bases には環境毎に tsconfig.json が提供されており、それらの具体的な差分が気になったのでメモしておく。
+
+### `Node 16` and `Node 16 + Strictest`
 
 ```shell
 (;'8')?! < % diff <(curl -s https://raw.githubusercontent.com/tsconfig/bases/main/bases/node16.json) <(curl -s https://raw.githubusercontent.com/tsconfig/bases/main/bases/node16-strictest.combined.json)
@@ -48,7 +66,7 @@ date: 2023-03-01
 
 `+ Strictest` とある通り、strictest 用の追加された設定のみが差分
 
-## `Node 16 Strictest` and `Node 16 + ESM + Strictest`
+### `Node 16 Strictest` and `Node 16 + ESM + Strictest`
 
 ```shell
 (;'8')?! < % diff <(curl -s https://raw.githubusercontent.com/tsconfig/bases/main/bases/node16-strictest.combined.json) <(curl -s https://raw.githubusercontent.com/tsconfig/bases/main/bases/node16-strictest-esm.combined.json)
@@ -68,7 +86,7 @@ date: 2023-03-01
 
 `+ ESM` とある通り、ESM 用の追加された設定のみが差分
 
-## `Node 16 + ESM + Strictest` and `Node 18 + ESM + Strictest`
+### `Node 16 + ESM + Strictest` and `Node 18 + ESM + Strictest`
 
 ```shell
 (;'8')?! < % diff <(curl -s https://raw.githubusercontent.com/tsconfig/bases/main/bases/node16-strictest-esm.combined.json) <(curl -s https://raw.githubusercontent.com/tsconfig/bases/main/bases/node18-strictest-esm.combined.json)
@@ -92,7 +110,7 @@ date: 2023-03-01
 
 `lib`, `target` の差分のみ
 
-## `Node 18 + ESM + Strictest` and `Node LTS + ESM + Strictest`
+### `Node 18 + ESM + Strictest` and `Node LTS + ESM + Strictest`
 
 ```shell
 (;'8')?! < % diff <(curl -s https://raw.githubusercontent.com/tsconfig/bases/main/bases/node18-strictest-esm.combined.json) <(curl -s https://raw.githubusercontent.com/tsconfig/bases/main/bases/node-lts-strictest-esm.combined.json)
