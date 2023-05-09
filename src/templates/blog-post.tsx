@@ -22,6 +22,7 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({
   const postTitle = post?.frontmatter?.title;
   const postDate = post?.frontmatter?.date;
   const postDescription = post?.frontmatter?.description || post?.excerpt;
+  const postCategory = post?.frontmatter?.category || "Tech";
   const body = post?.body;
   const tableOfContents = (post?.tableOfContents ?? {}) as TableOfContents;
   const roundup =
@@ -62,6 +63,7 @@ const BlogPostTemplate: FC<PageProps<GatsbyTypes.BlogPostBySlugQuery>> = ({
           <BlogPost
             title={postTitle}
             date={postDate}
+            category={postCategory}
             body={body}
             roundup={roundup}
           />
@@ -128,6 +130,7 @@ export const pageQuery = graphql`
         date(formatString: "YYYY/MM/DD")
         description
         roundup
+        category
       }
       tableOfContents(maxDepth: 3)
       headings {

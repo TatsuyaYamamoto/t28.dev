@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import { Chip } from "@material-ui/core";
 
 import Bio from "./bio";
 
@@ -9,6 +10,7 @@ import * as styles from "./BlogPost.module.scss";
 export interface BlogPostProps {
   title: string;
   date: string;
+  category: string;
   body: string;
   roundup?: {
     slug: string;
@@ -17,7 +19,7 @@ export interface BlogPostProps {
 }
 
 const BlogPost: React.FC<BlogPostProps> = (props) => {
-  const { title, date, body, roundup } = props;
+  const { title, date, category, body, roundup } = props;
 
   return (
     <article
@@ -27,7 +29,10 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
     >
       <header>
         <h1 itemProp="headline">{title}</h1>
-        <div>{date}</div>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <span>{date}</span>
+          <Chip label={category} style={{ marginLeft: 5 }} size="small" />
+        </div>
         {roundup && (
           <div>
             {`Rounded-up in: `} <Link to={roundup.slug}>{roundup.title}</Link>

@@ -1,6 +1,7 @@
 ---
 title: "根拠を添えて納得する、副業者がやる確定申告の種類"
 date: "2021-11-27"
+category: "Poem"
 roundup: "/side-business/"
 ---
 

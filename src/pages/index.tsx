@@ -18,6 +18,7 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
     title: node.frontmatter?.title || "",
     description: node.frontmatter?.description || node.excerpt,
     date: node.frontmatter?.date || "",
+    category: node.frontmatter?.category ?? "Tech",
   }));
 
   return (
@@ -55,6 +56,7 @@ export const pageQuery = graphql`
           date(formatString: "YYYY/MM/DD")
           title
           description
+          category
         }
       }
     }

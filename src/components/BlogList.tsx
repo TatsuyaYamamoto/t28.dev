@@ -1,5 +1,6 @@
 import { Link } from "gatsby";
 import React, { FC } from "react";
+import { Chip } from "@material-ui/core";
 
 import * as styles from "../styles/pages-index.module.scss";
 
@@ -9,6 +10,7 @@ interface Props {
     title: string;
     description: string;
     date: string;
+    category: string;
   }[];
 }
 
@@ -31,7 +33,14 @@ const BlogList: FC<Props> = (props) => {
                     <span itemProp="headline">{post.title}</span>
                   </Link>
                 </h2>
-                <small>{post.date}</small>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <small>{post.date}</small>
+                  <Chip
+                    label={post.category}
+                    style={{ marginLeft: 5 }}
+                    size="small"
+                  />
+                </div>
               </header>
               <section>
                 <p itemProp="description">{post.description}</p>

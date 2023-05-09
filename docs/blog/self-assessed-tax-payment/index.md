@@ -1,6 +1,7 @@
 ---
 title: "根拠を添えて納得する、副業者が申告するべき税金"
 date: "2021-11-26"
+category: "Poem"
 roundup: "/side-business/"
 ---
 
