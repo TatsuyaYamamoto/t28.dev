@@ -1,0 +1,16 @@
+---
+const { frontmatter } = Astro.props;
+
+const title = frontmatter?.title ? `${frontmatter.title} | t28.dev` : `t28.dev`;
+---
+
+<html lang="ja">
+  <head>
+    <title>{title}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
