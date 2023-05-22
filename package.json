@@ -10,10 +10,9 @@
     "url": "git+https://github.com/TatsuyaYamamoto/t28-tatsuya.dev.git"
   },
   "scripts": {
-    "build": "gatsby build",
-    "dev": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
+    "dev": "    astro dev",
+    "build": "  astro build",
+    "preview": "astro preview",
     "type-check": "tsc --noEmit",
     "prepare": "husky install"
   },
@@ -23,6 +22,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
+    "astro": "^2.5.2",
     "modern-css-reset": "^1.4.0",
     "prismjs": "^1.23.0",
     "react": "^17.0.2",
