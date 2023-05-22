@@ -39,7 +39,7 @@ deps に渡せる(渡すべき)値は [API Reference](https://en.reactjs.org/doc
 
 つまり deps の要素として Object や Array を渡した場合、プロパティや要素に対して等価性比較を行わず、"オブジェクト自体が同じかどうか"で比較されます。
 
-![Object.is() sample](./object_is_sample.jpg)
+![Object.is() sample](../assets/blog/use-object-as-react-hooks-deps/object_is_sample.jpg)
 
 ## deps に オブジェクト・配列を渡したいときがあるの...。
 

@@ -6,7 +6,7 @@ description: "ブログを始めるために行った、Gatsbyのプロジェク
 
 ↓ ([ここ](/)) を Gatsby で作ったので、↓ の状態へ持っていくまでの手順を晒します。
 
-![Blog image](./blog-image.jpg)
+![Blog image](../assets/blog/start-blog-with-gatsby/blog-image.jpg)
 
 "↑ の状態"とは、サイト構築の最低限の準備として
 
