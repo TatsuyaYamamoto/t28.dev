@@ -20,7 +20,7 @@ wip
 
 こんな 👇 設定になってる想定。詳細も別記事で書く(WIP)
 
-![](./gtm-config-for-page-view.jpg)
+![](../assets/docs/blog/next-js-with-ga4/gtm-config-for-page-view.jpg)
 
 ### Tag Manager のインストール
 
