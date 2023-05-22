@@ -6,7 +6,7 @@ description: "新しいサイト用のsitemapを登録するにあたって、�
 
 [せっかくサイトを作った](../start-blog-with-gatsby)ので [Google Search Console](https://search.google.com/search-console) にサイトを登録したところ...。
 
-![add sitemap sample](../assets/docs/blog/rough-knowledge-sitemap/add-sitemap-sample.jpg)
+![add sitemap sample](../assets/blog/rough-knowledge-sitemap/add-sitemap-sample.jpg)
 
 あーあれね、サイト内のページの構造を書いたやつ...😊
 
