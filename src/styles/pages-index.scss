@@ -1,0 +1,29 @@
+@use "./mixins.scss";
+body{
+  background-color: red;
+}
+
+.header {
+  margin: var(--spacing-12) 0;
+
+  h1 {
+    font-size: var(--fontSize-7);
+    margin: 0;
+  }
+
+  a {
+    color: var(--color-primary);
+  }
+
+  &__inner {
+    @include mixins.container;
+  }
+}
+
+.bio-section {
+  @include mixins.container;
+}
+
+.list-section {
+  @include mixins.container;
+}

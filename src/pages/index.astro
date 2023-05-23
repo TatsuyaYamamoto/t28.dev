@@ -1,4 +1,6 @@
 ---
+import "../styles/pages-index.scss";
+
 import { getCollection } from "astro:content";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -35,32 +37,3 @@ const posts = allBlogPosts
   </section>
   <Footer />
 </BaseLayout>
-
-<style lang="scss">
-  @use "../styles/mixins.scss";
-
-  .header {
-    margin: var(--spacing-12) 0;
-
-    h1 {
-      font-size: var(--fontSize-7);
-      margin: 0;
-    }
-
-    a {
-      color: var(--color-primary);
-    }
-
-    &__inner {
-      @include mixins.container;
-    }
-  }
-
-  .bio-section {
-    @include mixins.container;
-  }
-
-  .list-section {
-    @include mixins.container;
-  }
-</style>
