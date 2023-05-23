@@ -2,7 +2,7 @@ import type { FC } from "react";
 
 import { TWITTER_NAME, TWITTER_URL, AUTHOR_SUMMARY } from "../constants";
 
-import styles from "./bio.module.scss";
+import styles from "./Bio.module.scss";
 import profilePic from "../assets/images/profile-pic.jpg";
 
 const Bio: FC = () => {

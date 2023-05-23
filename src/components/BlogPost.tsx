@@ -1,6 +1,6 @@
 import type { FC, PropsWithChildren } from "react";
 
-import Bio from "./bio";
+import Bio from "./Bio";
 import Chip from "./Chip";
 
 import styles from "./BlogPost.module.scss";
