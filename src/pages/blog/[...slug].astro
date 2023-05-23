@@ -1,9 +1,16 @@
 ---
+import "../../styles/pages-blog-slug.scss";
+
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogPost from "../../components/BlogPost";
 import Footer from "../../components/Footer";
+import Toc from "../../components/Toc";
+
+import { headingToTocItems } from "../../helpers/utils";
+
 import { SITE_TITLE } from "../../constants";
 
 export const getStaticPaths = async () => {
@@ -19,7 +26,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
 ---
 
 <BaseLayout>
@@ -28,25 +35,22 @@ const { Content } = await post.render();
       <a href="/">{SITE_TITLE}</a>
     </div>
   </header>
-
-  <Content />
-  <Footer />
+  <div class="blog-post-page">
+    <div class="blog-post-page__left">
+      <BlogPost
+        title={post.data.title}
+        date={post.data.date}
+        category={post.data.category}
+      >
+        <Content />
+      </BlogPost>
+    </div>
+    <div class="blog-post-page__right">
+      <aside class="side-menu">
+        <div>目次</div>
+        <Toc client:visible items={headingToTocItems(headings)} />
+      </aside>
+    </div>
+  </div>
 </BaseLayout>
-
-<style lang="scss">
-  @use "../../styles/mixins.scss";
-
-  .header {
-    margin: var(--spacing-12) 0;
-
-    a {
-      font-weight: var(--fontWeight-bold);
-      text-decoration: none;
-      font-size: var(--fontSize-2);
-    }
-
-    &__inner {
-      @include mixins.container;
-    }
-  }
-</style>
+<Footer />

@@ -1,52 +1,42 @@
-import React, {
-  FC,
-  MouseEvent,
-  useRef,
-  useState,
-  useEffect,
-  useMemo,
-} from "react";
+import type { FC, MouseEvent } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 
 import { isHTMLAnchorElement } from "../helpers/type-gurad";
 
-import * as styles from "./Toc.module.scss";
+import styles from "./Toc.module.scss";
 
-export interface TableOfContents {
-  items?: TableOfContentsItem[];
-}
+const parseUrlAsId = (tocItems: TocItems): string[] => {
+  return tocItems.reduce<string[]>((prev, current) => {
+    const id = current.url.replace("#", "");
+    prev.push(id);
 
-export interface TableOfContentsItem {
+    if (current.children) {
+      prev.push(...parseUrlAsId(current.children));
+    }
+
+    return prev;
+  }, []);
+};
+
+export interface TocItem {
   url: string;
   title: string;
-  items?: TableOfContentsItem[];
+  depth: number;
+  children: TocItem[];
 }
 
-export interface TocProps {
-  tableOfContents: TableOfContents;
-  onClick: (id: string) => void;
+export type TocItems = TocItem[];
+
+interface Props {
+  items: TocItem[];
 }
 
-const Toc: FC<TocProps> = (props) => {
-  const { tableOfContents, onClick } = props;
+const Toc: FC<Props> = ({ items }) => {
   const tocElRef = useRef<HTMLDivElement>(null);
-  const [activeHeadingId, setActiveHeadingId] = useState<string | null>(null);
-  const tocItems = tableOfContents.items ?? [];
+  const [activeHeadingId, setActiveHeadingId] = useState<string | undefined>();
   const ids = useMemo(() => {
-    const parseUrlAsId = (items: TableOfContentsItem[]): string[] => {
-      return items.reduce<string[]>((prev, current) => {
-        const id = current.url.replace("#", "");
-        prev.push(id);
-
-        if (current.items) {
-          prev.push(...parseUrlAsId(current.items));
-        }
-
-        return prev;
-      }, []);
-    };
-
-    return parseUrlAsId(tocItems);
-  }, [tocItems]);
+    return parseUrlAsId(items);
+  }, [items]);
 
   const getAboveId = (inputId: string) => {
     const inputHeadingIndex = ids.findIndex(
@@ -118,22 +108,7 @@ const Toc: FC<TocProps> = (props) => {
     }
 
     const id = decodeURIComponent(e.target.href.split("#")[1]);
-    onClick(id);
-  };
-
-  const renderList = (items: TableOfContentsItem[]) => {
-    return (
-      <ul>
-        {items.map(({ url, title, items }) => (
-          <li key={url}>
-            <a href={url} onClick={onClickAnchor}>
-              {title}
-            </a>
-            {items && renderList(items)}
-          </li>
-        ))}
-      </ul>
-    );
+    document.getElementById(id)?.scrollIntoView();
   };
 
   useEffect(() => {
@@ -170,12 +145,27 @@ const Toc: FC<TocProps> = (props) => {
     }
   }, [activeHeadingId]);
 
+  const renderList = (items: TocItems) => {
+    return (
+      <ul>
+        {items.map(({ url, title, children }) => (
+          <li key={url}>
+            <a href={url} onClick={onClickAnchor}>
+              {title}
+            </a>
+            {renderList(children)}
+          </li>
+        ))}
+      </ul>
+    );
+  };
+
   return (
     <div ref={tocElRef} className={styles.toc}>
-      {tocItems.length === 0 ? (
+      {items.length === 0 ? (
         <div className={styles.empty}>-- EMPTY --</div>
       ) : (
-        renderList(tocItems)
+        renderList(items)
       )}
     </div>
   );

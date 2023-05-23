@@ -1,12 +1,13 @@
-import { Chip } from "@material-ui/core";
+import type { FC, PropsWithChildren } from "react";
 
 import Bio from "./bio";
+import Chip from "./Chip";
 
-import * as styles from "./BlogPost.module.scss";
+import styles from "./BlogPost.module.scss";
 
-export interface BlogPostProps {
+export interface Props {
   title: string;
-  date: string;
+  date: Date;
   category: string;
   body: string;
   roundup?: {
@@ -15,20 +16,24 @@ export interface BlogPostProps {
   };
 }
 
-const BlogPost: React.FC<BlogPostProps> = (props) => {
-  const { title, date, category, body, roundup } = props;
-
+const Post: FC<PropsWithChildren<Props>> = ({
+  title,
+  date,
+  category,
+  roundup,
+  children,
+}) => {
   return (
     <article
-      className={styles.blogPost}
+      className={styles.root}
       itemScope
       itemType="http://schema.org/Article"
     >
       <header>
         <h1 itemProp="headline">{title}</h1>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <span>{date}</span>
-          <Chip label={category} style={{ marginLeft: 5 }} size="small" />
+          <span style={{ marginRight: 5 }}>{date.toLocaleDateString()}</span>
+          <Chip>{category}</Chip>
         </div>
         {roundup && (
           <div>
@@ -36,7 +41,7 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
           </div>
         )}
       </header>
-      <MDXRenderer>{body}</MDXRenderer>
+      {children}
       <footer>
         <Bio />
       </footer>
@@ -44,4 +49,4 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
   );
 };
 
-export default BlogPost;
+export default Post;

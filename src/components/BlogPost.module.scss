@@ -1,4 +1,4 @@
-.blog-post {
+.root {
   border: 1px solid #dfdfdf;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgb(67 133 187 / 7%);
@@ -72,23 +72,6 @@
         border-right: 1px solid $table-border-color;
       }
     }
-
-    //margin: var(--spacing-2);
-    //border-collapse: collapse;
-    //border-spacing: 0.25rem;
-    //box-shadow: 0 2px 4px rgb(67 133 187 / 7%);
-
-    //thead tr th {
-    //  border-bottom: 1px solid var(--color-accent);
-    //}
-    //
-    //tbody tr td {
-    //  border-bottom: 1px solid var(--color-accent);
-    //}
-
-    //tr:nth-child(odd) {
-    //  background-color: #eee;
-    //}
   }
 
   blockquote {
