@@ -1,7 +1,7 @@
 import type { FC } from "react";
 
 import { TWITTER_NAME, TWITTER_URL } from "../constants";
-import styles from "./layout.module.scss";
+import styles from "./Footer.module.scss";
 
 interface Props {}
 
