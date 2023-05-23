@@ -13,6 +13,14 @@ const blog = defineCollection({
   }),
 });
 
+const roundup = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+  }),
+});
+
 export const collections = {
   blog,
+  roundup,
 };

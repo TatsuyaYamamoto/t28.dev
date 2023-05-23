@@ -1,43 +1,41 @@
 ---
 import { getCollection } from "astro:content";
 
-import BaseLayout from "../layouts/BaseLayout.astro";
-import BlogList from "../components/BlogList";
-import Bio from "../components/bio";
-import Footer from "../components/Footer";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import RoundupList from "../../components/RoundupList";
+import Bio from "../../components/bio";
+import Footer from "../../components/Footer";
 
-import { SITE_TITLE } from "../constants";
+import { SITE_TITLE } from "../../constants";
 
-const allBlogPosts = await getCollection("blog");
+const allRoundups = await getCollection("roundup");
 
-const posts = allBlogPosts
+const roundupPosts = allRoundups
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .map((post) => ({
-    slug: `blog/${post.slug}`,
+    slug: `roundup/${post.slug}`,
     title: post.data.title,
     description: post.data.description ?? /* WIP */ post.body.slice(0, 100),
-    date: post.data.date,
-    category: post.data.category,
   }));
 ---
 
 <BaseLayout>
   <header class="header">
     <div class="header__inner">
-      <h1><a href="/">{SITE_TITLE}</a></h1>
+      <h1><a href="/static">{SITE_TITLE}</a></h1>
     </div>
   </header>
   <section class="bio-section">
     <Bio />
   </section>
   <section class="list-section">
-    <BlogList posts={posts} />
+    <RoundupList posts={roundupPosts} />
   </section>
   <Footer />
 </BaseLayout>
 
 <style lang="scss">
-  @use "../styles/mixins.scss";
+  @use "../../styles/mixins.scss";
 
   .header {
     margin: var(--spacing-12) 0;

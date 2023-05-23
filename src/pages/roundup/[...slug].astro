@@ -1,0 +1,52 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Footer from "../../components/Footer";
+import { SITE_TITLE } from "../../constants";
+
+export const getStaticPaths = async () => {
+  const allRoundups = await getCollection("roundup");
+  return allRoundups.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+};
+
+interface Props {
+  post: CollectionEntry<"roundup">;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<BaseLayout>
+  <header class="header">
+    <div class="header__inner">
+      <a href="/">{SITE_TITLE}</a>
+    </div>
+  </header>
+
+  <Content />
+  <Footer />
+</BaseLayout>
+
+<style lang="scss">
+  @use "../../styles/mixins.scss";
+
+  .header {
+    margin: var(--spacing-12) 0;
+
+    a {
+      font-weight: var(--fontWeight-bold);
+      text-decoration: none;
+      font-size: var(--fontSize-2);
+    }
+
+    &__inner {
+      @include mixins.container;
+    }
+  }
+</style>
