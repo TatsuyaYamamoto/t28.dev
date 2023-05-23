@@ -1,51 +1,30 @@
-import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
-import { OutboundLink } from "gatsby-plugin-google-gtag";
+import type { FC } from "react";
 
-import * as styles from "./bio.module.scss";
+import { TWITTER_NAME, TWITTER_URL, AUTHOR_SUMMARY } from "../constants";
 
-const Bio: React.FC = () => {
-  const data = useStaticQuery<GatsbyTypes.BioQuery>(graphql`
-    query Bio {
-      site {
-        siteMetadata {
-          author {
-            name
-            summary
-            twitterUrl
-          }
-        }
-      }
-    }
-  `);
+import styles from "./bio.module.scss";
+import profilePic from "../assets/images/profile-pic.jpg";
 
-  // Set these values by editing "siteMetadata" in gatsby-config.js
-  const authorName = data.site?.siteMetadata?.author?.name;
-  const authorSummary = data.site?.siteMetadata?.author?.summary;
-  const twitterUrl = data.site?.siteMetadata?.author?.twitterUrl;
-
+const Bio: FC = () => {
   return (
     <div className={styles.bio}>
       <div className="bio-left">
-        <StaticImage
-          alt="Profile picture"
-          src="../assets/images/profile-pic.jpg"
+        <img
+          alt=""
+          src={profilePic}
           width={50}
           height={50}
-          aspectRatio={1}
-          quality={95}
-          imgStyle={{
+          style={{
             borderRadius: `50px`,
           }}
         />
       </div>
       <div className={styles.bioRight}>
-        {authorSummary}
+        {AUTHOR_SUMMARY}
         <br />
-        <OutboundLink href={twitterUrl} target="_blank">
-          {authorName}
-        </OutboundLink>
+        <a href={TWITTER_URL} target="_blank">
+          {TWITTER_NAME}
+        </a>
       </div>
     </div>
   );

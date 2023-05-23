@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogList from "../components/BlogList";
-import * as styles from "../styles/pages-index.module.scss";
+import Bio from "../components/bio";
 
 const allBlogPosts = await getCollection("blog");
 
@@ -19,13 +19,20 @@ const posts = allBlogPosts
 ---
 
 <BaseLayout>
-  <div class="list-section">
+  <section class="bio-section">
+    <Bio />
+  </section>
+  <section class="list-section">
     <BlogList posts={posts} />
-  </div>
+  </section>
 </BaseLayout>
 
 <style lang="scss">
   @use "../styles/mixins.scss";
+
+  .bio-section {
+    @include mixins.container;
+  }
 
   .list-section {
     @include mixins.container;
