@@ -2,23 +2,32 @@
 import { getCollection } from "astro:content";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogList from "../components/BlogList";
+import * as styles from "../styles/pages-index.module.scss";
 
 const allBlogPosts = await getCollection("blog");
 
-const posts = allBlogPosts.sort(
-  (a, b) => a.data.date.valueOf() - b.data.date.valueOf()
-);
+const posts = allBlogPosts
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
+  .map((post) => ({
+    slug: post.slug,
+    title: post.data.title,
+    description: "wip",
+    date: post.data.date,
+    category: "wip",
+  }));
 ---
 
 <BaseLayout>
-  <div>
-    {
-      posts.map((post) => (
-        <li>
-          <div> {post.data.date}</div>
-          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-        </li>
-      ))
-    }
+  <div class="list-section">
+    <BlogList posts={posts} />
   </div>
 </BaseLayout>
+
+<style lang="scss">
+  @use "../styles/mixins.scss";
+
+  .list-section {
+    @include mixins.container;
+  }
+</style>

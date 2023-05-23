@@ -1,6 +1,3 @@
-import React from "react";
-import { Link } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Chip } from "@material-ui/core";
 
 import Bio from "./bio";
@@ -35,7 +32,7 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
         </div>
         {roundup && (
           <div>
-            {`Rounded-up in: `} <Link to={roundup.slug}>{roundup.title}</Link>
+            {`Rounded-up in: `} <a href={roundup.slug}>{roundup.title}</a>
           </div>
         )}
       </header>

@@ -1,15 +1,13 @@
-import { Link } from "gatsby";
-import React, { FC } from "react";
-import { Chip } from "@material-ui/core";
+import type { FC } from "react";
 
-import * as styles from "../styles/pages-index.module.scss";
+import styles from "../styles/pages-index.module.scss";
 
 interface Props {
   posts: {
     slug: string;
     title: string;
     description: string;
-    date: string;
+    date: Date;
     category: string;
   }[];
 }
@@ -29,17 +27,16 @@ const BlogList: FC<Props> = (props) => {
             >
               <header>
                 <h2>
-                  <Link to={post.slug} itemProp="url">
+                  <a href={post.slug} itemProp="url">
                     <span itemProp="headline">{post.title}</span>
-                  </Link>
+                  </a>
                 </h2>
                 <div style={{ display: "flex", alignItems: "center" }}>
-                  <small>{post.date}</small>
-                  <Chip
-                    label={post.category}
-                    style={{ marginLeft: 5 }}
-                    size="small"
-                  />
+                  <small>{post.date.toLocaleDateString()}</small>
+                  <span style={{ marginLeft: 5 }}>
+                    {/* TODO style */}
+                    {post.category}
+                  </span>
                 </div>
               </header>
               <section>
