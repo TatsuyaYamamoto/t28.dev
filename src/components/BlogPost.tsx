@@ -9,14 +9,13 @@ export interface Props {
   title: string;
   date: Date;
   category: string;
-  body: string;
   roundup?: {
     slug: string;
     title: string;
   };
 }
 
-const Post: FC<PropsWithChildren<Props>> = ({
+const BlogPost: FC<PropsWithChildren<Props>> = ({
   title,
   date,
   category,
@@ -49,4 +48,4 @@ const Post: FC<PropsWithChildren<Props>> = ({
   );
 };
 
-export default Post;
+export default BlogPost;

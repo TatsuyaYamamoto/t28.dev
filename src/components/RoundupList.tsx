@@ -1,6 +1,6 @@
 import type { FC } from "react";
 
-import styles from "../styles/pages-index.scss";
+import styles from "./BlogList.module.scss";
 
 interface Props {
   posts: {
