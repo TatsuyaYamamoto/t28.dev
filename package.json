@@ -14,7 +14,8 @@
     "build": "  astro build",
     "preview": "astro preview",
     "type-check": "tsc --noEmit",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "ln -fs $PWD/docs/blog $PWD/src/content/ && ln -fs $PWD/docs/roundup $PWD/src/content/"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,md}": "prettier --write"
