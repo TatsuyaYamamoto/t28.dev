@@ -21,8 +21,7 @@
     "*.{js,jsx,ts,tsx,json,md}": "prettier --write"
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.4",
-    "@material-ui/icons": "^4.11.2",
+    "@astrojs/react": "^2.2.0",
     "astro": "^2.5.2",
     "astro-seo": "^0.7.2",
     "modern-css-reset": "^1.4.0",
