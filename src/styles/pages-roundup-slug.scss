@@ -1,0 +1,19 @@
+@use "./mixins.scss";
+
+.header {
+  margin: var(--spacing-12) 0;
+
+  a {
+    font-weight: var(--fontWeight-bold);
+    text-decoration: none;
+    font-size: var(--fontSize-2);
+  }
+
+  &__inner {
+    @include mixins.container;
+  }
+}
+
+.roundup-post-page {
+  @include mixins.container;
+}

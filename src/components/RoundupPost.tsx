@@ -1,26 +1,24 @@
-import React, { FC } from "react";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import type { FC, PropsWithChildren } from "react";
 
-import * as styles from "./BlogPost.module.scss";
+import styles from "./BlogPost.module.scss";
 
 export interface Props {
   title: string;
-  body: string;
 }
 
-const RoundupPost: FC<Props> = (props) => {
-  const { title, body } = props;
+const RoundupPost: FC<PropsWithChildren<Props>> = (props) => {
+  const { title, children } = props;
 
   return (
     <article
-      className={styles.blogPost}
+      className={styles.root}
       itemScope
       itemType="http://schema.org/Article"
     >
       <header>
         <h1 itemProp="headline">{title}</h1>
       </header>
-      <MDXRenderer>{body}</MDXRenderer>
+      {children}
     </article>
   );
 };

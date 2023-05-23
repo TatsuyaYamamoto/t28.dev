@@ -1,8 +1,11 @@
 ---
+import "../../styles/pages-roundup-slug.scss";
+
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import RoundupPost from "../../components/RoundupPost";
 import Footer from "../../components/Footer";
 import { SITE_TITLE } from "../../constants";
 
@@ -28,25 +31,10 @@ const { Content } = await post.render();
       <a href="/">{SITE_TITLE}</a>
     </div>
   </header>
-
-  <Content />
+  <div class="roundup-post-page">
+    <RoundupPost title={post.data.title}>
+      <Content />
+    </RoundupPost>
+  </div>
   <Footer />
 </BaseLayout>
-
-<style lang="scss">
-  @use "../../styles/mixins.scss";
-
-  .header {
-    margin: var(--spacing-12) 0;
-
-    a {
-      font-weight: var(--fontWeight-bold);
-      text-decoration: none;
-      font-size: var(--fontSize-2);
-    }
-
-    &__inner {
-      @include mixins.container;
-    }
-  }
-</style>
