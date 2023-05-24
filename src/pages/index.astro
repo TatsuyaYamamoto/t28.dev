@@ -1,0 +1,39 @@
+---
+import "../styles/pages-index.scss";
+
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogList from "../components/BlogList";
+import Bio from "../components/Bio";
+import Footer from "../components/Footer";
+
+import { SITE_TITLE } from "../constants";
+
+const allBlogPosts = await getCollection("blog");
+
+const posts = allBlogPosts
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .map((post) => ({
+    slug: `blog/${post.slug}`,
+    title: post.data.title,
+    description: post.data.description ?? /* WIP */ post.body.slice(0, 100),
+    date: post.data.date,
+    category: post.data.category,
+  }));
+---
+
+<BaseLayout>
+  <header class="header">
+    <div class="header__inner">
+      <h1><a href="/">{SITE_TITLE}</a></h1>
+    </div>
+  </header>
+  <section class="bio-section">
+    <Bio />
+  </section>
+  <section class="list-section">
+    <BlogList posts={posts} />
+  </section>
+  <Footer />
+</BaseLayout>

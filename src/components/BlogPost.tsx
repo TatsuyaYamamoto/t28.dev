@@ -1,45 +1,46 @@
-import React from "react";
-import { Link } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import { Chip } from "@material-ui/core";
+import type { FC, PropsWithChildren } from "react";
 
-import Bio from "./bio";
+import Bio from "./Bio";
+import Chip from "./Chip";
 
-import * as styles from "./BlogPost.module.scss";
+import styles from "./BlogPost.module.scss";
 
-export interface BlogPostProps {
+export interface Props {
   title: string;
-  date: string;
+  date: Date;
   category: string;
-  body: string;
   roundup?: {
     slug: string;
     title: string;
   };
 }
 
-const BlogPost: React.FC<BlogPostProps> = (props) => {
-  const { title, date, category, body, roundup } = props;
-
+const BlogPost: FC<PropsWithChildren<Props>> = ({
+  title,
+  date,
+  category,
+  roundup,
+  children,
+}) => {
   return (
     <article
-      className={styles.blogPost}
+      className={styles.root}
       itemScope
       itemType="http://schema.org/Article"
     >
       <header>
         <h1 itemProp="headline">{title}</h1>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <span>{date}</span>
-          <Chip label={category} style={{ marginLeft: 5 }} size="small" />
+          <span style={{ marginRight: 5 }}>{date.toLocaleDateString()}</span>
+          <Chip>{category}</Chip>
         </div>
         {roundup && (
           <div>
-            {`Rounded-up in: `} <Link to={roundup.slug}>{roundup.title}</Link>
+            {`Rounded-up in: `} <a href={roundup.slug}>{roundup.title}</a>
           </div>
         )}
       </header>
-      <MDXRenderer>{body}</MDXRenderer>
+      {children}
       <footer>
         <Bio />
       </footer>

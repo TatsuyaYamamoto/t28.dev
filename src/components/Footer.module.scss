@@ -1,0 +1,14 @@
+@import "../styles/mixins";
+
+.appFooter {
+  margin-top: var(--spacing-12);
+}
+
+.footerInner {
+  @include container;
+}
+
+.footerCopyRight {
+  padding: 20px 0;
+  text-align: center;
+}

@@ -1,0 +1,53 @@
+@use "./mixins.scss";
+
+$side_menu_width: 250px;
+
+.header {
+  margin: var(--spacing-12) 0;
+
+  a {
+    font-weight: var(--fontWeight-bold);
+    text-decoration: none;
+    font-size: var(--fontSize-2);
+  }
+
+  &__inner {
+    @include mixins.container;
+  }
+}
+
+.blog-post-page {
+  @include mixins.container;
+
+  display: flex;
+  justify-content: space-between;
+
+  &__left {
+    width: calc(100% - #{$side_menu_width} - 30px);
+
+    @media screen and (max-width: 800px) {
+      width: 100%;
+    }
+  }
+  &__right {
+    width: $side_menu_width;
+
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
+  }
+}
+
+.side-menu {
+  position: sticky;
+  top: 20px;
+
+  padding: 10px;
+  overflow: auto;
+
+  border: 1px solid #dfdfdf;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgb(67 133 187 / 7%);
+
+  background-color: #fcfcfc;
+}

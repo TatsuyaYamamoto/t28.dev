@@ -1,0 +1,48 @@
+---
+import "../styles/global.scss";
+
+import { SEO } from "astro-seo";
+import GtagSnippet from "../components/GtagSnippet";
+import {
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+  DEFAULT_OGP_IMAGE_URL,
+  TWITTER_NAME,
+} from "../constants";
+
+const { frontmatter } = Astro.props;
+
+const title = frontmatter?.title
+  ? `${frontmatter.title} | ${SITE_TITLE}`
+  : SITE_TITLE;
+---
+
+<html lang="ja">
+  <head>
+    <title>{title}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <GtagSnippet />
+
+    <SEO
+      description={SITE_DESCRIPTION}
+      openGraph={{
+        basic: {
+          title: title,
+          type: "website",
+          image: DEFAULT_OGP_IMAGE_URL,
+        },
+      }}
+      twitter={{
+        creator: TWITTER_NAME,
+        card: "summary",
+        title,
+        description: SITE_DESCRIPTION,
+      }}
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,6 +1,4 @@
-@import "../styles/mixins";
-
-.post-list-item {
+.postListItem {
   margin-bottom: var(--spacing-8);
   margin-top: var(--spacing-8);
 
@@ -18,12 +16,4 @@
   header {
     margin-bottom: var(--spacing-4);
   }
-}
-
-.listSection {
-  @include container;
-}
-
-.bioSection {
-  @include container;
 }

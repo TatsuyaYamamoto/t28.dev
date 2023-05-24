@@ -10,52 +10,28 @@
     "url": "git+https://github.com/TatsuyaYamamoto/t28-tatsuya.dev.git"
   },
   "scripts": {
-    "build": "gatsby build",
-    "dev": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "type-check": "tsc --noEmit",
-    "prepare": "husky install"
+    "dev": "    astro dev",
+    "build": "  astro check && tsc --noEmit && astro build",
+    "preview": "astro preview",
+    "prepare": "husky install",
+    "postinstall": "ln -fs $PWD/docs/blog $PWD/src/content/ && ln -fs $PWD/docs/roundup $PWD/src/content/"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,md}": "prettier --write"
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.4",
-    "@material-ui/icons": "^4.11.2",
-    "gatsby": "^4.2.0",
-    "gatsby-plugin-google-gtag": "^4.2.0",
-    "gatsby-plugin-image": "^2.2.0",
-    "gatsby-plugin-manifest": "^4.2.0",
-    "gatsby-plugin-mdx": "^3.2.0",
-    "gatsby-plugin-netlify": "^4.1.0",
-    "gatsby-plugin-react-helmet": "^5.2.0",
-    "gatsby-plugin-sass": "^5.2.0",
-    "gatsby-plugin-sharp": "^4.2.0",
-    "gatsby-plugin-sitemap": "^5.2.0",
-    "gatsby-plugin-typegen": "^2.2.4",
-    "gatsby-remark-autolink-headers": "^5.2.0",
-    "gatsby-remark-copy-linked-files": "^5.2.0",
-    "gatsby-remark-images": "^6.2.0",
-    "gatsby-remark-prismjs": "^6.2.0",
-    "gatsby-remark-responsive-iframe": "^5.2.0",
-    "gatsby-remark-smartypants": "^5.2.0",
-    "gatsby-source-filesystem": "^4.2.0",
-    "gatsby-transformer-sharp": "^4.2.0",
+    "@astrojs/react": "^2.2.0",
+    "@astrojs/sitemap": "^1.3.1",
+    "astro": "^2.5.2",
+    "astro-seo": "^0.7.2",
     "modern-css-reset": "^1.4.0",
-    "prismjs": "^1.23.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "typeface-merriweather": "0.0.72",
-    "typeface-montserrat": "0.0.75"
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@types/react-dom": "^17.0.3",
-    "@types/react-helmet": "^6.1.0",
     "husky": "^7.0.4",
     "lint-staged": "^11.2.6",
     "prettier": "^2.4.1",
-    "sass": "^1.32.12",
-    "typescript": "^4.2.4"
+    "typescript": "^5.0.4"
   }
 }

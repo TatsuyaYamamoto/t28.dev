@@ -65,7 +65,7 @@ customElements.define("something-good", SomethingGood);
 
 と書くことで
 
-![normal dom tree](../assets/blog/clarify-what-we-do-to-create-web-components/image_nomarl_dom_tree.jpg)
+![normal dom tree](/assets/blog/clarify-what-we-do-to-create-web-components/image_nomarl_dom_tree.jpg)
 
 という感じで DOM ツリーが展開されます。
 
@@ -99,7 +99,7 @@ class SomethingGood extends HTMLElement {
 customElements.define("something-good", SomethingGood);
 ```
 
-![shadow dom tree](../assets/blog/clarify-what-we-do-to-create-web-components/image_shadow_dom_tree.jpg)
+![shadow dom tree](/assets/blog/clarify-what-we-do-to-create-web-components/image_shadow_dom_tree.jpg)
 
 `<something-good>`の中身が Shadow DOM の中で展開されていることが分かる。
 
@@ -251,7 +251,7 @@ class SomethingGood extends HTMLElement {
 customElements.define("something-good", SomethingGood);
 ```
 
-![style pattern1](../assets/blog/clarify-what-we-do-to-create-web-components/image_style_pattern_1.jpg)
+![style pattern1](/assets/blog/clarify-what-we-do-to-create-web-components/image_style_pattern_1.jpg)
 
 Shadow host (:host) の display プロパティが初期値（具体値分からん）の場合、Shadow host として認識されて背景色が付くのは slot 以外の部分です。
 custom elements の子要素として slot を使う場合、これは感覚的な期待値ではないので、:host に いい感じの display プロパティを与える必要があります。
@@ -263,7 +263,7 @@ custom elements の子要素として slot を使う場合、これは感覚的�
 }
 ```
 
-![style pattern2](../assets/blog/clarify-what-we-do-to-create-web-components/image_style_pattern_2.jpg)
+![style pattern2](/assets/blog/clarify-what-we-do-to-create-web-components/image_style_pattern_2.jpg)
 
 ## イベントの発火
 

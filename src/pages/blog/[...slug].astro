@@ -1,0 +1,56 @@
+---
+import "../../styles/pages-blog-slug.scss";
+
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogPost from "../../components/BlogPost";
+import Footer from "../../components/Footer";
+import Toc from "../../components/Toc";
+
+import { headingToTocItems } from "../../helpers/utils";
+
+import { SITE_TITLE } from "../../constants";
+
+export const getStaticPaths = async () => {
+  const allBlogPosts = await getCollection("blog");
+  return allBlogPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+};
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await post.render();
+---
+
+<BaseLayout>
+  <header class="header">
+    <div class="header__inner">
+      <a href="/">{SITE_TITLE}</a>
+    </div>
+  </header>
+  <div class="blog-post-page">
+    <div class="blog-post-page__left">
+      <BlogPost
+        title={post.data.title}
+        date={post.data.date}
+        category={post.data.category}
+      >
+        <Content />
+      </BlogPost>
+    </div>
+    <div class="blog-post-page__right">
+      <aside class="side-menu">
+        <div>目次</div>
+        <Toc client:visible items={headingToTocItems(headings)} />
+      </aside>
+    </div>
+  </div>
+</BaseLayout>
+<Footer />

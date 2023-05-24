@@ -1,0 +1,61 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import RoundupList from "../../components/RoundupList";
+import Bio from "../../components/Bio";
+import Footer from "../../components/Footer";
+
+import { SITE_TITLE } from "../../constants";
+
+const allRoundups = await getCollection("roundup");
+
+const roundupPosts = allRoundups.map((post) => ({
+  slug: `roundup/${post.slug}`,
+  title: post.data.title,
+}));
+---
+
+<BaseLayout>
+  <header class="header">
+    <div class="header__inner">
+      <h1><a href="/static">{SITE_TITLE}</a></h1>
+    </div>
+  </header>
+  <section class="bio-section">
+    <Bio />
+  </section>
+  <section class="list-section">
+    <RoundupList posts={roundupPosts} />
+  </section>
+  <Footer />
+</BaseLayout>
+
+<style lang="scss">
+  @use "../../styles/mixins.scss";
+
+  .header {
+    margin: var(--spacing-12) 0;
+
+    h1 {
+      font-size: var(--fontSize-7);
+      margin: 0;
+    }
+
+    a {
+      color: var(--color-primary);
+    }
+
+    &__inner {
+      @include mixins.container;
+    }
+  }
+
+  .bio-section {
+    @include mixins.container;
+  }
+
+  .list-section {
+    @include mixins.container;
+  }
+</style>

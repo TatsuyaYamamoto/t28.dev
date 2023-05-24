@@ -1,0 +1,40 @@
+---
+import "../../styles/pages-roundup-slug.scss";
+
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import RoundupPost from "../../components/RoundupPost";
+import Footer from "../../components/Footer";
+import { SITE_TITLE } from "../../constants";
+
+export const getStaticPaths = async () => {
+  const allRoundups = await getCollection("roundup");
+  return allRoundups.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+};
+
+interface Props {
+  post: CollectionEntry<"roundup">;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<BaseLayout>
+  <header class="header">
+    <div class="header__inner">
+      <a href="/">{SITE_TITLE}</a>
+    </div>
+  </header>
+  <div class="roundup-post-page">
+    <RoundupPost title={post.data.title}>
+      <Content />
+    </RoundupPost>
+  </div>
+  <Footer />
+</BaseLayout>
