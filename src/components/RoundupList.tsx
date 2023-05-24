@@ -6,7 +6,6 @@ interface Props {
   posts: {
     slug: string;
     title: string;
-    description: string;
   }[];
 }
 
@@ -30,9 +29,6 @@ const RoundupList: FC<Props> = (props) => {
                   </a>
                 </h2>
               </header>
-              <section>
-                <p itemProp="description">{post.description}</p>
-              </section>
             </article>
           </li>
         );

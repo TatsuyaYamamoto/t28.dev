@@ -59,9 +59,9 @@ const Toc: FC<Props> = ({ items }) => {
   const onIntersect: IntersectionObserverCallback = (entries) => {
     if (/* first callback */ entries.length === ids.length) {
       let minDiff = Number.MAX_VALUE;
-      let minDiffId = null;
+      let minDiffId: string | null = null;
 
-      entries.forEach((entry) => {
+      for (const entry of entries) {
         const id = entry.target.id;
         const rootBoundsTop = entry.rootBounds?.top || 0;
         const boundingTop = entry.boundingClientRect.top;
@@ -71,9 +71,12 @@ const Toc: FC<Props> = ({ items }) => {
           minDiff = diff;
           minDiffId = id;
         }
-      });
+      }
 
-      setActiveHeadingId(minDiffId);
+      if (minDiffId) {
+        setActiveHeadingId(minDiffId);
+      }
+
       return;
     }
 
@@ -106,8 +109,12 @@ const Toc: FC<Props> = ({ items }) => {
     if (!isHTMLAnchorElement(e.target)) {
       return;
     }
+    const encodedId = e.target.href.split("#")[1];
+    if (!encodedId) {
+      return;
+    }
 
-    const id = decodeURIComponent(e.target.href.split("#")[1]);
+    const id = decodeURIComponent(encodedId);
     document.getElementById(id)?.scrollIntoView();
   };
 

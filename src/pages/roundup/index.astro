@@ -10,13 +10,10 @@ import { SITE_TITLE } from "../../constants";
 
 const allRoundups = await getCollection("roundup");
 
-const roundupPosts = allRoundups
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .map((post) => ({
-    slug: `roundup/${post.slug}`,
-    title: post.data.title,
-    description: post.data.description ?? /* WIP */ post.body.slice(0, 100),
-  }));
+const roundupPosts = allRoundups.map((post) => ({
+  slug: `roundup/${post.slug}`,
+  title: post.data.title,
+}));
 ---
 
 <BaseLayout>
