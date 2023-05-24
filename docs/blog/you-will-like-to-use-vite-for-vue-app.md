@@ -8,7 +8,7 @@ date: "2022-10-19"
 この記事は、私が "[UIT Meetup vol.17『もっと好きになる Vue.js』](https://uit.connpass.com/event/258384/)" に登壇するに際して事前に調べた情報の**メモを(ほぼ)そのまま流用したもの**です。
 いろんな都合で登壇時には言及しない余談(多分)等もそのままの雑な読み物ですが、参考までにということで 🙏
 
-![UIT Meetup vol.17『もっと好きになるVue.js』](../assets/blog/you-will-like-to-use-vite-for-vue-app/uit_meetup_vol_17.jpg)
+![UIT Meetup vol.17『もっと好きになるVue.js』](/assets/blog/you-will-like-to-use-vite-for-vue-app/uit_meetup_vol_17.jpg)
 
 ---
 
@@ -51,7 +51,7 @@ date: "2022-10-19"
 
 ## Vite っていいよね〜だって...
 
-![Vite features](../assets/blog/you-will-like-to-use-vite-for-vue-app/vite_features.jpg)
+![Vite features](/assets/blog/you-will-like-to-use-vite-for-vue-app/vite_features.jpg)
 
 ref: https://vitejs.dev
 
@@ -225,13 +225,13 @@ ref: https://webpack.js.org/guides/build-performance/
 
 ### 一般的な webpack.config.js のビルド
 
-![](../assets/blog/you-will-like-to-use-vite-for-vue-app/webpack_config_single.jpg)
+![](/assets/blog/you-will-like-to-use-vite-for-vue-app/webpack_config_single.jpg)
 
 npm パッケージや自分で書いたアプリケーションのモジュールを全て対象にビルド・バンドルするので重いよってこと。
 
 ### DllPlugin を使ったビルド
 
-![](../assets/blog/you-will-like-to-use-vite-for-vue-app/webpack_config_multi.jpg)
+![](/assets/blog/you-will-like-to-use-vite-for-vue-app/webpack_config_multi.jpg)
 
 DllPlugin を使って２つのビルドプロセスに分ける
 
@@ -267,7 +267,7 @@ webpack が課題としていたこと (更新頻度が低いモジュールま�
   - ファイル監視・再ビルドするのは、npm パッケージ以外のみ (ここは DLLPlugin と同じ)
   - ES Modules 単位 (自分で書いたモジュールや npm パッケージ毎) にキャッシュを効かせられる
 
-![](../assets/blog/you-will-like-to-use-vite-for-vue-app/vite_prebundle.jpg)
+![](/assets/blog/you-will-like-to-use-vite-for-vue-app/vite_prebundle.jpg)
 
 ## Vue が今推奨しているのは Vite
 
