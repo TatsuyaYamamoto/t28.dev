@@ -11,9 +11,8 @@
   },
   "scripts": {
     "dev": "    astro dev",
-    "build": "  astro build",
+    "build": "  astro check && tsc --noEmit && astro build",
     "preview": "astro preview",
-    "type-check": "tsc --noEmit",
     "prepare": "husky install",
     "postinstall": "ln -fs $PWD/docs/blog $PWD/src/content/ && ln -fs $PWD/docs/roundup $PWD/src/content/"
   },
@@ -39,6 +38,6 @@
     "lint-staged": "^11.2.6",
     "prettier": "^2.4.1",
     "sass": "^1.32.12",
-    "typescript": "^4.2.4"
+    "typescript": "^5.0.4"
   }
 }
