@@ -1,7 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
-    // (2022/10/23) changed a slug of blog pages
+    {
+      "source": "### temporary solution to comment in json ###",
+      "destination": "2022-10-23_changed_a_slug_of_blog_pages"
+    },
     {
       "source": "/firebase-storage-token-does-not-expire",
       "destination": "/blog/firebase-storage-token-does-not-expire"
