@@ -1,0 +1,14 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  color: #ffc69e;
+  font-size: 25px;
+  font-family: sans-serif;
+  font-weight: 600;
+
+  & svg {
+    width: 30px;
+    margin-right: 5px;
+    fill: currentColor !important;
+  }
+}
