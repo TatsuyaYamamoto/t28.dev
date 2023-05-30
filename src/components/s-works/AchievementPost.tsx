@@ -7,7 +7,6 @@ import styles from "./AchievementPost.module.scss";
 interface Props {
   title: string;
   date: Date;
-  heroImageUrl: string;
   links: {
     href: string;
     type: "twitter" | "external";

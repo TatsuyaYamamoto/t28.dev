@@ -126,11 +126,11 @@ GTM と GA4 の機能をそれぞれ使って page_view イベントを送信し
 
 GA4 では拡張計測機能によって[色々なイベントを自動的に収集してくれます](https://support.google.com/analytics/answer/9234069?hl=ja) 。自動測定対象にはページビューもあるため、自前でイベントを送信しなくて OK🤗
 
-![](./ga4-config-for-page-view.jpg)
+![](/assets/blog/next-js-with-ga4/ga4-config-for-page-view.jpg)
 
 ページビュー数には設定があって、history api の更新を監視して(多分) 自動でイベントを送信するか否かを制御出来ます。デフォルトで ON なのであまり気にしなくて良い。
 
-![](./ga4-config-for-page-view-2.jpg)
+![](/assets/blog/next-js-with-ga4/ga4-config-for-page-view-2.jpg)
 
 #### GTM の設定で、最初の page_view を送信する
 
@@ -146,7 +146,7 @@ gtag("config", "G-XXXXXX");
 
 ページ読み込み GTM のタグとしての GA4 の設定で、設定が読み込まれるとき[^1]、`page_view`を送信してもらうようにします。
 
-![](./gtm-config-for-page-view.jpg)
+![](/assets/blog/next-js-with-ga4/gtm-config-for-page-view.jpg)
 
 ### カスタムイベント送信用の関数があってもいいんじゃないかな
 

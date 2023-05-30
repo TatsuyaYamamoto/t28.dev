@@ -3,6 +3,7 @@
   "private": true,
   "description": "t28.dev",
   "version": "0.1.0",
+  "type": "module",
   "author": "Tatsuya Yamamoto <t28.is.tatsuya@gmail.com>",
   "license": "MIT",
   "repository": {
@@ -27,8 +28,7 @@
     "astro-seo": "^0.7.2",
     "modern-css-reset": "^1.4.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.8.0"
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "bulma": "^0.9.4",

@@ -11,7 +11,7 @@ const Bio: FC = () => {
       <div className="bio-left">
         <img
           alt=""
-          src={profilePic}
+          src={profilePic.src}
           width={50}
           height={50}
           style={{

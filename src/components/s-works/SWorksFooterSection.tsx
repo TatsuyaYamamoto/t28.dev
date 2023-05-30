@@ -1,9 +1,7 @@
 import { FC, useState } from "react";
 
-import {
-  FaTwitter as TwitterIcon,
-  FaGithub as GithubIcon,
-} from "react-icons/fa";
+import { ReactComponent as GithubIcon } from "../../assets/icons/fa/github.svg";
+import { ReactComponent as TwitterIcon } from "../../assets/icons/fa/twitter.svg";
 
 import SWorksLogo from "./SWorksLogo";
 
