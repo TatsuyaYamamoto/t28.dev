@@ -1,0 +1,23 @@
+@import "bulma/sass/utilities/all";
+@import "bulma/sass/elements/button";
+
+.root {
+  @extend .button;
+  @extend .is-small;
+  @extend .is-rounded;
+  @extend .is-light;
+
+  text-decoration: none;
+  font-weight: 600;
+
+  svg {
+    width: var(--spacing-3);
+    margin: 0;
+    margin-right: var(--spacing-1);
+  }
+
+  &:focus {
+    // bulma の transparent を打ち消す
+    border-color: unset;
+  }
+}

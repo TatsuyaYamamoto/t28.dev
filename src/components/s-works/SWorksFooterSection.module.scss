@@ -1,0 +1,38 @@
+.root {
+  padding: var(--spacing-5) 0;
+}
+
+.logo {
+  text-align: center;
+  padding: var(--spacing-10) 0;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+
+  & a:first-child {
+    margin-right: var(--spacing-2);
+  }
+
+  & svg {
+    display: block;
+    width: var(--spacing-8);
+    height: var(--spacing-8);
+  }
+}
+
+.twitter {
+  fill: #1da1f2;
+}
+
+.github {
+  fill: #000000;
+}
+
+.copyright {
+  margin-top: 20px;
+  text-align: center;
+}

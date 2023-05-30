@@ -8,7 +8,7 @@ import BlogList from "../components/BlogList";
 import Bio from "../components/Bio";
 import Footer from "../components/Footer";
 
-import { SITE_TITLE } from "../constants";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../constants";
 
 const allBlogPosts = await getCollection("blog");
 
@@ -23,7 +23,11 @@ const posts = allBlogPosts
   }));
 ---
 
-<BaseLayout>
+<BaseLayout
+  title={SITE_TITLE}
+  description={SITE_DESCRIPTION}
+  faviconType="t28.dev"
+>
   <header class="header">
     <div class="header__inner">
       <h1><a href="/">{SITE_TITLE}</a></h1>
