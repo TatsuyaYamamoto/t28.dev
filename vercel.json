@@ -3,6 +3,34 @@
   "redirects": [
     {
       "source": "### temporary solution to comment in json ###",
+      "destination": "2023-05-30_s_works_pages_changed_domain"
+    },
+    {
+      "source": "/nijigasaki_flower_stand",
+      "destination": "/s-works/achievement/nijigasaki_flower_stand"
+    },
+    {
+      "source": "/it_team_memory_game",
+      "destination": "/s-works/achievement/it_team_memory_game"
+    },
+    {
+      "source": "/roll_the_rainbow_dice",
+      "destination": "/s-works/achievement/roll_the_rainbow_dice"
+    },
+    {
+      "source": "/white_day_sweets",
+      "destination": "/s-works/achievement/white_day_sweets"
+    },
+    {
+      "source": "/lovelive_joya_no_kane",
+      "destination": "/s-works/achievement/lovelive_joya_no_kane"
+    },
+    {
+      "source": "/tokimeki_message",
+      "destination": "/s-works/achievement/tokimeki_message"
+    },
+    {
+      "source": "### temporary solution to comment in json ###",
       "destination": "2022-10-23_changed_a_slug_of_blog_pages"
     },
     {
