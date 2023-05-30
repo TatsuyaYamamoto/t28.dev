@@ -4,7 +4,7 @@ import styles from "./BlogList.module.scss";
 
 interface Props {
   posts: {
-    slug: string;
+    url: string;
     title: string;
     description: string;
     date: Date;
@@ -19,7 +19,7 @@ const BlogList: FC<Props> = (props) => {
     <ol style={{ listStyle: `none`, padding: 0 }}>
       {posts.map((post) => {
         return (
-          <li key={post.slug}>
+          <li key={post.url}>
             <article
               className={styles.postListItem}
               itemScope
@@ -27,7 +27,7 @@ const BlogList: FC<Props> = (props) => {
             >
               <header>
                 <h2>
-                  <a href={post.slug} itemProp="url">
+                  <a href={post.url} itemProp="url">
                     <span itemProp="headline">{post.title}</span>
                   </a>
                 </h2>

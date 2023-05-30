@@ -5,7 +5,7 @@ category: "Poem"
 roundup: "/side-business/"
 ---
 
-前記事の通り、[額に関わらず副業の所得があれば確定申告をした方がよい](../self-assessed-tax-payment) ことが分かりました。
+前記事の通り、[額に関わらず副業の所得があれば確定申告をした方がよい](./self-assessed-tax-payment) ことが分かりました。
 
 この記事では極力、[国税庁のサイト](https://www.nta.go.jp/) を参照しながら、確定申告について整理していきます。
 

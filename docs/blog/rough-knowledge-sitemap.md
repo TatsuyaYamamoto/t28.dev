@@ -4,7 +4,7 @@ date: 2021-03-02
 description: "新しいサイト用のsitemapを登録するにあたって、役割・仕様をざっくり調べました。"
 ---
 
-[せっかくサイトを作った](../start-blog-with-gatsby)ので [Google Search Console](https://search.google.com/search-console) にサイトを登録したところ...。
+[せっかくサイトを作った](./start-blog-with-gatsby)ので [Google Search Console](https://search.google.com/search-console) にサイトを登録したところ...。
 
 ![add sitemap sample](/assets/blog/rough-knowledge-sitemap/add-sitemap-sample.jpg)
 

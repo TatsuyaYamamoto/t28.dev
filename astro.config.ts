@@ -7,6 +7,7 @@ import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
   site: "https://t28.dev",
+  trailingSlash: "never",
   integrations: [react(), mdx(), sitemap()],
   vite: {
     plugins: [svgr()],

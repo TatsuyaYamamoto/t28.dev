@@ -3,7 +3,7 @@ title: "Flat config を書いて、ESLint の flat cascade のふるまいを実
 date: "2023-05-01"
 ---
 
-[ESLint の設定ファイルの形式が変わった](../read-eslint-blog-about-flat-config) ので、 flat config で書いた flat cascade が実際どのようにふるまうか実験してみる。
+[ESLint の設定ファイルの形式が変わった](./eslint-blog-about-flat-config) ので、 flat config で書いた flat cascade が実際どのようにふるまうか実験してみる。
 
 ## ドキュメントをさら〜っと読む
 
@@ -37,7 +37,7 @@ ref: [Configuration Objects](https://eslint.org/docs/latest/use/configure/config
 - `plugin` でルールを追加するには自分で import した object を渡す ([ref](https://eslint.org/docs/latest/use/configure/configuration-files-new#using-plugins-in-your-configuration))
 - `rules` の書き方は変わっていない(多分) ([ref](https://eslint.org/docs/latest/use/configure/configuration-files-new#configuring-rules))
 
-ドキュメントに明示的に書かれていない大きな変更点としては... (ref: [拙著](../read-eslint-blog-about-flat-config))
+ドキュメントに明示的に書かれていない大きな変更点としては... (ref: [拙著](./eslint-blog-about-flat-config))
 
 - `extends`, `override` が無くなって、構成オブジェクトの組み合わせで表現するようになった
 - `plugins` に "react" (文字列) を渡しても ESLint 側で `eslint-plugin-react` を解決してくれなくなった

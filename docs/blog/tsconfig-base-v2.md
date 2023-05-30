@@ -3,7 +3,7 @@ title: "tsconfig/bases (の一部) が v2 になったので、ファイルと�
 date: 2023-04-23
 ---
 
-関連: [tsconfig/bases 内の tsconfig.json を (自分が知りたい範囲で) 比較する](../tsconfig-bases-diff)
+関連: [tsconfig/bases 内の tsconfig.json を (自分が知りたい範囲で) 比較する](./tsconfig-bases-diff)
 
 ## tsconfig/bases?
 

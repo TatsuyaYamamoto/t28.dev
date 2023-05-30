@@ -3,7 +3,7 @@ title: "React Hooks の deps がどのように評価されているか、React 
 date: 2021-11-21
 ---
 
-- ["React Hooks の deps にオブジェクトを渡す"](../use-object-as-react-hooks-deps) の副産物
+- ["React Hooks の deps にオブジェクトを渡す"](./use-object-as-react-hooks-deps) の副産物
 - React Hooks の deps がどのように評価されているか、実装を~~適当に端折って~~追う。
 
 ---
