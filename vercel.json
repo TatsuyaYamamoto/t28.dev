@@ -3,6 +3,38 @@
   "redirects": [
     {
       "source": "### temporary solution to comment in json ###",
+      "destination": "2023-05-30_s_works_pages_changed_domain"
+    },
+    {
+      "source": "/nijigasaki_flower_stand",
+      "destination": "/s-works/achievement/nijigasaki_flower_stand"
+    },
+    {
+      "source": "/it_team_memory_game",
+      "destination": "/s-works/achievement/caching-for-gatsby-site"
+    },
+    {
+      "source": "/immers-behavior",
+      "destination": "/s-works/achievement/immers-behavior"
+    },
+    {
+      "source": "/roll_the_rainbow_dice",
+      "destination": "/s-works/achievement/circleci-config-app-with-sdk"
+    },
+    {
+      "source": "/white_day_sweets",
+      "destination": "/s-works/achievement/manage-npm-and-yarn-using-corepack-safely"
+    },
+    {
+      "source": "/lovelive_joya_no_kane",
+      "destination": "/s-works/achievement/circleci-config-app-with-sdk"
+    },
+    {
+      "source": "/tokimeki_message",
+      "destination": "/s-works/achievement/manage-npm-and-yarn-using-corepack-safely"
+    },
+    {
+      "source": "### temporary solution to comment in json ###",
       "destination": "2022-10-23_changed_a_slug_of_blog_pages"
     },
     {
