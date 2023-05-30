@@ -15,4 +15,9 @@
     margin: 0;
     margin-right: var(--spacing-1);
   }
+
+  &:focus {
+    // bulma の transparent を打ち消す
+    border-color: unset;
+  }
 }
