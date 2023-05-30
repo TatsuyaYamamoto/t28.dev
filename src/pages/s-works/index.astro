@@ -13,7 +13,7 @@ const allPosts = await getCollection("s-works-achievement");
 const posts = allPosts
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .map((post) => ({
-    slug: `s-works/achievement/${post.slug}`,
+    slug: `/s-works/achievement/${post.slug}`,
     title: post.data.title,
     description: post.data.description ?? /* WIP */ post.body.slice(0, 100),
     date: post.data.date,
