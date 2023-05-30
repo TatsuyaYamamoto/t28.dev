@@ -23,9 +23,12 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+
+const title = `${post.data.title} | ${SITE_TITLE}`;
+const description = post.data.description ?? /* WIP */ post.body.slice(0, 100);
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description} faviconType="t28.dev">
   <header class="header">
     <div class="header__inner">
       <a href="/">{SITE_TITLE}</a>

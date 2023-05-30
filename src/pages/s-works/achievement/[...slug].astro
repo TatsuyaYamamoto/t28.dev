@@ -9,6 +9,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import SWorksLogo from "../../../components/s-works/SWorksLogo";
 import AchievementPost from "../../../components/s-works/AchievementPost";
 import SWorksFooterSection from "../../../components/s-works/SWorksFooterSection";
+import { SITE_TITLE_S_WORKS } from "../../../constants";
 
 export const getStaticPaths = async () => {
   const allAchievementPosts = await getCollection("s-works-achievement");
@@ -22,25 +23,29 @@ interface Props {
   post: CollectionEntry<"s-works-achievement">;
 }
 
-const {
-  post: {
-    slug,
-    render,
-    data: { title, date, links, heroImage },
-  },
-} = Astro.props;
-const { Content } = await render();
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const description = post.data.description ?? /* WIP */ post.body.slice(0, 100);
 ---
 
-<BaseLayout>
+<BaseLayout
+  title={`${post.data.title} | ${SITE_TITLE_S_WORKS}`}
+  description={description}
+  faviconType="s-works"
+>
   <div class="root">
     <header class="header">
       <SWorksLogo />
     </header>
 
     <article class="article">
-      <Image src={heroImage} alt="" style="height: auto" />
-      <AchievementPost title={title} date={date} links={links}>
+      <Image src={post.data.heroImage} alt="" style="height: auto" />
+      <AchievementPost
+        title={post.data.title}
+        date={post.data.date}
+        links={post.data.links}
+      >
         <Content />
       </AchievementPost>
     </article>

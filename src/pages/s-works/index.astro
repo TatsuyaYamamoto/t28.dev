@@ -7,6 +7,7 @@ import AchievementSection from "../../components/s-works/AchievementSection";
 import FooterSection from "../../components/s-works/SWorksFooterSection";
 import IndexHero from "../../components/s-works/IndexHero";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE_TITLE_S_WORKS, SITE_DESCRIPTION_S_WORKS } from "../../constants";
 
 const allPosts = await getCollection("s-works-achievement");
 const posts = allPosts
@@ -20,7 +21,11 @@ const posts = allPosts
   }));
 ---
 
-<BaseLayout>
+<BaseLayout
+  title={SITE_TITLE_S_WORKS}
+  description={SITE_DESCRIPTION_S_WORKS}
+  faviconType="s-works"
+>
   <section class="hero">
     <IndexHero />
   </section>

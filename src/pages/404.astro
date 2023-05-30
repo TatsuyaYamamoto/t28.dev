@@ -4,10 +4,14 @@ import "../styles/pages-index.scss";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Footer from "../components/Footer";
 
-import { SITE_TITLE } from "../constants";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
 ---
 
-<BaseLayout>
+<BaseLayout
+  title={`Not Found | ${SITE_TITLE}`}
+  description={SITE_DESCRIPTION}
+  faviconType="t28.dev"
+>
   <header class="header">
     <div class="header__inner">
       <h1><a href="/">{SITE_TITLE} - 404: Not Found</a></h1>

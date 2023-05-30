@@ -6,7 +6,7 @@ import RoundupList from "../../components/RoundupList";
 import Bio from "../../components/Bio";
 import Footer from "../../components/Footer";
 
-import { SITE_TITLE } from "../../constants";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../constants";
 
 const allRoundups = await getCollection("roundup");
 
@@ -16,7 +16,11 @@ const roundupPosts = allRoundups.map((post) => ({
 }));
 ---
 
-<BaseLayout>
+<BaseLayout
+  title={`Roundup | ${SITE_TITLE}`}
+  description={SITE_DESCRIPTION}
+  faviconType="t28.dev"
+>
   <header class="header">
     <div class="header__inner">
       <h1><a href="/static">{SITE_TITLE}</a></h1>
