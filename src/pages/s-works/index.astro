@@ -1,0 +1,29 @@
+---
+import "../../styles/pages-s-works-index.scss";
+
+import { getCollection } from "astro:content";
+
+import AchievementSection from "../../components/s-works/AchievementSection";
+import FooterSection from "../../components/s-works/SWorksFooterSection";
+import IndexHero from "../../components/s-works/IndexHero";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const allPosts = await getCollection("s-works-achievement");
+const posts = allPosts
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .map((post) => ({
+    slug: `s-works/achievement/${post.slug}`,
+    title: post.data.title,
+    description: post.data.description ?? /* WIP */ post.body.slice(0, 100),
+    date: post.data.date,
+    heroImage: post.data.heroImage,
+  }));
+---
+
+<BaseLayout>
+  <section class="hero">
+    <IndexHero />
+  </section>
+  <AchievementSection posts={posts} />
+  <FooterSection />
+</BaseLayout>
