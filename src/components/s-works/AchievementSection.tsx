@@ -4,7 +4,7 @@ import styles from "./AchievementSection.module.scss";
 
 interface Props {
   posts: {
-    slug: string;
+    url: string;
     title: string;
     description: string;
     date: Date;
@@ -21,8 +21,8 @@ const AchievementSection: FC<PropsWithChildren<Props>> = ({ posts }) => {
       <div className={styles.inner}>
         <h2 className={styles.heading}>{`Achievements`}</h2>
         <div className={styles.list}>
-          {posts.map(({ slug, title, date, description, heroImage }: any) => (
-            <a key={slug} href={slug} className={styles.listItem}>
+          {posts.map(({ url, title, date, description, heroImage }) => (
+            <a key={url} href={url} className={styles.listItem}>
               <div className={styles.listItemLeft}>
                 <h3>{title}</h3>
                 <p>{date.toLocaleDateString()}</p>
