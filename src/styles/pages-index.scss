@@ -1,18 +1,12 @@
 @use "./mixins.scss";
-body{
-  background-color: red;
-}
 
 .header {
   margin: var(--spacing-12) 0;
 
   h1 {
+    color: var(--color-primary);
     font-size: var(--fontSize-7);
     margin: 0;
-  }
-
-  a {
-    color: var(--color-primary);
   }
 
   &__inner {
