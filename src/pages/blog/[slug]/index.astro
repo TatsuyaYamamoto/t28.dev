@@ -1,17 +1,17 @@
 ---
-import "../../styles/pages-blog-slug.scss";
+import "../../../styles/pages-blog-slug.scss";
 
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import BlogPost from "../../components/BlogPost";
-import Footer from "../../components/Footer";
-import Toc from "../../components/Toc";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import BlogPost from "../../../components/BlogPost";
+import Footer from "../../../components/Footer";
+import Toc from "../../../components/Toc";
 
-import { headingToTocItems } from "../../helpers/utils";
+import { headingToTocItems } from "../../../helpers/utils";
 
-import { SITE_TITLE } from "../../constants";
+import { SITE_TITLE } from "../../../constants";
 
 export const getStaticPaths = async () => {
   const allBlogPosts = await getCollection("blog");
@@ -35,7 +35,7 @@ const description = post.data.description ?? /* WIP */ post.body.slice(0, 100);
 <BaseLayout title={title} description={description} faviconType="t28.dev">
   <header class="header">
     <div class="header__inner">
-      <a href="/">{SITE_TITLE}</a>
+      <a href="/public">{SITE_TITLE}</a>
     </div>
   </header>
   <div class="blog-post-page">
