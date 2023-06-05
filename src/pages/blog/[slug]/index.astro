@@ -30,9 +30,15 @@ const { Content, headings } = await post.render();
 
 const title = `${post.data.title} | ${SITE_TITLE}`;
 const description = post.data.description ?? /* WIP */ post.body.slice(0, 100);
+const ogpImageUrl = new URL(`/blog/${post.slug}/ogp.png`, Astro.url).href;
 ---
 
-<BaseLayout title={title} description={description} faviconType="t28.dev">
+<BaseLayout
+  title={title}
+  description={description}
+  faviconType="t28.dev"
+  ogpImageUrl={ogpImageUrl}
+>
   <header class="header">
     <div class="header__inner">
       <a href="/public">{SITE_TITLE}</a>

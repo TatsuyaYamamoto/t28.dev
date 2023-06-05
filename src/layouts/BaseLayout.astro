@@ -3,15 +3,13 @@ import "../styles/global.scss";
 
 import { SEO } from "astro-seo";
 import GtagSnippet from "../components/GtagSnippet";
-import {
-  DEFAULT_OGP_IMAGE_URL,
-  TWITTER_NAME,
-} from "../constants";
+import { DEFAULT_OGP_IMAGE_URL, TWITTER_NAME } from "../constants";
 
 interface Props {
   title: string;
   description: string;
   faviconType: "t28.dev" | "s-works";
+  ogpImageUrl?: string;
 }
 
 const faviconPathMap = {
@@ -19,7 +17,7 @@ const faviconPathMap = {
   "s-works": "/favicon-s-works.png",
 };
 
-const { title, description, faviconType } = Astro.props;
+const { title, description, faviconType, ogpImageUrl } = Astro.props;
 const faviconPath = faviconPathMap[faviconType];
 ---
 
@@ -37,12 +35,12 @@ const faviconPath = faviconPathMap[faviconType];
         basic: {
           title: title,
           type: "website",
-          image: DEFAULT_OGP_IMAGE_URL,
+          image: ogpImageUrl ?? DEFAULT_OGP_IMAGE_URL,
         },
       }}
       twitter={{
         creator: TWITTER_NAME,
-        card: "summary",
+        card: ogpImageUrl ? "summary_large_image" : "summary",
         title,
         description: description,
       }}
