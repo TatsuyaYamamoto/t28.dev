@@ -2,8 +2,10 @@ import { readFileSync } from "node:fs";
 
 import { ImageResponse } from "@vercel/og";
 
+import t28Profile from "../assets/images/profile-pic.jpg";
+
 const t28ProfileBase64 = readFileSync(
-  new URL("../assets/images/profile-pic.jpg", import.meta.url),
+  new URL(`.${t28Profile.src}`, `${import.meta.url}/../../..`),
   { encoding: "base64" }
 );
 const t28ProfileDataUrl = `data:image/jpeg;base64,${t28ProfileBase64}`;
