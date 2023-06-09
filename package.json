@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "bulma": "^0.9.4",
-    "husky": "^7.0.4",
+    "husky": "^8.0.3",
     "lint-staged": "^11.2.6",
     "prettier": "^2.4.1",
     "typescript": "^5.0.4",
