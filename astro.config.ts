@@ -5,10 +5,15 @@ import sitemap from "@astrojs/sitemap";
 
 import svgr from "vite-plugin-svgr";
 
+import { inferDescriptionMetaPlugin } from "./src/plugins/inferDescriptionMetaPlugin";
+
 export default defineConfig({
   site: "https://t28.dev",
   trailingSlash: "never",
   integrations: [react(), mdx(), sitemap()],
+  markdown: {
+    rehypePlugins: [inferDescriptionMetaPlugin],
+  },
   vite: {
     plugins: [svgr()],
     resolve: {

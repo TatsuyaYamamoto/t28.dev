@@ -1,7 +1,7 @@
 ---
 import "../styles/pages-index.scss";
 
-import { getCollection } from "astro:content";
+import { getCollection, getEntry, CollectionEntry } from "astro:content";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogList from "../components/BlogList";
@@ -12,15 +12,28 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../constants";
 
 const allBlogPosts = await getCollection("blog");
 
-const posts = allBlogPosts
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .map((post) => ({
-    url: `/blog/${post.slug}`,
-    title: post.data.title,
-    description: post.data.description ?? /* WIP */ post.body.slice(0, 100),
-    date: post.data.date,
-    category: post.data.category,
-  }));
+const getDescription = async (
+  post: CollectionEntry<"blog">
+): Promise<string> => {
+  if (post.data.description) {
+    return post.data.description;
+  }
+  const entry = await getEntry("blog", post.slug);
+  const { remarkPluginFrontmatter } = await entry.render();
+  return remarkPluginFrontmatter.excerpt;
+};
+
+const posts = await Promise.all(
+  allBlogPosts
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .map(async (post) => ({
+      url: `/blog/${post.slug}`,
+      title: post.data.title,
+      description: await getDescription(post),
+      date: post.data.date,
+      category: post.data.category,
+    }))
+);
 ---
 
 <BaseLayout
