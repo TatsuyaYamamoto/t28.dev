@@ -7,14 +7,16 @@ export const headingToTocItems = (headings: MarkdownHeading[]): TocItems => {
   const tocItems: TocItems = [];
 
   targetHeadings.forEach((heading) => {
+    const item = {
+      title: heading.text,
+      url: `#${heading.slug}`,
+      depth: heading.depth,
+      children: [],
+    };
+
     if (tocItems.length === 0) {
       // 1st item
-      tocItems.push({
-        title: heading.text,
-        url: heading.slug,
-        depth: heading.depth,
-        children: [],
-      });
+      tocItems.push(item);
       return;
     }
 
@@ -25,22 +27,12 @@ export const headingToTocItems = (headings: MarkdownHeading[]): TocItems => {
 
     if (heading.depth === lastTocItem.depth) {
       // same depth item
-      tocItems.push({
-        title: heading.text,
-        url: heading.slug,
-        depth: heading.depth,
-        children: [],
-      });
+      tocItems.push(item);
       return;
     }
 
     // higher depth item
-    lastTocItem.children.push({
-      title: heading.text,
-      url: heading.slug,
-      depth: heading.depth,
-      children: [],
-    });
+    lastTocItem.children.push(item);
   });
 
   return tocItems;
