@@ -1,5 +1,7 @@
 import type { FC } from "react";
 
+import Chip from "./Chip";
+
 import styles from "./BlogList.module.scss";
 
 interface Props {
@@ -32,11 +34,8 @@ const BlogList: FC<Props> = (props) => {
                   </a>
                 </h2>
                 <div style={{ display: "flex", alignItems: "center" }}>
-                  <small>{post.date.toLocaleDateString()}</small>
-                  <span style={{ marginLeft: 5 }}>
-                    {/* TODO style */}
-                    {post.category}
-                  </span>
+                  <span>{post.date.toLocaleDateString()}</span>
+                  <Chip style={{ marginLeft: 5 }}>{post.category}</Chip>
                 </div>
               </header>
               <section>
