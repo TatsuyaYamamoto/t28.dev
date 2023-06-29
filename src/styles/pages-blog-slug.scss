@@ -51,3 +51,9 @@ $side_menu_width: 250px;
 
   background-color: #fcfcfc;
 }
+
+:not(pre.astro-code) > code {
+  padding: 2px var(--spacing-2);
+  background: #e7e7e7;
+  border-radius: 4px;
+}
