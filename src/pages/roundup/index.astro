@@ -11,7 +11,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../constants";
 const allRoundups = await getCollection("roundup");
 
 const roundupPosts = allRoundups.map((post) => ({
-  slug: `roundup/${post.slug}`,
+  slug: `roundup/${post.slug}/`,
   title: post.data.title,
 }));
 ---

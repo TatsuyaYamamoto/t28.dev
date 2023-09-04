@@ -27,7 +27,7 @@ const posts = await Promise.all(
   allBlogPosts
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
     .map(async (post) => ({
-      url: `/blog/${post.slug}`,
+      url: `/blog/${post.slug}/`,
       title: post.data.title,
       description: await getDescription(post),
       date: post.data.date,
