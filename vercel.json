@@ -8,27 +8,27 @@
     },
     {
       "source": "/nijigasaki_flower_stand",
-      "destination": "/s-works/achievement/nijigasaki_flower_stand"
+      "destination": "/s-works/achievement/nijigasaki_flower_stand/"
     },
     {
       "source": "/it_team_memory_game",
-      "destination": "/s-works/achievement/it_team_memory_game"
+      "destination": "/s-works/achievement/it_team_memory_game/"
     },
     {
       "source": "/roll_the_rainbow_dice",
-      "destination": "/s-works/achievement/roll_the_rainbow_dice"
+      "destination": "/s-works/achievement/roll_the_rainbow_dice/"
     },
     {
       "source": "/white_day_sweets",
-      "destination": "/s-works/achievement/white_day_sweets"
+      "destination": "/s-works/achievement/white_day_sweets/"
     },
     {
       "source": "/lovelive_joya_no_kane",
-      "destination": "/s-works/achievement/lovelive_joya_no_kane"
+      "destination": "/s-works/achievement/lovelive_joya_no_kane/"
     },
     {
       "source": "/tokimeki_message",
-      "destination": "/s-works/achievement/tokimeki_message"
+      "destination": "/s-works/achievement/tokimeki_message/"
     },
     {
       "source": "### temporary solution to comment in json ###",
@@ -36,128 +36,128 @@
     },
     {
       "source": "/firebase-storage-token-does-not-expire",
-      "destination": "/blog/firebase-storage-token-does-not-expire"
+      "destination": "/blog/firebase-storage-token-does-not-expire/"
     },
     {
       "source": "/caching-for-gatsby-site",
-      "destination": "/blog/caching-for-gatsby-site"
+      "destination": "/blog/caching-for-gatsby-site/"
     },
-    { "source": "/immers-behavior", "destination": "/blog/immers-behavior" },
+    { "source": "/immers-behavior", "destination": "/blog/immers-behavior/" },
     {
       "source": "/circleci-config-app-with-sdk",
-      "destination": "/blog/circleci-config-app-with-sdk"
+      "destination": "/blog/circleci-config-app-with-sdk/"
     },
     {
       "source": "/manage-npm-and-yarn-using-corepack-safely",
-      "destination": "/blog/manage-npm-and-yarn-using-corepack-safely"
+      "destination": "/blog/manage-npm-and-yarn-using-corepack-safely/"
     },
     {
       "source": "/secure-atag-with-target-blank",
-      "destination": "/blog/secure-atag-with-target-blank"
+      "destination": "/blog/secure-atag-with-target-blank/"
     },
     {
       "source": "/you-will-like-to-use-vite-for-vue-app",
-      "destination": "/blog/you-will-like-to-use-vite-for-vue-app"
+      "destination": "/blog/you-will-like-to-use-vite-for-vue-app/"
     },
     {
       "source": "/vue3-jsx-ts-with-vite",
-      "destination": "/blog/vue3-jsx-ts-with-vite"
+      "destination": "/blog/vue3-jsx-ts-with-vite/"
     },
     {
       "source": "/write-script-using-zx",
-      "destination": "/blog/write-script-using-zx"
+      "destination": "/blog/write-script-using-zx/"
     },
     {
       "source": "/what-old-and-new-jsx-transform-pragma-and-import-source-option-do",
-      "destination": "/blog/what-old-and-new-jsx-transform-pragma-and-import-source-option-do"
+      "destination": "/blog/what-old-and-new-jsx-transform-pragma-and-import-source-option-do/"
     },
     {
       "source": "/why-use-prettier-with-eslint",
-      "destination": "/blog/why-use-prettier-with-eslint"
+      "destination": "/blog/why-use-prettier-with-eslint/"
     },
     {
       "source": "/use-object-as-react-hooks-deps",
-      "destination": "/blog/use-object-as-react-hooks-deps"
+      "destination": "/blog/use-object-as-react-hooks-deps/"
     },
     {
       "source": "/start-blog-with-gatsby",
-      "destination": "/blog/start-blog-with-gatsby"
+      "destination": "/blog/start-blog-with-gatsby/"
     },
     {
       "source": "/tip-use-web-components-in-vue",
-      "destination": "/blog/tip-use-web-components-in-vue"
+      "destination": "/blog/tip-use-web-components-in-vue/"
     },
     {
       "source": "/types-of-final-tax-return",
-      "destination": "/blog/types-of-final-tax-return"
+      "destination": "/blog/types-of-final-tax-return/"
     },
     {
       "source": "/should-i-use-husky-or-simple-git-hook",
-      "destination": "/blog/should-i-use-husky-or-simple-git-hook"
+      "destination": "/blog/should-i-use-husky-or-simple-git-hook/"
     },
     {
       "source": "/send-json-using-beacon",
-      "destination": "/blog/send-json-using-beacon"
+      "destination": "/blog/send-json-using-beacon/"
     },
     {
       "source": "/rough-knowledge-sitemap",
-      "destination": "/blog/rough-knowledge-sitemap"
+      "destination": "/blog/rough-knowledge-sitemap/"
     },
     {
       "source": "/read-the-implementation-of-react-hooks",
-      "destination": "/blog/read-the-implementation-of-react-hooks"
+      "destination": "/blog/read-the-implementation-of-react-hooks/"
     },
     {
       "source": "/nodejs-release-cycle",
-      "destination": "/blog/nodejs-release-cycle"
+      "destination": "/blog/nodejs-release-cycle/"
     },
     {
       "source": "/self-assessed-tax-payment",
-      "destination": "/blog/self-assessed-tax-payment"
+      "destination": "/blog/self-assessed-tax-payment/"
     },
     {
       "source": "/load-system-font-with-font-stack",
-      "destination": "/blog/load-system-font-with-font-stack"
+      "destination": "/blog/load-system-font-with-font-stack/"
     },
     {
       "source": "/next-js-with-ga4",
-      "destination": "/blog/next-js-with-ga4"
+      "destination": "/blog/next-js-with-ga4/"
     },
     {
       "source": "/husky-v7-from-v6",
-      "destination": "/blog/husky-v7-from-v6"
+      "destination": "/blog/husky-v7-from-v6/"
     },
     {
       "source": "/lit2-launch-impression",
-      "destination": "/blog/lit2-launch-impression"
+      "destination": "/blog/lit2-launch-impression/"
     },
     {
       "source": "/define-custom-element-with-nested-vue-components",
-      "destination": "/blog/define-custom-element-with-nested-vue-components"
+      "destination": "/blog/define-custom-element-with-nested-vue-components/"
     },
     {
       "source": "/hosting-next-js-ssg-files-to-firebase-and-gcs",
-      "destination": "/blog/hosting-next-js-ssg-files-to-firebase-and-gcs"
+      "destination": "/blog/hosting-next-js-ssg-files-to-firebase-and-gcs/"
     },
     {
       "source": "/correct-implementation-of-clipboard-in-js",
-      "destination": "/blog/correct-implementation-of-clipboard-in-js"
+      "destination": "/blog/correct-implementation-of-clipboard-in-js/"
     },
     {
       "source": "/integration-of-eslint-and-prettier",
-      "destination": "/blog/integration-of-eslint-and-prettier"
+      "destination": "/blog/integration-of-eslint-and-prettier/"
     },
     {
       "source": "/deep-dive-into-generating-web-components-using-vue2-and-vue3",
-      "destination": "/blog/deep-dive-into-generating-web-components-using-vue2-and-vue3"
+      "destination": "/blog/deep-dive-into-generating-web-components-using-vue2-and-vue3/"
     },
     {
       "source": "/clarify-what-we-do-to-create-web-components",
-      "destination": "/blog/clarify-what-we-do-to-create-web-components"
+      "destination": "/blog/clarify-what-we-do-to-create-web-components/"
     },
     {
       "source": "/auto-id-of-cloud-firestore",
-      "destination": "/blog/auto-id-of-cloud-firestore"
+      "destination": "/blog/auto-id-of-cloud-firestore/"
     }
   ]
 }
