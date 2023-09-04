@@ -9,7 +9,8 @@ import { inferDescriptionMetaPlugin } from "./src/plugins/inferDescriptionMetaPl
 
 export default defineConfig({
   site: "https://t28.dev",
-  trailingSlash: "never",
+  // **開発サーバー** のルーティングを合わせる動作の設定をします
+  trailingSlash: "always",
   integrations: [react(), mdx(), sitemap()],
   markdown: {
     rehypePlugins: [inferDescriptionMetaPlugin],

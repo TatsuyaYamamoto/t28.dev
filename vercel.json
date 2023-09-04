@@ -1,7 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "trailingSlash": false,
-  "cleanUrls": true,
+  "trailingSlash": true,
   "redirects": [
     {
       "source": "### temporary solution to comment in json ###",
