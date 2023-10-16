@@ -152,3 +152,8 @@ h6 > a {
 a {
   color: var(--color-primary);
 }
+
+// markdown 内の img 要素 の aspect ratio 画像のものと同じにするために設定する
+img {
+  height: auto;
+}
