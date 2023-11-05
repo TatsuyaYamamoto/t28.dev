@@ -18,6 +18,21 @@ SpeedWeek は [Cloudflare の新製品発表イベント](https://www.cloudflare
   - このドメインはカスタムメールアドレスの設定も要る
 - 他にもお仕事用ドメインとか
 
+## チェックリストの流れ
+
+ドメイン移管チェックリストは 4 つのセクションに分かれています。
+
+- 適格性の確認
+- 移管前
+- 移管手続きの開始と確認
+- 移管後
+
+「移管前」までの作業によって、ネームサーバーを Google から Cloudflare に変更するので、
+「Google からドメインを買って、Cloudflare で名前解決している」状態になります。
+
+「移管手続きの開始と確認」 まで作業を行うことで、
+「Cloudflare でドメインを買って名前解決している」状態 (= 移管完了) になります。
+
 ## 適格性の確認
 
 ### 1. Cloudflare のネームサーバーの利用を考えていることを確認します
@@ -100,13 +115,13 @@ SpeedWeek は [Cloudflare の新製品発表イベント](https://www.cloudflare
 
 > [こちらの手順](https://developers.cloudflare.com/fundamentals/get-started/setup/add-site/)に従い、Cloudflare アカウントに新しいドメインを追加します。
 
-domain を入力してボタンをポチると 👈
+`Web サイト` > `サイトを追加する` からドメインを入力してボタンをポチると 👈
 
 ![](./assets/transfer-google-domains-to-cloudflare-registrar/add-domain.jpg)
 
-レコードの読み込みもしてくれて便利〜 ✌️
-
 ![](./assets/transfer-google-domains-to-cloudflare-registrar/scan-records.jpg)
+
+**=> レコードの読み込みもしてくれて便利〜 ✌️**
 
 ### Cloudflare アカウントに有効なクレジットカードを追加します
 
@@ -144,22 +159,67 @@ domain を入力してボタンをポチると 👈
 
 ### 認証コードを要求します
 
+> Cloudflare は移管フローが承認されていることを旧レジストラに確認する必要があります。そのために、旧レジストラはお客様に認証コードを提供します。
+
+![](./assets/transfer-google-domains-to-cloudflare-registrar/transform-from-google-domains.jpg)
+
+**=> Google Domains でポチると発行できる**
+
 ### Cloudflare への移管を開始します
+
+`ドメイン登録` > `ドメインの移管` で Web サイトとして追加済み & 移管可能なドメインが出てくる
+
+**=> `t28.dev` がある〜**
 
 ### 移管にかかる価格を確認します
 
+> ドメインを移管する際、有効期限を 1 年延長するための支払いが ICANN から求められます。
+
+`t28.dev`の場合は 👇 の感じ
+
+- 卸売コスト: $10.00
+- ICANN 料金: $0.18
+
+**=> 確認しました！**
+
 ### 認証コードを入力します
+
+![](./assets/transfer-google-domains-to-cloudflare-registrar/copy-auth-code.jpg)
+
+**=> `認証コードを要求します` で取得したコードをコピペした！**
 
 ### 連絡先情報の確認または入力を行います
 
+> 移管プロセスの最終段階では、登録の連絡先情報を入力します。Cloudflare Registrar はデフォルトでこの情報を編集しますが、この登録のための正規の連絡先情報を収集する必要があります
+
+~~チェックリストが言ってること微妙によく分からないけれど、ちゃんと入力すれば OK っしょ~~
+
 ### Cloudflare で移管を承認します
+
+> Cloudflare で移管を承認します：移管を申請すると、 Cloudflare による移管の処理が開始され、公開されている WHOIS データベースに情報がある場合、ドメイン移管を承認する FOA（認証フォーム）メールが登録者に送信されます。
+
+~~チェックリストが言ってること微妙によく分からないけれど、ボタンポチったらいい感じにしてくれるってことっしょ~~
+
+![](./assets/transfer-google-domains-to-cloudflare-registrar/transform-processing.jpg)
 
 ### 以前のレジストラで移管を承認します
 
+> このステップの後、以前のレジストラからも、移管リクエストに対する確認メールが送信されます。
+
+**=> 「Google Domains からの移管リクエストを確認する」というメールが来ていたので...承認！**
+
 ### Cloudflare ダッシュボードで移管状況を確認します
+
+![](./assets/transfer-google-domains-to-cloudflare-registrar/transformed-domain-is-active.jpg)
+
+**=> いぇーい ✌️😁**
 
 ## 移管後
 
 ### サイトとメールのテストを実施します
 
+まぁ
+
 ### 何か新しいものを構築します
+
+よしなに
