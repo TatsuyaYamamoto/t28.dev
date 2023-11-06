@@ -15,7 +15,7 @@
     "build": "  astro check && tsc --noEmit && astro build",
     "preview": "astro preview",
     "prepare": "husky install",
-    "postinstall": "ln -fs $PWD/docs/blog $PWD/src/content/ && ln -fs $PWD/docs/roundup $PWD/src/content/ && ln -fs $PWD/docs/s-works-achievement $PWD/src/content/"
+    "postinstall": "rm -f $PWD/src/content/{blog,roundup,s-works-achievement} && ln -s $PWD/docs/blog $PWD/src/content/ && ln -s $PWD/docs/roundup $PWD/src/content/ && ln -s $PWD/docs/s-works-achievement $PWD/src/content/"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,md}": "prettier --write"
