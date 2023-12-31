@@ -4,6 +4,7 @@ import Bio from "./Bio";
 import Chip from "./Chip";
 
 import styles from "./BlogPost.module.scss";
+import { formatDisplayDate } from "../helpers/utils";
 
 export interface Props {
   title: string;
@@ -31,7 +32,7 @@ const BlogPost: FC<PropsWithChildren<Props>> = ({
       <header>
         <h1 itemProp="headline">{title}</h1>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <span style={{ marginRight: 5 }}>{date.toLocaleDateString()}</span>
+          <span style={{ marginRight: 5 }}>{formatDisplayDate(date)}</span>
           <Chip>{category}</Chip>
         </div>
         {roundup && (

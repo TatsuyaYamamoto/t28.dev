@@ -1,5 +1,7 @@
 import type { FC, PropsWithChildren } from "react";
 
+import { formatDisplayDate } from "../../helpers/utils";
+
 import styles from "./AchievementSection.module.scss";
 
 interface Props {
@@ -25,7 +27,7 @@ const AchievementSection: FC<PropsWithChildren<Props>> = ({ posts }) => {
             <a key={url} href={url} className={styles.listItem}>
               <div className={styles.listItemLeft}>
                 <h3>{title}</h3>
-                <p>{date.toLocaleDateString()}</p>
+                <p>{formatDisplayDate(date)}</p>
                 <p>{description}</p>
               </div>
               <div className={styles.listItemRight}>
