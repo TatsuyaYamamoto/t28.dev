@@ -1,6 +1,7 @@
 import type { FC, PropsWithChildren } from "react";
 
 import AchievementRelatedLinkButton from "./AchievementRelatedLinkButton";
+import { formatDisplayDate } from "../../helpers/utils";
 
 import styles from "./AchievementPost.module.scss";
 
@@ -25,7 +26,7 @@ const AchievementPost: FC<PropsWithChildren<Props>> = ({
       <header className={styles.header}>
         <h1>{title}</h1>
         <div className={styles.headerDate}>
-          <time>{date.toLocaleDateString()}</time>
+          <time>{formatDisplayDate(date)}</time>
         </div>
         <div className={styles.headerLinks}>
           {links.map(({ href, label, type }, i) => (

@@ -1,6 +1,7 @@
 import type { FC } from "react";
 
 import Chip from "./Chip";
+import { formatDisplayDate } from "../helpers/utils";
 
 import styles from "./BlogList.module.scss";
 
@@ -34,7 +35,7 @@ const BlogList: FC<Props> = (props) => {
                   </a>
                 </h2>
                 <div style={{ display: "flex", alignItems: "center" }}>
-                  <span>{post.date.toLocaleDateString()}</span>
+                  <span>{formatDisplayDate(post.date)}</span>
                   <Chip style={{ marginLeft: 5 }}>{post.category}</Chip>
                 </div>
               </header>
