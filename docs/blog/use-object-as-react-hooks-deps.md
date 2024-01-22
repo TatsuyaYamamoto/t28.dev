@@ -16,7 +16,7 @@ useEffect(
       subscription.unsubscribe();
     };
   },
-  /* deps */ [props.source]
+  /* deps */ [props.source],
 );
 ```
 

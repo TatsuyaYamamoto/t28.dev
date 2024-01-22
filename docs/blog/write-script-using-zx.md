@@ -149,7 +149,7 @@ let favorite = await question(
   {
     // 👇 choicesでtab補完を効かせることが出来るけれど、入力値検証まではしてくれない
     choices: ["μ’ｓ", "Aqours", "Nijigasaki", "Liella", "ALL"],
-  }
+  },
 );
 console.log(`any word: ${anyWord}`);
 console.log(`favorite: ${favorite}`);

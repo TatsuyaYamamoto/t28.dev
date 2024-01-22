@@ -115,7 +115,7 @@ const config = new Config(
   [nodeExecutor],
   undefined,
   undefined,
-  [orbsCircleciNode]
+  [orbsCircleciNode],
 );
 ```
 
@@ -166,7 +166,7 @@ export const orbsCircleciNode = new OrbImport(
   "node",
   "5.0.2",
   undefined,
-  orbsCircleciNodeManifest // 👈 (2)
+  orbsCircleciNodeManifest, // 👈 (2)
 );
 
 // 👇 (4)

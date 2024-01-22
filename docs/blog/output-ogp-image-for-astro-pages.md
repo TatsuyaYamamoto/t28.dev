@@ -86,7 +86,7 @@ const getGoogleFontData = async (query: string): Promise<ArrayBuffer> => {
 
   // 👇 CSS ファイルからフォントファイルの URL を抽出する
   const fontUrl = googleFontCss.match(
-    /src: url\((.+)\) format\('(opentype|truetype)'\)/
+    /src: url\((.+)\) format\('(opentype|truetype)'\)/,
   )?.[1];
 
   if (!fontUrl) {
@@ -111,7 +111,7 @@ OGP 画像にプロフィール画像を埋め込んでみたい。
 ```ts
 const t28ProfileBase64 = readFileSync(
   new URL("../assets/images/profile-pic.jpg", import.meta.url),
-  { encoding: "base64" }
+  { encoding: "base64" },
 );
 const t28ProfileDataUrl = `data:image/jpeg;base64,${t28ProfileBase64}`;
 ```
@@ -151,8 +151,8 @@ export const getBlogPostOgpImageResponse = async (params: {
             style: "normal",
           },
         ],
-      }
-    )
+      },
+    ),
   );
 };
 ```

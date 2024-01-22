@@ -41,9 +41,9 @@ const finalNextConfig = withHogePlugin(
     withChunPlugin(
       withUyuPlugin({
         /* user's next.config.js values */
-      })
-    )
-  )
+      }),
+    ),
+  ),
 );
 ```
 

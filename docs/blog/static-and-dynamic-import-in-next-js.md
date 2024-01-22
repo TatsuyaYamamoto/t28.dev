@@ -35,7 +35,7 @@ Next.js はページがエントリーポイントなので、ここでモジュ
 ```tsx
 // pages/index.tsx
 export const dummy = import("../modules/depth1").then(({ addOneDepth1 }) =>
-  addOneDepth1(1)
+  addOneDepth1(1),
 );
 
 export default () => {

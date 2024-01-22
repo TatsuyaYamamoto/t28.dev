@@ -94,7 +94,7 @@ const getStylesRecursively = (
   component: Component & {
     components?: Record<string, Component>;
     styles?: string[];
-  }
+  },
 ): string[] => {
   // root の SFC から最下層の SFC までの style (CSS文字列) を入れる配列
   const customElementStyles: string[] = [];

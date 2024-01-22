@@ -149,7 +149,7 @@ bar(
   reallyLongArg(),
   omgSoManyParameters(),
   IShouldRefactorThis(),
-  isThereSeriouslyAnotherOne()
+  isThereSeriouslyAnotherOne(),
 );
 ```
 

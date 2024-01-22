@@ -42,7 +42,7 @@ class AutoId {
 
     debugAssert(
       0 < maxMultiple && maxMultiple < 256,
-      `Expect maxMultiple to be (0, 256), but got ${maxMultiple}`
+      `Expect maxMultiple to be (0, 256), but got ${maxMultiple}`,
     );
 
     let autoId = "";

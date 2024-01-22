@@ -40,7 +40,7 @@ const Toc: FC<Props> = ({ items }) => {
 
   const getAboveId = (inputId: string) => {
     const inputHeadingIndex = ids.findIndex(
-      (candidateId) => candidateId === inputId
+      (candidateId) => candidateId === inputId,
     );
     const aboveIdIndex = inputHeadingIndex - 1;
 

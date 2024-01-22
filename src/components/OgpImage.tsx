@@ -6,7 +6,7 @@ import t28Profile from "../assets/images/profile-pic.jpg";
 
 const t28ProfileBase64 = readFileSync(
   new URL(`.${t28Profile.src}`, `${import.meta.url}/../../..`),
-  { encoding: "base64" }
+  { encoding: "base64" },
 );
 const t28ProfileDataUrl = `data:image/jpeg;base64,${t28ProfileBase64}`;
 
@@ -28,7 +28,7 @@ const getGoogleFontData = async (query: string): Promise<ArrayBuffer> => {
   const googleFontCss = await fetch(googleFontUrl).then((res) => res.text());
 
   const fontUrl = googleFontCss.match(
-    /src: url\((.+)\) format\('(opentype|truetype)'\)/
+    /src: url\((.+)\) format\('(opentype|truetype)'\)/,
   )?.[1];
 
   if (!fontUrl) {
@@ -136,7 +136,7 @@ export const getBlogPostOgpImageResponse = async (params: {
             style: "normal",
           },
         ],
-      }
-    )
+      },
+    ),
   );
 };
