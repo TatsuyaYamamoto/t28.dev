@@ -4,10 +4,13 @@ import { ImageResponse } from "@vercel/og";
 
 import t28Profile from "../assets/images/profile-pic.jpg";
 
-const [t28ProfilePath = ""] = t28Profile.src.replace("/@fs", "").split("?");
-const t28ProfileBase64 = readFileSync(t28ProfilePath, {
-  encoding: "base64",
-});
+console.log("t28Profile.src", t28Profile.src);
+console.log("import.meta.url", import.meta.url);
+
+const t28ProfileUrl = import.meta.env.DEV
+  ? new URL(t28Profile.src.replace("/@fs", "file://"))
+  : new URL(`..${t28Profile.src}`, import.meta.url);
+const t28ProfileBase64 = readFileSync(t28ProfileUrl, { encoding: "base64" });
 const t28ProfileDataUrl = `data:image/jpeg;base64,${t28ProfileBase64}`;
 
 const fontFamilyDataCache = new Map<string, ArrayBuffer>();
