@@ -4,10 +4,10 @@ import { ImageResponse } from "@vercel/og";
 
 import t28Profile from "../assets/images/profile-pic.jpg";
 
-const t28ProfileBase64 = readFileSync(
-  new URL(`.${t28Profile.src}`, `${import.meta.url}/../../..`),
-  { encoding: "base64" },
-);
+const [t28ProfilePath = ""] = t28Profile.src.replace("/@fs", "").split("?");
+const t28ProfileBase64 = readFileSync(t28ProfilePath, {
+  encoding: "base64",
+});
 const t28ProfileDataUrl = `data:image/jpeg;base64,${t28ProfileBase64}`;
 
 const fontFamilyDataCache = new Map<string, ArrayBuffer>();
@@ -43,100 +43,90 @@ const getGoogleFontData = async (query: string): Promise<ArrayBuffer> => {
   return arrayBuffer;
 };
 
-const asResponse = (imageResponse: ImageResponse) => {
-  /**
-   * ImageResponse's constructor returns Response instance.
-   * @see {import("@vercel/og").ImageResponse}
-   */
-  return imageResponse as Response;
-};
-
 export const getBlogPostOgpImageResponse = async (params: {
   title: string;
-}) => {
-  return asResponse(
-    new ImageResponse(
-      (
+}): Promise<Response> => {
+  return new ImageResponse(
+    (
+      <div
+        lang="ja-JP"
+        style={{
+          display: "flex",
+          height: "100%",
+          width: "100%",
+          padding: 40,
+          backgroundColor: "rgba(242, 242, 248, 0.5)",
+        }}
+      >
         <div
-          lang="ja-JP"
           style={{
-            display: "flex",
-            height: "100%",
             width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            borderRadius: 20,
             padding: 40,
-            backgroundColor: "rgba(242, 242, 248, 0.5)",
+            backgroundColor: "#ffffff",
+            border: "1px solid #dfdfdf",
+            boxShadow: "0 2px 4px rgba(67, 133, 187, 0.07)",
           }}
         >
           <div
             style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              borderRadius: 20,
-              padding: 40,
-              backgroundColor: "#ffffff",
-              border: "1px solid #dfdfdf",
-              boxShadow: "0 2px 4px rgba(67, 133, 187, 0.07)",
+              flex: 1,
+              alignItems: "center",
+              fontSize: 70,
+              fontWeight: 700,
+              color: "#000000",
+
+              // 長いタイトルは3行を上限にして ... で省略する
+              display: "-webkit-box",
+              textOverflow: "ellipsis",
+              WebkitBoxOrient: "vertical",
+              WebkitLineClamp: 3,
             }}
           >
-            <div
+            {params.title}
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              width: "100%",
+            }}
+          >
+            <div style={{ flex: 1 }} />
+            <img
+              src={t28ProfileDataUrl}
+              alt=""
               style={{
-                flex: 1,
-                alignItems: "center",
-                fontSize: 70,
-                fontWeight: 700,
-                color: "#000000",
-
-                // 長いタイトルは3行を上限にして ... で省略する
-                display: "-webkit-box",
-                textOverflow: "ellipsis",
-                WebkitBoxOrient: "vertical",
-                WebkitLineClamp: 3,
+                width: 60,
+                height: 60,
+                borderRadius: 100000,
               }}
-            >
-              {params.title}
-            </div>
+            />
             <div
               style={{
                 display: "flex",
-                alignItems: "center",
-                width: "100%",
+                fontSize: 40,
+                fontWeight: 700,
+                marginLeft: 15,
+                color: "#005b99",
               }}
             >
-              <div style={{ flex: 1 }} />
-              <img
-                src={t28ProfileDataUrl}
-                alt=""
-                style={{
-                  width: 60,
-                  height: 60,
-                  borderRadius: 100000,
-                }}
-              />
-              <div
-                style={{
-                  display: "flex",
-                  fontSize: 40,
-                  fontWeight: 700,
-                  marginLeft: 15,
-                  color: "#005b99",
-                }}
-              >
-                t28.dev
-              </div>
+              t28.dev
             </div>
           </div>
         </div>
-      ),
-      {
-        fonts: [
-          {
-            name: "Noto Sans JP",
-            data: await getGoogleFontData("Noto+Sans+JP:wght@700"),
-            style: "normal",
-          },
-        ],
-      },
+      </div>
     ),
+    {
+      fonts: [
+        {
+          name: "Noto Sans JP",
+          data: await getGoogleFontData("Noto+Sans+JP:wght@700"),
+          style: "normal",
+        },
+      ],
+    },
   );
 };
