@@ -1,7 +1,7 @@
 import type { FC } from "react";
 
-import { ReactComponent as TwitterIcon } from "../../assets/icons/fa/twitter.svg";
-import { ReactComponent as ExternalLinkIcon } from "../../assets/icons/fa/arrow-up-right-from-square-solid.svg";
+import TwitterIcon from "../../assets/icons/fa/twitter.svg?react";
+import ExternalLinkIcon from "../../assets/icons/fa/arrow-up-right-from-square-solid.svg?react";
 
 import styles from "./AchievementRelatedLinkButton.module.scss";
 

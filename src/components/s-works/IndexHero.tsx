@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { ReactComponent as LogoSvg } from "../../assets/images/s-works-logo.svg";
+import LogoSvg from "../../assets/images/s-works-logo.svg?react";
 
 import styles from "./IndexHero.module.scss";
 
