@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { type FC, useState } from "react";
 
 import { ReactComponent as GithubIcon } from "../../assets/icons/fa/github.svg";
 import { ReactComponent as TwitterIcon } from "../../assets/icons/fa/twitter.svg";
