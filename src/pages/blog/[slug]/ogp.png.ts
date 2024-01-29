@@ -10,9 +10,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }));
 };
 
-export const get: APIRoute = async ({ params }) => {
+export const GET: APIRoute = async ({ params }) => {
   if (!params.slug) {
-    return { body: "not found", encoding: "utf8" };
+    return new Response("not found");
   }
 
   const post = await getEntry("blog", params.slug);
