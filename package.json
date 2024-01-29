@@ -25,19 +25,19 @@
     "@astrojs/mdx": "2.1.0",
     "@astrojs/react": "3.0.9",
     "@astrojs/sitemap": "3.0.5",
-    "@vercel/og": "0.6.2",
     "astro": "4.2.6",
     "astro-seo": "0.7.2",
+    "bulma": "0.9.4",
     "modern-css-reset": "1.4.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "rehype-infer-description-meta": "2.0.0"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "bulma": "0.9.4",
+    "@vercel/og": "0.6.2",
     "husky": "8.0.3",
     "lint-staged": "13.2.2",
     "prettier": "3.2.4",
+    "rehype-infer-description-meta": "2.0.0",
     "typescript": "5.0.4",
     "vite-plugin-svgr": "4.2.0"
   }
