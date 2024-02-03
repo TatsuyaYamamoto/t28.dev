@@ -9,7 +9,7 @@ date: 2023-09-02
 
 例えば `/hoge` という URL パスを定義するとき、以下のように、どちらの方法がベターか迷う...。
 
-```text
+```
 src/
  ├ pages/
  │ ├ hoge/
@@ -20,7 +20,7 @@ src/
 加えて、コロケーションの観点でも迷う...。
 特定のページでのみ使われる実装 (例えば UI コンポーネント) を ページコンポーネントの近くに配置したい訳ですが、どんなルールなら治安を維持できるだろう...?
 
-```text
+```
 src/
  ├ components/
  │ └ AppHogePageOnly.vue <- hoge/index.vue でしか使わないのに遠すぎ！
@@ -76,7 +76,7 @@ Ref: https://nuxt.com/docs/getting-started/routing
 
 > Nuxt routing is based on [vue-router](https://router.vuejs.org/) and generates the routes from every component created in the `pages/` directory, based on their filename.
 
-> ```text
+> ```
 > pages/
 > --| about.vue
 > --| index.vue
@@ -94,7 +94,7 @@ Next.js, SvelteKit に習って、以下のルールが良さそう。
     - `page.[ext]`
     - `+page.[ext]`
 
-```text
+```
 src/
  ├ pages/
  │ ├ hoge/
@@ -116,7 +116,7 @@ ref: [Project Organization and File Colocation](https://nextjs.org/docs/app/buil
 
 > **project files** can be **safely colocated** inside route segments in the app directory without accidentally being routable.
 
-> ```text
+> ```
 > app/
 >  ├ components/
 >  │ └ button.tsx -> /components/button (Not routable!)
@@ -141,7 +141,7 @@ ref: [Project Organization and File Colocation](https://nextjs.org/docs/app/buil
 > - Consistently organizing internal files across a project and the Next.js ecosystem.
 > - Sorting and grouping files in code editors.
 
-> ```text
+> ```
 > app/
 >  ├ dashboard/
 >  │ ├ _libs/

@@ -21,7 +21,7 @@ date: 2021-11-21
 
 [React](https://github.com/facebook/react/blob/v17.0.2/packages/react/package.json#L22) が [export](https://github.com/facebook/react/blob/v17.0.2/packages/react/index.js#L50) している [useEffect](https://github.com/facebook/react/blob/v17.0.2/packages/react/src/React.js#L39) は [ReactHooks.js](https://github.com/facebook/react/blob/v17.0.2/packages/react/src/ReactHooks.js#L101) で定義されています。
 
-```flow js
+```ts
 export function useEffect(
   create: () => (() => void) | void,
   deps: Array<mixed> | void | null,
@@ -58,7 +58,7 @@ Dispatcher の名前から、React の描画のライフサイクルに従って
 
 ### HooksDispatcherOnMount
 
-```flow js
+```ts
 const HooksDispatcherOnMount: Dispatcher = {
   // ...
   useEffect: mountEffect,
@@ -79,7 +79,7 @@ mount は deps が変化する前の状態なので、deps の比較もしてい
 
 ### HooksDispatcherOnUpdate, HooksDispatcherOnRerender
 
-```flow js
+```ts
 const HooksDispatcherOnUpdate: Dispatcher = {
   // ...
   useEffect: updateEffect,
@@ -101,7 +101,7 @@ const HooksDispatcherOnUpdate: Dispatcher = {
 
 ### ContextOnlyDispatcher
 
-```flow js
+```ts
 const ContextOnlyDispatcher: Dispatcher = {
   // ...
   useEffect: throwInvalidHookError,

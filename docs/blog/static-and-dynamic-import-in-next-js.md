@@ -76,7 +76,7 @@ export const addThreeDepth1 = async (value: number) => {
 
 ### Case1: Static import で関数を読み込む
 
-```text
+```
 |   index.tsx   |       depth1.ts       |       depth2.ts       |
 |          -(static)-> add1Depth1() -(static)-> add1Depth2()    |
 |          ...(なし)... add2Depth1() -(static)-> add2Depth2()    |
@@ -95,7 +95,7 @@ export const addThreeDepth1 = async (value: number) => {
 
 ### Case2: ページから読み込まれている関数が dynamic import で別の関数を読み込む
 
-```text
+```
 |   index.tsx   |       depth1.ts       |       depth2.ts       |
 |          -(static)-> add1Depth1() -(dynamic)-> add1Depth2()   |
 |          ...(なし)... add2Depth1() -(static)-> add2Depth2()    |
@@ -117,7 +117,7 @@ export const addThreeDepth1 = async (value: number) => {
 
 ### Case3: ページから読み込まれていない関数が dynamic import で別の関数を読み込む
 
-```text
+```
 |   index.tsx   |       depth1.ts       |       depth2.ts       |
 |          -(static)-> add1Depth1() -(static)-> add1Depth2()    |
 |          ...(なし)... add2Depth1() -(dynamic)-> add2Depth2()   |
@@ -138,7 +138,7 @@ export const addThreeDepth1 = async (value: number) => {
 
 ### Case4: Dynamic import で関数を読み込む
 
-```text
+```
 |   index.tsx   |       depth1.ts       |       depth2.ts       |
 |          -(dynamic)-> add1Depth1() -(dynamic)-> add1Depth2()   |
 |          ...(なし)... add2Depth1() -(dynamic)-> add2Depth2()    |
@@ -161,7 +161,7 @@ export const addThreeDepth1 = async (value: number) => {
 
 ### Case5: Dynamic import されるモジュールが static import で別の関数を読み込む
 
-```text
+```
 |   index.tsx   |       depth1.ts       |       depth2.ts       |
 |          -(dynamic)-> add1Depth1() -(static)-> add1Depth2()   |
 |          ...(なし)... add2Depth1() -(static)-> add2Depth2()    |
@@ -184,7 +184,7 @@ export const addThreeDepth1 = async (value: number) => {
 
 ### Case6: ページから読み込まれていない関数が static import で別の関数を読み込む
 
-```text
+```
 |   index.tsx   |       depth1.ts       |       depth2.ts       |
 |          -(dynamic)-> add1Depth1() -(dynamic)-> add1Depth2()   |
 |          ...(なし)... add2Depth1() -(static)-> add2Depth2()    |

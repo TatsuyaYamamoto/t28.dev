@@ -24,14 +24,14 @@ husky v6 では `.husky/_` に husky 用のちょっとしたシェルスクリ�
 
 https://github.com/typicode/husky/blob/v6.0.0/.husky/.gitignore
 
-```gitignore
+```
 # こんなのがあった
 _
 ```
 
 husky v7 でも引き続き `.husky/_` があるわけですが、 .gitignore が `.husky/_/.gitignore` に設置されるようになり、 範囲の指定方法も ↓ のように変更されました。
 
-```gitignore
+```
 # 設置フォルダごと (今回は .husky/_) gitignore する
 *
 ```
