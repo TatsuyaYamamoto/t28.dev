@@ -13,6 +13,7 @@
   "scripts": {
     "dev": "    astro dev",
     "build": "  astro check && tsc --noEmit && astro build",
+    "build-ci": "npx playwright install --with-deps chromium && npm run build",
     "preview": "astro preview",
     "prepare": "husky install",
     "postinstall": "rm -f $PWD/src/content/{blog,roundup,s-works-achievement} && ln -s $PWD/docs/blog $PWD/src/content/ && ln -s $PWD/docs/roundup $PWD/src/content/ && ln -s $PWD/docs/s-works-achievement $PWD/src/content/"
@@ -38,6 +39,7 @@
     "lint-staged": "13.2.2",
     "prettier": "3.2.4",
     "rehype-infer-description-meta": "2.0.0",
+    "remark-mermaidjs": "6.0.0",
     "typescript": "5.0.4",
     "vite-plugin-svgr": "4.2.0"
   }

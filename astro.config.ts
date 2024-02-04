@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import remarkMermaid from "remark-mermaidjs";
 
 import svgr from "vite-plugin-svgr";
 
@@ -14,6 +15,7 @@ export default defineConfig({
   integrations: [react(), mdx(), sitemap()],
   markdown: {
     rehypePlugins: [inferDescriptionMetaPlugin],
+    remarkPlugins: [remarkMermaid],
   },
   vite: {
     plugins: [svgr()],
