@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "    astro dev",
     "build": "  astro check && tsc --noEmit && astro build",
-    "build-ci": "npx playwright install --with-deps chromium && npm run build",
+    "build-ci": "npx playwright-core install --with-deps chromium && npm run build",
     "preview": "astro preview",
     "prepare": "husky install",
     "postinstall": "rm -f $PWD/src/content/{blog,roundup,s-works-achievement} && ln -s $PWD/docs/blog $PWD/src/content/ && ln -s $PWD/docs/roundup $PWD/src/content/ && ln -s $PWD/docs/s-works-achievement $PWD/src/content/"
