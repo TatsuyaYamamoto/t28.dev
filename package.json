@@ -35,7 +35,7 @@
   "devDependencies": {
     "@mermaid-js/mermaid-cli": "^10.7.0",
     "@vercel/og": "0.6.2",
-    "husky": "8.0.3",
+    "husky": "9.0.10",
     "lint-staged": "13.2.2",
     "prettier": "3.2.4",
     "rehype-infer-description-meta": "2.0.0",
