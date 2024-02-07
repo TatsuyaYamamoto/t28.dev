@@ -6,7 +6,7 @@ import sitemap from "@astrojs/sitemap";
 import svgr from "vite-plugin-svgr";
 
 import { inferDescriptionMetaPlugin } from "./src/plugins/inferDescriptionMetaPlugin";
-import { mermaidPlugin } from "./src/plugins/mermaidPlugin";
+import { mermaidRemarkPlugin } from "./src/plugins/mermaidRemarkPlugin.ts";
 
 export default defineConfig({
   site: "https://t28.dev",
@@ -15,7 +15,7 @@ export default defineConfig({
   integrations: [react(), mdx(), sitemap()],
   markdown: {
     rehypePlugins: [inferDescriptionMetaPlugin],
-    remarkPlugins: [mermaidPlugin],
+    remarkPlugins: [mermaidRemarkPlugin],
   },
   vite: {
     plugins: [svgr()],

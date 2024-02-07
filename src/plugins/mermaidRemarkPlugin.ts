@@ -10,7 +10,7 @@ interface MermaidCodeBlock {
   parent: Parent;
 }
 
-export const mermaidPlugin: RemarkPlugin<[]> = () => {
+export const mermaidRemarkPlugin: RemarkPlugin = () => {
   return async (root) => {
     // find "mermaid" code blocks
     const mermaidCodeBlocks: MermaidCodeBlock[] = [];
@@ -29,15 +29,14 @@ export const mermaidPlugin: RemarkPlugin<[]> = () => {
       headless: true,
     });
 
-    for (const { code, index, parent } of mermaidCodeBlocks) {
-      const { data: svgBuffer } = await renderMermaidCli(
-        browser,
-        code.value,
-        "svg",
-      );
-      const svgNode: Html = {
-        type: "html",
-        value: svgBuffer
+    await Promise.all(
+      mermaidCodeBlocks.map(async ({ code, index, parent }, blockIndex) => {
+        const { data: svgBuffer } = await renderMermaidCli(
+          browser,
+          code.value,
+          "svg",
+        );
+        const svgText = svgBuffer
           .toString("utf-8")
           // astro(?) throws error on rendering svg of mermaid.
           // https://github.com/withastro/astro/issues/9856
@@ -46,12 +45,18 @@ export const mermaidPlugin: RemarkPlugin<[]> = () => {
           .replace(
             `role="graphics-document document"`,
             `role="graphics-document"`,
-          ),
-      };
+          )
+          .replaceAll(`my-svg`, `my-svg-${blockIndex}`);
 
-      // overwrite "code node" with "html node" to render svg element
-      parent.children[index] = svgNode;
-    }
+        // overwrite "code node" with "html node" to render svg element
+        const svgNode: Html = {
+          ...code,
+          type: "html",
+          value: `<p>${svgText}</p>`,
+        };
+        parent.children[index] = svgNode;
+      }),
+    );
 
     await browser.close();
   };
