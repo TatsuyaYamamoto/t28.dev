@@ -39,7 +39,7 @@
     "lint-staged": "13.2.2",
     "prettier": "3.2.4",
     "rehype-infer-description-meta": "2.0.0",
-    "typescript": "5.0.4",
+    "typescript": "5.4.3",
     "vite-plugin-svgr": "4.2.0"
   }
 }
