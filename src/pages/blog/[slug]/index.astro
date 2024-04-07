@@ -6,6 +6,7 @@ import { getCollection } from "astro:content";
 
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import BlogPost from "../../../components/BlogPost";
+import BlogPostContent from "../../../components/BlogPostContent";
 import Footer from "../../../components/Footer";
 import Toc from "../../../components/Toc";
 
@@ -51,7 +52,9 @@ const ogpImageUrl = new URL(`/blog/${post.slug}/ogp.png`, Astro.url).href;
         date={post.data.date}
         category={post.data.category}
       >
-        <Content />
+        <BlogPostContent >
+          <Content />
+        </BlogPostContent>
       </BlogPost>
     </div>
     <div class="blog-post-page__right">
