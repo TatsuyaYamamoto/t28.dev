@@ -13,7 +13,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../constants";
 const allBlogPosts = await getCollection("blog");
 
 const getDescription = async (
-  post: CollectionEntry<"blog">
+  post: CollectionEntry<"blog">,
 ): Promise<string> => {
   if (post.data.description) {
     return post.data.description;
@@ -32,7 +32,7 @@ const posts = await Promise.all(
       description: await getDescription(post),
       date: post.data.date,
       category: post.data.category,
-    }))
+    })),
 );
 ---
 

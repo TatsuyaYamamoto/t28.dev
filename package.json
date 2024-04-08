@@ -13,12 +13,13 @@
   "scripts": {
     "dev": "    astro dev",
     "build": "  astro check && tsc --noEmit && astro build",
+    "fix:prettier": "prettier --write .",
     "preview": "astro preview",
     "prepare": "husky install",
     "postinstall": "rm -f $PWD/src/content/{blog,roundup,s-works-achievement} && ln -s $PWD/docs/blog $PWD/src/content/ && ln -s $PWD/docs/roundup $PWD/src/content/ && ln -s $PWD/docs/s-works-achievement $PWD/src/content/"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,md}": "prettier --write"
+    "*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
     "@astrojs/check": "0.4.1",
@@ -38,6 +39,7 @@
     "husky": "8.0.3",
     "lint-staged": "13.2.2",
     "prettier": "3.2.4",
+    "prettier-plugin-astro": "^0.13.0",
     "rehype-infer-description-meta": "2.0.0",
     "typescript": "5.0.4",
     "vite-plugin-svgr": "4.2.0"
