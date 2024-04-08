@@ -8,7 +8,7 @@ $side_menu_width: 250px;
   a {
     font-weight: var(--fontWeight-bold);
     text-decoration: none;
-    font-size: var(--fontSize-2);
+    font-size: var(--fontSize-4);
   }
 
   &__inner {
@@ -42,7 +42,7 @@ $side_menu_width: 250px;
   position: sticky;
   top: 20px;
 
-  padding: 10px;
+  padding: var(--spacing-3);
   overflow: auto;
 
   border: 1px solid #dfdfdf;
@@ -50,10 +50,4 @@ $side_menu_width: 250px;
   box-shadow: 0 2px 4px rgb(67 133 187 / 7%);
 
   background-color: #fcfcfc;
-}
-
-:not(pre.astro-code) > code {
-  padding: 2px var(--spacing-2);
-  background: #e7e7e7;
-  border-radius: 4px;
 }

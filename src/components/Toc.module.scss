@@ -1,12 +1,8 @@
 .toc {
-  font-size: 13px;
+  font-size: var(--fontSize-0);
 
   ul {
-    padding-inline-start: 15px;
-  }
-
-  & > ul {
-    padding-inline-start: 0;
+    padding-left: 0;
   }
 
   li {
@@ -20,7 +16,7 @@
   }
 
   a[data-toc-active] {
-    color: #000000;
+    color: var(--color-text);
   }
 }
 

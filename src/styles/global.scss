@@ -37,7 +37,7 @@
   --lineHeight-none: 1;
   --lineHeight-tight: 1.1;
   --lineHeight-normal: 1.5;
-  --lineHeight-relaxed: 1.625;
+  --lineHeight-relaxed: 1.7; /* original value -> 1.625 */
   /* 1.200 Minor Third Type Scale */
   --fontSize-0: 0.833rem;
   --fontSize-1: 1rem;
@@ -48,11 +48,13 @@
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
   --color-primary: #005b99;
+  --color-primary-light: #0a95ef;
   --color-text: #2e353f;
   --color-text-light: #4f5969;
   --color-heading: #1a202c;
   --color-heading-black: black;
   --color-accent: #d1dce5;
+  --color-accent-soft: #e7ecef;
 
   // ref: chakra-ui
   --font-sizes-xs: 0.75rem;
