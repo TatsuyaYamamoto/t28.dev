@@ -1,13 +1,17 @@
 .toc {
   font-size: var(--fontSize-0);
 
-  ul {
+  & > ul {
     padding-left: 0;
   }
 
   li {
     position: relative;
     list-style: none;
+
+    & > ul {
+      padding-left: var(--spacing-4);
+    }
   }
 
   a {
