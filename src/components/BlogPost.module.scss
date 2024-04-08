@@ -1,23 +1,24 @@
 .root {
-  border: 1px solid #dfdfdf;
+  border: 1px solid var(--color-accent);
   border-radius: 10px;
   box-shadow: 0 2px 4px rgb(67 133 187 / 7%);
-  padding: 40px;
+  padding: var(--spacing-10);
 
   background-color: rgb(252, 252, 252);
 
   header {
-    margin-bottom: 40px;
+    margin-bottom: var(--spacing-10);
 
     h1 {
-      margin: var(--spacing-0) var(--spacing-0) var(--spacing-4)
-        var(--spacing-0);
-      font-weight: var(--fontWeight-black);
+      margin: 0 0 var(--spacing-4);
       font-size: var(--fontSize-5);
     }
     div {
       color: var(--color-text-light);
-      font-size: var(--fontSize-1);
     }
+  }
+
+  footer {
+    margin-top: var(--spacing-10);
   }
 }

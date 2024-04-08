@@ -14,6 +14,9 @@ export default defineConfig({
   trailingSlash: "ignore",
   integrations: [react(), mdx(), sitemap()],
   markdown: {
+    shikiConfig: {
+      theme: "github-light",
+    },
     rehypePlugins: [inferDescriptionMetaPlugin],
     remarkPlugins: [mermaidRemarkPlugin],
   },
