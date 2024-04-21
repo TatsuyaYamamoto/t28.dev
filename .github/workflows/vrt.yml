@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  vrt:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,5 +18,5 @@ jobs:
       - run: npm run vrt:shot
       - uses: reg-viz/reg-actions@v2
         with:
-          github-token: WIP
+          github-token: "${{ secrets.REG_ACTIONS_GITHUB_TOKEN }}"
           image-directory-path: "./tests/vrt/pages.test.ts-snapshots/"
