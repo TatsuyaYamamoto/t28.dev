@@ -1,0 +1,22 @@
+name: VRT
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  vrt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "npm"
+      - run: npm i
+      - run: npx playwright install --with-deps
+      - run: npm run vrt:shot
+      - uses: reg-viz/reg-actions@v2
+        with:
+          github-token: "${{ secrets.REG_ACTIONS_GITHUB_TOKEN }}"
+          image-directory-path: "./tests/vrt/pages.test.ts-snapshots/"
