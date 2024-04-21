@@ -36,6 +36,8 @@
   },
   "devDependencies": {
     "@mermaid-js/mermaid-cli": "^10.7.0",
+    "@playwright/test": "^1.43.1",
+    "@types/node": "^20.12.7",
     "@vercel/og": "0.6.2",
     "husky": "8.0.3",
     "isomorphic-dompurify": "^2.7.0",
