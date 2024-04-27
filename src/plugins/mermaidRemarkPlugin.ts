@@ -26,7 +26,7 @@ export const mermaidRemarkPlugin: RemarkPlugin = () => {
     }
 
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: "new",
     });
 
     await Promise.all(
