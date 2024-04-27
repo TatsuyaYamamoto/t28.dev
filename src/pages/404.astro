@@ -1,10 +1,21 @@
 ---
-import "../styles/pages-index.scss";
+import { css } from "../../styled-system/css";
+import { container } from "../../styled-system/patterns";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Footer from "../components/Footer";
 
 import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
+
+const header = css({
+  margin: "var(--spacing-12) 0",
+  "& h1": {
+    color: "var(--color-primary)",
+    fontSize: "var(--fontSize-7)",
+    margin: 0,
+  },
+});
+const headerInner = container({});
 ---
 
 <BaseLayout
@@ -12,8 +23,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
   description={SITE_DESCRIPTION}
   faviconType="t28.dev"
 >
-  <header class="header">
-    <div class="header__inner">
+  <header class={header}>
+    <div class={headerInner}>
       <h1><a href="/">{SITE_TITLE} - 404: Not Found</a></h1>
     </div>
   </header>

@@ -1,5 +1,6 @@
 ---
-import "../styles/pages-index.scss";
+import { css } from "../../styled-system/css";
+import { container } from "../../styled-system/patterns";
 
 import { getCollection, getEntry, type CollectionEntry } from "astro:content";
 
@@ -34,6 +35,18 @@ const posts = await Promise.all(
       category: post.data.category,
     })),
 );
+
+const header = css({
+  margin: "var(--spacing-12) 0",
+  "& h1": {
+    color: "var(--color-primary)",
+    fontSize: "var(--fontSize-7)",
+    margin: 0,
+  },
+});
+const headerInner = container({});
+const bioSection = container({});
+const listSection = container({});
 ---
 
 <BaseLayout
@@ -41,15 +54,15 @@ const posts = await Promise.all(
   description={SITE_DESCRIPTION}
   faviconType="t28.dev"
 >
-  <header class="header">
-    <div class="header__inner">
+  <header class={header}>
+    <div class={headerInner}>
       <h1><a href="/">{SITE_TITLE}</a></h1>
     </div>
   </header>
-  <section class="bio-section">
+  <section class={bioSection}>
     <Bio />
   </section>
-  <section class="list-section">
+  <section class={listSection}>
     <BlogList posts={posts} />
   </section>
   <Footer />
