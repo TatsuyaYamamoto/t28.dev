@@ -1,14 +1,47 @@
 import type { FC } from "react";
+import { css } from "../../../styled-system/css";
+
 import LogoSvg from "../../assets/images/s-works-logo.svg?react";
 
-import styles from "./IndexHero.module.scss";
+const root = css({
+  "--icon-and-font-size": "50px",
+  md: {
+    "--icon-and-font-size": "100px",
+  },
+
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+
+  "& h1": {
+    whiteSpace: "nowrap",
+
+    display: "inline-flex",
+    alignItems: "center",
+  },
+});
+
+const icon = css({
+  fill: "transparent",
+  width: "var(--icon-and-font-size)",
+  height: "var(--icon-and-font-size)",
+  animation: "700ms sWorksSurfaceSvg 0s ease-out both",
+});
+
+const text = css({
+  color: "transparent",
+  fontSize: "var(--icon-and-font-size)",
+  fontFamily: "sans-serif",
+  fontWeight: 600,
+  animation: "700ms sWorksSurfaceText 0s ease both",
+});
 
 const IndexHero: FC = () => {
   return (
-    <div className={styles.root}>
+    <div className={root}>
       <h1>
-        <LogoSvg className={styles.icon} />
-        <span className={styles.text}>{`s-works`}</span>
+        <LogoSvg className={icon} />
+        <span className={text}>{`s-works`}</span>
       </h1>
     </div>
   );

@@ -1,5 +1,7 @@
 import { defineConfig } from "@pandacss/dev";
 
+import { keyframes } from "./src/styles/keyframes";
+
 export default defineConfig({
   // Whether to use css reset
   preflight: false,
@@ -16,7 +18,9 @@ export default defineConfig({
   // Useful for theme customization
   theme: {
     extend: {},
+    keyframes,
   },
+
   patterns: {
     extend: {
       container: {
