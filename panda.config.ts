@@ -1,5 +1,7 @@
 import { defineConfig } from "@pandacss/dev";
 
+import globalCss from "./src/styles/globalStyles.ts";
+import globalVars from "./src/styles/globalVars.ts";
 import { keyframes } from "./src/styles/keyframes";
 
 export default defineConfig({
@@ -14,6 +16,9 @@ export default defineConfig({
 
   // Files to exclude
   exclude: [],
+
+  globalVars,
+  globalCss,
 
   // Useful for theme customization
   theme: {

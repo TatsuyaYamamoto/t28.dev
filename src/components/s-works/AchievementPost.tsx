@@ -8,7 +8,7 @@ const divider = css({
   marginTop: "30px",
   marginBottom: "30px",
   border: 0,
-  borderTop: "1px solid var(--colors-gray-200)",
+  borderTop: "1px solid #e2e8f0",
 });
 
 const titleCss = css({
