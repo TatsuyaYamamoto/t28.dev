@@ -1,6 +1,21 @@
 import type { FC } from "react";
 
-import styles from "./BlogList.module.scss";
+import { css } from "../../styled-system/css";
+
+const listItem = css({
+  margin: "var(--spacing-8) 0",
+
+  "& h2": {
+    fontSize: "var(--fontSize-4)",
+    color: "var(--color-primary)",
+    marginBottom: "var(--spacing-2)",
+    marginTop: "var(--spacing-0)",
+  },
+
+  "& header": {
+    marginBottom: "var(--spacing-4)",
+  },
+});
 
 interface Props {
   posts: {
@@ -18,7 +33,7 @@ const RoundupList: FC<Props> = (props) => {
         return (
           <li key={post.slug}>
             <article
-              className={styles.postListItem}
+              className={listItem}
               itemScope
               itemType="http://schema.org/Article"
             >

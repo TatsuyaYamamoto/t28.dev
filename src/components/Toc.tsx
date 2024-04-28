@@ -1,9 +1,37 @@
 import type { FC, MouseEvent } from "react";
 import { useRef, useState, useEffect, useMemo } from "react";
+import { css } from "../../styled-system/css";
 
 import { isHTMLAnchorElement } from "../helpers/type-gurad";
 
-import styles from "./Toc.module.scss";
+const toc = css({
+  fontSize: "var(--fontSize-0)",
+
+  "& > ul": {
+    paddingLeft: 0,
+  },
+
+  "& li": {
+    position: "relative",
+    listStyleType: "none",
+
+    "& > ul": {
+      paddingLeft: "var(--spacing-4)",
+    },
+  },
+
+  "& a": {
+    textDecoration: "none",
+    color: "#989898",
+    "&[data-toc-active]": {
+      color: "var(--color-text)",
+    },
+  },
+});
+
+const empty = css({
+  textAlign: "center",
+});
 
 const parseUrlAsId = (tocItems: TocItems): string[] => {
   return tocItems.reduce<string[]>((prev, current) => {
@@ -168,9 +196,9 @@ const Toc: FC<Props> = ({ items }) => {
   };
 
   return (
-    <div ref={tocElRef} className={styles.toc}>
+    <div ref={tocElRef} className={toc}>
       {items.length === 0 ? (
-        <div className={styles.empty}>-- EMPTY --</div>
+        <div className={empty}>-- EMPTY --</div>
       ) : (
         renderList(items)
       )}

@@ -1,14 +1,21 @@
 import type { FC } from "react";
-
+import { css } from "../../styled-system/css";
 import { TWITTER_NAME, TWITTER_URL, AUTHOR_SUMMARY } from "../constants";
 
-import styles from "./Bio.module.scss";
 import profilePic from "../assets/images/profile-pic.jpg";
+
+const bio = css({
+  display: "flex",
+});
+
+const bioRight = css({
+  marginLeft: "var(--spacing-4)",
+});
 
 const Bio: FC = () => {
   return (
-    <div className={styles.bio}>
-      <div className="bio-left">
+    <div className={bio}>
+      <div>
         <img
           alt=""
           src={profilePic.src}
@@ -19,7 +26,7 @@ const Bio: FC = () => {
           }}
         />
       </div>
-      <div className={styles.bioRight}>
+      <div className={bioRight}>
         {AUTHOR_SUMMARY}
         <br />
         <a href={TWITTER_URL} target="_blank">
