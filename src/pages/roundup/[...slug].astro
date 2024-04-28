@@ -1,5 +1,6 @@
 ---
-import "../../styles/pages-roundup-slug.scss";
+import { css } from "../../../styled-system/css";
+import { container } from "../../../styled-system/patterns";
 
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
@@ -26,15 +27,26 @@ const { Content } = await post.render();
 
 const title = `${post.data.title} | ${SITE_TITLE}`;
 const description = post.data.description ?? /* WIP */ post.body.slice(0, 100);
+
+const header = css({
+  margin: "var(--spacing-12) 0",
+  "& a": {
+    fontWeight: "var(--fontWeight-bold)",
+    textDecoration: "none",
+    fontSize: "var(--fontSize-4)",
+  },
+});
+const headerInner = container({});
+const roundupPostPage = container({});
 ---
 
 <BaseLayout title={title} description={description} faviconType="t28.dev">
-  <header class="header">
-    <div class="header__inner">
+  <header class={header}>
+    <div class={headerInner}>
       <a href="/">{SITE_TITLE}</a>
     </div>
   </header>
-  <div class="roundup-post-page">
+  <div class={roundupPostPage}>
     <RoundupPost title={post.data.title}>
       <Content />
     </RoundupPost>
