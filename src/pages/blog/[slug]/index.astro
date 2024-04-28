@@ -1,5 +1,6 @@
 ---
-import "../../../styles/pages-blog-slug.scss";
+import { css } from "../../../../styled-system/css";
+import { container } from "../../../../styled-system/patterns";
 
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
@@ -32,6 +33,49 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render();
 const title = `${post.data.title} | ${SITE_TITLE}`;
 const description = post.data.description ?? remarkPluginFrontmatter.excerpt;
 const ogpImageUrl = new URL(`/blog/${post.slug}/ogp.png`, Astro.url).href;
+
+const header = css({
+  margin: "var(--spacing-12) 0",
+  "& a": {
+    fontWeight: "var(--fontWeight-bold)",
+    textDecoration: "none",
+    fontSize: "var(--fontSize-4)",
+  },
+});
+const headerInner = container();
+
+const blogPost = css(container.raw(), {
+  display: "flex",
+  justifyContent: "space-between",
+});
+
+const sideMenuWidth = 250;
+
+const blogPostLeft = css({
+  width: `calc(100% - ${sideMenuWidth}px - 30px)`,
+  "@media screen and (max-width: 800px)": {
+    width: "100%",
+  },
+});
+
+const blogPostRight = css({
+  width: `${sideMenuWidth}px`,
+
+  "@media screen and (max-width: 800px)": {
+    display: "none",
+  },
+});
+
+const sideMenu = css({
+  position: "sticky",
+  top: "20px",
+  padding: "var(--spacing-3)",
+  overflow: "auto",
+  border: "1px solid #dfdfdf",
+  borderRadius: 10,
+  boxShadow: "0 2px 4px rgb(67 133 187 / 7%)",
+  backgroundColor: "#fcfcfc",
+});
 ---
 
 <BaseLayout
@@ -40,13 +84,13 @@ const ogpImageUrl = new URL(`/blog/${post.slug}/ogp.png`, Astro.url).href;
   faviconType="t28.dev"
   ogpImageUrl={ogpImageUrl}
 >
-  <header class="header">
-    <div class="header__inner">
+  <header class={header}>
+    <div class={headerInner}>
       <a href="/">{SITE_TITLE}</a>
     </div>
   </header>
-  <div class="blog-post-page">
-    <div class="blog-post-page__left">
+  <div class={blogPost}>
+    <div class={blogPostLeft}>
       <BlogPost
         title={post.data.title}
         date={post.data.date}
@@ -57,8 +101,8 @@ const ogpImageUrl = new URL(`/blog/${post.slug}/ogp.png`, Astro.url).href;
         </BlogPostContent>
       </BlogPost>
     </div>
-    <div class="blog-post-page__right">
-      <aside class="side-menu">
+    <div class={blogPostRight}>
+      <aside class={sideMenu}>
         <div>目次</div>
         <Toc client:visible items={headingToTocItems(headings)} />
       </aside>
