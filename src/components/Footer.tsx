@@ -10,7 +10,7 @@ const appFooter = css({
 const footerInner = container({});
 
 const footerCopyRight = css({
-  padding: "20px 0",
+  paddingY: "var(--spacing-5)",
   textAlign: "center",
 });
 

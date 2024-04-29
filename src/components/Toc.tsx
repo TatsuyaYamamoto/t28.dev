@@ -8,7 +8,7 @@ const toc = css({
   fontSize: "var(--fontSize-0)",
 
   "& > ul": {
-    paddingLeft: 0,
+    paddingLeft: "0",
   },
 
   "& li": {
@@ -22,7 +22,7 @@ const toc = css({
 
   "& a": {
     textDecoration: "none",
-    color: "#989898",
+    color: "[#989898]", // TODO use token
     "&[data-toc-active]": {
       color: "var(--color-text)",
     },

@@ -3,7 +3,7 @@ import type { FC } from "react";
 import { css } from "../../styled-system/css";
 
 const listItem = css({
-  margin: "var(--spacing-8) 0",
+  marginY: "var(--spacing-8)",
 
   "& h2": {
     fontSize: "var(--fontSize-4)",

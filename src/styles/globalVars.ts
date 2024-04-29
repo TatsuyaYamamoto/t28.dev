@@ -47,6 +47,7 @@ const globalVars: NonNullable<Config["globalVars"]> = {
   "--fontSize-5": "2.074rem",
   "--fontSize-6": "2.488rem",
   "--fontSize-7": "2.986rem",
+
   "--color-primary": "#005b99",
   "--color-primary-light": "#0a95ef",
   "--color-text": "#2e353f",
@@ -55,6 +56,13 @@ const globalVars: NonNullable<Config["globalVars"]> = {
   "--color-heading-black": "black",
   "--color-accent": "#d1dce5",
   "--color-accent-soft": "#e7ecef",
+
+  "--color-black": "#000000",
+  "--colors-white": "#ffffff",
+
+  "--color-s-works": "#ffc69e",
+  "--color-twitter": "#1da1f2",
+  "--color-github": "#000000",
 
   // ref: chakra-ui
   "--font-sizes-xs": "0.75rem",

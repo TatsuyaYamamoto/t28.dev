@@ -14,8 +14,8 @@ export default defineConfig({
     "./pages/**/*.{ts,tsx,js,jsx,astro}",
   ],
 
-  // Files to exclude
-  exclude: [],
+  strictTokens: true,
+  strictPropertyValues: true,
 
   globalVars,
   globalCss,
@@ -48,7 +48,4 @@ export default defineConfig({
       },
     },
   },
-
-  // The output directory for your css system
-  outdir: "styled-system",
 });

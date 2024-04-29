@@ -7,19 +7,19 @@ import TwitterIcon from "../../assets/icons/fa/twitter.svg?react";
 import SWorksLogo from "./SWorksLogo";
 
 const root = css({
-  padding: "var(--spacing-5) 0",
+  paddingY: "var(--spacing-5)",
 });
 
 const logo = css({
   textAlign: "center",
-  padding: "var(--spacing-10) 0",
+  paddingY: "var(--spacing-10)",
 });
 
 const links = css({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  marginTop: 0,
+  marginTop: "var(--spacing-0)",
 
   "& a:first-child": {
     marginRight: "var(--spacing-2)",
@@ -33,15 +33,15 @@ const links = css({
 });
 
 const twitter = css({
-  fill: "#1da1f2",
+  fill: "var(--color-twitter)",
 });
 
 const github = css({
-  fill: "#000000",
+  fill: "var(--color-github)",
 });
 
 const copyright = css({
-  marginTop: "20px",
+  marginTop: "var(--spacing-5)",
   textAlign: "center",
 });
 

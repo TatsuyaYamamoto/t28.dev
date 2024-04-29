@@ -6,15 +6,15 @@ import LogoSvg from "../../assets/images/s-works-logo.svg?react";
 const root = css({
   display: "inline-flex",
   alignItems: "center",
-  color: "#ffc69e",
-  fontSize: "25px",
-  fontFamily: "sans-serif",
-  fontWeight: "600",
+  color: "var(--color-s-works)",
+  fontSize: "[25px]", // TODO use token
+  fontFamily: "[sans-serif]", // TODO use token
+  fontWeight: "[600]", // TODO use token
 
   "& > svg": {
-    width: "30px",
-    marginRight: "5px",
-    fill: "currentColor !important",
+    width: "[30px]", // TODO use token
+    marginRight: "[5px]", // TODO use token
+    fill: "[currentColor !important]", // TODO use token
   },
 });
 

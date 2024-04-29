@@ -4,13 +4,14 @@ import { css } from "../../../styled-system/css";
 import { formatDisplayDate } from "../../helpers/utils";
 
 const root = css({
-  backgroundColor: "var(--color-orange)",
-  padding: "var(--spacing-8) 15px",
+  backgroundColor: "var(--color-s-works)",
+  paddingX: "[15px]", // TODO use token
+  paddingY: "var(--spacing-8)",
 });
 
 const inner = css({
-  maxWidth: "800px",
-  margin: "0 auto",
+  maxWidth: "[800px]", // TODO use token
+  marginX: "auto",
 });
 
 const heading = css({
@@ -18,10 +19,10 @@ const heading = css({
   md: {
     "--font-size": "80px",
   },
-  color: "#ffffff",
-  fontSize: "var(--font-size)",
-  fontFamily: "sans-serif",
-  fontWeight: "600",
+  color: "var(--colors-white)",
+  fontSize: "[var(--font-size)]", // TODO use token
+  fontFamily: "[sans-serif]", // TODO use token
+  fontWeight: "var(--fontWeight-semibold)",
 });
 
 const list = css({
@@ -36,9 +37,8 @@ const list = css({
 
 const listItem = css({
   display: "flex",
-  boxShadow: "var(--chakra-shadows-md)",
   color: "var(--color-black)",
-  backgroundColor: "#ffffff",
+  backgroundColor: "var(--colors-white)",
 
   flexDirection: "column",
   md: {
@@ -48,10 +48,10 @@ const listItem = css({
 
 const listItemLeft = css({
   padding: "var(--spacing-5)",
-  flex: 1,
+  flex: "1",
 
   "& h3": {
-    margin: 0,
+    margin: "var(--spacing-0)",
     fontSize: "var(--font-sizes-xl)",
   },
 
@@ -61,15 +61,15 @@ const listItemLeft = css({
 });
 
 const listItemRight = css({
-  width: "100%",
+  width: "full",
 
   md: {
-    maxWidth: "300px",
+    maxWidth: "[300px]", // TODO use token
   },
 
   "& img": {
     objectFit: "cover",
-    height: "100%",
+    height: "full",
   },
 });
 

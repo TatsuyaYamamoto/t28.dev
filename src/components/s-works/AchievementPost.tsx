@@ -5,51 +5,51 @@ import AchievementRelatedLinkButton from "./AchievementRelatedLinkButton";
 import { formatDisplayDate } from "../../helpers/utils";
 
 const divider = css({
-  marginTop: "30px",
-  marginBottom: "30px",
+  marginTop: "[30px]",
+  marginBottom: "[30px]", // TODO use token
+  // @ts-expect-error
   border: 0,
-  borderTop: "1px solid #e2e8f0",
+  borderTop: "[1px solid token(colors.slate.200)]",
 });
 
 const titleCss = css({
   marginTop: "var(--spacing-8)",
-  marginBottom: 0,
+  marginBottom: "0",
   fontSize: "var(--font-sizes-3xl)",
-  lineHeight: "1.33",
+  lineHeight: "[1.33]", // TODO use token
 });
 
 const headerDate = css({
   marginTop: "var(--spacing-3)",
-  color: "#575757",
+  color: "[#575757]", // TODO use token
 });
 
 const headerLinks = css({
-  "--wrap-spacing": "calc(var(--spacing-2) / 2)",
   display: "flex",
   flexWrap: "wrap",
   flexDirection: "row",
-  margin: "calc(var(--wrap-spacing) * -1)",
+  margin: "[calc(var(--spacing-1) * -1)]", // TODO use token
   marginTop: "var(--spacing-3)",
 
-  "& *": {
-    margin: "var(--wrap-spacing)",
+  "& a": {
+    margin: "var(--spacing-1)",
   },
 });
 
 const article = css({
   "& a": {
     textDecoration: "underline",
-    fontWeight: 600,
-    color: "#fc8738",
+    fontWeight: "var(--fontWeight-semibold)",
+    color: "[#fc8738]", // TODO use token
   },
 
   "& p": {
-    marginBottom: "30px",
+    marginBottom: "[30px]", // TODO use token
   },
 
   "& img": {
     height: "auto",
-    boxShadow: "rgb(240, 240, 250) 0 0 5px 2px",
+    boxShadow: "[rgb(240, 240, 250) 0 0 5px 2px]", // TODO use token
   },
 });
 

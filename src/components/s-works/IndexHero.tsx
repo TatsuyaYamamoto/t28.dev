@@ -23,17 +23,17 @@ const root = css({
 
 const icon = css({
   fill: "transparent",
-  width: "var(--icon-and-font-size)",
-  height: "var(--icon-and-font-size)",
-  animation: "700ms sWorksSurfaceSvg 0s ease-out both",
+  width: "[var(--icon-and-font-size)]",
+  height: "[var(--icon-and-font-size)]",
+  animation: "[700ms sWorksSurfaceSvg 0s ease-out both]", // TODO use token
 });
 
 const text = css({
   color: "transparent",
-  fontSize: "var(--icon-and-font-size)",
-  fontFamily: "sans-serif",
-  fontWeight: 600,
-  animation: "700ms sWorksSurfaceText 0s ease both",
+  fontSize: "[var(--icon-and-font-size)]",
+  fontFamily: "[sans-serif]",
+  fontWeight: "[600]", // TODO use token
+  animation: "[700ms sWorksSurfaceText 0s ease both]", // TODO use token
 });
 
 const IndexHero: FC = () => {

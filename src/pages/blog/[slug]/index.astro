@@ -35,7 +35,7 @@ const description = post.data.description ?? remarkPluginFrontmatter.excerpt;
 const ogpImageUrl = new URL(`/blog/${post.slug}/ogp.png`, Astro.url).href;
 
 const header = css({
-  margin: "var(--spacing-12) 0",
+  marginY: "var(--spacing-12)",
   "& a": {
     fontWeight: "var(--fontWeight-bold)",
     textDecoration: "none",
@@ -49,32 +49,30 @@ const blogPost = css(container.raw(), {
   justifyContent: "space-between",
 });
 
-const sideMenuWidth = 250;
-
 const blogPostLeft = css({
-  width: `calc(100% - ${sideMenuWidth}px - 30px)`,
-  "@media screen and (max-width: 800px)": {
-    width: "100%",
+  width: {
+    base: "full",
+    md: "[calc(100% - 250px - 30px)]", // TODO use token
   },
 });
 
 const blogPostRight = css({
-  width: `${sideMenuWidth}px`,
+  width: `[250px]`, // TODO use token
 
-  "@media screen and (max-width: 800px)": {
+  mdDown: {
     display: "none",
   },
 });
 
 const sideMenu = css({
   position: "sticky",
-  top: "20px",
+  top: "[20px]", // TODO use token
   padding: "var(--spacing-3)",
   overflow: "auto",
-  border: "1px solid #dfdfdf",
-  borderRadius: 10,
-  boxShadow: "0 2px 4px rgb(67 133 187 / 7%)",
-  backgroundColor: "#fcfcfc",
+  border: "[1px solid #dfdfdf]", // TODO use token
+  borderRadius: "[10px]", // TODO use token
+  boxShadow: "[0 2px 4px rgb(67 133 187 / 7%)]", // TODO use token
+  backgroundColor: "[#fcfcfc]", // TODO use token
 });
 ---
 
