@@ -20,7 +20,10 @@ const heading = css({
     "--font-size": "80px",
   },
   color: "var(--colors-white)",
-  fontSize: "[var(--font-size)]", // TODO use token
+  fontSize: {
+    base: "var(--spacing-10)",
+    md: "var(--spacing-20)",
+  },
   fontFamily: "[sans-serif]", // TODO use token
   fontWeight: "var(--fontWeight-semibold)",
 });
