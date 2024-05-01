@@ -7,11 +7,13 @@ import Chip from "./Chip";
 import { formatDisplayDate } from "../helpers/utils";
 
 const root = css({
-  border: "[1px solid var(--color-accent)]", // TODO use token
-  borderRadius: "[10px]", // TODO use token
+  borderStyle: "solid",
+  borderWidth: "1px",
+  borderColor: "var(--color-accent)",
+  borderRadius: "[10px]",
   boxShadow: "[0 2px 4px rgb(67 133 187 / 7%)]",
   padding: "var(--spacing-10)",
-  backgroundColor: "[#fcfcfc]", // TODO use token
+  backgroundColor: "var(--color-post-background)",
 
   "& header": {
     marginBottom: "var(--spacing-10)",

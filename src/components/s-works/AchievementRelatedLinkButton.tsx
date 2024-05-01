@@ -11,13 +11,15 @@ const root = css({
 
   padding: "[calc(0.5em - 1px) 1.25em]", // TODO use token
 
-  color: "[#000000b3]", // TODO use token
+  color: "black/70",
   fontSize: "xs",
   fontWeight: "var(--fontWeight-semibold)",
   textDecoration: "none",
 
-  backgroundColor: "[#f5f5f5]", // TODO use token
-  border: "[1px solid transparent]", // TODO use token
+  backgroundColor: "neutral.100",
+  borderWidth: "1px",
+  borderStyle: "solid",
+  borderColor: "transparent",
   borderRadius: "full",
 
   _hover: {

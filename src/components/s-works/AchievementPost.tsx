@@ -28,12 +28,8 @@ const headerLinks = css({
   display: "flex",
   flexWrap: "wrap",
   flexDirection: "row",
-  margin: "[calc(var(--spacing-1) * -1)]", // TODO use token
-  marginTop: "var(--spacing-3)",
-
-  "& a": {
-    margin: "var(--spacing-1)",
-  },
+  marginTop: "var(--spacing-4)",
+  gap: "var(--spacing-2)",
 });
 
 const article = css({

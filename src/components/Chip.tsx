@@ -8,7 +8,7 @@ const chip = css({
   verticalAlign: "middle",
   justifyContent: "center",
 
-  color: "[rgba(0, 0, 0, 0.87)]", // TODO use token
+  color: "black/87",
   backgroundColor: "[#e0e0e0]", // TODO use token
   borderRadius: "xl",
 

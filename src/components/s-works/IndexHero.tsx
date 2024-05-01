@@ -32,7 +32,7 @@ const text = css({
   color: "transparent",
   fontSize: "[var(--icon-and-font-size)]",
   fontFamily: "[sans-serif]",
-  fontWeight: "[600]", // TODO use token
+  fontWeight: "semibold",
   animation: "[700ms sWorksSurfaceText 0s ease both]", // TODO use token
 });
 

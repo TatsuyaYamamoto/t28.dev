@@ -2,11 +2,13 @@ import type { FC, PropsWithChildren } from "react";
 import { css } from "../../styled-system/css";
 
 const root = css({
-  border: "[1px solid var(--color-accent)]", // TODO use token
+  borderWidth: "1px",
+  borderStyle: "solid",
+  borderColor: "var(--color-accent)",
   borderRadius: "[10px]", // TODO use token
   boxShadow: "[0 2px 4px rgb(67 133 187 / 7%)]", // TODO use token
   padding: "var(--spacing-10)",
-  backgroundColor: "[#fcfcfc]", // TODO use token
+  backgroundColor: "var(--color-post-background)",
 
   "& header": {
     marginBottom: "var(--spacing-10)",
