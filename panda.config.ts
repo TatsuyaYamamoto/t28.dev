@@ -3,6 +3,7 @@ import { defineConfig } from "@pandacss/dev";
 import globalCss from "./src/styles/globalStyles.ts";
 import globalVars from "./src/styles/globalVars.ts";
 import { keyframes } from "./src/styles/keyframes";
+import { container } from "./src/styles/patterns.ts";
 
 export default defineConfig({
   jsxFramework: "react",
@@ -31,24 +32,7 @@ export default defineConfig({
 
   patterns: {
     extend: {
-      container: {
-        transform(props) {
-          const pandaDefault = {
-            position: "relative",
-            maxWidth: "8xl",
-            mx: "auto",
-            px: { base: "4", md: "6", lg: "8" },
-            ...props,
-          };
-
-          return {
-            ...pandaDefault,
-            maxWidth: "1200px",
-            mx: "auto",
-            px: "var(--spacing-4)",
-          };
-        },
-      },
+      container,
     },
   },
 });
