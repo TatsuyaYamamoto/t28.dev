@@ -1,5 +1,5 @@
 import type { FC, PropsWithChildren } from "react";
-import { css } from "../../styled-system/css";
+import { css } from "@styled-system/css";
 
 import Bio from "./Bio";
 import Chip from "./Chip";

@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { css } from "../../../styled-system/css";
+import { css } from "@styled-system/css";
 
 import LogoSvg from "../../assets/images/s-works-logo.svg?react";
 

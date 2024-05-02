@@ -1,5 +1,6 @@
 import type { FC } from "react";
-import { css } from "../../styled-system/css";
+import { css } from "@styled-system/css";
+
 import { TWITTER_NAME, TWITTER_URL, AUTHOR_SUMMARY } from "../constants";
 
 import profilePic from "../assets/images/profile-pic.jpg";

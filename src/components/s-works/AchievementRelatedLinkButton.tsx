@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { css } from "../../../styled-system/css";
+import { css } from "@styled-system/css";
 
 import TwitterIcon from "../../assets/icons/fa/twitter.svg?react";
 import ExternalLinkIcon from "../../assets/icons/fa/arrow-up-right-from-square-solid.svg?react";

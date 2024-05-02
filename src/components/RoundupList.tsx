@@ -1,6 +1,6 @@
 import type { FC } from "react";
 
-import { css } from "../../styled-system/css";
+import { css } from "@styled-system/css";
 
 const listItem = css({
   marginY: "var(--spacing-8)",

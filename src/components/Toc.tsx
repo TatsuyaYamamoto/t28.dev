@@ -1,6 +1,6 @@
 import type { FC, MouseEvent } from "react";
 import { useRef, useState, useEffect, useMemo } from "react";
-import { css } from "../../styled-system/css";
+import { css } from "@styled-system/css";
 
 import { isHTMLAnchorElement } from "../helpers/type-gurad";
 

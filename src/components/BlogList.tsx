@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { css } from "../../styled-system/css";
+import { css } from "@styled-system/css";
 
 import Chip from "./Chip";
 import { formatDisplayDate } from "../helpers/utils";

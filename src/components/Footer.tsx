@@ -1,6 +1,8 @@
 import type { FC } from "react";
-import { css } from "../../styled-system/css";
-import { container } from "../../styled-system/patterns";
+
+import { css } from "@styled-system/css";
+import { container } from "@styled-system/patterns";
+
 import { TWITTER_NAME, TWITTER_URL } from "../constants";
 
 const appFooter = css({
