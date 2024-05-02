@@ -1,35 +1,23 @@
 import type { FC } from "react";
 
-import { css } from "@styled-system/css";
-import { container } from "@styled-system/patterns";
+import { Container, styled } from "@styled-system/jsx";
 
 import { TWITTER_NAME, TWITTER_URL } from "../constants";
-
-const appFooter = css({
-  marginTop: "var(--spacing-12)",
-});
-
-const footerInner = container({});
-
-const footerCopyRight = css({
-  paddingY: "var(--spacing-5)",
-  textAlign: "center",
-});
 
 interface Props {}
 
 const Footer: FC<Props> = () => {
   return (
-    <footer className={appFooter}>
-      <div className={footerInner}>
-        <div className={footerCopyRight}>
+    <styled.footer marginTop="var(--spacing-12)">
+      <Container>
+        <styled.div paddingY="var(--spacing-5)" textAlign="center">
           {`© ${new Date().getFullYear()} `}
           <a href={TWITTER_URL} target="_blank">
             {TWITTER_NAME}
           </a>
-        </div>
-      </div>
-    </footer>
+        </styled.div>
+      </Container>
+    </styled.footer>
   );
 };
 

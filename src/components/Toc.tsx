@@ -1,36 +1,46 @@
-import type { FC, MouseEvent } from "react";
-import { useRef, useState, useEffect, useMemo } from "react";
-import { css } from "@styled-system/css";
+import {
+  type FC,
+  type MouseEvent,
+  useRef,
+  useState,
+  useEffect,
+  useMemo,
+} from "react";
+import { styled } from "@styled-system/jsx";
 
 import { isHTMLAnchorElement } from "../helpers/type-gurad";
 
-const toc = css({
-  fontSize: "var(--fontSize-0)",
-
-  "& > ul": {
-    paddingLeft: "0",
-  },
-
-  "& li": {
-    position: "relative",
-    listStyleType: "none",
+const Root = styled("div", {
+  base: {
+    fontSize: "var(--fontSize-0)",
 
     "& > ul": {
-      paddingLeft: "var(--spacing-4)",
+      paddingLeft: "0",
     },
-  },
 
-  "& a": {
-    textDecoration: "none",
-    color: "[#989898]", // TODO use token
-    "&[data-toc-active]": {
-      color: "var(--color-text)",
+    "& li": {
+      position: "relative",
+      listStyleType: "none",
+
+      "& > ul": {
+        paddingLeft: "var(--spacing-4)",
+      },
+    },
+
+    "& a": {
+      textDecoration: "none",
+      color: "[#989898]", // TODO use token
+      "&[data-toc-active]": {
+        color: "var(--color-text)",
+      },
     },
   },
 });
 
-const empty = css({
-  textAlign: "center",
+const Empty = styled("div", {
+  base: {
+    textAlign: "center",
+  },
 });
 
 const parseUrlAsId = (tocItems: TocItems): string[] => {
@@ -196,13 +206,9 @@ const Toc: FC<Props> = ({ items }) => {
   };
 
   return (
-    <div ref={tocElRef} className={toc}>
-      {items.length === 0 ? (
-        <div className={empty}>-- EMPTY --</div>
-      ) : (
-        renderList(items)
-      )}
-    </div>
+    <Root ref={tocElRef}>
+      {items.length === 0 ? <Empty>-- EMPTY --</Empty> : renderList(items)}
+    </Root>
   );
 };
 

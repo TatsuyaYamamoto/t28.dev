@@ -1,48 +1,16 @@
 import { type FC, useState } from "react";
 import { css } from "@styled-system/css";
+import { Center, styled } from "@styled-system/jsx";
 
 import GithubIcon from "../../assets/icons/fa/github.svg?react";
 import TwitterIcon from "../../assets/icons/fa/twitter.svg?react";
 
 import SWorksLogo from "./SWorksLogo";
 
-const root = css({
-  paddingY: "var(--spacing-5)",
-});
-
-const logo = css({
-  textAlign: "center",
-  paddingY: "var(--spacing-10)",
-});
-
-const links = css({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  marginTop: "var(--spacing-0)",
-
-  "& a:first-child": {
-    marginRight: "var(--spacing-2)",
-  },
-
-  "& svg": {
-    display: "block",
-    width: "var(--spacing-8)",
-    height: "var(--spacing-8)",
-  },
-});
-
-const twitter = css({
-  fill: "var(--color-twitter)",
-});
-
-const github = css({
-  fill: "var(--color-github)",
-});
-
-const copyright = css({
-  marginTop: "var(--spacing-5)",
-  textAlign: "center",
+const icon = css.raw({
+  display: "block",
+  width: "var(--spacing-8)",
+  height: "var(--spacing-8)",
 });
 
 const SWorksFooterSection: FC = () => {
@@ -52,25 +20,26 @@ const SWorksFooterSection: FC = () => {
   });
 
   return (
-    <footer className={root}>
-      <div className={logo}>
+    <styled.footer paddingY="var(--spacing-5)">
+      <styled.div textAlign="center" paddingY="var(--spacing-10)">
         <a href="/s-works">
           <SWorksLogo />
         </a>
-      </div>
-      {/*HStack*/}
-      <div className={links}>
+      </styled.div>
+      <Center marginTop="var(--spacing-0)" gap="var(--spacing-2)">
         <a href={`https://twitter.com/T28_tatsuya`} target="_blank">
-          <TwitterIcon className={twitter} />
+          <TwitterIcon
+            className={css(icon, { fill: "var(--color-twitter)" })}
+          />
         </a>
         <a href={`https://github.com/TatsuyaYamamoto`} target="_blank">
-          <GithubIcon className={github} />
+          <GithubIcon className={css(icon, { fill: "var(--color-github)" })} />
         </a>
-      </div>
-      <div className={copyright}>
+      </Center>
+      <styled.div marginTop="var(--spacing-5)" textAlign="center">
         {`© 2021-${thisYear} s-works, All rights reserved.`}
-      </div>
-    </footer>
+      </styled.div>
+    </styled.footer>
   );
 };
 

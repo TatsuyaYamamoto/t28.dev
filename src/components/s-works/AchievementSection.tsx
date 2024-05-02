@@ -1,80 +1,8 @@
 import type { FC, PropsWithChildren } from "react";
 import { css } from "@styled-system/css";
+import { VStack, styled } from "@styled-system/jsx";
 
 import { formatDisplayDate } from "../../helpers/utils";
-
-const root = css({
-  backgroundColor: "var(--color-s-works)",
-  paddingX: "[15px]", // TODO use token
-  paddingY: "var(--spacing-8)",
-});
-
-const inner = css({
-  maxWidth: "[800px]", // TODO use token
-  marginX: "auto",
-});
-
-const heading = css({
-  "--font-size": "40px",
-  md: {
-    "--font-size": "80px",
-  },
-  color: "var(--colors-white)",
-  fontSize: {
-    base: "var(--spacing-10)",
-    md: "var(--spacing-20)",
-  },
-  fontFamily: "[sans-serif]", // TODO use token
-  fontWeight: "var(--fontWeight-semibold)",
-});
-
-const list = css({
-  "& a:not(:first-child)": {
-    marginTop: "var(--spacing-8)",
-  },
-
-  "& a": {
-    textDecoration: "none",
-  },
-});
-
-const listItem = css({
-  display: "flex",
-  color: "var(--color-black)",
-  backgroundColor: "var(--colors-white)",
-
-  flexDirection: "column",
-  md: {
-    flexDirection: "row",
-  },
-});
-
-const listItemLeft = css({
-  padding: "var(--spacing-5)",
-  flex: "1",
-
-  "& h3": {
-    margin: "var(--spacing-0)",
-    fontSize: "var(--font-sizes-xl)",
-  },
-
-  "& p": {
-    marginTop: "var(--spacing-4)",
-  },
-});
-
-const listItemRight = css({
-  width: "full",
-
-  md: {
-    maxWidth: "[300px]", // TODO use token
-  },
-
-  "& img": {
-    objectFit: "cover",
-    height: "full",
-  },
-});
 
 interface Props {
   posts: {
@@ -87,29 +15,71 @@ interface Props {
 }
 
 const AchievementSection: FC<PropsWithChildren<Props>> = ({ posts }) => {
-  // const { isTabletOrMore } = useBreakpoint();
-  // const headingFontSize = isTabletOrMore ? 80 : 40;
-
   return (
-    <section className={root}>
-      <div className={inner}>
-        <h2 className={heading}>{`Achievements`}</h2>
-        <div className={list}>
+    <styled.section
+      backgroundColor="var(--color-s-works)"
+      paddingX="[15px]" // TODO use token
+      paddingY="var(--spacing-8)"
+    >
+      <styled.div
+        maxWidth="[800px]" // TODO use token
+        marginX="auto"
+      >
+        <styled.h2
+          color="var(--colors-white)"
+          fontSize={{ base: "var(--spacing-10)", md: "var(--spacing-20)" }}
+          fontFamily="[sans-serif]" // TODO use token
+          fontWeight="var(--fontWeight-semibold)"
+        >
+          {`Achievements`}
+        </styled.h2>
+        <div
+          className={css({
+            "& a:not(:first-child)": {
+              marginTop: "var(--spacing-8)",
+            },
+          })}
+        >
           {posts.map(({ url, title, date, description, heroImage }) => (
-            <a key={url} href={url} className={listItem}>
-              <div className={listItemLeft}>
-                <h3>{title}</h3>
+            <styled.a
+              key={url}
+              href={url}
+              display="flex"
+              color="var(--color-black)"
+              backgroundColor="var(--colors-white)"
+              textDecoration="none"
+              flexDirection={{ base: "column", md: "row" }}
+            >
+              <VStack
+                padding="var(--spacing-5)"
+                gap="var(--spacing-4)"
+                flex="1"
+                alignItems="unset"
+              >
+                <styled.h3
+                  margin="var(--spacing-0)"
+                  fontSize="var(--spacing-5)"
+                >
+                  {title}
+                </styled.h3>
                 <p>{formatDisplayDate(date)}</p>
                 <p>{description}</p>
-              </div>
-              <div className={listItemRight}>
-                <img alt={""} src={heroImage.src} />
-              </div>
-            </a>
+              </VStack>
+              <styled.div
+                width="full"
+                md={{ maxWidth: "[300px]" /* TODO use token */ }}
+              >
+                <img
+                  alt={""}
+                  src={heroImage.src}
+                  className={css({ objectFit: "cover", height: "full" })}
+                />
+              </styled.div>
+            </styled.a>
           ))}
         </div>
-      </div>
-    </section>
+      </styled.div>
+    </styled.section>
   );
 };
 

@@ -5,6 +5,8 @@ import globalVars from "./src/styles/globalVars.ts";
 import { keyframes } from "./src/styles/keyframes";
 
 export default defineConfig({
+  jsxFramework: "react",
+
   // Whether to use css reset
   preflight: false,
 
@@ -22,8 +24,9 @@ export default defineConfig({
 
   // Useful for theme customization
   theme: {
-    extend: {},
-    keyframes,
+    extend: {
+      keyframes,
+    },
   },
 
   patterns: {

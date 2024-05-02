@@ -1,6 +1,4 @@
 ---
-import { css } from "@styled-system/css";
-
 import { getCollection } from "astro:content";
 
 import AchievementSection from "../../components/s-works/AchievementSection";
@@ -19,17 +17,6 @@ const posts = allPosts
     date: post.data.date,
     heroImage: post.data.heroImage,
   }));
-
-const hero = css({
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  minHeight: "full",
-  borderStyle: "solid",
-  borderWidth: "15px",
-  borderColor: "var(--color-s-works)",
-  boxSizing: "border-box",
-});
 ---
 
 <BaseLayout
@@ -37,9 +24,7 @@ const hero = css({
   description={SITE_DESCRIPTION_S_WORKS}
   faviconType="s-works"
 >
-  <section class={hero}>
-    <IndexHero />
-  </section>
+  <IndexHero />
   <AchievementSection posts={posts} />
   <FooterSection />
 </BaseLayout>

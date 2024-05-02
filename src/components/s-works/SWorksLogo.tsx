@@ -1,28 +1,32 @@
 import type { FC } from "react";
-import { css } from "@styled-system/css";
+import { styled } from "@styled-system/jsx";
 
 import LogoSvg from "../../assets/images/s-works-logo.svg?react";
 
-const root = css({
-  display: "inline-flex",
-  alignItems: "center",
-  color: "var(--color-s-works)",
-  fontSize: "[25px]", // TODO use token
-  fontFamily: "[sans-serif]", // TODO use token
-  fontWeight: "semibold",
+const Root = styled("span", {
+  base: {
+    display: "inline-flex",
+    alignItems: "center",
+    color: "var(--color-s-works)",
+    fontSize: "[25px]", // TODO use token
+    fontFamily: "var(--font-family-s-works)",
+    fontWeight: "semibold",
+  },
+});
 
-  "& > svg": {
+const StyledLogoSvg = styled(LogoSvg, {
+  base: {
     width: "[30px]", // TODO use token
     marginRight: "[5px]", // TODO use token
-    fill: "[currentColor !important]", // TODO use token
+    fill: "current !important",
   },
 });
 
 const SWorksLogo: FC = () => {
   return (
-    <span className={root}>
-      <LogoSvg /> {`s-works`}
-    </span>
+    <Root>
+      <StyledLogoSvg /> {`s-works`}
+    </Root>
   );
 };
 

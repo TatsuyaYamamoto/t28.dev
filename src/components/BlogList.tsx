@@ -1,23 +1,9 @@
 import type { FC } from "react";
 import { css } from "@styled-system/css";
+import { Flex, styled } from "@styled-system/jsx";
 
 import Chip from "./Chip";
 import { formatDisplayDate } from "../helpers/utils";
-
-const listItem = css({
-  marginY: "var(--spacing-8)",
-
-  "& h2": {
-    fontSize: "var(--fontSize-4)",
-    color: "var(--color-primary)",
-    marginBottom: "var(--spacing-2)",
-    marginTop: "var(--spacing-0)",
-  },
-
-  "& header": {
-    marginBottom: "var(--spacing-4)",
-  },
-});
 
 interface Props {
   posts: {
@@ -33,34 +19,41 @@ const BlogList: FC<Props> = (props) => {
   const { posts } = props;
 
   return (
-    <ol style={{ listStyle: `none`, padding: 0 }}>
+    <styled.ol listStyle="none" padding="0">
       {posts.map((post) => {
         return (
           <li key={post.url}>
-            <article
-              className={listItem}
+            <styled.article
+              marginY="var(--spacing-8)"
               itemScope
               itemType="http://schema.org/Article"
             >
-              <header>
-                <h2>
+              <styled.header marginBottom="var(--spacing-4)">
+                <styled.h2
+                  fontSize="var(--fontSize-4)"
+                  color="var(--color-primary)"
+                  marginBottom="var(--spacing-2)"
+                  marginTop="var(--spacing-0)"
+                >
                   <a href={post.url} itemProp="url">
                     <span itemProp="headline">{post.title}</span>
                   </a>
-                </h2>
-                <div style={{ display: "flex", alignItems: "center" }}>
+                </styled.h2>
+                <Flex alignItems="center">
                   <span>{formatDisplayDate(post.date)}</span>
-                  <Chip style={{ marginLeft: 5 }}>{post.category}</Chip>
-                </div>
-              </header>
+                  <Chip className={css({ marginLeft: "[5px]" })}>
+                    {post.category}
+                  </Chip>
+                </Flex>
+              </styled.header>
               <section>
                 <p itemProp="description">{post.description}</p>
               </section>
-            </article>
+            </styled.article>
           </li>
         );
       })}
-    </ol>
+    </styled.ol>
   );
 };
 
