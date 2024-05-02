@@ -1,13 +1,13 @@
 ---
 import { css } from "../../../../styled-system/css";
 import { container } from "../../../../styled-system/patterns";
+import styles from "../../../styles/blogPostContent.module.scss";
 
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import BlogPost from "../../../components/BlogPost";
-import BlogPostContent from "../../../components/BlogPostContent";
 import Footer from "../../../components/Footer";
 import Toc from "../../../components/Toc";
 
@@ -96,9 +96,9 @@ const sideMenu = css({
         date={post.data.date}
         category={post.data.category}
       >
-        <BlogPostContent>
+        <div class={styles.blogPostContent}>
           <Content />
-        </BlogPostContent>
+        </div>
       </BlogPost>
     </div>
     <div class={blogPostRight}>
