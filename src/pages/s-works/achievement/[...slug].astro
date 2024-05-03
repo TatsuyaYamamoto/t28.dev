@@ -1,5 +1,5 @@
 ---
-import "../../../styles/pages-s-works-achievement-slug.scss";
+import { css } from "@styled-system/css";
 
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
@@ -27,6 +27,25 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 
 const description = post.data.description ?? /* WIP */ post.body.slice(0, 100);
+
+const root = css({
+  paddingX: "var(--spacing-3)",
+  borderStyle: "solid",
+  borderWidth: "15px",
+  borderColor: "var(--color-s-works)",
+  minHeight: "full",
+});
+
+const header = css({
+  marginX: "auto",
+  marginY: "var(--spacing-8)",
+  maxWidth: "[600px]", // TODO use token
+});
+
+const article = css({
+  marginX: "auto",
+  maxWidth: "[600px]", // TODO use token
+});
 ---
 
 <BaseLayout
@@ -34,14 +53,14 @@ const description = post.data.description ?? /* WIP */ post.body.slice(0, 100);
   description={description}
   faviconType="s-works"
 >
-  <div class="root">
-    <header class="header">
+  <div class={root}>
+    <header class={header}>
       <a href="/s-works">
         <SWorksLogo />
       </a>
     </header>
 
-    <article class="article">
+    <article class={article}>
       <Image src={post.data.heroImage} alt="" style="height: auto" />
       <AchievementPost
         title={post.data.title}
@@ -55,3 +74,9 @@ const description = post.data.description ?? /* WIP */ post.body.slice(0, 100);
     <SWorksFooterSection />
   </div>
 </BaseLayout>
+
+<style>
+  body {
+    background-color: var(--colors-white) !important;
+  }
+</style>

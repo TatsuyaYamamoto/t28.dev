@@ -1,6 +1,6 @@
 import type { FC } from "react";
 
-import styles from "./BlogList.module.scss";
+import { styled } from "@styled-system/jsx";
 
 interface Props {
   posts: {
@@ -13,27 +13,32 @@ const RoundupList: FC<Props> = (props) => {
   const { posts } = props;
 
   return (
-    <ol style={{ listStyle: `none`, padding: 0 }}>
+    <styled.ol listStyle="none" padding="0">
       {posts.map((post) => {
         return (
           <li key={post.slug}>
-            <article
-              className={styles.postListItem}
+            <styled.article
+              marginY="var(--spacing-8)"
               itemScope
               itemType="http://schema.org/Article"
             >
-              <header>
-                <h2>
+              <styled.header marginBottom="var(--spacing-4)">
+                <styled.h2
+                  fontSize="var(--fontSize-4)"
+                  color="var(--color-primary)"
+                  marginBottom="var(--spacing-2)"
+                  marginTop="var(--spacing-0)"
+                >
                   <a href={post.slug} itemProp="url">
                     <span itemProp="headline">{post.title}</span>
                   </a>
-                </h2>
-              </header>
-            </article>
+                </styled.h2>
+              </styled.header>
+            </styled.article>
           </li>
         );
       })}
-    </ol>
+    </styled.ol>
   );
 };
 

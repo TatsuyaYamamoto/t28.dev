@@ -1,12 +1,13 @@
 ---
-import "../../../styles/pages-blog-slug.scss";
+import { css } from "@styled-system/css";
+import { container } from "@styled-system/patterns";
+import styles from "../../../styles/blogPostContent.module.scss";
 
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import BlogPost from "../../../components/BlogPost";
-import BlogPostContent from "../../../components/BlogPostContent";
 import Footer from "../../../components/Footer";
 import Toc from "../../../components/Toc";
 
@@ -32,6 +33,49 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render();
 const title = `${post.data.title} | ${SITE_TITLE}`;
 const description = post.data.description ?? remarkPluginFrontmatter.excerpt;
 const ogpImageUrl = new URL(`/blog/${post.slug}/ogp.png`, Astro.url).href;
+
+const header = css({
+  marginY: "var(--spacing-12)",
+  "& a": {
+    fontWeight: "var(--fontWeight-bold)",
+    textDecoration: "none",
+    fontSize: "var(--fontSize-4)",
+  },
+});
+const headerInner = container();
+
+const blogPost = css(container.raw(), {
+  display: "flex",
+  justifyContent: "space-between",
+});
+
+const blogPostLeft = css({
+  width: {
+    base: "full",
+    md: "[calc(100% - 250px - 30px)]", // TODO use token
+  },
+});
+
+const blogPostRight = css({
+  width: `[250px]`, // TODO use token
+
+  mdDown: {
+    display: "none",
+  },
+});
+
+const sideMenu = css({
+  position: "sticky",
+  top: "[20px]", // TODO use token
+  padding: "var(--spacing-3)",
+  overflow: "auto",
+  borderWidth: "1px",
+  borderStyle: "solid",
+  borderColor: "[#dfdfdf]", // TODO use token
+  borderRadius: "[10px]", // TODO use token
+  boxShadow: "[0 2px 4px rgb(67 133 187 / 7%)]", // TODO use token
+  backgroundColor: "var(--color-post-background)",
+});
 ---
 
 <BaseLayout
@@ -40,25 +84,25 @@ const ogpImageUrl = new URL(`/blog/${post.slug}/ogp.png`, Astro.url).href;
   faviconType="t28.dev"
   ogpImageUrl={ogpImageUrl}
 >
-  <header class="header">
-    <div class="header__inner">
+  <header class={header}>
+    <div class={headerInner}>
       <a href="/">{SITE_TITLE}</a>
     </div>
   </header>
-  <div class="blog-post-page">
-    <div class="blog-post-page__left">
+  <div class={blogPost}>
+    <div class={blogPostLeft}>
       <BlogPost
         title={post.data.title}
         date={post.data.date}
         category={post.data.category}
       >
-        <BlogPostContent>
+        <div class={styles.blogPostContent}>
           <Content />
-        </BlogPostContent>
+        </div>
       </BlogPost>
     </div>
-    <div class="blog-post-page__right">
-      <aside class="side-menu">
+    <div class={blogPostRight}>
+      <aside class={sideMenu}>
         <div>目次</div>
         <Toc client:visible items={headingToTocItems(headings)} />
       </aside>

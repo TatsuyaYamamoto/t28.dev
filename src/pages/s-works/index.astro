@@ -1,6 +1,4 @@
 ---
-import "../../styles/pages-s-works-index.scss";
-
 import { getCollection } from "astro:content";
 
 import AchievementSection from "../../components/s-works/AchievementSection";
@@ -26,9 +24,14 @@ const posts = allPosts
   description={SITE_DESCRIPTION_S_WORKS}
   faviconType="s-works"
 >
-  <section class="hero">
-    <IndexHero />
-  </section>
+  <IndexHero />
   <AchievementSection posts={posts} />
   <FooterSection />
 </BaseLayout>
+
+<style>
+  html,
+  body {
+    height: 100%;
+  }
+</style>

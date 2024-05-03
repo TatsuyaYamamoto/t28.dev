@@ -16,7 +16,7 @@
     "fix:prettier": "prettier --write .",
     "vrt:shot": "playwright test --update-snapshots",
     "preview": "astro preview",
-    "prepare": "husky install",
+    "prepare": "husky install && panda codegen",
     "postinstall": "rm -f $PWD/src/content/{blog,roundup,s-works-achievement} && ln -s $PWD/docs/blog $PWD/src/content/ && ln -s $PWD/docs/roundup $PWD/src/content/ && ln -s $PWD/docs/s-works-achievement $PWD/src/content/"
   },
   "lint-staged": {
@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@mermaid-js/mermaid-cli": "^10.7.0",
+    "@pandacss/dev": "^0.37.2",
     "@playwright/test": "^1.43.1",
     "@types/node": "^20.12.7",
     "@vercel/og": "0.6.2",
