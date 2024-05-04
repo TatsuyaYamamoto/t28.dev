@@ -10,7 +10,7 @@ const rootCss = css({
   justifyContent: "center",
 
   color: "black/87",
-  backgroundColor: "[#e0e0e0]", // TODO use token
+  backgroundColor: "neutral.100",
   borderRadius: "xl",
 });
 
