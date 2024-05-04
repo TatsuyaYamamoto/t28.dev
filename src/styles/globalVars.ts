@@ -69,21 +69,6 @@ const globalVars: NonNullable<Config["globalVars"]> = {
   "--color-s-works": "#ffc69e",
   "--color-twitter": "#1da1f2",
   "--color-github": "#000000",
-
-  // ref: chakra-ui
-  "--font-sizes-xs": "0.75rem",
-  "--font-sizes-sm": "0.875rem",
-  "--font-sizes-md": "1rem",
-  "--font-sizes-lg": "1.125rem",
-  "--font-sizes-xl": "1.25rem",
-  "--font-sizes-2xl": "1.5rem",
-  "--font-sizes-3xl": "1.875rem",
-  "--font-sizes-4xl": "2.25rem",
-  "--font-sizes-5xl": "3rem",
-  "--font-sizes-6xl": "3.75rem",
-  "--font-sizes-7xl": "4.5rem",
-  "--font-sizes-8xl": "6rem",
-  "--font-sizes-9xl": "8rem",
 };
 
 export default globalVars;
