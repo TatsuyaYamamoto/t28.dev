@@ -9,16 +9,16 @@ const Article = styled("article", {
     "& a": {
       textDecoration: "underline",
       fontWeight: "var(--fontWeight-semibold)",
-      color: "[#fc8738]", // TODO use token
+      color: "orange.400",
     },
 
     "& p": {
-      marginBottom: "[30px]", // TODO use token
+      marginBottom: "var(--spacing-8)",
     },
 
     "& img": {
       height: "auto",
-      boxShadow: "[rgb(240, 240, 250) 0 0 5px 2px]", // TODO use token
+      boxShadow: "md",
     },
   },
 });
@@ -46,14 +46,11 @@ const AchievementPost: FC<PropsWithChildren<Props>> = ({
           marginTop="var(--spacing-8)"
           marginBottom="0"
           fontSize="var(--font-sizes-3xl)"
-          lineHeight="[1.33]" // TODO use token
+          lineHeight="snug"
         >
           {title}
         </styled.h1>
-        <styled.div
-          marginTop="var(--spacing-3)"
-          color="[#575757]" // TODO use token
-        >
+        <styled.div marginTop="var(--spacing-3)">
           <time>{formatDisplayDate(date)}</time>
         </styled.div>
         <Flex
@@ -72,8 +69,7 @@ const AchievementPost: FC<PropsWithChildren<Props>> = ({
         </Flex>
       </header>
       <styled.hr
-        marginTop="[30px]"
-        marginBottom="[30px]" // TODO use token
+        marginY="var(--spacing-8)"
         // @ts-expect-error
         border={0}
         borderTop="[1px solid token(colors.slate.200)]"

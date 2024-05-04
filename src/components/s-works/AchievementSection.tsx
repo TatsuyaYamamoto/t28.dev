@@ -18,17 +18,14 @@ const AchievementSection: FC<PropsWithChildren<Props>> = ({ posts }) => {
   return (
     <styled.section
       backgroundColor="var(--color-s-works)"
-      paddingX="[15px]" // TODO use token
+      paddingX="var(--spacing-4)"
       paddingY="var(--spacing-8)"
     >
-      <styled.div
-        maxWidth="[800px]" // TODO use token
-        marginX="auto"
-      >
+      <styled.div maxWidth="2xl" marginX="auto">
         <styled.h2
           color="var(--colors-white)"
           fontSize={{ base: "var(--spacing-10)", md: "var(--spacing-20)" }}
-          fontFamily="[sans-serif]" // TODO use token
+          fontFamily="sans"
           fontWeight="var(--fontWeight-semibold)"
         >
           {`Achievements`}
@@ -65,10 +62,7 @@ const AchievementSection: FC<PropsWithChildren<Props>> = ({ posts }) => {
                 <p>{formatDisplayDate(date)}</p>
                 <p>{description}</p>
               </VStack>
-              <styled.div
-                width="full"
-                md={{ maxWidth: "[300px]" /* TODO use token */ }}
-              >
+              <styled.div width="full" md={{ maxWidth: "72" }}>
                 <img
                   alt={""}
                   src={heroImage.src}

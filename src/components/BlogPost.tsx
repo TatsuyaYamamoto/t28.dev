@@ -1,5 +1,4 @@
 import type { FC, PropsWithChildren } from "react";
-import { css } from "@styled-system/css";
 import { Flex, styled } from "@styled-system/jsx";
 
 import Bio from "./Bio";
@@ -27,21 +26,14 @@ const BlogPost: FC<PropsWithChildren<Props>> = ({
   return (
     <styled.article
       border="var(--border-solid-accent)"
-      borderRadius="[10px]"
-      boxShadow="[0 2px 4px rgb(67 133 187 / 7%)]"
+      borderRadius="lg"
+      boxShadow="xs"
       padding="var(--spacing-10)"
       backgroundColor="var(--color-post-background)"
       itemScope
       itemType="http://schema.org/Article"
     >
-      <styled.header
-        marginBottom="var(--spacing-10)"
-        className={css({
-          "& div": {
-            color: "var(--color-text-light)",
-          },
-        })}
-      >
+      <styled.header marginBottom="var(--spacing-10)">
         <styled.h1
           itemProp="headline"
           margin="0"
@@ -51,7 +43,7 @@ const BlogPost: FC<PropsWithChildren<Props>> = ({
           {title}
         </styled.h1>
         <Flex alignItems="center">
-          <styled.span marginRight="[5px]">
+          <styled.span marginRight="var(--spacing-2)">
             {formatDisplayDate(date)}
           </styled.span>
           <Chip>{category}</Chip>

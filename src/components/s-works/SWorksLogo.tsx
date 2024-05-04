@@ -8,7 +8,7 @@ const Root = styled("span", {
     display: "inline-flex",
     alignItems: "center",
     color: "var(--color-s-works)",
-    fontSize: "[25px]", // TODO use token
+    fontSize: "2xl",
     fontFamily: "var(--font-family-s-works)",
     fontWeight: "semibold",
   },
@@ -16,8 +16,8 @@ const Root = styled("span", {
 
 const StyledLogoSvg = styled(LogoSvg, {
   base: {
-    width: "[30px]", // TODO use token
-    marginRight: "[5px]", // TODO use token
+    width: "7",
+    marginRight: "var(--spacing-1)",
     fill: "current !important",
   },
 });

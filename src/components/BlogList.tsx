@@ -1,5 +1,4 @@
 import type { FC } from "react";
-import { css } from "@styled-system/css";
 import { Flex, styled } from "@styled-system/jsx";
 
 import Chip from "./Chip";
@@ -40,10 +39,10 @@ const BlogList: FC<Props> = (props) => {
                   </a>
                 </styled.h2>
                 <Flex alignItems="center">
-                  <span>{formatDisplayDate(post.date)}</span>
-                  <Chip className={css({ marginLeft: "[5px]" })}>
-                    {post.category}
-                  </Chip>
+                  <styled.span marginRight="var(--spacing-2)">
+                    {formatDisplayDate(post.date)}
+                  </styled.span>
+                  <Chip>{post.category}</Chip>
                 </Flex>
               </styled.header>
               <section>

@@ -9,7 +9,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import BlogPost from "../../../components/BlogPost";
 import Footer from "../../../components/Footer";
-import Toc from "../../../components/Toc";
+import BlogPostSideMenu from "../../../components/BlogPostSideMenu";
 
 import { headingToTocItems } from "../../../helpers/utils";
 
@@ -52,29 +52,15 @@ const blogPost = css(container.raw(), {
 const blogPostLeft = css({
   width: {
     base: "full",
-    md: "[calc(100% - 250px - 30px)]", // TODO use token
+    md: "[calc(100% - var(--sizes-xs) - var(--sizes-4))]",
   },
 });
 
 const blogPostRight = css({
-  width: `[250px]`, // TODO use token
-
+  width: "xs",
   mdDown: {
     display: "none",
   },
-});
-
-const sideMenu = css({
-  position: "sticky",
-  top: "[20px]", // TODO use token
-  padding: "var(--spacing-3)",
-  overflow: "auto",
-  borderWidth: "1px",
-  borderStyle: "solid",
-  borderColor: "[#dfdfdf]", // TODO use token
-  borderRadius: "[10px]", // TODO use token
-  boxShadow: "[0 2px 4px rgb(67 133 187 / 7%)]", // TODO use token
-  backgroundColor: "var(--color-post-background)",
 });
 ---
 
@@ -102,10 +88,7 @@ const sideMenu = css({
       </BlogPost>
     </div>
     <div class={blogPostRight}>
-      <aside class={sideMenu}>
-        <div>目次</div>
-        <Toc client:visible items={headingToTocItems(headings)} />
-      </aside>
+      <BlogPostSideMenu client:visible tocItems={headingToTocItems(headings)} />
     </div>
   </div>
 </BaseLayout>
