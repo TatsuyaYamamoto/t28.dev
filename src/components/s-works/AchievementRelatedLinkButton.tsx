@@ -10,7 +10,8 @@ const Link = styled("a", {
     display: "inline-flex",
     justifyContent: "center",
 
-    padding: "[calc(0.5em - 1px) 1.25em]", // TODO use token
+    paddingX: "var(--spacing-4)",
+    paddingY: "var(--spacing-1)",
 
     color: "black/70",
     fontSize: "xs",
@@ -22,7 +23,7 @@ const Link = styled("a", {
     borderRadius: "full",
 
     _hover: {
-      backgroundColor: "[#eeeeee]", // TODO use token
+      backgroundColor: "neutral.200",
     },
   },
 });

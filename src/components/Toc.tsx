@@ -29,7 +29,7 @@ const Root = styled("div", {
 
     "& a": {
       textDecoration: "none",
-      color: "[#989898]", // TODO use token
+      color: "gray.400",
       "&[data-toc-active]": {
         color: "var(--color-text)",
       },

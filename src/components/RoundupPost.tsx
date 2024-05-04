@@ -11,8 +11,8 @@ const RoundupPost: FC<PropsWithChildren<Props>> = (props) => {
   return (
     <styled.article
       border="var(--border-solid-accent)"
-      borderRadius="[10px]" // TODO use token
-      boxShadow="[0 2px 4px rgb(67 133 187 / 7%)]" // TODO use token
+      borderRadius="lg"
+      boxShadow="xs"
       padding="var(--spacing-10)"
       backgroundColor="var(--color-post-background)"
       itemScope

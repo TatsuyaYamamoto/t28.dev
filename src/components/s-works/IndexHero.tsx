@@ -12,14 +12,14 @@ const Root = styled("div", {
     alignItems: "center",
     minHeight: "full",
     borderStyle: "solid",
-    borderWidth: "15px",
+    borderWidth: "var(--spacing-4)",
     borderColor: "var(--color-s-works)",
     boxSizing: "border-box",
   },
 });
 
 const animationBase = css.raw({
-  animationDuration: "[700ms]",
+  animationDuration: "[800ms]",
   animationTimingFunction: "out",
   animationFillMode: "both",
 });
