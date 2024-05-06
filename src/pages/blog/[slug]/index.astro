@@ -34,14 +34,6 @@ const title = `${post.data.title} | ${SITE_TITLE}`;
 const description = post.data.description ?? remarkPluginFrontmatter.excerpt;
 const ogpImageUrl = new URL(`/blog/${post.slug}/ogp.png`, Astro.url).href;
 
-const header = css({
-  "& a": {
-    fontWeight: "bold",
-    textDecoration: "none",
-    fontSize: "var(--fontSize-4)",
-  },
-});
-
 const blogPostLeft = css({
   width: {
     base: "full",
@@ -63,9 +55,16 @@ const blogPostRight = css({
   faviconType="t28.dev"
   ogpImageUrl={ogpImageUrl}
 >
-  <styled.header class={header} marginY="12">
+  <styled.header marginY="12">
     <Container>
-      <a href="/">{SITE_TITLE}</a>
+      <styled.a
+        href="/"
+        fontWeight="bold"
+        textDecoration="none"
+        fontSize="var(--fontSize-4)"
+      >
+        {SITE_TITLE}
+      </styled.a>
     </Container>
   </styled.header>
   <Container display="flex" justifyContent="space-between">
