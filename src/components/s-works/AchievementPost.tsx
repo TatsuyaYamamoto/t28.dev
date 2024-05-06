@@ -13,7 +13,7 @@ const Article = styled("article", {
     },
 
     "& p": {
-      marginBottom: "var(--spacing-8)",
+      marginBottom: "8",
     },
 
     "& img": {
@@ -43,21 +43,17 @@ const AchievementPost: FC<PropsWithChildren<Props>> = ({
     <div>
       <header>
         <styled.h1
-          marginTop="var(--spacing-8)"
+          marginTop="8"
           marginBottom="0"
           fontSize="3xl"
           lineHeight="snug"
         >
           {title}
         </styled.h1>
-        <styled.div marginTop="var(--spacing-3)">
+        <styled.div marginTop="3">
           <time>{formatDisplayDate(date)}</time>
         </styled.div>
-        <Flex
-          flexWrap="wrap"
-          marginTop="var(--spacing-4)"
-          gap="var(--spacing-2)"
-        >
+        <Flex flexWrap="wrap" marginTop="4" gap="2">
           {links.map(({ href, label, type }, i) => (
             <AchievementRelatedLinkButton
               key={i}
@@ -69,7 +65,7 @@ const AchievementPost: FC<PropsWithChildren<Props>> = ({
         </Flex>
       </header>
       <styled.hr
-        marginY="var(--spacing-8)"
+        marginY="8"
         // @ts-expect-error
         border={0}
         borderTop="[1px solid token(colors.slate.200)]"

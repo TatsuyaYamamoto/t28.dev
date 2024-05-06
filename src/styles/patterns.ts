@@ -14,7 +14,7 @@ export const container = definePattern({
       ...pandaDefault,
       maxWidth: "1200px",
       mx: "auto",
-      px: "var(--spacing-4)",
+      px: "4",
     };
   },
 });

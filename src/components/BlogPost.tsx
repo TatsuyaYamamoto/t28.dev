@@ -28,24 +28,22 @@ const BlogPost: FC<PropsWithChildren<Props>> = ({
       border="var(--border-solid-accent)"
       borderRadius="lg"
       boxShadow="xs"
-      padding="var(--spacing-10)"
+      padding="10"
       backgroundColor="var(--color-post-background)"
       itemScope
       itemType="http://schema.org/Article"
     >
-      <styled.header marginBottom="var(--spacing-10)">
+      <styled.header marginBottom="10">
         <styled.h1
           itemProp="headline"
           margin="0"
-          marginBottom="var(--spacing-4)"
+          marginBottom="4"
           fontSize="var(--fontSize-5)"
         >
           {title}
         </styled.h1>
         <Flex alignItems="center">
-          <styled.span marginRight="var(--spacing-2)">
-            {formatDisplayDate(date)}
-          </styled.span>
+          <styled.span marginRight="2">{formatDisplayDate(date)}</styled.span>
           <Chip>{category}</Chip>
         </Flex>
         {roundup && (
@@ -55,7 +53,7 @@ const BlogPost: FC<PropsWithChildren<Props>> = ({
         )}
       </styled.header>
       {children}
-      <styled.footer marginTop="var(--spacing-10)">
+      <styled.footer marginTop="10">
         <Bio />
       </styled.footer>
     </styled.article>

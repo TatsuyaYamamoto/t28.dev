@@ -18,7 +18,7 @@ const Bio: FC = () => {
           borderRadius: "full",
         })}
       />
-      <styled.div marginLeft="var(--spacing-4)">
+      <styled.div marginLeft="4">
         {AUTHOR_SUMMARY}
         <br />
         <a href={TWITTER_URL} target="_blank">

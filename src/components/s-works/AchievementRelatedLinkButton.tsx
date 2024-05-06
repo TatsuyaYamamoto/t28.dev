@@ -10,8 +10,8 @@ const Link = styled("a", {
     display: "inline-flex",
     justifyContent: "center",
 
-    paddingX: "var(--spacing-4)",
-    paddingY: "var(--spacing-1)",
+    paddingX: "4",
+    paddingY: "1",
 
     color: "black/70",
     fontSize: "xs",
@@ -45,8 +45,8 @@ const AchievementRelatedLinkButton: FC<Props> = (props) => {
     <Link href={props.href} target={"_blank"}>
       <Icon
         className={css({
-          width: "var(--spacing-3)",
-          marginRight: "var(--spacing-1)",
+          width: "3",
+          marginRight: "1",
         })}
       />
       {props.label}

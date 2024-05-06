@@ -12,7 +12,7 @@ const Root = styled("div", {
     alignItems: "center",
     minHeight: "full",
     borderStyle: "solid",
-    borderWidth: "var(--spacing-4)",
+    borderWidth: "4",
     borderColor: "var(--color-s-works)",
     boxSizing: "border-box",
   },

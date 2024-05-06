@@ -17,7 +17,7 @@ const Root = styled("span", {
 const StyledLogoSvg = styled(LogoSvg, {
   base: {
     width: "7",
-    marginRight: "var(--spacing-1)",
+    marginRight: "1",
     fill: "current !important",
   },
 });

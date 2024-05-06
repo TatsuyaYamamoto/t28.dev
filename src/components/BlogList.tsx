@@ -23,23 +23,23 @@ const BlogList: FC<Props> = (props) => {
         return (
           <li key={post.url}>
             <styled.article
-              marginY="var(--spacing-8)"
+              marginY="8"
               itemScope
               itemType="http://schema.org/Article"
             >
-              <styled.header marginBottom="var(--spacing-4)">
+              <styled.header marginBottom="4">
                 <styled.h2
                   fontSize="var(--fontSize-4)"
                   color="var(--color-primary)"
-                  marginBottom="var(--spacing-2)"
-                  marginTop="var(--spacing-0)"
+                  marginBottom="2"
+                  marginTop="0"
                 >
                   <a href={post.url} itemProp="url">
                     <span itemProp="headline">{post.title}</span>
                   </a>
                 </styled.h2>
                 <Flex alignItems="center">
-                  <styled.span marginRight="var(--spacing-2)">
+                  <styled.span marginRight="2">
                     {formatDisplayDate(post.date)}
                   </styled.span>
                   <Chip>{post.category}</Chip>

@@ -16,8 +16,8 @@ export default defineGlobalStyles({
   },
 
   "h1, h2, h3, h4, h5, h6": {
-    marginTop: "var(--spacing-12)",
-    marginBottom: "var(--spacing-6)",
+    marginTop: "12",
+    marginBottom: "6",
     lineHeight: "var(--lineHeight-tight)",
     letterSpacing: "-0.025em",
 

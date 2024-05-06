@@ -35,7 +35,7 @@ const description = post.data.description ?? remarkPluginFrontmatter.excerpt;
 const ogpImageUrl = new URL(`/blog/${post.slug}/ogp.png`, Astro.url).href;
 
 const header = css({
-  marginY: "var(--spacing-12)",
+  marginY: "12",
   "& a": {
     fontWeight: "bold",
     textDecoration: "none",
