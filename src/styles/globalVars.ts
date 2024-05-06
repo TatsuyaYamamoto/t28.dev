@@ -1,7 +1,6 @@
 import type { Config } from "@pandacss/dev";
 
 const globalVars: NonNullable<Config["globalVars"]> = {
-  "--fontSize-root": "16px",
   "--lineHeight-none": "1",
   "--lineHeight-tight": "1.1",
   "--lineHeight-normal": "1.5",

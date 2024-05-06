@@ -3,7 +3,6 @@ import { defineGlobalStyles } from "@pandacss/dev";
 export default defineGlobalStyles({
   html: {
     lineHeight: "var(--lineHeight-normal)",
-    fontSize: "var(--fontSize-root)",
     "-webkit-font-smoothing": "antialiased",
     "-moz-osx-font-smoothing": "grayscale",
   },

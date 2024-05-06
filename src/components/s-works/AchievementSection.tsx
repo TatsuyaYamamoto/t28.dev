@@ -24,7 +24,8 @@ const AchievementSection: FC<PropsWithChildren<Props>> = ({ posts }) => {
       <styled.div maxWidth="2xl" marginX="auto">
         <styled.h2
           color="var(--colors-white)"
-          fontSize={{ base: "4xl", md: "7xl" }}
+          // TODO use token
+          fontSize={{ base: "[2.5rem]", md: "[5rem]" }}
           fontFamily="sans"
           fontWeight="semibold"
         >
