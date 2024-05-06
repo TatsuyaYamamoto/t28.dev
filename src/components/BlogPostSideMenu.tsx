@@ -5,8 +5,8 @@ import Toc from "./Toc";
 
 const sideMenu = css({
   position: "sticky",
-  top: "var(--spacing-5)",
-  padding: "var(--spacing-3)",
+  top: "5",
+  padding: "3",
   overflow: "auto",
   border: "var(--border-solid-accent)",
   borderRadius: "lg",

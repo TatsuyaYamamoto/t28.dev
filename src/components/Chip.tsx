@@ -3,7 +3,7 @@ import { css, cx } from "@styled-system/css";
 import { styled } from "@styled-system/jsx";
 
 const rootCss = css({
-  height: "var(--spacing-6)",
+  height: "6",
 
   display: "inline-flex",
   verticalAlign: "middle",
@@ -16,7 +16,7 @@ const rootCss = css({
 
 const Label = styled("span", {
   base: {
-    paddingX: "var(--spacing-2)",
+    paddingX: "2",
     overflow: "hidden",
     whiteSpace: "nowrap",
     textOverflow: "ellipsis",

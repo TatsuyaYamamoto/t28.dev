@@ -13,16 +13,16 @@ const RoundupPost: FC<PropsWithChildren<Props>> = (props) => {
       border="var(--border-solid-accent)"
       borderRadius="lg"
       boxShadow="xs"
-      padding="var(--spacing-10)"
+      padding="10"
       backgroundColor="var(--color-post-background)"
       itemScope
       itemType="http://schema.org/Article"
     >
-      <styled.header marginBottom="var(--spacing-10)">
+      <styled.header marginBottom="10">
         <styled.h1
           itemProp="headline"
           margin="0"
-          marginBottom="var(--spacing-4)"
+          marginBottom="4"
           fontSize="var(--fontSize-5)"
         >
           {title}

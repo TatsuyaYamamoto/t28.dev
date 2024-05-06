@@ -18,22 +18,23 @@ const AchievementSection: FC<PropsWithChildren<Props>> = ({ posts }) => {
   return (
     <styled.section
       backgroundColor="var(--color-s-works)"
-      paddingX="var(--spacing-4)"
-      paddingY="var(--spacing-8)"
+      paddingX="4"
+      paddingY="8"
     >
       <styled.div maxWidth="2xl" marginX="auto">
         <styled.h2
           color="var(--colors-white)"
-          fontSize={{ base: "var(--spacing-10)", md: "var(--spacing-20)" }}
+          // TODO use token
+          fontSize={{ base: "[2.5rem]", md: "[5rem]" }}
           fontFamily="sans"
-          fontWeight="var(--fontWeight-semibold)"
+          fontWeight="semibold"
         >
           {`Achievements`}
         </styled.h2>
         <div
           className={css({
             "& a:not(:first-child)": {
-              marginTop: "var(--spacing-8)",
+              marginTop: "8",
             },
           })}
         >
@@ -47,16 +48,8 @@ const AchievementSection: FC<PropsWithChildren<Props>> = ({ posts }) => {
               textDecoration="none"
               flexDirection={{ base: "column", md: "row" }}
             >
-              <VStack
-                padding="var(--spacing-5)"
-                gap="var(--spacing-4)"
-                flex="1"
-                alignItems="unset"
-              >
-                <styled.h3
-                  margin="var(--spacing-0)"
-                  fontSize="var(--spacing-5)"
-                >
+              <VStack padding="5" gap="4" flex="1" alignItems="unset">
+                <styled.h3 margin="0" fontSize="xl">
                   {title}
                 </styled.h3>
                 <p>{formatDisplayDate(date)}</p>

@@ -8,9 +8,9 @@ interface Props {}
 
 const Footer: FC<Props> = () => {
   return (
-    <styled.footer marginTop="var(--spacing-12)">
+    <styled.footer marginTop="12">
       <Container>
-        <styled.div paddingY="var(--spacing-5)" textAlign="center">
+        <styled.div paddingY="5" textAlign="center">
           {`© ${new Date().getFullYear()} `}
           <a href={TWITTER_URL} target="_blank">
             {TWITTER_NAME}

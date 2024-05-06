@@ -18,16 +18,16 @@ const RoundupList: FC<Props> = (props) => {
         return (
           <li key={post.slug}>
             <styled.article
-              marginY="var(--spacing-8)"
+              marginY="8"
               itemScope
               itemType="http://schema.org/Article"
             >
-              <styled.header marginBottom="var(--spacing-4)">
+              <styled.header marginBottom="4">
                 <styled.h2
                   fontSize="var(--fontSize-4)"
                   color="var(--color-primary)"
-                  marginBottom="var(--spacing-2)"
-                  marginTop="var(--spacing-0)"
+                  marginBottom="2"
+                  marginTop="0"
                 >
                   <a href={post.slug} itemProp="url">
                     <span itemProp="headline">{post.title}</span>

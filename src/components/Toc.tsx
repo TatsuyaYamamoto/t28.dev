@@ -23,7 +23,7 @@ const Root = styled("div", {
       listStyleType: "none",
 
       "& > ul": {
-        paddingLeft: "var(--spacing-4)",
+        paddingLeft: "4",
       },
     },
 
