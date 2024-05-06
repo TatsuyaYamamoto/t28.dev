@@ -1,6 +1,6 @@
 ---
 import { css } from "@styled-system/css";
-import { container } from "@styled-system/patterns";
+import { Container } from "@styled-system/jsx";
 
 import { getCollection } from "astro:content";
 
@@ -17,20 +17,6 @@ const roundupPosts = allRoundups.map((post) => ({
   slug: `roundup/${post.slug}/`,
   title: post.data.title,
 }));
-
-const header = css({
-  marginY: "12",
-  "& h1": {
-    fontSize: "var(--fontSize-7)",
-    margin: "0",
-  },
-  "& a": {
-    color: "var(--color-primary)",
-  },
-});
-const headerInner = container();
-const bioSection = container();
-const listSection = container();
 ---
 
 <BaseLayout
@@ -38,16 +24,22 @@ const listSection = container();
   description={SITE_DESCRIPTION}
   faviconType="t28.dev"
 >
-  <header class={header}>
-    <div class={headerInner}>
-      <h1><a href="/static">{SITE_TITLE}</a></h1>
-    </div>
-  </header>
-  <section class={bioSection}>
+  <styled.header marginY="12">
+    <Container>
+      <styled.h1
+        color="var(--color-primary)"
+        fontSize="var(--fontSize-7)"
+        margin="0"
+      >
+        <a href="/">{SITE_TITLE}</a>
+      </styled.h1>
+    </Container>
+  </styled.header>
+  <Container>
     <Bio />
-  </section>
-  <section class={listSection}>
+  </Container>
+  <Container>
     <RoundupList posts={roundupPosts} />
-  </section>
+  </Container>
   <Footer />
 </BaseLayout>

@@ -1,6 +1,6 @@
 ---
 import { css } from "@styled-system/css";
-import { container } from "@styled-system/patterns";
+import { Container, styled } from "@styled-system/jsx";
 import styles from "../../../styles/blogPostContent.module.scss";
 
 import type { CollectionEntry } from "astro:content";
@@ -35,18 +35,11 @@ const description = post.data.description ?? remarkPluginFrontmatter.excerpt;
 const ogpImageUrl = new URL(`/blog/${post.slug}/ogp.png`, Astro.url).href;
 
 const header = css({
-  marginY: "12",
   "& a": {
     fontWeight: "bold",
     textDecoration: "none",
     fontSize: "var(--fontSize-4)",
   },
-});
-const headerInner = container();
-
-const blogPost = css(container.raw(), {
-  display: "flex",
-  justifyContent: "space-between",
 });
 
 const blogPostLeft = css({
@@ -70,12 +63,12 @@ const blogPostRight = css({
   faviconType="t28.dev"
   ogpImageUrl={ogpImageUrl}
 >
-  <header class={header}>
-    <div class={headerInner}>
+  <styled.header class={header} marginY="12">
+    <Container>
       <a href="/">{SITE_TITLE}</a>
-    </div>
-  </header>
-  <div class={blogPost}>
+    </Container>
+  </styled.header>
+  <Container display="flex" justifyContent="space-between">
     <div class={blogPostLeft}>
       <BlogPost
         title={post.data.title}
@@ -90,6 +83,6 @@ const blogPostRight = css({
     <div class={blogPostRight}>
       <BlogPostSideMenu client:visible tocItems={headingToTocItems(headings)} />
     </div>
-  </div>
+  </Container>
 </BaseLayout>
 <Footer />

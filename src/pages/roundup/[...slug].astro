@@ -1,6 +1,6 @@
 ---
 import { css } from "@styled-system/css";
-import { container } from "@styled-system/patterns";
+import { Container, styled } from "@styled-system/jsx";
 
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
@@ -29,27 +29,24 @@ const title = `${post.data.title} | ${SITE_TITLE}`;
 const description = post.data.description ?? /* WIP */ post.body.slice(0, 100);
 
 const header = css({
-  marginY: "12",
   "& a": {
     fontWeight: "bold",
     textDecoration: "none",
     fontSize: "var(--fontSize-4)",
   },
 });
-const headerInner = container({});
-const roundupPostPage = container({});
 ---
 
 <BaseLayout title={title} description={description} faviconType="t28.dev">
-  <header class={header}>
-    <div class={headerInner}>
+  <styled.header class={header} marginY="12">
+    <Container>
       <a href="/">{SITE_TITLE}</a>
-    </div>
-  </header>
-  <div class={roundupPostPage}>
+    </Container>
+  </styled.header>
+  <Container>
     <RoundupPost title={post.data.title}>
       <Content />
     </RoundupPost>
-  </div>
+  </Container>
   <Footer />
 </BaseLayout>
