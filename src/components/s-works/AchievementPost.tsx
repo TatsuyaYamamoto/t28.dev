@@ -45,7 +45,7 @@ const AchievementPost: FC<PropsWithChildren<Props>> = ({
         <styled.h1
           marginTop="var(--spacing-8)"
           marginBottom="0"
-          fontSize="var(--font-sizes-3xl)"
+          fontSize="3xl"
           lineHeight="snug"
         >
           {title}
