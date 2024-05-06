@@ -8,7 +8,7 @@
   h4,
   h5,
   h6 {
-    font-weight: var(--fontWeight-semibold);
+    font-weight: var(--font-weights-semibold);
   }
 
   h1 {
@@ -33,7 +33,7 @@
 
   a {
     color: var(--color-primary);
-    font-weight: var(--fontWeight-medium);
+    font-weight: var(--font-weights-medium);
     text-underline-offset: 2px;
 
     &:hover {
@@ -62,7 +62,7 @@
     }
 
     th {
-      font-weight: var(--fontWeight-semibold);
+      font-weight: var(--font-weights-semibold);
       background-color: var(--color-accent-soft);
     }
 

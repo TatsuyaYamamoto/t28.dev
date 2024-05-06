@@ -8,7 +8,7 @@ const Article = styled("article", {
   base: {
     "& a": {
       textDecoration: "underline",
-      fontWeight: "var(--fontWeight-semibold)",
+      fontWeight: "semibold",
       color: "orange.400",
     },
 

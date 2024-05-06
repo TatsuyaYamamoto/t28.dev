@@ -15,7 +15,7 @@ const Link = styled("a", {
 
     color: "black/70",
     fontSize: "xs",
-    fontWeight: "var(--fontWeight-semibold)",
+    fontWeight: "semibold",
     textDecoration: "none",
 
     backgroundColor: "neutral.100",

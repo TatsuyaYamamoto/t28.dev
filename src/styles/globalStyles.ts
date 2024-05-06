@@ -28,13 +28,13 @@ export default defineGlobalStyles({
   },
 
   h1: {
-    fontWeight: "var(--fontWeight-black)",
+    fontWeight: "black",
     fontSize: "var(--fontSize-6)",
     color: "var(--color-heading-black)",
   },
 
   "h2, h3, h4, h5, h6": {
-    fontWeight: "var(--fontWeight-bold)",
+    fontWeight: "bold",
     color: "var(--color-heading)",
   },
 

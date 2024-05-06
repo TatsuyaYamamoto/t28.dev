@@ -26,7 +26,7 @@ const AchievementSection: FC<PropsWithChildren<Props>> = ({ posts }) => {
           color="var(--colors-white)"
           fontSize={{ base: "var(--spacing-10)", md: "var(--spacing-20)" }}
           fontFamily="sans"
-          fontWeight="var(--fontWeight-semibold)"
+          fontWeight="semibold"
         >
           {`Achievements`}
         </styled.h2>
