@@ -9,7 +9,7 @@ export default defineGlobalStyles({
 
   body: {
     fontFamily: `"Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif`,
-    fontSize: "var(--fontSize-1)",
+    fontSize: "md",
     color: "var(--color-text)",
     backgroundColor: "rgba(242, 242, 248, 0.5)",
   },
@@ -28,7 +28,7 @@ export default defineGlobalStyles({
 
   h1: {
     fontWeight: "black",
-    fontSize: "var(--fontSize-6)",
+    fontSize: "5xl",
     color: "var(--color-heading-black)",
   },
 
@@ -38,23 +38,23 @@ export default defineGlobalStyles({
   },
 
   h2: {
-    fontSize: "var(--fontSize-5)",
+    fontSize: "4xl",
   },
 
   h3: {
-    fontSize: "var(--fontSize-4)",
+    fontSize: "3xl",
   },
 
   h4: {
-    fontSize: "var(--fontSize-3)",
+    fontSize: "2xl",
   },
 
   h5: {
-    fontSize: "var(--fontSize-2)",
+    fontSize: "xl",
   },
 
   h6: {
-    fontSize: "var(--fontSize-1)",
+    fontSize: "lg",
   },
 
   a: {

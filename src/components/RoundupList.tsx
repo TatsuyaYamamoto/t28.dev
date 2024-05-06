@@ -24,7 +24,7 @@ const RoundupList: FC<Props> = (props) => {
             >
               <styled.header marginBottom="4">
                 <styled.h2
-                  fontSize="var(--fontSize-4)"
+                  fontSize="3xl"
                   color="var(--color-primary)"
                   marginBottom="2"
                   marginTop="0"

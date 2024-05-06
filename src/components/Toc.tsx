@@ -12,7 +12,7 @@ import { isHTMLAnchorElement } from "../helpers/type-gurad";
 
 const Root = styled("div", {
   base: {
-    fontSize: "var(--fontSize-0)",
+    fontSize: "sm",
 
     "& > ul": {
       paddingLeft: "0",
