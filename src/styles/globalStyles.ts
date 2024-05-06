@@ -29,7 +29,6 @@ export default defineGlobalStyles({
   h1: {
     fontWeight: "black",
     fontSize: "5xl",
-    color: "var(--color-heading-black)",
   },
 
   "h2, h3, h4, h5, h6": {

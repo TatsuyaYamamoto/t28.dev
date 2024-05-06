@@ -11,7 +11,6 @@ const globalVars: NonNullable<Config["globalVars"]> = {
   "--color-text": "#2e353f",
   "--color-text-light": "#4f5969",
   "--color-heading": "#1a202c",
-  "--color-heading-black": "black",
   "--color-accent": "#d1dce5",
   "--color-accent-soft": "#e7ecef",
   "--color-post-background": "#fcfcfc",
