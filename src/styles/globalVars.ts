@@ -1,17 +1,6 @@
 import type { Config } from "@pandacss/dev";
 
 const globalVars: NonNullable<Config["globalVars"]> = {
-  "--maxWidth-none": "none",
-  "--maxWidth-xs": "20rem",
-  "--maxWidth-sm": "24rem",
-  "--maxWidth-md": "28rem",
-  "--maxWidth-lg": "32rem",
-  "--maxWidth-xl": "36rem",
-  "--maxWidth-2xl": "42rem",
-  "--maxWidth-3xl": "48rem",
-  "--maxWidth-4xl": "56rem",
-  "--maxWidth-full": "100%",
-  "--maxWidth-wrapper": "var(--maxWidth-2xl)",
   "--spacing-px": "1px",
   "--spacing-0": "0",
   "--spacing-1": "0.25rem",
