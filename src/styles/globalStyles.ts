@@ -2,7 +2,7 @@ import { defineGlobalStyles } from "@pandacss/dev";
 
 export default defineGlobalStyles({
   html: {
-    lineHeight: "var(--lineHeight-normal)",
+    lineHeight: "normal",
     "-webkit-font-smoothing": "antialiased",
     "-moz-osx-font-smoothing": "grayscale",
   },
@@ -17,7 +17,7 @@ export default defineGlobalStyles({
   "h1, h2, h3, h4, h5, h6": {
     marginTop: "12",
     marginBottom: "6",
-    lineHeight: "var(--lineHeight-tight)",
+    lineHeight: "tight",
     letterSpacing: "-0.025em",
 
     "& > a": {
