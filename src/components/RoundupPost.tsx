@@ -23,7 +23,7 @@ const RoundupPost: FC<PropsWithChildren<Props>> = (props) => {
           itemProp="headline"
           margin="0"
           marginBottom="4"
-          fontSize="var(--fontSize-5)"
+          fontSize="4xl"
         >
           {title}
         </styled.h1>
