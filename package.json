@@ -16,7 +16,7 @@
     "fix:prettier": "prettier --write .",
     "vrt:shot": "playwright test --update-snapshots",
     "preview": "astro preview",
-    "prepare": "husky install && panda codegen",
+    "prepare": "husky && panda codegen",
     "postinstall": "rm -f $PWD/src/content/{blog,roundup,s-works-achievement} && ln -s $PWD/docs/blog $PWD/src/content/ && ln -s $PWD/docs/roundup $PWD/src/content/ && ln -s $PWD/docs/s-works-achievement $PWD/src/content/"
   },
   "lint-staged": {
