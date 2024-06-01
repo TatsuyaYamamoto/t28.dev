@@ -16,7 +16,7 @@
     "fix:prettier": "prettier --write .",
     "vrt:shot": "playwright test --update-snapshots",
     "preview": "astro preview",
-    "prepare": "husky install && panda codegen",
+    "prepare": "husky && panda codegen",
     "postinstall": "rm -f $PWD/src/content/{blog,roundup,s-works-achievement} && ln -s $PWD/docs/blog $PWD/src/content/ && ln -s $PWD/docs/roundup $PWD/src/content/ && ln -s $PWD/docs/s-works-achievement $PWD/src/content/"
   },
   "lint-staged": {
@@ -41,7 +41,7 @@
     "@playwright/test": "1.43.1",
     "@types/node": "20.12.7",
     "@vercel/og": "0.6.2",
-    "husky": "8.0.3",
+    "husky": "9.0.11",
     "isomorphic-dompurify": "2.7.0",
     "lint-staged": "13.2.2",
     "marked": "12.0.1",
