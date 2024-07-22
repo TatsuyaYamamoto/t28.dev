@@ -46,7 +46,7 @@
     "lint-staged": "13.2.2",
     "marked": "12.0.1",
     "prettier": "3.2.4",
-    "prettier-plugin-astro": "0.13.0",
+    "prettier-plugin-astro": "0.14.1",
     "rehype-infer-description-meta": "2.0.0",
     "typescript": "5.0.4",
     "vite-plugin-svgr": "4.2.0"
