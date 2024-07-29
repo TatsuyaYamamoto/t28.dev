@@ -30,7 +30,7 @@
     "@astrojs/sitemap": "3.0.5",
     "astro": "4.2.6",
     "astro-seo": "0.7.2",
-    "bulma": "0.9.4",
+    "bulma": "1.0.2",
     "modern-css-reset": "1.4.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
