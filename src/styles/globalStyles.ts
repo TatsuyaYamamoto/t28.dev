@@ -2,14 +2,14 @@ import { defineGlobalStyles } from "@pandacss/dev";
 
 export default defineGlobalStyles({
   html: {
-    lineHeight: "var(--lineHeight-normal)",
+    lineHeight: "normal",
     "-webkit-font-smoothing": "antialiased",
     "-moz-osx-font-smoothing": "grayscale",
   },
 
   body: {
     fontFamily: `"Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif`,
-    fontSize: "var(--fontSize-1)",
+    fontSize: "md",
     color: "var(--color-text)",
     backgroundColor: "rgba(242, 242, 248, 0.5)",
   },
@@ -17,7 +17,7 @@ export default defineGlobalStyles({
   "h1, h2, h3, h4, h5, h6": {
     marginTop: "12",
     marginBottom: "6",
-    lineHeight: "var(--lineHeight-tight)",
+    lineHeight: "tight",
     letterSpacing: "-0.025em",
 
     "& > a": {
@@ -28,8 +28,7 @@ export default defineGlobalStyles({
 
   h1: {
     fontWeight: "black",
-    fontSize: "var(--fontSize-6)",
-    color: "var(--color-heading-black)",
+    fontSize: "5xl",
   },
 
   "h2, h3, h4, h5, h6": {
@@ -38,23 +37,23 @@ export default defineGlobalStyles({
   },
 
   h2: {
-    fontSize: "var(--fontSize-5)",
+    fontSize: "4xl",
   },
 
   h3: {
-    fontSize: "var(--fontSize-4)",
+    fontSize: "3xl",
   },
 
   h4: {
-    fontSize: "var(--fontSize-3)",
+    fontSize: "2xl",
   },
 
   h5: {
-    fontSize: "var(--fontSize-2)",
+    fontSize: "xl",
   },
 
   h6: {
-    fontSize: "var(--fontSize-1)",
+    fontSize: "lg",
   },
 
   a: {
