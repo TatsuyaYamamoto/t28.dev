@@ -23,7 +23,7 @@
     "*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
-    "@astrojs/check": "0.4.1",
+    "@astrojs/check": "0.9.3",
     "@astrojs/mdx": "2.1.0",
     "@astrojs/react": "3.0.9",
     "@astrojs/rss": "4.0.5",
