@@ -15,7 +15,11 @@ export const mermaidRemarkPlugin: RemarkPlugin = () => {
     // find "mermaid" code blocks
     const mermaidCodeBlocks: MermaidCodeBlock[] = [];
     visit(root, "code", (code, index, parent) => {
-      if (code.lang === "mermaid" && index !== null && parent !== null) {
+      if (
+        code.lang === "mermaid" &&
+        index !== undefined &&
+        parent !== undefined
+      ) {
         mermaidCodeBlocks.push({ code, index, parent });
       }
     });
