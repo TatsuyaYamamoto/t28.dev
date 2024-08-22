@@ -27,7 +27,7 @@
     "@astrojs/mdx": "2.1.0",
     "@astrojs/react": "3.0.9",
     "@astrojs/rss": "4.0.7",
-    "@astrojs/sitemap": "3.0.5",
+    "@astrojs/sitemap": "3.1.6",
     "astro": "4.2.6",
     "astro-seo": "0.7.2",
     "modern-css-reset": "1.4.0",
