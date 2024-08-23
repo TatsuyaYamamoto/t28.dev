@@ -37,7 +37,7 @@
   "devDependencies": {
     "@mermaid-js/mermaid-cli": "10.9.1",
     "@pandacss/dev": "0.45.1",
-    "@playwright/test": "1.43.1",
+    "@playwright/test": "1.46.1",
     "@types/node": "20.12.7",
     "@vercel/og": "0.6.2",
     "husky": "9.1.5",
