@@ -32,7 +32,7 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render();
 
 const title = `${post.data.title} | ${SITE_TITLE}`;
 const description = post.data.description ?? remarkPluginFrontmatter.excerpt;
-const ogpImageUrl = new URL(`/blog/${post.slug}/ogp.png`, Astro.url).href;
+const ogpImageUrl = new URL(`/blog/${post.slug}.ogp.png`, Astro.url).href;
 
 const blogPostLeft = css({
   width: {

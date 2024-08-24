@@ -5,7 +5,7 @@ date: 2023/06/03
 
 最近流行っているから、ブログの Astro 移行に合わせてやってみた。
 
-![](https://t28.dev/blog/output-ogp-image-for-astro-pages/ogp.png)
+![](https://t28.dev/blog/output-ogp-image-for-astro-pages.ogp.png)
 
 ## @vercel/og?
 
