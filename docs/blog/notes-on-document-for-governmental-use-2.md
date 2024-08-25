@@ -9,13 +9,13 @@ GW 2024 の自由研究ってことで[文化審議会](https://www.bunka.go.jp/
 
 ## 「公用文作成の考え方」について
 
-"[「公用文作成の考え方」を読んだのでメモ (基本的な考え方)](./document-for-governmental-use-1)" を要参照。
+"[「公用文作成の考え方」を読んだのでメモ (基本的な考え方)](./notes-on-document-for-governmental-use-1)" を要参照。
 
 ## この記事で扱う範囲
 
 **公用文作成の考え方**
 
-- [基本的な考え方](./notes-on-document-for-governmental-use-1.md)
+- [基本的な考え方](./notes-on-document-for-governmental-use-1)
 - 表記の原則 `👈 ここ`
   1. 漢字の使い方
   2. 送り仮名の付け方
