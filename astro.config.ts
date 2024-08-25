@@ -21,7 +21,7 @@ export default defineConfig({
     remarkPlugins: [mermaidRemarkPlugin],
   },
   build: {
-    format: "preserve",
+    format: "file",
   },
   vite: {
     plugins: [svgr()],
