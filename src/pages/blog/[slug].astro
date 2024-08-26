@@ -1,19 +1,19 @@
 ---
 import { css } from "@styled-system/css";
 import { Container, styled } from "@styled-system/jsx";
-import styles from "../../../styles/blogPostContent.module.scss";
+import styles from "../../styles/blogPostContent.module.scss";
 
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
-import BaseLayout from "../../../layouts/BaseLayout.astro";
-import BlogPost from "../../../components/BlogPost";
-import Footer from "../../../components/Footer";
-import BlogPostSideMenu from "../../../components/BlogPostSideMenu";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogPost from "../../components/BlogPost";
+import Footer from "../../components/Footer";
+import BlogPostSideMenu from "../../components/BlogPostSideMenu";
 
-import { headingToTocItems } from "../../../helpers/utils";
+import { headingToTocItems } from "../../helpers/utils";
 
-import { SITE_TITLE } from "../../../constants";
+import { SITE_TITLE } from "../../constants";
 
 export const getStaticPaths = async () => {
   const allBlogPosts = await getCollection("blog");
@@ -32,7 +32,7 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render();
 
 const title = `${post.data.title} | ${SITE_TITLE}`;
 const description = post.data.description ?? remarkPluginFrontmatter.excerpt;
-const ogpImageUrl = new URL(`/blog/${post.slug}/ogp.png`, Astro.url).href;
+const ogpImageUrl = new URL(`/blog/${post.slug}.ogp.png`, Astro.url).href;
 
 const blogPostLeft = css({
   width: {

@@ -7,7 +7,7 @@ const pages = [
     name: "blog post page (example)",
   },
   {
-    path: "/blog/render-mermaid-on-astro-site/ogp.png",
+    path: "/blog/render-mermaid-on-astro-site.ogp.png",
     name: "blog post ogp image (example)",
   },
   { path: "/s-works", name: "s-works top page" },

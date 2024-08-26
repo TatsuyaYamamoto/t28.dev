@@ -20,6 +20,9 @@ export default defineConfig({
     rehypePlugins: [inferDescriptionMetaPlugin],
     remarkPlugins: [mermaidRemarkPlugin],
   },
+  build: {
+    format: "file",
+  },
   vite: {
     plugins: [svgr()],
     resolve: {
