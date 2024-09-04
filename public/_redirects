@@ -1,10 +1,13 @@
 ### fix search console 404 error
-/blog/github-com-dependabot-introduction/                                        /blog/github-dependabot-introduction/               308
-/blog/document-for-governmental-use-2/document-for-governmental-use-1            /blog/notes-on-document-for-governmental-use-2/     308
-/blog/vercel-og-or-satori-for-me/output-ogp-image-for-astro-pages                /blog/vercel-og-or-satori-for-me/                   308
-/correct-implementation-of-clipboard-in-js                                       /blog/correct-implementation-of-clipboard-in-js/    308
-/blog/secure-atag-with-target-blank/{url}                                        /blog/secure-atag-with-target-blank/                308
-/blog/compare-each-docs-of-nodejs-modules-packages/ecmascript-modules-for-nodejs /blog/compare-each-docs-of-nodejs-modules-packages/ 308
+/blog/github-com-dependabot-introduction/                                        /blog/github-dependabot-introduction               308
+/blog/document-for-governmental-use-2/document-for-governmental-use-1            /blog/notes-on-document-for-governmental-use-2     308
+/blog/vercel-og-or-satori-for-me/output-ogp-image-for-astro-pages                /blog/vercel-og-or-satori-for-me                   308
+/correct-implementation-of-clipboard-in-js                                       /blog/correct-implementation-of-clipboard-in-js    308
+/blog/secure-atag-with-target-blank/{url}                                        /blog/secure-atag-with-target-blank                308
+/blog/compare-each-docs-of-nodejs-modules-packages/ecmascript-modules-for-nodejs /blog/compare-each-docs-of-nodejs-modules-packages 308
+/blog/read-the-implementation-of-react-hooks                                     /blog/notes-on-implementations-of-react-hooks      308
+/blog/read-book-become-an-effective-software-engineering-manager                 /blog/notes-on-become-an-effective-software-engineering-manager       308
+/blog/guidelines-for-submitting-unicode-emoji-proposals-2024/                    /blog/notes-on-guidelines-for-submitting-unicode-emoji-proposals-2024 308
 
 ### change slug 2024-08-11
 /blog/read-book-become-an-effective-software-engineering-manager/ /blog/notes-on-become-an-effective-software-engineering-manager/ 308

@@ -28,7 +28,7 @@ deps に渡せる(渡すべき)値は [API Reference](https://en.reactjs.org/doc
 
 という言及のみで、「どんな値が渡せるか」の言及はありません[^1]。
 
-実装上は`Object.is` で比較できるものであることが分かった([別記事](./read-the-implementation-of-react-hooks))ので、[Same-value](https://developer.mozilla.org/ja/docs/Web/JavaScript/Equality_comparisons_and_sameness#same-value_equality) として比較が出来るものが、deps に渡せる値になります(👇 のときに等しいと評価してよい値)。
+実装上は`Object.is` で比較できるものであることが分かった([別記事](./notes-on-implementations-of-react-hooks))ので、[Same-value](https://developer.mozilla.org/ja/docs/Web/JavaScript/Equality_comparisons_and_sameness#same-value_equality) として比較が出来るものが、deps に渡せる値になります(👇 のときに等しいと評価してよい値)。
 
 > - どちらも undefined
 > - どちらも null

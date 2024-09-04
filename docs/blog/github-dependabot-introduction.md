@@ -14,7 +14,7 @@ date: 2024-01-27
 
 (Web アプリとパッケージの) 依存関係の管理とは、パッケージのバージョンを維持すること...**ではなく**、脆弱性・バグ・新機能のために**最新版に更新すること**です。
 「新機能は要らないから、必要な修正パッチが入ったバージョンだけ更新する」という方針は[現実のオープンソースでは取れません](https://docs.renovatebot.com/dependency-pinning/#tilde-vs-caret)。
-また、[定期的な更新を行うことで迅速な更新が必要なときに備える](<](https://docs.renovatebot.com/upgrade-best-practices/#why-updating-often-is-easier-faster-and-safer)>)ことが重要です。
+また、[定期的な更新を行うことで迅速な更新が必要なときに備える](https://docs.renovatebot.com/upgrade-best-practices/#why-updating-often-is-easier-faster-and-safer)ことが重要です。
 
 ...ってことで、**依存関係を定期的に更新したい**。
 
