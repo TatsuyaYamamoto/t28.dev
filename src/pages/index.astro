@@ -10,29 +10,41 @@ import Footer from "../components/Footer";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../constants";
 
-const allBlogPosts = await getCollection("blog");
-
 const getDescription = async (
-  post: CollectionEntry<"blog">,
+  post: CollectionEntry<"blog" | "scrap">,
 ): Promise<string> => {
-  if (post.data.description) {
+  if (post.collection === "blog" && post.data.description) {
     return post.data.description;
   }
-  const entry = await getEntry("blog", post.slug);
+  const entry = await getEntry(post.collection, post.slug);
   const { remarkPluginFrontmatter } = await entry.render();
   return remarkPluginFrontmatter.excerpt;
 };
 
-const posts = await Promise.all(
-  allBlogPosts
-    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-    .map(async (post) => ({
-      url: `/blog/${post.slug}/`,
-      title: post.data.title,
-      description: await getDescription(post),
-      date: post.data.date,
-      category: post.data.category,
-    })),
+const blogCollection = await getCollection("blog");
+const scrapCollection = await getCollection("scrap");
+
+const blogPosts = await Promise.all(
+  blogCollection.map(async (post) => ({
+    url: `/${post.collection}/${post.slug}`,
+    title: post.data.title,
+    description: await getDescription(post),
+    date: post.data.date,
+    category: post.data.category,
+  })),
+);
+const scrapPosts = await Promise.all(
+  scrapCollection.map(async (post) => ({
+    url: `/${post.collection}/${post.slug}`,
+    title: post.data.title,
+    description: await getDescription(post),
+    date: new Date(post.slug),
+    category: post.data.category,
+  })),
+);
+
+const sortedPosts = [...blogPosts, ...scrapPosts].sort(
+  (a, b) => b.date.valueOf() - a.date.valueOf(),
 );
 ---
 
@@ -56,7 +68,7 @@ const posts = await Promise.all(
     <Bio />
   </Container>
   <Container>
-    <BlogList posts={posts} />
+    <BlogList posts={sortedPosts} />
   </Container>
   <Footer />
 </BaseLayout>

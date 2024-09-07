@@ -1,6 +1,7 @@
 src/content/blog
 src/content/roundup
 src/content/s-works-achievement
+src/content/scrap
 
 /test-results/
 /playwright-report/

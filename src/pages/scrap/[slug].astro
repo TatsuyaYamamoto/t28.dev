@@ -1,0 +1,95 @@
+---
+import path from "node:path";
+import type { MarkdownInstance } from "astro";
+import { type CollectionEntry, getEntry } from "astro:content";
+
+import { css } from "@styled-system/css";
+import { Container, styled } from "@styled-system/jsx";
+
+import styles from "../../styles/blogPostContent.module.scss";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ScrapPost from "../../components/ScrapPost";
+import Footer from "../../components/Footer";
+
+import { SITE_TITLE } from "../../constants";
+
+type Markdown = MarkdownInstance<
+  CollectionEntry<"scrap">["data"] & {
+    excerpt: string;
+  }
+>;
+
+interface Props {
+  entry: CollectionEntry<"scrap">;
+  markdown: Markdown;
+}
+
+export const getStaticPaths = async () => {
+  const markdowns: Markdown[] = await Astro.glob("../../../docs/scrap/*.md");
+
+  return Promise.all(
+    markdowns.map(async (markdown) => {
+      const slug = path.basename(markdown.file, ".md");
+      const entry = await getEntry("scrap", slug);
+      return {
+        params: { slug },
+        props: { markdown, entry },
+      };
+    }),
+  );
+};
+
+const postSlug = Astro.props.entry.slug;
+const postTitle = Astro.props.entry.data.title;
+const postDate = new Date(postSlug);
+const postCategory = Astro.props.entry.data.category;
+const htmlBlocks = Astro.props.markdown.compiledContent().split("<hr>");
+
+const pageTitle = `${postTitle} | ${SITE_TITLE}`;
+const pageDescription = Astro.props.markdown.frontmatter.excerpt;
+const ogpImageUrl = new URL(
+  `/${Astro.props.entry.collection}/${postSlug}.ogp.png`,
+  Astro.url,
+).href;
+
+const articleStyle = css({
+  padding: "10",
+  border: "var(--border-solid-accent)",
+  borderRadius: "lg",
+  boxShadow: "xs",
+  backgroundColor: "var(--color-post-background)",
+});
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  faviconType="t28.dev"
+  ogpImageUrl={ogpImageUrl}
+>
+  <styled.header marginY="12">
+    <Container>
+      <styled.a
+        href="/"
+        fontWeight="bold"
+        textDecoration="none"
+        fontSize="var(--fontSize-4)"
+      >
+        {SITE_TITLE}
+      </styled.a>
+    </Container>
+  </styled.header>
+  <Container>
+    <ScrapPost title={postTitle} date={postDate} category={postCategory}>
+      {
+        htmlBlocks.map((htmlBlock) => (
+          <article
+            set:html={htmlBlock}
+            class:list={[styles.blogPostContent, articleStyle]}
+          />
+        ))
+      }
+    </ScrapPost>
+  </Container>
+</BaseLayout>
+<Footer />
