@@ -20,6 +20,23 @@ const faviconPathMap = {
 
 const { title, description, faviconType, ogpImageUrl } = Astro.props;
 const faviconPath = faviconPathMap[faviconType];
+const canonicalUrl = (() => {
+  const baseUrl = Astro.url.href;
+  if (import.meta.env.DEV) {
+    return baseUrl;
+  }
+  if (baseUrl === Astro.site?.href) {
+    return baseUrl;
+  }
+  if (!baseUrl.endsWith(".html")) {
+    throw new Error(
+      `unexpected behavior. Astro.url (${baseUrl}) has no ".html" suffix`,
+    );
+  }
+  // cloudflare pages redirects to extension-less URL
+  // https://developers.cloudflare.com/pages/configuration/serving-pages/#route-matching
+  return baseUrl.replace(".html", "");
+})();
 ---
 
 <html lang="ja">
@@ -32,6 +49,7 @@ const faviconPath = faviconPathMap[faviconType];
 
     <SEO
       description={description}
+      canonical={canonicalUrl}
       openGraph={{
         basic: {
           title: title,
