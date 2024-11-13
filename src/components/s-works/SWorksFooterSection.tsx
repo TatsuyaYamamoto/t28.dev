@@ -13,6 +13,12 @@ const icon = css.raw({
   height: "8",
 });
 
+const StyledSWorksLogo = styled(SWorksLogo, {
+  base: {
+    width: "36",
+  },
+});
+
 const SWorksFooterSection: FC = () => {
   const [thisYear] = useState(() => {
     const now = new Date();
@@ -23,7 +29,7 @@ const SWorksFooterSection: FC = () => {
     <styled.footer paddingY="5">
       <styled.div textAlign="center" paddingY="10">
         <a href="/s-works">
-          <SWorksLogo />
+          <StyledSWorksLogo />
         </a>
       </styled.div>
       <Center marginTop="0" gap="2">

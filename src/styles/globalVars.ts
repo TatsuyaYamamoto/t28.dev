@@ -15,7 +15,7 @@ const globalVars: NonNullable<Config["globalVars"]> = {
   "--fontSize-6": "2.488rem",
   "--fontSize-7": "2.986rem",
 
-  "--font-family-s-works": "sans-serif",
+  "--font-family-s-works": "helvetica",
 
   "--border-solid-accent": "1px solid var(--color-accent)",
   "--border-solid-transparent": "1px solid transparent",
