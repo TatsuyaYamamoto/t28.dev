@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import AchievementSection from "../../components/s-works/AchievementSection";
 import FooterSection from "../../components/s-works/SWorksFooterSection";
 import IndexHero from "../../components/s-works/IndexHero";
+import CardArSample from "../../components/s-works/CardArSample";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { SITE_TITLE_S_WORKS, SITE_DESCRIPTION_S_WORKS } from "../../constants";
 
@@ -24,6 +25,7 @@ const posts = allPosts
   description={SITE_DESCRIPTION_S_WORKS}
   faviconType="s-works"
 >
+  <CardArSample client:only="react" />
   <IndexHero />
   <AchievementSection posts={posts} />
   <FooterSection />
