@@ -1,13 +1,13 @@
 import { type FC, useEffect, useRef } from "react";
 
-import { MindARThree } from "mind-ar/dist/mindar-image-three.prod.js";
 import * as THREE from "three";
+import { MindARThree } from "mind-ar/dist/mindar-image-three.prod.js";
 
 interface Props {
   imageTargetSrc: string;
   anchors: {
     index: number;
-    meshes: THREE.Mesh[];
+    objects: THREE.Object3D[];
   }[];
 }
 
@@ -27,7 +27,7 @@ const MindArRenderer: FC<Props> = ({ imageTargetSrc, anchors }) => {
     });
 
     anchors.map((anchor) => {
-      mindArThree.addAnchor(anchor.index).group.add(...anchor.meshes);
+      mindArThree.addAnchor(anchor.index).group.add(...anchor.objects);
     });
 
     const { renderer, scene, camera } = mindArThree;
