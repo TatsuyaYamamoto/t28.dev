@@ -1,4 +1,4 @@
-import { type FC, useMemo } from "react";
+import { type FC, useMemo, useState } from "react";
 import { useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
@@ -6,25 +6,65 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import MindArRenderer from "../../helpers/mindAr/MindArRenderer.tsx";
 import { createMesh } from "../../helpers/mindAr/utils.ts";
 
+import sWorksPortfolioMemoryGame from "../../../docs/s-works-achievement/_assets/it_team_memory_game/hero.jpg";
+import sWorksPortfolioNijiyonAr from "../../../docs/s-works-achievement/_assets/nijigasaki-gamers-nijiyon-ar/hero.jpg";
+
 import dairiPng from "../../assets/images/profile-pic.jpg";
-import imageTarget from "../../assets/mindAr/s-works-logo.mind?url";
+import leftPng from "../../assets/images/left.png";
+import rightPng from "../../assets/images/right.png";
 import sWorksGltfUrl from "../../assets/mindAr/s-works-logo-alpha.gltf?url";
+import imageTarget from "../../assets/mindAr/s-works-logo.mind?url";
 
 const CardArSample: FC = () => {
-  const dairiTexture = useLoader(THREE.TextureLoader, dairiPng.src);
+  const [
+    dairiTexture,
+    leftTexture,
+    rightTexture,
+    sWorksPortfolioMemoryGameTexture,
+    sWorksPortfolioNijiyonArTexture,
+  ] = useLoader(THREE.TextureLoader, [
+    dairiPng.src,
+    leftPng.src,
+    rightPng.src,
+    sWorksPortfolioMemoryGame.src,
+    sWorksPortfolioNijiyonAr.src,
+  ]);
   const sWorksGltf = useLoader(GLTFLoader, sWorksGltfUrl);
+  const [portfolioIndex, setPortfolioIndex] = useState(0);
 
   const anchors = useMemo(
     () => [
       {
-        index: 0,
-        objects: [createMesh(dairiTexture)],
-      },
-      {
         index: 1,
         objects: [
           (() => {
-            const mesh = createMesh(dairiTexture);
+            const mesh =
+              portfolioIndex === 0
+                ? // @ts-expect-error
+                  createMesh(sWorksPortfolioMemoryGameTexture)
+                : // @ts-expect-error
+                  createMesh(sWorksPortfolioNijiyonArTexture);
+            mesh.scale.setScalar(0.7);
+            mesh.position.y = 0.7;
+            return mesh;
+          })(),
+          (() => {
+            // @ts-expect-error
+            const mesh = createMesh(rightTexture);
+            mesh.name = "right-button";
+            mesh.scale.setScalar(0.2);
+            mesh.position.x = 0.6;
+            mesh.position.y = 0.7;
+            return mesh;
+          })(),
+          (() => {
+            // @ts-expect-error
+            const mesh = createMesh(leftTexture);
+            mesh.name = "left-button";
+            mesh.scale.setScalar(0.2);
+            mesh.position.x = -0.6;
+            mesh.position.y = 0.7;
+            console.log(mesh.id);
             return mesh;
           })(),
           (() => {
@@ -40,8 +80,16 @@ const CardArSample: FC = () => {
         ],
       },
     ],
-    [dairiTexture, sWorksGltf],
+    [dairiTexture, sWorksGltf, portfolioIndex],
   );
+
+  const onClick = (names: string[]) => {
+    names.forEach((name) => {
+      if (name === "right-button" || name === "left-button") {
+        setPortfolioIndex((prev) => (prev + 1) % 2);
+      }
+    });
+  };
 
   return (
     <div
@@ -52,7 +100,11 @@ const CardArSample: FC = () => {
         overflow: "hidden",
       }}
     >
-      <MindArRenderer imageTargetSrc={imageTarget} anchors={anchors} />
+      <MindArRenderer
+        imageTargetSrc={imageTarget}
+        anchors={anchors}
+        onClick={onClick}
+      />
     </div>
   );
 };
