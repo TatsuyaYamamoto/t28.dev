@@ -16,6 +16,13 @@ import sWorksGltfUrl from "../../assets/mindAr/s-works-logo-alpha.gltf?url";
 import imageTarget from "../../assets/mindAr/s-works-logo.mind?url";
 
 const CardArSample: FC = () => {
+  const [hasCardQuery] = useState(() =>
+    new URLSearchParams(location.search).get("card"),
+  );
+  if (!hasCardQuery) {
+    return null;
+  }
+
   const [
     dairiTexture,
     leftTexture,
