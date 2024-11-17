@@ -1,6 +1,6 @@
 ---
 title: "MindAR + three.js + React の最小デモアプリのメモ"
-date: 2024-09-04
+date: 2024-09-29
 ---
 
 AR アプリ (スマホのカメラで画像を映すと、別の画像が重ね合わせで表示される) を
@@ -131,19 +131,30 @@ const App: FC = () => {
 
 https://github.com/TatsuyaYamamoto/mind-ar-react-app/blob/main/src/components/MindArRenderer.tsx
 
-github.com/TatsuyaYamamoto/mind-ar-react-app/blob/main/src/components/MindArRenderer.tsx
-
 ```tsx
 const MindArRenderer: FC<Props> = ({ anchors }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const wrapperElRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const wrapper = document.createElement("div");
-    wrapper.style.width = "100%";
-    wrapper.style.height = "100%";
+    /**
+     * wrapper 要素 (<div style={{ display: "contents" }} />) に対して、以下の要素を useEffect 内で構築する。
+     * <div> 👈️ wrapper
+     *   <div> 👈️ container
+     *     <canvas /> 👈️ MindAR が挿入する要素 1
+     *     <div />    👈️ MindAR が挿入する要素 2
+     *     <video />  👈️ MindAR が挿入する要素 3
+     *   </div>
+     * </div>
+     *
+     * useEffect 内で実行する {@link MindARThree#start} と {@link MindARThree#stop} による後処理に課題があり、
+     * container 要素ごと削除するために wrapper 要素内に container 要素を作っている。
+     */
+    const container = document.createElement("div");
+    container.style.width = "100%";
+    container.style.height = "100%";
 
     const mindArThree = new MindARThree({
-      container: wrapper,
+      container,
       imageTargetSrc: "/data.mind", // 👈️ compiler で作った `.mind` ファイルを渡す
       uiScanning: "no",
       uiLoading: "no",
@@ -154,33 +165,35 @@ const MindArRenderer: FC<Props> = ({ anchors }) => {
     });
 
     const { renderer, scene, camera } = mindArThree;
+
+    /**
+     * MindAR の start 処理は非同期で実行されるため、
+     * useEffect のクリーンアップで stop を実行するために、start の完了を待つ Promise を受け取る
+     */
     const startPromise = mindArThree.start();
     renderer.setAnimationLoop(() => {
       renderer.render(scene, camera);
     });
 
-    containerRef.current?.append(wrapper);
+    wrapperElRef.current?.append(container);
 
     return () => {
       renderer.setAnimationLoop(null);
       startPromise.then(() => {
         mindArThree.stop();
-        wrapper.remove();
+        container.remove();
       });
     };
   }, [anchors]);
 
-  return (
-    <div
-      style={{
-        // 👇️
-        display: "contents",
-      }}
-      ref={containerRef}
-    />
-  );
+  // useEffect で作る container 要素、MindAR が挿入する要素で style が完結するため、wrapper 要素でボックスを作成させない
+  return <div style={{ display: "contents" }} ref={wrapperElRef} />;
 };
 ```
+
+`@react-three/fiber` をインストールしているけれど、使っているのは App.tsx 内の `useLoader` hook のみ。
+[`MindARThree`](https://github.com/hiukim/mind-ar-js/blob/master/src/image-target/three.js) クラスのコンストラクター内で `Scene` や `WebGLRenderer` の実装が行われているため、
+宣言的な実装をするためには専用のクラス (か、何か) を自前で作る必要がある...。
 
 ## 描画結果
 
