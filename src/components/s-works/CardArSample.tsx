@@ -1,4 +1,4 @@
-import { type FC, useMemo, useState } from "react";
+import { type FC, useMemo, useRef, useState } from "react";
 import { useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
@@ -6,8 +6,10 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import MindArRenderer from "../../helpers/mindAr/MindArRenderer.tsx";
 import { createMesh } from "../../helpers/mindAr/utils.ts";
 
-import sWorksPortfolioMemoryGame from "../../../docs/s-works-achievement/_assets/it_team_memory_game/hero.jpg";
 import sWorksPortfolioNijiyonAr from "../../../docs/s-works-achievement/_assets/nijigasaki-gamers-nijiyon-ar/hero.jpg";
+import sWorksPortfolioMachigaiSagashi from "../../../docs/s-works-achievement/_assets/lovelive-machigai-sagashi/hero.jpg";
+import sWorksPortfolioFlowerStand from "../../../docs/s-works-achievement/_assets/nijigasaki_flower_stand/hero.jpg";
+import sWorksPortfolioMemoryGame from "../../../docs/s-works-achievement/_assets/it_team_memory_game/hero.jpg";
 
 import dairiPng from "../../assets/images/profile-pic.jpg";
 import leftPng from "../../assets/images/left.png";
@@ -27,55 +29,88 @@ const CardArSample: FC = () => {
     dairiTexture,
     leftTexture,
     rightTexture,
-    sWorksPortfolioMemoryGameTexture,
     sWorksPortfolioNijiyonArTexture,
+    sWorksPortfolioMachigaiSagashiTexture,
+    sWorksPortfolioFlowerStandTexture,
+    sWorksPortfolioMemoryGameTexture,
   ] = useLoader(THREE.TextureLoader, [
     dairiPng.src,
     leftPng.src,
     rightPng.src,
-    sWorksPortfolioMemoryGame.src,
     sWorksPortfolioNijiyonAr.src,
+    sWorksPortfolioMachigaiSagashi.src,
+    sWorksPortfolioFlowerStand.src,
+    sWorksPortfolioMemoryGame.src,
   ]);
   const sWorksGltf = useLoader(GLTFLoader, sWorksGltfUrl);
-  const [portfolioIndex, setPortfolioIndex] = useState(0);
+  const portfolioIndex = useRef(0);
+
+  const [sWorksPortfolioNijiyonArMesh] = useState(() => {
+    // @ts-expect-error
+    const mesh = createMesh(sWorksPortfolioNijiyonArTexture);
+    mesh.scale.setScalar(0.7);
+    mesh.position.y = 0.7;
+    mesh.visible = true;
+    return mesh;
+  });
+  const [sWorksPortfolioMachigaiSagashiMesh] = useState(() => {
+    // @ts-expect-error
+    const mesh = createMesh(sWorksPortfolioMachigaiSagashiTexture);
+    mesh.scale.setScalar(0.7);
+    mesh.position.y = 0.7;
+    mesh.visible = false;
+    return mesh;
+  });
+  const [sWorksPortfolioFlowerStandMesh] = useState(() => {
+    // @ts-expect-error
+    const mesh = createMesh(sWorksPortfolioFlowerStandTexture);
+    mesh.scale.setScalar(0.7);
+    mesh.position.y = 0.7;
+    mesh.visible = false;
+    return mesh;
+  });
+  const [sWorksPortfolioMemoryGameMesh] = useState(() => {
+    // @ts-expect-error
+    const mesh = createMesh(sWorksPortfolioMemoryGameTexture);
+    mesh.scale.setScalar(0.7);
+    mesh.position.y = 0.7;
+    mesh.visible = false;
+    return mesh;
+  });
+
+  const [leftButtonMesh] = useState(() => {
+    // @ts-expect-error
+    const mesh = createMesh(leftTexture);
+    mesh.name = "left-button";
+    mesh.scale.setScalar(0.2);
+    mesh.position.x = -0.6;
+    mesh.position.y = 0.7;
+    console.log(mesh.id);
+    return mesh;
+  });
+  const [rightButtonMesh] = useState(() => {
+    // @ts-expect-error
+    const mesh = createMesh(rightTexture);
+    mesh.name = "right-button";
+    mesh.scale.setScalar(0.2);
+    mesh.position.x = 0.6;
+    mesh.position.y = 0.7;
+    return mesh;
+  });
 
   const anchors = useMemo(
     () => [
       {
         index: 1,
         objects: [
+          sWorksPortfolioNijiyonArMesh,
+          sWorksPortfolioMachigaiSagashiMesh,
+          sWorksPortfolioFlowerStandMesh,
+          sWorksPortfolioMemoryGameMesh,
+          rightButtonMesh,
+          leftButtonMesh,
           (() => {
-            const mesh =
-              portfolioIndex === 0
-                ? // @ts-expect-error
-                  createMesh(sWorksPortfolioMemoryGameTexture)
-                : // @ts-expect-error
-                  createMesh(sWorksPortfolioNijiyonArTexture);
-            mesh.scale.setScalar(0.7);
-            mesh.position.y = 0.7;
-            return mesh;
-          })(),
-          (() => {
-            // @ts-expect-error
-            const mesh = createMesh(rightTexture);
-            mesh.name = "right-button";
-            mesh.scale.setScalar(0.2);
-            mesh.position.x = 0.6;
-            mesh.position.y = 0.7;
-            return mesh;
-          })(),
-          (() => {
-            // @ts-expect-error
-            const mesh = createMesh(leftTexture);
-            mesh.name = "left-button";
-            mesh.scale.setScalar(0.2);
-            mesh.position.x = -0.6;
-            mesh.position.y = 0.7;
-            console.log(mesh.id);
-            return mesh;
-          })(),
-          (() => {
-            sWorksGltf.scene.scale.set(0.01, 0.01, 0.01);
+            sWorksGltf.scene.scale.setScalar(0.01);
             sWorksGltf.scene.position.set(0, 0, 0.1);
             sWorksGltf.scene.rotation.set(
               THREE.MathUtils.degToRad(90),
@@ -91,10 +126,27 @@ const CardArSample: FC = () => {
   );
 
   const onClick = (names: string[]) => {
+    const portfolioItems = [
+      sWorksPortfolioNijiyonArMesh,
+      sWorksPortfolioMachigaiSagashiMesh,
+      sWorksPortfolioFlowerStandMesh,
+      sWorksPortfolioMemoryGameMesh,
+    ];
+
     names.forEach((name) => {
-      if (name === "right-button" || name === "left-button") {
-        setPortfolioIndex((prev) => (prev + 1) % 2);
+      if (name === "right-button") {
+        portfolioIndex.current =
+          (portfolioIndex.current + 1) % portfolioItems.length;
       }
+      if (name === "left-button") {
+        portfolioIndex.current =
+          (portfolioIndex.current - 1 + portfolioItems.length) %
+          portfolioItems.length;
+      }
+    });
+
+    portfolioItems.forEach((mesh, index) => {
+      mesh.visible = index === portfolioIndex.current;
     });
   };
 
