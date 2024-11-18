@@ -1,4 +1,13 @@
-import { type FC, useMemo, useRef, useState } from "react";
+import {
+  type FC,
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+  Suspense,
+} from "react";
+import { styled } from "@styled-system/jsx";
+
 import { useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
@@ -17,14 +26,20 @@ import rightPng from "../../assets/images/right.png";
 import sWorksGltfUrl from "../../assets/mindAr/s-works-logo-alpha.gltf?url";
 import imageTarget from "../../assets/mindAr/s-works-logo.mind?url";
 
-const CardArSample: FC = () => {
-  const [hasCardQuery] = useState(() =>
-    new URLSearchParams(location.search).get("card"),
-  );
-  if (!hasCardQuery) {
-    return null;
-  }
+import { MdOutlinedButton, MdFilledButton, MdDialog } from "../Mdw.tsx";
 
+const StyledCloseButton = styled(MdFilledButton, {
+  base: {
+    position: "absolute",
+    top: "5",
+    right: "5",
+    zIndex: 2,
+  },
+});
+
+interface Props {}
+
+const CardArSample: FC<Props> = () => {
   const [
     dairiTexture,
     leftTexture,
@@ -153,10 +168,11 @@ const CardArSample: FC = () => {
   return (
     <div
       style={{
-        position: "relative",
+        position: "fixed",
         height: "100%",
         width: "100%",
         overflow: "hidden",
+        zIndex: 1,
       }}
     >
       <MindArRenderer
@@ -168,4 +184,54 @@ const CardArSample: FC = () => {
   );
 };
 
-export default CardArSample;
+const CardArSampleWrapper: FC = () => {
+  const [sampleAppState, setSampleAppState] = useState<
+    "confirm" | "open-camera" | "close"
+  >(() => {
+    const cardQuery = new URLSearchParams(location.search).get("card");
+    if (cardQuery) {
+      return "confirm";
+    }
+    return "close";
+  });
+
+  const handleOpen = useCallback(() => {
+    setSampleAppState("open-camera");
+  }, []);
+
+  const handleClose = useCallback(() => {
+    const url = new URL(location.href);
+    url.searchParams.delete("card");
+    history.pushState(null, "", url.toString());
+
+    setSampleAppState("close");
+  }, []);
+
+  return (
+    <>
+      {sampleAppState === "open-camera" && (
+        <Suspense fallback={"loading..."}>
+          <CardArSample />
+          <StyledCloseButton onClick={handleClose}>
+            カメラを閉じる
+          </StyledCloseButton>
+        </Suspense>
+      )}
+      <MdDialog open={sampleAppState === "confirm"} noFocusTrap={true}>
+        <div slot="headline">サンプル AR アプリ</div>
+        <form slot="content" method="dialog">
+          QR コードの読み取り、ありがとうございます。 簡単な「Web で体験できる
+          ARアプリ」を体験できるカメラを用意しております。ご参考までに。
+        </form>
+        <div slot="actions">
+          <MdOutlinedButton onClick={handleOpen}>
+            カメラを起動する
+          </MdOutlinedButton>
+          <MdOutlinedButton onClick={handleClose}>閉じる</MdOutlinedButton>
+        </div>
+      </MdDialog>
+    </>
+  );
+};
+
+export default CardArSampleWrapper;
