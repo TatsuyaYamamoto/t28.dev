@@ -129,7 +129,7 @@ const CardArSample: FC<Props> = () => {
           leftButtonMesh,
           (() => {
             sWorksGltf.scene.scale.setScalar(0.01);
-            sWorksGltf.scene.position.set(0, 0, 0.1);
+            sWorksGltf.scene.position.set(0, -0.4, 0.1);
             sWorksGltf.scene.rotation.set(
               THREE.MathUtils.degToRad(90),
               THREE.MathUtils.degToRad(90),
