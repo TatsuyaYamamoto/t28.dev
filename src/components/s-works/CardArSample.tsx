@@ -63,6 +63,7 @@ const CardArSample: FC<Props> = () => {
   const [sWorksPortfolioNijiyonArMesh] = useState(() => {
     // @ts-expect-error
     const mesh = createMesh(sWorksPortfolioNijiyonArTexture);
+    mesh.name = "nijigasaki-gamers-nijiyon-ar";
     mesh.scale.setScalar(0.7);
     mesh.position.y = 0.7;
     mesh.visible = true;
@@ -71,6 +72,7 @@ const CardArSample: FC<Props> = () => {
   const [sWorksPortfolioMachigaiSagashiMesh] = useState(() => {
     // @ts-expect-error
     const mesh = createMesh(sWorksPortfolioMachigaiSagashiTexture);
+    mesh.name = "lovelive-machigai-sagashi";
     mesh.scale.setScalar(0.7);
     mesh.position.y = 0.7;
     mesh.visible = false;
@@ -79,6 +81,7 @@ const CardArSample: FC<Props> = () => {
   const [sWorksPortfolioFlowerStandMesh] = useState(() => {
     // @ts-expect-error
     const mesh = createMesh(sWorksPortfolioFlowerStandTexture);
+    mesh.name = "nijigasaki_flower_stand";
     mesh.scale.setScalar(0.7);
     mesh.position.y = 0.7;
     mesh.visible = false;
@@ -87,6 +90,7 @@ const CardArSample: FC<Props> = () => {
   const [sWorksPortfolioMemoryGameMesh] = useState(() => {
     // @ts-expect-error
     const mesh = createMesh(sWorksPortfolioMemoryGameTexture);
+    mesh.name = "it_team_memory_game";
     mesh.scale.setScalar(0.7);
     mesh.position.y = 0.7;
     mesh.visible = false;
@@ -152,11 +156,25 @@ const CardArSample: FC<Props> = () => {
       if (name === "right-button") {
         portfolioIndex.current =
           (portfolioIndex.current + 1) % portfolioItems.length;
+        return;
       }
       if (name === "left-button") {
         portfolioIndex.current =
           (portfolioIndex.current - 1 + portfolioItems.length) %
           portfolioItems.length;
+        return;
+      }
+
+      if (
+        [
+          "nijigasaki-gamers-nijiyon-ar",
+          "lovelive-machigai-sagashi",
+          "nijigasaki_flower_stand",
+          "it_team_memory_game",
+        ].includes(name)
+      ) {
+        location.href = `/s-works/achievement/${name}`;
+        return;
       }
     });
 
