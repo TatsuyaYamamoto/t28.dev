@@ -172,7 +172,7 @@ const CardArSample: FC<Props> = () => {
           "it_team_memory_game",
         ].includes(name)
       ) {
-        location.href = `/s-works/achievement/${name}`;
+        location.href = `/s-works/achievement/${portfolioItems[portfolioIndex.current]?.name}`;
         return;
       }
     });
