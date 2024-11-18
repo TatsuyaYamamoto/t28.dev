@@ -104,7 +104,6 @@ const CardArSample: FC<Props> = () => {
     mesh.scale.setScalar(0.2);
     mesh.position.x = -0.6;
     mesh.position.y = 0.7;
-    console.log(mesh.id);
     return mesh;
   });
   const [rightButtonMesh] = useState(() => {
@@ -238,8 +237,8 @@ const CardArSampleWrapper: FC = () => {
       <MdDialog open={sampleAppState === "confirm"} noFocusTrap={true}>
         <div slot="headline">サンプル AR アプリ</div>
         <form slot="content" method="dialog">
-          QR コードの読み取り、ありがとうございます。 簡単な「Web で体験できる
-          ARアプリ」を体験できるカメラを用意しております。ご参考までに。
+          QR コードの読み取り、ありがとうございます。 「Web で体験できる
+          ARアプリ」を用意しています。カメラを起動して、名刺を映してみてください。
         </form>
         <div slot="actions">
           <MdOutlinedButton onClick={handleOpen}>
