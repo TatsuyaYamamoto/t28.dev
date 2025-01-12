@@ -221,7 +221,3 @@ ECMAScript はホスト環境に限定されないコア言語[^5]として標�
 [^4]: 実行環境のみに注目しているから注目するほどの差がないだけであって、後述の API を考慮したりすると差はめっちゃある。そして、そもそも解決する課題が全然違う。
 
 [^5]: [MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/JavaScript_technologies_overview) でも [ECMA TC39](https://tc39.es/ecma262/) でも "コア言語" という呼び方をしている
-
-```
-
-```
