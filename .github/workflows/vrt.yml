@@ -15,6 +15,7 @@ jobs:
         with:
           node-version-file: ".nvmrc"
           cache: "npm"
+      - run: echo "${{ secrets.REG_ACTIONS_GITHUB_TOKEN }}"
       - run: npm i
       - run: npx playwright install --with-deps
       - run: npx astro preferences disable devToolbar # hide astro dev toolbar from screen
@@ -22,5 +23,6 @@ jobs:
       - run: npm run vrt:shot
       - uses: reg-viz/reg-actions@v2
         with:
-          github-token: "${{ secrets.REG_ACTIONS_GITHUB_TOKEN }}"
+          github-token: "hogehoge"
+          github-token2: "${{ secrets.REG_ACTIONS_GITHUB_TOKEN }}"
           image-directory-path: "./tests/vrt/pages.test.ts-snapshots/"
