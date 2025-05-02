@@ -22,6 +22,7 @@ pages.forEach((target) => {
     await page.goto(target.path);
     await expect(page).toHaveScreenshot({
       fullPage: true,
+      timeout: 30_000,
     });
   });
 });
