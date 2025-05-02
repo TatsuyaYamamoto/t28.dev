@@ -9,6 +9,9 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    allow:
+      # https://docs.github.com/ja/code-security/dependabot/working-with-dependabot/dependabot-options-reference#dependency-type-allow
+      - dependency-type: "direct"
     ignore:
       # For all packages, ignore all patch updates
       - dependency-name: "*"
