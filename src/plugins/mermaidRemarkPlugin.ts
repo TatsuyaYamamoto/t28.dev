@@ -30,7 +30,6 @@ export const mermaidRemarkPlugin: RemarkPlugin = () => {
     }
 
     const browser = await puppeteer.launch({
-      headless: "new",
       // https://github.com/puppeteer/puppeteer/issues/3451#issuecomment-438902095
       // https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#setting-up-chrome-linux-sandbox
       args: process.env.CI ? ["--no-sandbox", "--disable-setuid-sandbox"] : [],
@@ -38,12 +37,12 @@ export const mermaidRemarkPlugin: RemarkPlugin = () => {
 
     await Promise.all(
       mermaidCodeBlocks.map(async ({ code, index, parent }, blockIndex) => {
-        const { data: svgBuffer } = await renderMermaidCli(
+        const { data: svgArray } = await renderMermaidCli(
           browser,
           code.value,
           "svg",
         );
-        const svgText = svgBuffer
+        const svgText = Buffer.from(svgArray)
           .toString("utf-8")
           // astro(?) throws error on rendering svg of mermaid.
           // https://github.com/withastro/astro/issues/9856
