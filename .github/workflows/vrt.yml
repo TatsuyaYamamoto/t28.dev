@@ -18,6 +18,7 @@ jobs:
       - run: npm i
       - run: npx playwright install --with-deps
       - run: npx astro preferences disable devToolbar # hide astro dev toolbar from screen
+      - run: npm run build
       - run: npm run vrt:shot
       - uses: reg-viz/reg-actions@v2
         with:
