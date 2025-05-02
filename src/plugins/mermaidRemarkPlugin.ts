@@ -31,6 +31,9 @@ export const mermaidRemarkPlugin: RemarkPlugin = () => {
 
     const browser = await puppeteer.launch({
       headless: "new",
+      // https://github.com/puppeteer/puppeteer/issues/3451#issuecomment-438902095
+      // https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#setting-up-chrome-linux-sandbox
+      args: process.env.CI ? ["--no-sandbox", "--disable-setuid-sandbox"] : [],
     });
 
     await Promise.all(
