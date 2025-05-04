@@ -17,8 +17,8 @@ const getDescription = async (
     return post.data.description;
   }
   const entry = await getEntry(post.collection, post.slug);
-  const { remarkPluginFrontmatter } = await entry.render();
-  return remarkPluginFrontmatter.excerpt;
+  const { remarkPluginFrontmatter } = (await entry?.render()) ?? {};
+  return remarkPluginFrontmatter?.excerpt;
 };
 
 const blogCollection = await getCollection("blog");
