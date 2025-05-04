@@ -35,7 +35,7 @@
     "astro-seo": "0.8.4",
     "mind-ar": "1.2.5",
     "modern-css-reset": "1.4.0",
-    "react": "18.2.0",
+    "react": "19.1.0",
     "react-dom": "18.2.0",
     "three": "0.161.0"
   },
