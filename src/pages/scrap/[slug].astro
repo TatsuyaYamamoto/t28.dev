@@ -43,7 +43,7 @@ const postSlug = Astro.props.entry.slug;
 const postTitle = Astro.props.entry.data.title;
 const postDate = new Date(postSlug);
 const postCategory = Astro.props.entry.data.category;
-const htmlBlocks = Astro.props.markdown.compiledContent().split("<hr>");
+const htmlBlocks = (await Astro.props.markdown.compiledContent()).split("<hr>");
 
 const pageTitle = `${postTitle} | ${SITE_TITLE}`;
 const pageDescription = Astro.props.markdown.frontmatter.excerpt;
