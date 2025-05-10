@@ -11,5 +11,6 @@ date: 2025-04-15
 
 ## 記事まとめ
 
-- [Claude のシステムプロンプトを読んでみる](./claude-3-7-sonnet-system-prompt)
-- 増えて！(願望)
+1. [Claude のシステムプロンプトを読んでみる](./claude-3-7-sonnet-system-prompt)
+2. [Mastra アプリを Cloudflare にデプロイする](./deploy-mastra-app-to-cloudflare-workers)
+3. 増えて！(願望)
