@@ -32,4 +32,5 @@ OpenAI のドキュメントも参考になる([Assistants API overview](https:/
 
 1. [Claude のシステムプロンプトを読んでみる](./claude-3-7-sonnet-system-prompt)
 2. [Mastra アプリを Cloudflare にデプロイする](./deploy-mastra-app-to-cloudflare-workers)
-3. 増えて！(願望)
+3. [LINE Messaging API を使って Mastra アプリから LINE でリプライを受け取る](./mastra-app-replies-with-line-messaging-api)
+4. 増えて！(願望)
