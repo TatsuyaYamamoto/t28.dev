@@ -194,8 +194,9 @@ https://chimolog.co/bto-gpu-card-guide/
 | :--------------------------------------------------------------- | :--------------------- | ------------- |
 | [crucial　CP2K16G4DFRA32A](https://kakaku.com/item/K0001540695/) | 16GB, DDR4             | 0.8万円くらい |
 | [crucial　CP2K16G56C46U5](https://kakaku.com/item/K0001540697/)  | 16GB, DDR5             | 1.2万円くらい |
-| [crucial　CP2K16G64C38U5B](https://kakaku.com/item/K0001661307/) | 16GB, DDR5             | 1.3万円くらい |
 | [crucial　CP2K16G60C36U5W](https://kakaku.com/item/K0001633533/) | 16GB, DDR5, ホワイト！ | 1.3万円くらい |
+| [crucial　CP2K16G64C38U5B](https://kakaku.com/item/K0001661307/) | 16GB, DDR5             | 1.3万円くらい |
+| [crucial　CP2K16G64C38U5W](https://kakaku.com/item/K0001661308/) | 16GB, DDR5, ホワイト！ | 1.3万円くらい |
 
 ## 電源
 
