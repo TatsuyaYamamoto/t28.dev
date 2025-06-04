@@ -31,6 +31,7 @@ OpenAI のドキュメントも参考になる([Assistants API overview](https:/
 ## 記事まとめ
 
 1. [Claude のシステムプロンプトを読んでみる](./claude-3-7-sonnet-system-prompt)
-2. [Mastra アプリを Cloudflare にデプロイする](./deploy-mastra-app-to-cloudflare-workers)
-3. [LINE Messaging API を使って Mastra アプリから LINE でリプライを受け取る](./mastra-app-replies-with-line-messaging-api)
-4. 増えて！(願望)
+1. [Mastra アプリを Cloudflare にデプロイする](./deploy-mastra-app-to-cloudflare-workers)
+1. [LINE Messaging API を使って Mastra アプリから LINE でリプライを受け取る](./mastra-app-replies-with-line-messaging-api)
+1. [文脈を組む AI エージェントを作るための LLM のコンテキスト と Mastra のメモリ](./llm-context-and-mastra-memory-for-stateful-conversation)
+1. 増えて！(願望)
