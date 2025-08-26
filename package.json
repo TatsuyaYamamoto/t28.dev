@@ -31,7 +31,7 @@
     "@lit/react": "1.0.6",
     "@material/web": "2.2.0",
     "@react-three/fiber": "8.17.6",
-    "astro": "5.7.10",
+    "astro": "5.13.3",
     "astro-seo": "0.8.4",
     "mind-ar": "1.2.5",
     "modern-css-reset": "1.4.0",
