@@ -42,7 +42,7 @@
   "devDependencies": {
     "@mermaid-js/mermaid-cli": "11.4.2",
     "@pandacss/dev": "0.45.1",
-    "@playwright/test": "1.46.1",
+    "@playwright/test": "1.55.1",
     "@types/node": "20.12.7",
     "@types/three": "0.161.2",
     "@vercel/og": "0.6.2",
