@@ -1,2 +1,4 @@
 /* https://panda-css.com/docs/installation/astro#configure-the-entry-css-with-layers */
 @layer reset, base, tokens, recipes, utilities;
+
+@import "modern-css-reset" layer(reset);
