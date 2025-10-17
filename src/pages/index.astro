@@ -11,9 +11,9 @@ import Footer from "../components/Footer";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../constants";
 
 const getDescription = async (
-  post: CollectionEntry<"blog" | "scrap">,
+  post: CollectionEntry<"blog">,
 ): Promise<string> => {
-  if (post.collection === "blog" && post.data.description) {
+  if (post.data.description) {
     return post.data.description;
   }
   const entry = await getEntry(post.collection, post.slug);
@@ -22,7 +22,6 @@ const getDescription = async (
 };
 
 const blogCollection = await getCollection("blog");
-const scrapCollection = await getCollection("scrap");
 
 const blogPosts = await Promise.all(
   blogCollection.map(async (post) => ({
@@ -33,17 +32,8 @@ const blogPosts = await Promise.all(
     category: post.data.category,
   })),
 );
-const scrapPosts = await Promise.all(
-  scrapCollection.map(async (post) => ({
-    url: `/${post.collection}/${post.slug}`,
-    title: post.data.title,
-    description: await getDescription(post),
-    date: new Date(post.slug),
-    category: post.data.category,
-  })),
-);
 
-const sortedPosts = [...blogPosts, ...scrapPosts].sort(
+const sortedPosts = [...blogPosts].sort(
   (a, b) => b.date.valueOf() - a.date.valueOf(),
 );
 ---
