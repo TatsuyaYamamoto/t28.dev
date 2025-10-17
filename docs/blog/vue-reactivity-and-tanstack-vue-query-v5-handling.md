@@ -1,5 +1,6 @@
 ---
 title: "Vue の reactivity を使った tanstack/vue-query v5 の制御方法検討のために、実装・文書・PRを漁る"
+date: 2024-09-06
 ---
 
 `@tanstack/vue-query` v4 を使って WebAPI を呼び出す hook を実装していたとき、 WebAPI 用のパラメーター(`paramRef`)の状態 (string or undefined) に応じて `enabled` オプションで API の呼び出しを制御していた。
@@ -46,7 +47,7 @@ export const useApi = (paramRef: Ref<string | undefined>) => {
 
 **まぁ、嫌だ...。** 使い方が間違っているはずだし、ドキュメント等を読んでみる。
 
----
+## 調査パート
 
 https://tanstack.com/query/latest/docs/framework/vue/reference/useQuery
 

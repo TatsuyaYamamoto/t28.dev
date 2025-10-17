@@ -1,5 +1,6 @@
 ---
 title: biome を使ってみる
+date: 2024-09-21
 ---
 
 ESLint v8 EOL 目前だからか耳にすることが多くなった https://biomejs.dev/ja/ を https://github.com/TatsuyaYamamoto/app.t28.dev に対して使ってみる。

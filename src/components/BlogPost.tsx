@@ -10,17 +10,12 @@ export interface Props {
   title: string;
   date: Date;
   category: string;
-  roundup?: {
-    slug: string;
-    title: string;
-  };
 }
 
 const BlogPost: FC<PropsWithChildren<Props>> = ({
   title,
   date,
   category,
-  roundup,
   children,
 }) => {
   return (
@@ -46,11 +41,6 @@ const BlogPost: FC<PropsWithChildren<Props>> = ({
           <styled.span marginRight="2">{formatDisplayDate(date)}</styled.span>
           <Chip>{category}</Chip>
         </Flex>
-        {roundup && (
-          <div>
-            {`Rounded-up in: `} <a href={roundup.slug}>{roundup.title}</a>
-          </div>
-        )}
       </styled.header>
       {children}
       <styled.footer marginTop="10">

@@ -1,6 +1,12 @@
 ---
 title: "Astro の Markdown コンテンツを少し弄ってから *.astro で描画する"
+date: 2024-09-07
 ---
+
+> 2025/10/17 updated:
+>
+> `ちょっと加工してから描画したい` というモチベーションはこのブログで "シンプルな ~~ちょっと変わった~~ 形式の記事" を作れるようにするためだったけれど、今の時点でその形式は消している...。
+> あまり使わなかったから...。
 
 Astro で Markdown コンテンツを [static に](https://docs.astro.build/en/guides/routing/#static-ssg-mode)描画するときの基本的な描画の流れ:
 
@@ -159,13 +165,13 @@ const htmlBlocks = Astro.props.markdown.compiledContent().split("<hr>");
 
 で ふるまい (export されるプロパティ) が違うのはなんでだろう...。
 
-### Astro.glob
+**Astro.glob:**
 
 `compiledContent()` は astro 内部の `vite-plugin-markdown` virtual module(?) として返す JavaScript のコードで定義している
 
 https://github.com/withastro/astro/blob/astro%404.15.4/packages/astro/src/vite-plugin-markdown/index.ts#L40
 
-### コンテンツコレクション
+**コンテンツコレクション:**
 
 `vite-plugin-markdown` で読み込んだモジュール (`propagationMod`) を wrap した object を返却している
 

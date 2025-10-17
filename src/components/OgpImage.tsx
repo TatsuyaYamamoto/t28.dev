@@ -9,7 +9,7 @@ console.log("import.meta.url", import.meta.url);
 
 const t28ProfileUrl = import.meta.env.DEV
   ? new URL(t28Profile.src.replace("/@fs", "file://"))
-  : new URL(`..${t28Profile.src}`, import.meta.url);
+  : new URL(`../..${t28Profile.src}`, import.meta.url);
 const t28ProfileBase64 = readFileSync(t28ProfileUrl, { encoding: "base64" });
 const t28ProfileDataUrl = `data:image/jpeg;base64,${t28ProfileBase64}`;
 
