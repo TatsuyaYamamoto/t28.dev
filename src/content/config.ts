@@ -13,14 +13,6 @@ const blog = defineCollection({
   }),
 });
 
-const roundup = defineCollection({
-  type: "content",
-  schema: z.object({
-    title: z.string(),
-    description: z.string().optional(),
-  }),
-});
-
 const sWorksAchievement = defineCollection({
   type: "content",
   schema: ({ image }) =>
@@ -49,6 +41,5 @@ const sWorksAchievement = defineCollection({
 
 export const collections = {
   blog,
-  roundup,
   ["s-works-achievement"]: sWorksAchievement,
 };
