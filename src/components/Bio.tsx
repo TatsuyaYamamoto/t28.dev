@@ -1,5 +1,3 @@
-import { css } from "@styled-system/css";
-import { Flex, styled } from "@styled-system/jsx";
 import type { FC } from "react";
 
 import { AUTHOR_SUMMARY, TWITTER_NAME, TWITTER_URL } from "../constants";
@@ -8,24 +6,22 @@ import profilePic from "../assets/images/profile-pic.jpg";
 
 const Bio: FC = () => {
   return (
-    <Flex>
+    <div className="flex">
       <img
         alt=""
         src={profilePic.src}
         width={50}
         height={50}
-        className={css({
-          borderRadius: "full",
-        })}
+        className="rounded-full"
       />
-      <styled.div marginLeft="4">
+      <div className="ml-4">
         {AUTHOR_SUMMARY}
         <br />
         <a href={TWITTER_URL} target="_blank">
           {TWITTER_NAME}
         </a>
-      </styled.div>
-    </Flex>
+      </div>
+    </div>
   );
 };
 

@@ -1,4 +1,3 @@
-import { styled } from "@styled-system/jsx";
 import {
   type FC,
   Suspense,
@@ -27,15 +26,6 @@ import sWorksGltfUrl from "../../assets/mindAr/s-works-logo-alpha.gltf?url";
 import imageTarget from "../../assets/mindAr/s-works-logo.mind?url";
 
 import { MdDialog, MdFilledButton, MdOutlinedButton } from "../Mdw.tsx";
-
-const StyledCloseButton = styled(MdFilledButton, {
-  base: {
-    position: "absolute",
-    top: "5",
-    right: "5",
-    zIndex: 2,
-  },
-});
 
 interface Props {}
 
@@ -229,9 +219,9 @@ const CardArSampleWrapper: FC = () => {
       {sampleAppState === "open-camera" && (
         <Suspense fallback={"loading..."}>
           <CardArSample />
-          <StyledCloseButton onClick={handleClose}>
+          <MdFilledButton className="" onClick={handleClose}>
             カメラを閉じる
-          </StyledCloseButton>
+          </MdFilledButton>
         </Suspense>
       )}
       <MdDialog open={sampleAppState === "confirm"} noFocusTrap={true}>
@@ -241,7 +231,10 @@ const CardArSampleWrapper: FC = () => {
           ARアプリ」を用意しています。カメラを起動して、名刺を映してみてください。
         </form>
         <div slot="actions">
-          <MdOutlinedButton onClick={handleOpen}>
+          <MdOutlinedButton
+            className="absolute top-5 right-5 z-20"
+            onClick={handleOpen}
+          >
             カメラを起動する
           </MdOutlinedButton>
           <MdOutlinedButton onClick={handleClose}>閉じる</MdOutlinedButton>
