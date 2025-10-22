@@ -1,8 +1,8 @@
-import type { FC } from "react";
 import { Flex, styled } from "@styled-system/jsx";
+import type { FC } from "react";
 
-import Chip from "./Chip";
 import { formatDisplayDate } from "../helpers/utils";
+import Chip from "./Chip";
 
 interface Props {
   posts: {

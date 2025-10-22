@@ -264,4 +264,5 @@ _前者はステレオタイプな発言と言えるけれど、後者のよう�
 ---
 
 [^1]: [公用文作成の要領](https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kakuki/01/bukai06/04_01.html) (昭和26年の建議が Web に出ていることにビビる)
+
 [^2]: [「公用文作成の要領」の見直しに関する国語課題小委員会の検討状況（案）](https://www.bunka.go.jp/seisaku/bunkashingikai/kokugo/kokugo/kokugo_72/pdf/r1422554_04.pdf)

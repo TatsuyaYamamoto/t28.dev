@@ -126,4 +126,5 @@ ref: https://pnpm.io/cli/patch
 corepack? な人は、「[corepack を使って npm/Yarn をお仕事的に安心して使う方法を考える](./manage-npm-and-yarn-using-corepack-safely)」 でも見て頂戴。
 
 [^1]: 他 2 つは開発体験上は重要ですが、成果物の(品)質を上げる点で直接的には関係がないので、個人的に関心が薄め。
+
 [^2]: ...と、私は思っている。

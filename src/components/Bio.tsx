@@ -1,8 +1,8 @@
-import type { FC } from "react";
 import { css } from "@styled-system/css";
 import { Flex, styled } from "@styled-system/jsx";
+import type { FC } from "react";
 
-import { TWITTER_NAME, TWITTER_URL, AUTHOR_SUMMARY } from "../constants";
+import { AUTHOR_SUMMARY, TWITTER_NAME, TWITTER_URL } from "../constants";
 
 import profilePic from "../assets/images/profile-pic.jpg";
 

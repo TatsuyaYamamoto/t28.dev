@@ -1,5 +1,5 @@
-import type { FC } from "react";
 import { styled } from "@styled-system/jsx";
+import type { FC } from "react";
 
 import SWorksLogo from "./SWorksLogo";
 

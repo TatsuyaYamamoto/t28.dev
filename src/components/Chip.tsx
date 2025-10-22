@@ -1,6 +1,6 @@
-import type { FC, HTMLAttributes, PropsWithChildren } from "react";
 import { css, cx } from "@styled-system/css";
 import { styled } from "@styled-system/jsx";
+import type { FC, HTMLAttributes, PropsWithChildren } from "react";
 
 const rootCss = css({
   height: "6",

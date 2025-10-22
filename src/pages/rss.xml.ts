@@ -1,9 +1,9 @@
-import type { APIRoute } from "astro";
 import rss, { type RSSFeedItem } from "@astrojs/rss";
+import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 
-import { marked } from "marked";
 import DOMPurify from "isomorphic-dompurify";
+import { marked } from "marked";
 
 export const GET: APIRoute = async (context) => {
   if (!context.site) {

@@ -1,5 +1,5 @@
 declare module "mind-ar/dist/mindar-image-three.prod.js" {
-  import type { WebGLRenderer, Scene, Camera } from "three";
+  import type { Camera, Scene, WebGLRenderer } from "three";
 
   export class MindARThree {
     constructor(options: {

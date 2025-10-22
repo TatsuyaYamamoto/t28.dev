@@ -181,4 +181,5 @@ route files (`+page.svelte` 等の `+` prefix があるファイル) 以外の�
 **ルート(route) と ルート(root) が、ややこしい 😭**
 
 [^1]: 拡張子は `.js`, `.jsx`, `.tsx` どれでもよい (ref: [File Conventions](https://nextjs.org/docs/app/building-your-application/routing#file-conventions))
+
 [^2]: `pages/**/index.js` だけでなく、`api/**/route.js` も file-based routing の観点で同じ役割を持っているけれど、本記事では割愛。

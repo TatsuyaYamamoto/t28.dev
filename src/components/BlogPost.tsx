@@ -1,5 +1,5 @@
-import type { FC, PropsWithChildren } from "react";
 import { Flex, styled } from "@styled-system/jsx";
+import type { FC, PropsWithChildren } from "react";
 
 import Bio from "./Bio";
 import Chip from "./Chip";

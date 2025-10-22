@@ -206,4 +206,5 @@ const hoge = (0, _jsxRuntime.jsx)("div", {
 ライブラリ側はもちろん新しい transform をサポートする必要があるため、emotion では[こんな issues](https://github.com/emotion-js/emotion/issues/2041) で報告・解決されていました。
 
 [^1]: emotion 使いてぇ〜！ 👊😊 => これ `/* @jsx jsx */`
+
 [^2]: [emotion-js/emotion の jsx.js](https://github.com/emotion-js/emotion/blob/master/packages/react/src/jsx.js)

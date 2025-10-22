@@ -288,9 +288,15 @@ https://app.circleci.com/pipelines/github/TatsuyaYamamoto/circleci-static-config
 使います 👊😊✨
 
 [^1]: GA 版が出たばかりし、まだドキュメントが不足しているのは仕方ない
+
 [^2]: 記事内の Dynamic config と Static config の説明は私が勝手に解釈・表面的に説明したものなので、原文も呼んだ方が良いです。
+
 [^3]: ブログとか wiki で公式が言ってる。
+
 [^4]: [continuation](https://circleci.com/developer/ja/orbs/orb/circleci/continuation) な Job を実行する場合 CircleCI から CIRCLE_CONTINUATION_KEY を受け取る必要があるけれど、local だと受け取れないので実行できない ([CLI のドキュメント](https://circleci.com/docs/ja/how-to-use-the-circleci-local-cli#limitations-of-running-jobs-locally) にも ワークフローは実行できないって書いてた)
+
 [^5]: Dynamic config の場合は分からん
+
 [^6]: Dynamic config の場合は分からん
+
 [^7]: でも文字列を使っちゃうとコードで設定を表現している意味がない...。

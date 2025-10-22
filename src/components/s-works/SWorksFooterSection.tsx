@@ -1,6 +1,6 @@
-import { type FC, useState } from "react";
 import { css } from "@styled-system/css";
 import { Center, styled } from "@styled-system/jsx";
+import { type FC, useState } from "react";
 
 import GithubIcon from "../../assets/icons/fa/github.svg?react";
 import TwitterIcon from "../../assets/icons/fa/twitter.svg?react";

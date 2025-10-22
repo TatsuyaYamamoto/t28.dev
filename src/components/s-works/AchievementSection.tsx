@@ -1,6 +1,6 @@
-import type { FC, PropsWithChildren } from "react";
 import { css } from "@styled-system/css";
 import { VStack, styled } from "@styled-system/jsx";
+import type { FC, PropsWithChildren } from "react";
 
 import { formatDisplayDate } from "../../helpers/utils";
 

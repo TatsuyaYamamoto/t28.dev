@@ -445,5 +445,7 @@ NOTE: v5, v6 両方に含まれているルールは除外している
 https://gist.github.com/TatsuyaYamamoto/ff128ca667348ead4295e548ffe586cb
 
 [^1]: さも最近出た感じの文体だけれど、[Announcing typescript-eslint v6](https://typescript-eslint.io/blog/announcing-typescript-eslint-v6/) は 2023/07/09 (半年くらい前) のポスト...。
+
 [^2]: "typescript-eslint が提供している設定ファイル" の表記ゆれが激しい...。`configurations`, `built-in configurations`, `provided user configuration files`...。 個人的には `configurations` だと意味が広すぎる気がする。
+
 [^3]: 本当の意味で「コミュニティのおすすめに乗っかるぜ！」勢は、四の五の言わずにアップデートして新しいリントエラーを直すのだろうけれど...。

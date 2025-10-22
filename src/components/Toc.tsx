@@ -1,12 +1,12 @@
+import { styled } from "@styled-system/jsx";
 import {
   type FC,
   type MouseEvent,
-  useRef,
-  useState,
   useEffect,
   useMemo,
+  useRef,
+  useState,
 } from "react";
-import { styled } from "@styled-system/jsx";
 
 import { isHTMLAnchorElement } from "../helpers/type-gurad";
 

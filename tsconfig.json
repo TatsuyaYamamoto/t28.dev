@@ -4,11 +4,11 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
-      "@styled-system/*": ["./styled-system/*"],
-    },
+      "@styled-system/*": ["./styled-system/*"]
+    }
   },
   "exclude": [
     // https://github.com/withastro/language-tools/issues/721
-    "dist",
-  ],
+    "dist"
+  ]
 }

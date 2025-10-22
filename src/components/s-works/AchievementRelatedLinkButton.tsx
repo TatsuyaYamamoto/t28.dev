@@ -1,9 +1,9 @@
-import type { FC } from "react";
 import { css } from "@styled-system/css";
 import { styled } from "@styled-system/jsx";
+import type { FC } from "react";
 
-import TwitterIcon from "../../assets/icons/fa/twitter.svg?react";
 import ExternalLinkIcon from "../../assets/icons/fa/arrow-up-right-from-square-solid.svg?react";
+import TwitterIcon from "../../assets/icons/fa/twitter.svg?react";
 
 const Link = styled("a", {
   base: {

@@ -158,4 +158,5 @@ export const getBlogPostOgpImageResponse = async (params: {
 ```
 
 [^1]: というか、出来ない。`http` または `data:` で始まる文字列を `@vercel/og` 内部で求められる
+
 [^2]: src 属性に 文字列型以外を入れたくない...。

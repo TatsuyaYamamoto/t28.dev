@@ -1,7 +1,7 @@
 import { type FC, useEffect, useRef } from "react";
 
-import * as THREE from "three";
 import { MindARThree } from "mind-ar/dist/mindar-image-three.prod.js";
+import * as THREE from "three";
 
 interface Props {
   imageTargetSrc: string;

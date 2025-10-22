@@ -1,8 +1,8 @@
-import type { FC, PropsWithChildren } from "react";
 import { Flex, styled } from "@styled-system/jsx";
+import type { FC, PropsWithChildren } from "react";
 
-import AchievementRelatedLinkButton from "./AchievementRelatedLinkButton";
 import { formatDisplayDate } from "../../helpers/utils";
+import AchievementRelatedLinkButton from "./AchievementRelatedLinkButton";
 
 const Article = styled("article", {
   base: {

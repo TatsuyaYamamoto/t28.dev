@@ -1,8 +1,8 @@
 import type { RemarkPlugin } from "@astrojs/markdown-remark";
-import { visit } from "unist-util-visit";
 import { renderMermaid as renderMermaidCli } from "@mermaid-js/mermaid-cli";
+import type { Code, Html, Parent } from "mdast";
 import puppeteer from "puppeteer";
-import type { Code, Parent, Html } from "mdast";
+import { visit } from "unist-util-visit";
 
 interface MermaidCodeBlock {
   code: Code;

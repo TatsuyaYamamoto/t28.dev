@@ -1,5 +1,5 @@
-import type { FC } from "react";
 import { css } from "@styled-system/css";
+import type { FC } from "react";
 
 import Toc from "./Toc";
 
