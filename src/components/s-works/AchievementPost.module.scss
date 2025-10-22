@@ -1,0 +1,16 @@
+.article {
+  & a {
+    text-decoration: underline;
+    font-weight: semibold;
+    color: "orange.400";
+  }
+
+  & p {
+    margin-bottom: 8;
+  }
+
+  & img {
+    height: auto;
+    box-shadow: md;
+  }
+}

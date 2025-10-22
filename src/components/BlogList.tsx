@@ -1,4 +1,3 @@
-import { Flex, styled } from "@styled-system/jsx";
 import type { FC } from "react";
 
 import { formatDisplayDate } from "../helpers/utils";
@@ -18,41 +17,34 @@ const BlogList: FC<Props> = (props) => {
   const { posts } = props;
 
   return (
-    <styled.ol listStyle="none" padding="0">
+    <ol>
       {posts.map((post) => {
         return (
           <li key={post.url}>
-            <styled.article
-              marginY="8"
+            <article
+              className="my-8"
               itemScope
               itemType="http://schema.org/Article"
             >
-              <styled.header marginBottom="4">
-                <styled.h2
-                  fontSize="var(--fontSize-4)"
-                  color="var(--color-primary)"
-                  marginBottom="2"
-                  marginTop="0"
-                >
+              <header className="mb-4">
+                <h2 className="mt-0 mb-2 text-(length:--fontSize-4) text-(--color-primary)">
                   <a href={post.url} itemProp="url">
                     <span itemProp="headline">{post.title}</span>
                   </a>
-                </styled.h2>
-                <Flex alignItems="center">
-                  <styled.span marginRight="2">
-                    {formatDisplayDate(post.date)}
-                  </styled.span>
+                </h2>
+                <div className="flex">
+                  <span className="mr-2">{formatDisplayDate(post.date)}</span>
                   <Chip>{post.category}</Chip>
-                </Flex>
-              </styled.header>
+                </div>
+              </header>
               <section>
                 <p itemProp="description">{post.description}</p>
               </section>
-            </styled.article>
+            </article>
           </li>
         );
       })}
-    </styled.ol>
+    </ol>
   );
 };
 
