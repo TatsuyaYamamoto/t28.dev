@@ -1,0 +1,25 @@
+.root {
+  font-size: var(--fontSize-0);
+
+  & > ul {
+    padding-left: 0;
+  }
+
+  & li {
+    position: relative;
+    list-style-type: none;
+
+    & > ul {
+      padding-left: 4;
+    }
+  }
+
+  & a {
+    text-decoration: none;
+    color: var(--colors-gray-400);
+
+    &[data-toc-active] {
+      color: var(--color-text);
+    }
+  }
+}

@@ -1,27 +1,9 @@
-import { Flex, styled } from "@styled-system/jsx";
 import type { FC, PropsWithChildren } from "react";
 
 import { formatDisplayDate } from "../../helpers/utils";
 import AchievementRelatedLinkButton from "./AchievementRelatedLinkButton";
 
-const Article = styled("article", {
-  base: {
-    "& a": {
-      textDecoration: "underline",
-      fontWeight: "semibold",
-      color: "orange.400",
-    },
-
-    "& p": {
-      marginBottom: "8",
-    },
-
-    "& img": {
-      height: "auto",
-      boxShadow: "md",
-    },
-  },
-});
+import styles from "./AchievementPost.module.scss";
 
 interface Props {
   title: string;
@@ -42,18 +24,11 @@ const AchievementPost: FC<PropsWithChildren<Props>> = ({
   return (
     <div>
       <header>
-        <styled.h1
-          marginTop="8"
-          marginBottom="0"
-          fontSize="3xl"
-          lineHeight="snug"
-        >
-          {title}
-        </styled.h1>
-        <styled.div marginTop="3">
+        <h1 className="mt-8 mb-0 text-3xl leading-snug">{title}</h1>
+        <div className="mt-3">
           <time>{formatDisplayDate(date)}</time>
-        </styled.div>
-        <Flex flexWrap="wrap" marginTop="4" gap="2">
+        </div>
+        <div className="mt-4 flex flex-wrap gap-2">
           {links.map(({ href, label, type }, i) => (
             <AchievementRelatedLinkButton
               key={i}
@@ -62,15 +37,10 @@ const AchievementPost: FC<PropsWithChildren<Props>> = ({
               label={label}
             />
           ))}
-        </Flex>
+        </div>
       </header>
-      <styled.hr
-        marginY="8"
-        // @ts-expect-error
-        border={0}
-        borderTop="[1px solid token(colors.slate.200)]"
-      />
-      <Article>{children}</Article>
+      <hr className="my-8 border-slate-200" />
+      <article className={styles.article}>{children}</article>
     </div>
   );
 };

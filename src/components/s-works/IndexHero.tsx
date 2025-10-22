@@ -1,38 +1,23 @@
-import { styled } from "@styled-system/jsx";
 import type { FC } from "react";
 
 import SWorksLogo from "./SWorksLogo";
 
-const Root = styled("div", {
-  base: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    minHeight: "full",
-    borderStyle: "solid",
-    borderWidth: "var(--spacing-4)",
-    borderColor: "var(--color-s-works)",
-    boxSizing: "border-box",
-  },
-});
-
-const StyledSWorksLogo = styled(SWorksLogo, {
-  base: {
-    width: { base: "[350px]", md: "[600px]" },
-    animationName: "sWorksSurface",
-    animationDuration: "[800ms]",
-    animationTimingFunction: "out",
-    animationFillMode: "both",
-  },
-});
-
 const IndexHero: FC = () => {
   return (
-    <Root>
-      <styled.h1 display="inline-flex" alignItems="center">
-        <StyledSWorksLogo />
-      </styled.h1>
-    </Root>
+    <div className="box-border flex min-h-full items-center justify-center border-(length:--spacing-4) border-solid border-(--color-s-works)">
+      <h1 className="inline-flex items-center">
+        <SWorksLogo
+          className="animate-s-works-surface w-[350px] md:w-[600px]"
+          style={
+            {
+              // animationName: "sWorksSurface",
+              // animationFillMode: "both",
+              // animationDuration: "800ms",
+            }
+          }
+        />
+      </h1>
+    </div>
   );
 };
 
