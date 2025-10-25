@@ -51,6 +51,7 @@
 @layer theme {
   :root {
     --colors-gray-400: #9ca3af;
+    --colors-neutral-100: #f5f5f5;
   }
 }
 
@@ -98,7 +99,7 @@
     color: inherit;
   }
 
-  h1 {
+  :is(h1) {
     font-weight: var(--font-weight-black);
     font-size: var(--fontSize-6);
     color: var(--color-heading-black);
@@ -140,6 +141,19 @@
 
   sup {
     font-size: smaller;
+    vertical-align: super;
+    position: inherit;
+    line-height: inherit;
+  }
+
+  ol,
+  ul,
+  menu {
+    list-style: auto;
+  }
+
+  code {
+    font-family: monospace;
   }
 
   /* markdown 内の img 要素 の aspect ratio 画像のものと同じにするために設定する */
