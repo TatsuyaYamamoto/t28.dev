@@ -16,7 +16,7 @@
     "fix:prettier": "prettier --write .",
     "vrt:shot": "playwright test --update-snapshots",
     "preview": "astro preview",
-    "prepare": "husky && panda codegen",
+    "prepare": "husky",
     "postinstall": "rm -f $PWD/src/content/{blog,roundup,s-works-achievement,scrap} && ln -s $PWD/docs/blog $PWD/src/content/ && ln -s $PWD/docs/roundup $PWD/src/content/ && ln -s $PWD/docs/s-works-achievement $PWD/src/content/ && ln -s $PWD/docs/scrap $PWD/src/content/"
   },
   "lint-staged": {
@@ -31,17 +31,18 @@
     "@lit/react": "1.0.6",
     "@material/web": "2.2.0",
     "@react-three/fiber": "8.17.6",
+    "@tailwindcss/vite": "4.1.14",
     "astro": "5.7.10",
     "astro-seo": "0.8.4",
     "mind-ar": "1.2.5",
     "modern-css-reset": "1.4.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "tailwindcss": "4.1.14",
     "three": "0.161.0"
   },
   "devDependencies": {
     "@mermaid-js/mermaid-cli": "11.4.2",
-    "@pandacss/dev": "0.45.1",
     "@playwright/test": "1.46.1",
     "@types/node": "20.12.7",
     "@types/three": "0.161.2",
@@ -53,6 +54,7 @@
     "prettier": "3.3.3",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-organize-imports": "4.3.0",
+    "prettier-plugin-tailwindcss": "0.7.1",
     "rehype-infer-description-meta": "2.0.0",
     "typescript": "5.5.4",
     "vite-plugin-svgr": "4.3.0"

@@ -1,6 +1,4 @@
 ---
-import { css } from "@styled-system/css";
-
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
@@ -27,25 +25,6 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 
 const description = post.data.description ?? /* WIP */ post.body.slice(0, 100);
-
-const root = css({
-  paddingX: "3",
-  borderStyle: "solid",
-  borderWidth: "15px",
-  borderColor: "var(--color-s-works)",
-  minHeight: "full",
-});
-
-const header = css({
-  marginX: "auto",
-  marginY: "8",
-  maxWidth: "2xl",
-});
-
-const article = css({
-  marginX: "auto",
-  maxWidth: "2xl",
-});
 ---
 
 <BaseLayout
@@ -53,14 +32,14 @@ const article = css({
   description={description}
   faviconType="s-works"
 >
-  <div class={root}>
-    <header class={header}>
+  <div class="min-h-full border-15 border-(--color-s-works) px-3">
+    <header class="mx-auto my-8 max-w-2xl">
       <a href="/s-works">
         <SWorksLogo />
       </a>
     </header>
 
-    <article class={article}>
+    <article class="mx-auto max-w-2xl">
       <Image src={post.data.heroImage} alt="" style="height: auto" />
       <AchievementPost
         title={post.data.title}

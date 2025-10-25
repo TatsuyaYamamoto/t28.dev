@@ -1,8 +1,7 @@
 ---
-import { Container, styled } from "@styled-system/jsx";
-
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Footer from "../components/Footer";
+import Container from "../components/Container";
 
 import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
 ---
@@ -12,16 +11,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
   description={SITE_DESCRIPTION}
   faviconType="t28.dev"
 >
-  <styled.header marginY="12">
+  <header class="my-12">
     <Container>
-      <styled.h1
-        color="var(--color-primary)"
-        fontSize="var(--fontSize-7)"
-        margin="0"
-      >
+      <h1 class="m-0 text-(length:--fontSize-7) text-(--color-primary)">
         <a href="/">{SITE_TITLE} - 404: Not Found</a>
-      </styled.h1>
+      </h1>
     </Container>
-  </styled.header>
+  </header>
   <Footer />
 </BaseLayout>
