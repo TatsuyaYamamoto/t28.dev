@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ secrets.REG_ACTIONS_GITHUB_TOKEN }}"
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
         with:
           node-version-file: ".nvmrc"
           cache: "npm"
@@ -21,7 +21,7 @@ jobs:
       - run: npx astro preferences disable devToolbar # hide astro dev toolbar from screen
       - run: npm run build
       - run: npm run vrt:shot
-      - uses: reg-viz/reg-actions@v2
+      - uses: reg-viz/reg-actions@v3
         with:
           github-token: "${{ secrets.REG_ACTIONS_GITHUB_TOKEN }}"
           image-directory-path: "./tests/vrt/pages.test.ts-snapshots/"
