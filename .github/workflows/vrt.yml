@@ -25,3 +25,4 @@ jobs:
         with:
           github-token: "${{ secrets.REG_ACTIONS_GITHUB_TOKEN }}"
           image-directory-path: "./tests/vrt/pages.test.ts-snapshots/"
+          outdated-comment-action: "minimize"
