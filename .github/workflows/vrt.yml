@@ -16,6 +16,13 @@ jobs:
         with:
           node-version-file: ".nvmrc"
           cache: "npm"
+
+      # Installing node-canvas@2.x on ubuntu of GitHub Actions requires these system dependencies
+      # https://github.com/Automattic/node-canvas/tree/v2.x?tab=readme-ov-file#compiling
+      - name: Install system deps for node-canvas
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
       - run: npm i
       - run: npx playwright install --with-deps
       - run: npx astro preferences disable devToolbar # hide astro dev toolbar from screen
