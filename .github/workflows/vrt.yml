@@ -36,9 +36,18 @@ jobs:
       - run: npx playwright install --with-deps
       - run: npx astro preferences disable devToolbar # hide astro dev toolbar from screen
       - run: npm run build
-      - run: npm run vrt:test
+      - id: vrt
+        run: |
+          result=$(npm run vrt:test)
+          echo "value=$result" >> "$GITHUB_OUTPUT"
 
       - uses: actions/upload-artifact@v4
         with:
           name: vrt
           path: playwright-report/
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: |
+            ```
+            ${{ steps.vrt.outputs.value }}
+            ```
