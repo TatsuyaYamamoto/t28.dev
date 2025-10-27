@@ -37,3 +37,8 @@ jobs:
       - run: npx astro preferences disable devToolbar # hide astro dev toolbar from screen
       - run: npm run build
       - run: npm run vrt:test
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vrt
+          path: playwright-report/
