@@ -28,10 +28,12 @@ jobs:
       - run: npm i
       - run: npx playwright install --with-deps
       - run: npx astro preferences disable devToolbar # hide astro dev toolbar from screen
+      - run: npm run build
       - run: npm run vrt:shot
 
       - run: git checkout ${{ github.head_ref }}
       - run: npm i
       - run: npx playwright install --with-deps
       - run: npx astro preferences disable devToolbar # hide astro dev toolbar from screen
+      - run: npm run build
       - run: npm run vrt:test
