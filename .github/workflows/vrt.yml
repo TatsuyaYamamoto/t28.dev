@@ -39,7 +39,9 @@ jobs:
       - id: vrt
         run: |
           result=$(npm run vrt:test)
-          echo "value=$result" >> "$GITHUB_OUTPUT"
+          echo "value<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$result"    >> "$GITHUB_OUTPUT"
+          echo "EOF"        >> "$GITHUB_OUTPUT"
 
       - uses: actions/upload-artifact@v4
         with:
