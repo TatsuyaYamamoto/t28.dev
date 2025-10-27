@@ -43,13 +43,16 @@ jobs:
           echo "$result"    >> "$GITHUB_OUTPUT"
           echo "EOF"        >> "$GITHUB_OUTPUT"
 
-      - uses: actions/upload-artifact@v4
+      - id: upload-artifact
+        uses: actions/upload-artifact@v4
         with:
           name: vrt
           path: playwright-report/
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
           message: |
+            artifact: [`vrt`](${{ steps.upload-artifact.outputs.artifact-url }})
+
             ```
             ${{ steps.vrt.outputs.value }}
             ```
