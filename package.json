@@ -15,6 +15,7 @@
     "build": "  astro check && tsc --noEmit && astro build",
     "fix:prettier": "prettier --write .",
     "vrt:shot": "playwright test --update-snapshots",
+    "vrt:test": "playwright test --reporter html",
     "preview": "astro preview",
     "prepare": "husky && panda codegen",
     "postinstall": "ln -fs $PWD/docs/{blog,s-works-achievement} $PWD/src/content/"
