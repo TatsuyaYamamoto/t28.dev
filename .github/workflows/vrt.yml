@@ -1,8 +1,6 @@
 name: VRT
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
 
@@ -12,6 +10,8 @@ jobs:
     steps:
       - run: echo "${{ secrets.REG_ACTIONS_GITHUB_TOKEN }}"
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v6
         with:
           node-version-file: ".nvmrc"
@@ -23,13 +23,45 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+
+      # build and shot for `base` branch
+      - run: git checkout ${{ github.base_ref }}
       - run: npm i
       - run: npx playwright install --with-deps
       - run: npx astro preferences disable devToolbar # hide astro dev toolbar from screen
       - run: npm run build
       - run: npm run vrt:shot
-      - uses: reg-viz/reg-actions@v3
+
+      # build and test for `head` branch
+      - run: git checkout ${{ github.head_ref }}
+      - run: npm i
+      - run: npx playwright install --with-deps
+      - run: npx astro preferences disable devToolbar # hide astro dev toolbar from screen
+      - run: npm run build
+      - id: vrt
+        run: |
+          result=$(FORCE_COLOR=0 npm run vrt:test || true)
+          shot_result=$(echo "$result" | head -n 30)
+
+          echo "value<<EOF"   >> "$GITHUB_OUTPUT"
+          echo "$shot_result" >> "$GITHUB_OUTPUT"
+          echo "EOF"          >> "$GITHUB_OUTPUT"
+
+          echo $result
+
+      # upload VRT report
+      - id: upload-artifact
+        uses: actions/upload-artifact@v4
         with:
-          github-token: "${{ secrets.REG_ACTIONS_GITHUB_TOKEN }}"
-          image-directory-path: "./tests/vrt/pages.test.ts-snapshots/"
-          outdated-comment-action: "minimize"
+          name: vrt
+          path: |
+            playwright-report/
+            tests/vrt/pages.test.ts-snapshots/
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: |
+            artifact: [`vrt`](${{ steps.upload-artifact.outputs.artifact-url }})
+
+            ```
+            ${{ steps.vrt.outputs.value }}
+            ```
