@@ -38,7 +38,7 @@ jobs:
       - run: npm run build
       - id: vrt
         run: |
-          result=$(npm run vrt:test)
+          result=$(FORCE_COLOR=0 npm run vrt:test)
           echo "value<<EOF" >> "$GITHUB_OUTPUT"
           echo "$result"    >> "$GITHUB_OUTPUT"
           echo "EOF"        >> "$GITHUB_OUTPUT"
