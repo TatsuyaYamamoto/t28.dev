@@ -24,6 +24,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 
+      # build and shot for `base` branch
       - run: git checkout ${{ github.base_ref }}
       - run: npm i
       - run: npx playwright install --with-deps
@@ -31,6 +32,7 @@ jobs:
       - run: npm run build
       - run: npm run vrt:shot
 
+      # build and test for `head` branch
       - run: git checkout ${{ github.head_ref }}
       - run: npm i
       - run: npx playwright install --with-deps
@@ -43,6 +45,7 @@ jobs:
           echo "$result"    >> "$GITHUB_OUTPUT"
           echo "EOF"        >> "$GITHUB_OUTPUT"
 
+      # upload VRT report
       - id: upload-artifact
         uses: actions/upload-artifact@v4
         with:
