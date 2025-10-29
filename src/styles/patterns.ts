@@ -1,7 +1,8 @@
+// @ts-ignore
 import { definePattern } from "@pandacss/dev";
 
 export const container = definePattern({
-  transform(props) {
+  transform(props: any) {
     const pandaDefault = {
       position: "relative",
       maxWidth: "8xl",

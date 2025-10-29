@@ -48,7 +48,7 @@ const ogpImageUrl = new URL(`/blog/${post.slug}.ogp.png`, Astro.url).href;
     </Container>
   </header>
   <Container className="flex justify-between">
-    <div class="md:w-[calc(100% - var(--sizes-xs) - var(--sizes-4))] w-full">
+    <div class="w-full md:w-[calc(100%-var(--container-xs)-var(--spacing)*4)]">
       <BlogPost
         title={post.data.title}
         date={post.data.date}
@@ -59,7 +59,7 @@ const ogpImageUrl = new URL(`/blog/${post.slug}.ogp.png`, Astro.url).href;
         </div>
       </BlogPost>
     </div>
-    <div class="w-xs md:hidden">
+    <div class="w-xs max-md:hidden">
       <BlogPostSideMenu client:visible tocItems={headingToTocItems(headings)} />
     </div>
   </Container>

@@ -1,3 +1,4 @@
+// @ts-ignore
 import type { Config } from "@pandacss/dev";
 
 const globalVars: NonNullable<Config["globalVars"]> = {
