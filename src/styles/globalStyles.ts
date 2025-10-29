@@ -1,3 +1,4 @@
+// @ts-ignore
 import { defineGlobalStyles } from "@pandacss/dev";
 
 export default defineGlobalStyles({
