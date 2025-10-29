@@ -17,7 +17,7 @@
     "vrt:shot": "playwright test --update-snapshots",
     "preview": "astro preview",
     "prepare": "husky && panda codegen",
-    "postinstall": "rm -f $PWD/src/content/{blog,roundup,s-works-achievement,scrap} && ln -s $PWD/docs/blog $PWD/src/content/ && ln -s $PWD/docs/roundup $PWD/src/content/ && ln -s $PWD/docs/s-works-achievement $PWD/src/content/ && ln -s $PWD/docs/scrap $PWD/src/content/"
+    "postinstall": "ln -sfn $PWD/docs/blog $PWD/src/content/ && ln -sfn $PWD/docs/s-works-achievement $PWD/src/content/"
   },
   "lint-staged": {
     "*": "prettier --write --ignore-unknown"
