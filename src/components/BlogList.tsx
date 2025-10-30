@@ -20,7 +20,7 @@ const BlogList: FC<Props> = (props) => {
     <ol>
       {posts.map((post) => {
         return (
-          <li key={post.url}>
+          <li key={post.url} className="list-none">
             <article
               className="my-8"
               itemScope

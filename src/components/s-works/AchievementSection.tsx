@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import type { FC, PropsWithChildren } from "react";
 
 import { formatDisplayDate } from "../../helpers/utils";
@@ -23,21 +22,15 @@ const AchievementSection: FC<PropsWithChildren<Props>> = ({ posts }) => {
         >
           {`Achievements`}
         </h2>
-        <div
-          className={clsx({
-            "& a:not(:first-child)": {
-              marginTop: "8",
-            },
-          })}
-        >
+        <div>
           {posts.map(({ url, title, date, description, heroImage }) => (
             <a
               key={url}
               href={url}
-              className="flex flex-col bg-(--colors-white) text-(--color-black) no-underline md:flex-row"
+              className="flex flex-col bg-(--colors-white) text-(--color-black) no-underline md:flex-row [&:not(:first-child)]:mt-8"
             >
-              <div className="items-[unset] flex flex-1 gap-4 p-5">
-                <h3 className="m-0 text-xl">{title}</h3>
+              <div className="items-[unset] flex flex-1 flex-col gap-4 p-5">
+                <h3 className="m-0 text-xl leading-5.5">{title}</h3>
                 <p>{formatDisplayDate(date)}</p>
                 <p>{description}</p>
               </div>
@@ -45,7 +38,7 @@ const AchievementSection: FC<PropsWithChildren<Props>> = ({ posts }) => {
                 <img
                   alt={""}
                   src={heroImage.src}
-                  className={clsx({ objectFit: "cover", height: "full" })}
+                  className="h-full object-cover"
                 />
               </div>
             </a>

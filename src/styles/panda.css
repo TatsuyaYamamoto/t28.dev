@@ -50,6 +50,8 @@
 
 @layer theme {
   :root {
+    --lineHeight-relaxed: 1.7;
+    --fontSize-0: 0.833rem;
     --colors-gray-400: #9ca3af;
     --colors-neutral-100: #f5f5f5;
   }
