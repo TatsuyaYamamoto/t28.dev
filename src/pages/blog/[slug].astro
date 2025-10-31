@@ -1,6 +1,4 @@
 ---
-import styles from "../../styles/blogPostContent.module.scss";
-
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
@@ -54,7 +52,7 @@ const ogpImageUrl = new URL(`/blog/${post.slug}.ogp.png`, Astro.url).href;
         date={post.data.date}
         category={post.data.category}
       >
-        <div class={styles.blogPostContent}>
+        <div class="blog-post-content">
           <Content />
         </div>
       </BlogPost>

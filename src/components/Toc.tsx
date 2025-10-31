@@ -9,8 +9,6 @@ import {
 
 import { isHTMLAnchorElement } from "../helpers/type-gurad";
 
-import styles from "./Toc.module.scss";
-
 const parseUrlAsId = (tocItems: TocItems): string[] => {
   return tocItems.reduce<string[]>((prev, current) => {
     const id = current.url.replace("#", "");
@@ -174,7 +172,7 @@ const Toc: FC<Props> = ({ items }) => {
   };
 
   return (
-    <div ref={tocElRef} className={styles.root}>
+    <div ref={tocElRef} className="blog-post-toc">
       {items.length === 0 ? (
         <div className="text-center">-- EMPTY --</div>
       ) : (
