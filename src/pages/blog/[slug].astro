@@ -1,12 +1,9 @@
 ---
-import { css } from "@styled-system/css";
-import { Container, styled } from "@styled-system/jsx";
-import styles from "../../styles/blogPostContent.module.scss";
-
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Container from "../../components/Container";
 import BlogPost from "../../components/BlogPost";
 import Footer from "../../components/Footer";
 import BlogPostSideMenu from "../../components/BlogPostSideMenu";
@@ -33,20 +30,6 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render();
 const title = `${post.data.title} | ${SITE_TITLE}`;
 const description = post.data.description ?? remarkPluginFrontmatter.excerpt;
 const ogpImageUrl = new URL(`/blog/${post.slug}.ogp.png`, Astro.url).href;
-
-const blogPostLeft = css({
-  width: {
-    base: "full",
-    md: "[calc(100% - var(--sizes-xs) - var(--sizes-4))]",
-  },
-});
-
-const blogPostRight = css({
-  width: "xs",
-  mdDown: {
-    display: "none",
-  },
-});
 ---
 
 <BaseLayout
@@ -55,31 +38,26 @@ const blogPostRight = css({
   faviconType="t28.dev"
   ogpImageUrl={ogpImageUrl}
 >
-  <styled.header marginY="12">
+  <header class="my-12">
     <Container>
-      <styled.a
-        href="/"
-        fontWeight="bold"
-        textDecoration="none"
-        fontSize="var(--fontSize-4)"
-      >
+      <a href="/" class="text-(length:--fontSize-4) font-bold no-underline">
         {SITE_TITLE}
-      </styled.a>
+      </a>
     </Container>
-  </styled.header>
-  <Container display="flex" justifyContent="space-between">
-    <div class={blogPostLeft}>
+  </header>
+  <Container className="flex justify-between">
+    <div class="w-full md:w-[calc(100%-var(--container-xs)-var(--spacing)*4)]">
       <BlogPost
         title={post.data.title}
         date={post.data.date}
         category={post.data.category}
       >
-        <div class={styles.blogPostContent}>
+        <div class="blog-post-content">
           <Content />
         </div>
       </BlogPost>
     </div>
-    <div class={blogPostRight}>
+    <div class="w-xs max-md:hidden">
       <BlogPostSideMenu client:visible tocItems={headingToTocItems(headings)} />
     </div>
   </Container>
