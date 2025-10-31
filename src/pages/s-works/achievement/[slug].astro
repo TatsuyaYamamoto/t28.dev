@@ -35,7 +35,12 @@ const description = post.data.description ?? /* WIP */ post.body.slice(0, 100);
   <div class="min-h-full border-15 border-(--color-s-works) px-3">
     <header class="mx-auto my-8 max-w-2xl">
       <a href="/s-works">
-        <SWorksLogo />
+        <SWorksLogo
+          style={{
+            display: "inline",
+            verticalAlign: "initial",
+          }}
+        />
       </a>
     </header>
 

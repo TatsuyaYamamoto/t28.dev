@@ -50,6 +50,7 @@
 
 @layer theme {
   :root {
+    --spacing: 0.25rem;
     --lineHeight-relaxed: 1.7;
     --fontSize-0: 0.833rem;
     --colors-gray-400: #9ca3af;
@@ -161,5 +162,221 @@
   /* markdown 内の img 要素 の aspect ratio 画像のものと同じにするために設定する */
   img {
     height: auto;
+  }
+}
+
+@layer components {
+  .blog-post-content {
+    /*********************************************************************************************************************
+         * Headings
+         */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: var(--font-weight-semibold);
+    }
+
+    h1 {
+      font-size: var(--fontSize-5);
+    }
+
+    h2 {
+      font-size: var(--fontSize-4);
+    }
+
+    h3 {
+      font-size: var(--fontSize-3);
+    }
+
+    h4 {
+      font-size: var(--fontSize-2);
+    }
+
+    /*********************************************************************************************************************
+         * Link
+         */
+
+    a {
+      color: var(--color-primary);
+      font-weight: 500; /* var(--font-weight-medium);*/
+      text-underline-offset: 2px;
+      word-break: break-all;
+
+      // リンクは既定の改行規則を無効にする
+
+        &:hover {
+        color: var(--color-primary-light);
+      }
+    }
+
+    /*********************************************************************************************************************
+         * Table
+         */
+
+    table {
+      width: 100%;
+      margin: calc(var(--spacing) * 4) 0;
+
+      border-collapse: separate;
+      border-spacing: 0;
+      border: 1px solid var(--color-accent);
+      border-radius: calc(var(--spacing) * 2);
+      overflow: hidden;
+
+      th,
+      td {
+        font-size: var(--fontSize-0);
+        padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
+      }
+
+      th {
+        font-weight: var(--font-weight-semibold);
+        background-color: var(--color-accent-soft);
+      }
+
+      /* 横方向の境界線 */
+      td {
+        border-top: 1px solid var(--color-accent);
+      }
+
+      /* 縦方向の境界線 */
+      td,
+      th {
+        &:not(:last-child) {
+          border-right: 1px solid var(--color-accent);
+        }
+      }
+    }
+
+    /*********************************************************************************************************************
+         * Decoration
+         */
+    hr {
+      background: var(--color-accent);
+      height: 1px;
+      border: 0;
+      margin: calc(var(--spacing) * 10) 0;
+    }
+
+    /*********************************************************************************************************************
+         * Paragraph
+         */
+    p {
+      line-height: var(--lineHeight-relaxed);
+      margin: calc(var(--spacing) * 4) 0;
+    }
+
+    blockquote {
+      margin: calc(var(--spacing) * 4) 0;
+      border-left: 2px solid var(--color-accent);
+      padding-left: calc(var(--spacing) * 4);
+
+      & p {
+        margin: 0;
+        color: var(--color-text-light);
+      }
+    }
+
+    /*********************************************************************************************************************
+        * List
+        */
+    ul,
+    ol {
+      padding-left: 1.25rem;
+      margin: calc(var(--spacing) * 4) 0;
+    }
+
+    li {
+      /* リストアイテム間の幅 */
+      & + li {
+        margin-top: calc(var(--spacing) * 2);
+      }
+
+      & > ol,
+      & > ul {
+        margin-top: calc(var(--spacing) * 2);
+      }
+    }
+
+    /*********************************************************************************************************************
+         * Code
+         */
+
+    /* inline */
+    code {
+      font-size: 0.9em;
+    }
+
+    :not(pre) > code {
+      padding: 3px 6px;
+      color: var(--color-primary);
+      border-radius: 4px;
+      background-color: #e7e7e7;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      & > code {
+        /* 見出しは色を変えない */
+        color: inherit;
+      }
+    }
+
+    /* in code block */
+    pre {
+      border-radius: 8px;
+      background-color: #e7e7e7 !important;
+      padding: calc(var(--spacing) * 5) calc(var(--spacing) * 6);
+    }
+  }
+
+  .blog-post-toc {
+    font-size: var(--fontSize-0);
+
+    & > ul {
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      padding-left: 0;
+    }
+
+    & li {
+      position: relative;
+      list-style-type: none;
+
+      & > ul {
+        padding-left: calc(var(--spacing) * 4);
+      }
+    }
+
+    & a {
+      text-decoration: none;
+      color: var(--colors-gray-400);
+
+      &[data-toc-active] {
+        color: var(--color-text);
+      }
+    }
+  }
+
+  .s-works-achievement-post {
+    & a {
+      @apply font-semibold underline;
+      color: var(--color-orange-400);
+    }
+
+    & p {
+      @apply mb-8;
+    }
+
+    & img {
+      @apply h-auto shadow-md;
+    }
   }
 }

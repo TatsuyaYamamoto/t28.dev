@@ -20,7 +20,7 @@ const AchievementRelatedLinkButton: FC<Props> = (props) => {
     <a
       href={props.href}
       target={"_blank"}
-      className="inline-flex justify-center rounded-full bg-neutral-100 px-4 py-1 text-xs font-semibold text-black/70 no-underline hover:bg-neutral-200"
+      className="inline-flex justify-center rounded-full border border-solid border-transparent bg-neutral-100 px-4 py-1 text-xs font-semibold text-black/70 no-underline hover:bg-neutral-200"
     >
       <Icon className="mr-1 w-3" />
       {props.label}

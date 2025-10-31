@@ -3,8 +3,6 @@ import type { FC, PropsWithChildren } from "react";
 import { formatDisplayDate } from "../../helpers/utils";
 import AchievementRelatedLinkButton from "./AchievementRelatedLinkButton";
 
-import styles from "./AchievementPost.module.scss";
-
 interface Props {
   title: string;
   date: Date;
@@ -40,7 +38,7 @@ const AchievementPost: FC<PropsWithChildren<Props>> = ({
         </div>
       </header>
       <hr className="my-8 border-slate-200" />
-      <article className={styles.article}>{children}</article>
+      <article className="s-works-achievement-post">{children}</article>
     </div>
   );
 };
