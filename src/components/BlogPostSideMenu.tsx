@@ -8,7 +8,7 @@ interface Props {
 
 const BlogPostSideMenu: FC<Props> = ({ tocItems }) => {
   return (
-    <aside className="sticky top-5 overflow-auto rounded-lg border border-solid border-(--color-accent) bg-(--color-post-background) p-3 shadow-xs">
+    <aside className="sticky top-5 overflow-auto rounded-lg border border-solid border-(--color-accent) bg-neutral-50 p-3 shadow-xs">
       <div>目次</div>
       <Toc items={tocItems} />
     </aside>

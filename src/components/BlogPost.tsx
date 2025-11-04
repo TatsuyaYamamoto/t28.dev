@@ -19,7 +19,7 @@ const BlogPost: FC<PropsWithChildren<Props>> = ({
 }) => {
   return (
     <article
-      className="rounded-lg border border-solid border-(--color-accent) bg-(--color-post-background) p-10 shadow-xs"
+      className="rounded-lg border border-solid border-(--color-accent) bg-neutral-50 p-10 shadow-xs"
       itemScope
       itemType="http://schema.org/Article"
     >

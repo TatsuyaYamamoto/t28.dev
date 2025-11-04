@@ -49,7 +49,7 @@
 
   table {
     width: 100%;
-    margin: calc(var(--spacing) * 4) 0;
+    margin: --spacing(4) 0;
 
     border-collapse: separate;
     border-spacing: 0;

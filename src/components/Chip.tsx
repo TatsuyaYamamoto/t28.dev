@@ -10,7 +10,7 @@ const Chip: FC<PropsWithChildren<HTMLAttributes<HTMLDivElement>>> = ({
     <div
       {...otherProps}
       className={clsx(
-        "inline-flex h-6 justify-center rounded-xl bg-(--colors-neutral-100) align-middle text-black/87",
+        "inline-flex h-6 justify-center rounded-xl bg-neutral-100 align-middle text-black/87",
         className,
       )}
     >
