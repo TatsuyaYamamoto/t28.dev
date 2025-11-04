@@ -16,6 +16,14 @@
   --animate-s-works-surface: sWorksSurface 800ms ease-out both;
 }
 
+@theme {
+  --color-primary: #005b99;
+  --color-primary-light: #0a95ef;
+
+  --color-hoge-100: #2e353f;
+  --color-text-light: #4f5969;
+}
+
 @layer theme {
   :root {
     --lineHeight-tight: 1.1;
@@ -36,14 +44,10 @@
 
     --color-primary: #005b99;
     --color-primary-light: #0a95ef;
-
     --color-text: #2e353f;
     --color-text-light: #4f5969;
-
-    --color-heading: #1a202c;
-
     --color-accent: #d1dce5;
-    --color-accent-soft: #e7ecef;
+    --color-accent-light: #e7ecef;
 
     --color-s-works: #ffc69e;
     --color-twitter: #1da1f2;
@@ -59,7 +63,7 @@
     }
 
     100% {
-      fill: #ffc69e;
+      fill: var(--color-s-works);
       filter: drop-shadow(-3px -3px 5px rgba(255, 255, 255, 0.3))
         drop-shadow(1px 2px 1px rgba(160, 160, 160, 0.3))
         drop-shadow(3px 4px 2px rgba(160, 160, 160, 0.2))
@@ -107,7 +111,7 @@
   h5,
   h6 {
     font-weight: bold;
-    color: var(--color-heading);
+    color: var(--color-slate-950);
   }
 
   h2 {

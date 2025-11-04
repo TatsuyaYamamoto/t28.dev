@@ -65,7 +65,7 @@
 
     th {
       font-weight: var(--font-weight-semibold);
-      background-color: var(--color-accent-soft);
+      background-color: var(--color-accent-light);
     }
 
     /* 横方向の境界線 */
@@ -145,7 +145,7 @@
     padding: 3px 6px;
     color: var(--color-primary);
     border-radius: 4px;
-    background-color: #e7e7e7;
+    background-color: var(--color-gray-200);
   }
 
   h1,
@@ -163,7 +163,8 @@
   /* in code block */
   pre {
     border-radius: 8px;
-    background-color: #e7e7e7 !important;
+    /* overwrite `astro-code` style */
+    background-color: var(--color-gray-200) !important;
     padding: calc(var(--spacing) * 5) calc(var(--spacing) * 6);
   }
 }
