@@ -28,39 +28,25 @@ utilities;
     background-color: rgba(242, 242, 248, 0.5);
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-top: calc(var(--spacing) * 12);
-    margin-bottom: calc(var(--spacing) * 6);
+  :where(h1, h2, h3, h4, h5, h6) {
+    margin-top: --spacing(12);
+    margin-bottom: --spacing(6);
     line-height: var(--lineHeight-tight);
     letter-spacing: -0.025em;
-  }
 
-  h1 > a,
-  h2 > a,
-  h3 > a,
-  h4 > a,
-  h5 > a,
-  h6 > a {
-    text-decoration: none;
-    color: inherit;
+    & > a {
+      text-decoration: none;
+      color: inherit;
+    }
   }
 
   h1 {
-    font-weight: black;
+    font-weight: var(--font-weight-black);
     font-size: var(--fontSize-6);
     color: var(--color-heading-black);
   }
 
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  :where(h2, h3, h4, h5, h6) {
     font-weight: bold;
     color: var(--color-heading);
   }
@@ -92,5 +78,41 @@ utilities;
   /* markdown 内の img 要素 の aspect ratio を画像のものと同じにするために設定 */
   img {
     height: auto;
+  }
+
+  :root {
+    --lineHeight-none: 1;
+    --lineHeight-tight: 1.1;
+    --lineHeight-normal: 1.5;
+    --lineHeight-relaxed: 1.7; /* original value -> 1.625 */
+
+    /* 1.200 Minor Third Type Scale */
+    --fontSize-0: 0.833rem;
+    --fontSize-1: 1rem;
+    --fontSize-2: 1.2rem;
+    --fontSize-3: 1.44rem;
+    --fontSize-4: 1.728rem;
+    --fontSize-5: 2.074rem;
+    --fontSize-6: 2.488rem;
+    --fontSize-7: 2.986rem;
+
+    --font-family-s-works: helvetica;
+
+    --border-solid-accent: 1px solid var(--color-accent);
+    --border-solid-transparent: 1px solid transparent;
+
+    --color-primary: #005b99;
+    --color-primary-light: #0a95ef;
+    --color-text: #2e353f;
+    --color-text-light: #4f5969;
+    --color-heading: #1a202c;
+    --color-heading-black: black;
+    --color-accent: #d1dce5;
+    --color-accent-soft: #e7ecef;
+    --color-post-background: #fcfcfc;
+
+    --color-s-works: #ffc69e;
+    --color-twitter: #1da1f2;
+    --color-github: #000000;
   }
 }

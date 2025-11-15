@@ -1,6 +1,5 @@
 import { defineConfig } from "@pandacss/dev";
 
-import globalVars from "./src/styles/globalVars.ts";
 import { keyframes } from "./src/styles/keyframes";
 import { container } from "./src/styles/patterns.ts";
 
@@ -18,8 +17,6 @@ export default defineConfig({
 
   strictTokens: true,
   strictPropertyValues: true,
-
-  globalVars,
 
   // Useful for theme customization
   theme: {
