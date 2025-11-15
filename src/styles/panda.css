@@ -1,11 +1,6 @@
-@layer reset, base, theme, base, tokens, recipes, components, utilities;
-
 @import "tailwindcss";
 
-/* https://panda-css.com/docs/installation/astro#configure-the-entry-css-with-layers */
-@layer reset, base, tokens, recipes, utilities;
-
-@import "modern-css-reset/src/reset.css" layer(reset);
+@import "modern-css-reset/src/reset.css" layer(base);
 
 @import "./blog-post-content.scss" layer(components);
 @import "./blog-post-toc.scss" layer(components);
