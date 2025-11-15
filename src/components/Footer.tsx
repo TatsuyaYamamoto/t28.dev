@@ -1,7 +1,8 @@
 import type { FC } from "react";
 
-import { Container, styled } from "@styled-system/jsx";
+import { styled } from "@styled-system/jsx";
 
+import Container from "../components/Container";
 import { TWITTER_NAME, TWITTER_URL } from "../constants";
 
 interface Props {}

@@ -1,7 +1,5 @@
 import { defineConfig } from "@pandacss/dev";
 
-import { container } from "./src/styles/patterns.ts";
-
 export default defineConfig({
   jsxFramework: "react",
 
@@ -16,10 +14,4 @@ export default defineConfig({
 
   strictTokens: true,
   strictPropertyValues: true,
-
-  patterns: {
-    extend: {
-      container,
-    },
-  },
 });

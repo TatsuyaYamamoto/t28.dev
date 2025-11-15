@@ -19,6 +19,13 @@ export default defineConfig({
     },
     rehypePlugins: [inferDescriptionMetaPlugin],
     remarkPlugins: [mermaidRemarkPlugin],
+    remarkRehype: {
+      footnoteLabelProperties: {
+        className: [
+          // 'sr-only'
+        ],
+      },
+    },
   },
   build: {
     format: "file",

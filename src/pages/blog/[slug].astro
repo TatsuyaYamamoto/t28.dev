@@ -1,6 +1,6 @@
 ---
 import { css } from "@styled-system/css";
-import { Container, styled } from "@styled-system/jsx";
+import { styled } from "@styled-system/jsx";
 import styles from "../../styles/blogPostContent.module.scss";
 
 import type { CollectionEntry } from "astro:content";
@@ -10,6 +10,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPost from "../../components/BlogPost";
 import Footer from "../../components/Footer";
 import BlogPostSideMenu from "../../components/BlogPostSideMenu";
+import Container from "../../components/Container";
 
 import { headingToTocItems } from "../../helpers/utils";
 
@@ -67,7 +68,7 @@ const blogPostRight = css({
       </styled.a>
     </Container>
   </styled.header>
-  <Container display="flex" justifyContent="space-between">
+  <Container className="flex justify-between">
     <div class={blogPostLeft}>
       <BlogPost
         title={post.data.title}
