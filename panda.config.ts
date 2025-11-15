@@ -1,6 +1,5 @@
 import { defineConfig } from "@pandacss/dev";
 
-import globalCss from "./src/styles/globalStyles.ts";
 import globalVars from "./src/styles/globalVars.ts";
 import { keyframes } from "./src/styles/keyframes";
 import { container } from "./src/styles/patterns.ts";
@@ -21,7 +20,6 @@ export default defineConfig({
   strictPropertyValues: true,
 
   globalVars,
-  globalCss,
 
   // Useful for theme customization
   theme: {
