@@ -16,6 +16,7 @@ const Root = styled("div", {
   },
 });
 
+// @ts-expect-error
 const StyledSWorksLogo = styled(SWorksLogo, {
   base: {
     width: { base: "[350px]", md: "[600px]" },

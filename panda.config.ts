@@ -1,6 +1,5 @@
 import { defineConfig } from "@pandacss/dev";
 
-import { keyframes } from "./src/styles/keyframes";
 import { container } from "./src/styles/patterns.ts";
 
 export default defineConfig({
@@ -17,13 +16,6 @@ export default defineConfig({
 
   strictTokens: true,
   strictPropertyValues: true,
-
-  // Useful for theme customization
-  theme: {
-    extend: {
-      keyframes,
-    },
-  },
 
   patterns: {
     extend: {
