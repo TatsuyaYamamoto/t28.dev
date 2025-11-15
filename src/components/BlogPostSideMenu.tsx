@@ -1,18 +1,6 @@
-import { css } from "@styled-system/css";
 import type { FC } from "react";
 
 import Toc from "./Toc";
-
-const sideMenu = css({
-  position: "sticky",
-  top: "5",
-  padding: "3",
-  overflow: "auto",
-  border: "var(--border-solid-accent)",
-  borderRadius: "lg",
-  boxShadow: "xs",
-  backgroundColor: "var(--color-post-background)",
-});
 
 interface Props {
   tocItems: Parameters<typeof Toc>[0]["items"];
@@ -20,7 +8,7 @@ interface Props {
 
 const BlogPostSideMenu: FC<Props> = ({ tocItems }) => {
   return (
-    <aside className={sideMenu}>
+    <aside className="sticky top-5 overflow-auto rounded-lg border border-solid border-(--color-accent) bg-neutral-50 p-3 shadow-xs">
       <div>目次</div>
       <Toc items={tocItems} />
     </aside>

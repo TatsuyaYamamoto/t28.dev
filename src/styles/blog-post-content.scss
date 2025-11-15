@@ -1,4 +1,4 @@
-.blogPostContent {
+.blog-post-content {
   /*********************************************************************************************************************
    * Headings
    */
@@ -8,7 +8,7 @@
   h4,
   h5,
   h6 {
-    font-weight: var(--font-weights-semibold);
+    font-weight: var(--font-weight-semibold);
   }
 
   h1 {
@@ -33,9 +33,10 @@
 
   a {
     color: var(--color-primary);
-    font-weight: var(--font-weights-medium);
+    font-weight: 500; /* var(--font-weight-medium);*/
     text-underline-offset: 2px;
-    word-break: break-all; // リンクは既定の改行規則を無効にする
+    word-break: break-all;
+    /* リンクは既定の改行規則を無効にする */
 
     &:hover {
       color: var(--color-primary-light);
@@ -48,23 +49,23 @@
 
   table {
     width: 100%;
-    margin: var(--spacing-4) 0;
+    margin: --spacing(4) 0;
 
     border-collapse: separate;
     border-spacing: 0;
     border: 1px solid var(--color-accent);
-    border-radius: var(--spacing-2);
+    border-radius: calc(var(--spacing) * 2);
     overflow: hidden;
 
     th,
     td {
       font-size: var(--fontSize-0);
-      padding: var(--spacing-3) var(--spacing-4);
+      padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
     }
 
     th {
-      font-weight: var(--font-weights-semibold);
-      background-color: var(--color-accent-soft);
+      font-weight: var(--font-weight-semibold);
+      background-color: var(--color-accent-light);
     }
 
     /* 横方向の境界線 */
@@ -88,7 +89,7 @@
     background: var(--color-accent);
     height: 1px;
     border: 0;
-    margin: var(--spacing-10) 0;
+    margin: calc(var(--spacing) * 10) 0;
   }
 
   /*********************************************************************************************************************
@@ -96,13 +97,13 @@
    */
   p {
     line-height: var(--lineHeight-relaxed);
-    margin: var(--spacing-4) 0;
+    margin: calc(var(--spacing) * 4) 0;
   }
 
   blockquote {
-    margin: var(--spacing-4) 0;
+    margin: calc(var(--spacing) * 4) 0;
     border-left: 2px solid var(--color-accent);
-    padding-left: var(--spacing-4);
+    padding-left: calc(var(--spacing) * 4);
 
     & p {
       margin: 0;
@@ -111,23 +112,23 @@
   }
 
   /*********************************************************************************************************************
-  * List
-  */
+    * List
+    */
   ul,
   ol {
     padding-left: 1.25rem;
-    margin: var(--spacing-4) 0;
+    margin: calc(var(--spacing) * 4) 0;
   }
 
   li {
     /* リストアイテム間の幅 */
     & + li {
-      margin-top: var(--spacing-2);
+      margin-top: calc(var(--spacing) * 2);
     }
 
     & > ol,
     & > ul {
-      margin-top: var(--spacing-2);
+      margin-top: calc(var(--spacing) * 2);
     }
   }
 
@@ -144,7 +145,7 @@
     padding: 3px 6px;
     color: var(--color-primary);
     border-radius: 4px;
-    background-color: #e7e7e7;
+    background-color: var(--color-gray-200);
   }
 
   h1,
@@ -162,7 +163,8 @@
   /* in code block */
   pre {
     border-radius: 8px;
-    background-color: #e7e7e7 !important;
-    padding: var(--spacing-5) var(--spacing-6);
+    /* overwrite `astro-code` style */
+    background-color: var(--color-gray-200) !important;
+    padding: calc(var(--spacing) * 5) calc(var(--spacing) * 6);
   }
 }
