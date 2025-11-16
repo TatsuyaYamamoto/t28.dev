@@ -12,3 +12,85 @@ utilities;
 @import "tailwindcss/utilities.css" layer(utilities.tw);
 
 @import "modern-css-reset/src/reset.css" layer(reset.modern-css-reset);
+
+@layer base.original {
+  html {
+    line-height: var(--lineHeight-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+      "Hiragino Sans", Meiryo, sans-serif;
+    font-size: var(--fontSize-1);
+    color: var(--color-text);
+    background-color: rgba(242, 242, 248, 0.5);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: calc(var(--spacing) * 12);
+    margin-bottom: calc(var(--spacing) * 6);
+    line-height: var(--lineHeight-tight);
+    letter-spacing: -0.025em;
+  }
+
+  h1 > a,
+  h2 > a,
+  h3 > a,
+  h4 > a,
+  h5 > a,
+  h6 > a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  h1 {
+    font-weight: black;
+    font-size: var(--fontSize-6);
+    color: var(--color-heading-black);
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: bold;
+    color: var(--color-heading);
+  }
+
+  h2 {
+    font-size: var(--fontSize-5);
+  }
+
+  h3 {
+    font-size: var(--fontSize-4);
+  }
+
+  h4 {
+    font-size: var(--fontSize-3);
+  }
+
+  h5 {
+    font-size: var(--fontSize-2);
+  }
+
+  h6 {
+    font-size: var(--fontSize-1);
+  }
+
+  a {
+    color: var(--color-primary);
+  }
+
+  /* markdown 内の img 要素 の aspect ratio を画像のものと同じにするために設定 */
+  img {
+    height: auto;
+  }
+}
