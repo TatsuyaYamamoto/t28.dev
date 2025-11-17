@@ -1,0 +1,14 @@
+.s-works-achievement-post {
+  & a {
+    @apply font-semibold underline;
+    color: var(--color-orange-400);
+  }
+
+  & p {
+    @apply mb-8;
+  }
+
+  & img {
+    @apply h-auto shadow-md;
+  }
+}

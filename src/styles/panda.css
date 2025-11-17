@@ -11,6 +11,10 @@ utilities;
 @import "tailwindcss/theme.css" layer(theme.tw);
 @import "tailwindcss/utilities.css" layer(utilities.tw);
 
+@import "./blog-post-content.css" layer(components);
+@import "./blog-post-toc.css" layer(components);
+@import "./s-works-achievement-post.css" layer(components);
+
 @import "modern-css-reset/src/reset.css" layer(reset.modern-css-reset);
 
 @layer base.original {
@@ -98,9 +102,6 @@ utilities;
 
     --font-family-s-works: helvetica;
 
-    --border-solid-accent: 1px solid var(--color-accent);
-    --border-solid-transparent: 1px solid transparent;
-
     --color-primary: #005b99;
     --color-primary-light: #0a95ef;
     --color-text: #2e353f;
@@ -109,7 +110,6 @@ utilities;
     --color-heading-black: black;
     --color-accent: #d1dce5;
     --color-accent-soft: #e7ecef;
-    --color-post-background: #fcfcfc;
 
     --color-s-works: #ffc69e;
     --color-twitter: #1da1f2;

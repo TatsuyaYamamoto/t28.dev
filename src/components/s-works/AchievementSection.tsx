@@ -1,5 +1,3 @@
-import { css } from "@styled-system/css";
-import { VStack, styled } from "@styled-system/jsx";
 import type { FC, PropsWithChildren } from "react";
 
 import { formatDisplayDate } from "../../helpers/utils";
@@ -16,57 +14,38 @@ interface Props {
 
 const AchievementSection: FC<PropsWithChildren<Props>> = ({ posts }) => {
   return (
-    <styled.section
-      backgroundColor="var(--color-s-works)"
-      paddingX="4"
-      paddingY="8"
-    >
-      <styled.div maxWidth="2xl" marginX="auto">
-        <styled.h2
-          color="var(--colors-white)"
+    <section className="bg-(--color-s-works) px-4 py-8">
+      <div className="mx-auto max-w-2xl">
+        <h2
           // TODO use token
-          fontSize={{ base: "[2.5rem]", md: "[5rem]" }}
-          fontFamily="sans"
-          fontWeight="semibold"
+          className="font-sans text-[2.5rem] font-semibold text-white md:text-[5rem]"
         >
           {`Achievements`}
-        </styled.h2>
-        <div
-          className={css({
-            "& a:not(:first-child)": {
-              marginTop: "8",
-            },
-          })}
-        >
+        </h2>
+        <div>
           {posts.map(({ url, title, date, description, heroImage }) => (
-            <styled.a
+            <a
               key={url}
               href={url}
-              display="flex"
-              color="var(--color-black)"
-              backgroundColor="var(--colors-white)"
-              textDecoration="none"
-              flexDirection={{ base: "column", md: "row" }}
+              className="flex flex-col bg-white text-black no-underline md:flex-row [&:not(:first-child)]:mt-8"
             >
-              <VStack padding="5" gap="4" flex="1" alignItems="unset">
-                <styled.h3 margin="0" fontSize="xl">
-                  {title}
-                </styled.h3>
+              <div className="items-[unset] flex flex-1 flex-col gap-4 p-5">
+                <h3 className="m-0 text-xl leading-5.5">{title}</h3>
                 <p>{formatDisplayDate(date)}</p>
                 <p>{description}</p>
-              </VStack>
-              <styled.div width="full" md={{ maxWidth: "72" }}>
+              </div>
+              <div className="w-full md:max-w-72">
                 <img
                   alt={""}
                   src={heroImage.src}
-                  className={css({ objectFit: "cover", height: "full" })}
+                  className="h-full object-cover"
                 />
-              </styled.div>
-            </styled.a>
+              </div>
+            </a>
           ))}
         </div>
-      </styled.div>
-    </styled.section>
+      </div>
+    </section>
   );
 };
 

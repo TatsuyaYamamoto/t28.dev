@@ -1,4 +1,3 @@
-import { styled } from "@styled-system/jsx";
 import {
   type FC,
   type MouseEvent,
@@ -9,39 +8,6 @@ import {
 } from "react";
 
 import { isHTMLAnchorElement } from "../helpers/type-gurad";
-
-const Root = styled("div", {
-  base: {
-    fontSize: "var(--fontSize-0)",
-
-    "& > ul": {
-      paddingLeft: "0",
-    },
-
-    "& li": {
-      position: "relative",
-      listStyleType: "none",
-
-      "& > ul": {
-        paddingLeft: "4",
-      },
-    },
-
-    "& a": {
-      textDecoration: "none",
-      color: "gray.400",
-      "&[data-toc-active]": {
-        color: "var(--color-text)",
-      },
-    },
-  },
-});
-
-const Empty = styled("div", {
-  base: {
-    textAlign: "center",
-  },
-});
 
 const parseUrlAsId = (tocItems: TocItems): string[] => {
   return tocItems.reduce<string[]>((prev, current) => {
@@ -206,9 +172,13 @@ const Toc: FC<Props> = ({ items }) => {
   };
 
   return (
-    <Root ref={tocElRef}>
-      {items.length === 0 ? <Empty>-- EMPTY --</Empty> : renderList(items)}
-    </Root>
+    <div ref={tocElRef} className="blog-post-toc">
+      {items.length === 0 ? (
+        <div className="text-center">-- EMPTY --</div>
+      ) : (
+        renderList(items)
+      )}
+    </div>
   );
 };
 
