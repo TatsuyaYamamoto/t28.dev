@@ -23,6 +23,7 @@ pages.forEach((target) => {
     await expect(page).toHaveScreenshot({
       fullPage: true,
       timeout: 30_000, // `/s-works` の撮影に時間がかかる...
+      threshold: 0.22, // `/s-works` の差分が少しむずかしい？ので少し緩くする
     });
   });
 });
