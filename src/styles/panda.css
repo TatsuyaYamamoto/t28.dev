@@ -1,23 +1,17 @@
-/* https://panda-css.com/docs/installation/astro#configure-the-entry-css-with-layers */
-@layer reset, /* panda only*/
-theme, /* tailwind only*/
-base,
-tokens, /* panda only*/
-recipes, /* panda only*/
-components, /* tailwind only*/
-utilities;
+/** https://tailwindcss.com/docs/preflight#overview */
+@layer theme, base, components, utilities;
 
-/*@import "tailwindcss";*/
-@import "tailwindcss/theme.css" layer(theme.tw);
-@import "tailwindcss/utilities.css" layer(utilities.tw);
+@import "tailwindcss/theme.css" layer(theme);
+/*@import "tailwindcss/preflight.css" layer(base);*/
+@import "tailwindcss/utilities.css" layer(utilities);
 
 @import "./blog-post-content.css" layer(components);
 @import "./blog-post-toc.css" layer(components);
 @import "./s-works-achievement-post.css" layer(components);
 
-@import "modern-css-reset/src/reset.css" layer(reset.modern-css-reset);
+@import "modern-css-reset/src/reset.css" layer(base.reset);
 
-@layer base.original {
+@layer base {
   html {
     line-height: var(--lineHeight-normal);
     -webkit-font-smoothing: antialiased;
@@ -117,7 +111,7 @@ utilities;
   }
 }
 
-@layer tokens.original {
+@layer base {
   @keyframes sWorksSurface {
     0% {
       fill: #fff3e0;
