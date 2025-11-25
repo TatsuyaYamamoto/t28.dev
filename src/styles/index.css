@@ -1,0 +1,131 @@
+/** https://tailwindcss.com/docs/preflight#overview */
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+/*@import "tailwindcss/preflight.css" layer(base);*/
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@import "./blog-post-content.css" layer(components);
+@import "./blog-post-toc.css" layer(components);
+@import "./s-works-achievement-post.css" layer(components);
+
+@import "modern-css-reset/src/reset.css" layer(base.reset);
+
+@layer base {
+  html {
+    line-height: var(--lineHeight-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+      "Hiragino Sans", Meiryo, sans-serif;
+    font-size: var(--fontSize-1);
+    color: var(--color-text);
+    background-color: rgba(242, 242, 248, 0.5);
+  }
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    margin-top: --spacing(12);
+    margin-bottom: --spacing(6);
+    line-height: var(--lineHeight-tight);
+    letter-spacing: -0.025em;
+
+    & > a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  h1 {
+    font-weight: var(--font-weight-black);
+    font-size: var(--fontSize-6);
+    color: var(--color-heading-black);
+  }
+
+  :where(h2, h3, h4, h5, h6) {
+    font-weight: bold;
+    color: var(--color-heading);
+  }
+
+  h2 {
+    font-size: var(--fontSize-5);
+  }
+
+  h3 {
+    font-size: var(--fontSize-4);
+  }
+
+  h4 {
+    font-size: var(--fontSize-3);
+  }
+
+  h5 {
+    font-size: var(--fontSize-2);
+  }
+
+  h6 {
+    font-size: var(--fontSize-1);
+  }
+
+  a {
+    color: var(--color-primary);
+  }
+
+  /* markdown 内の img 要素 の aspect ratio を画像のものと同じにするために設定 */
+  img {
+    height: auto;
+  }
+}
+
+@theme {
+  --lineHeight-none: 1;
+  --lineHeight-tight: 1.1;
+  --lineHeight-normal: 1.5;
+  --lineHeight-relaxed: 1.7; /* original value -> 1.625 */
+
+  /* 1.200 Minor Third Type Scale */
+  --fontSize-0: 0.833rem;
+  --fontSize-1: 1rem;
+  --fontSize-2: 1.2rem;
+  --fontSize-3: 1.44rem;
+  --fontSize-4: 1.728rem;
+  --fontSize-5: 2.074rem;
+  --fontSize-6: 2.488rem;
+  --fontSize-7: 2.986rem;
+
+  --font-family-s-works: helvetica;
+
+  --color-primary: #005b99;
+  --color-primary-light: #0a95ef;
+  --color-text: #2e353f;
+  --color-text-light: #4f5969;
+  --color-heading: #1a202c;
+  --color-heading-black: black;
+  --color-accent: #d1dce5;
+  --color-accent-soft: #e7ecef;
+
+  --color-s-works: #ffc69e;
+  --color-twitter: #1da1f2;
+  --color-github: #000000;
+
+  --animate-s-works-surface: sWorksSurface 800ms both;
+
+  @keyframes sWorksSurface {
+    0% {
+      fill: #fff3e0;
+      filter: none;
+    }
+
+    to {
+      fill: #ffc69e;
+      filter: drop-shadow(-3px -3px 5px rgba(255, 255, 255, 0.3))
+        drop-shadow(1px 2px 1px rgba(160, 160, 160, 0.3))
+        drop-shadow(3px 4px 2px rgba(160, 160, 160, 0.2))
+        drop-shadow(4px 6px 3px rgba(160, 160, 160, 0.2))
+        drop-shadow(5px 8px 4px rgba(160, 160, 160, 0.1))
+        drop-shadow(6px 10px 5px rgba(160, 160, 160, 0.1));
+    }
+  }
+}

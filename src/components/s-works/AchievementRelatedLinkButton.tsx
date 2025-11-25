@@ -1,32 +1,7 @@
-import { css } from "@styled-system/css";
-import { styled } from "@styled-system/jsx";
 import type { FC } from "react";
 
 import ExternalLinkIcon from "../../assets/icons/fa/arrow-up-right-from-square-solid.svg?react";
 import TwitterIcon from "../../assets/icons/fa/twitter.svg?react";
-
-const Link = styled("a", {
-  base: {
-    display: "inline-flex",
-    justifyContent: "center",
-
-    paddingX: "4",
-    paddingY: "1",
-
-    color: "black/70",
-    fontSize: "xs",
-    fontWeight: "semibold",
-    textDecoration: "none",
-
-    backgroundColor: "neutral.100",
-    border: "var(--border-solid-transparent)",
-    borderRadius: "full",
-
-    _hover: {
-      backgroundColor: "neutral.200",
-    },
-  },
-});
 
 const linkIcons = {
   external: ExternalLinkIcon,
@@ -42,15 +17,14 @@ interface Props {
 const AchievementRelatedLinkButton: FC<Props> = (props) => {
   const Icon = linkIcons[props.type];
   return (
-    <Link href={props.href} target={"_blank"}>
-      <Icon
-        className={css({
-          width: "3",
-          marginRight: "1",
-        })}
-      />
+    <a
+      href={props.href}
+      target={"_blank"}
+      className="inline-flex justify-center rounded-full border border-solid border-transparent bg-neutral-100 px-4 py-1 text-(length:--text-xs) font-semibold text-black/70 no-underline hover:bg-neutral-200"
+    >
+      <Icon className="mr-1 w-3" />
       {props.label}
-    </Link>
+    </a>
   );
 };
 
