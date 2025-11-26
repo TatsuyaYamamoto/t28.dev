@@ -1,5 +1,10 @@
 ---
-import { getCollection, getEntry, type CollectionEntry } from "astro:content";
+import {
+  getCollection,
+  getEntry,
+  type CollectionEntry,
+  render,
+} from "astro:content";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogList from "../components/BlogList";
@@ -15,8 +20,11 @@ const getDescription = async (
   if (post.data.description) {
     return post.data.description;
   }
-  const entry = await getEntry(post.collection, post.slug);
-  const { remarkPluginFrontmatter } = (await entry?.render()) ?? {};
+  const entry = await getEntry(post.collection, post.id);
+  if (!entry) {
+    throw new Error(`Entry not found: ${post.collection}/${post.id}`);
+  }
+  const { remarkPluginFrontmatter } = await render(entry);
   return remarkPluginFrontmatter?.excerpt;
 };
 
@@ -24,7 +32,7 @@ const blogCollection = await getCollection("blog");
 
 const blogPosts = await Promise.all(
   blogCollection.map(async (post) => ({
-    url: `/${post.collection}/${post.slug}`,
+    url: `/${post.collection}/${post.id}`,
     title: post.data.title,
     description: await getDescription(post),
     date: post.data.date,

@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Container from "../../components/Container";
@@ -15,7 +15,7 @@ import { SITE_TITLE } from "../../constants";
 export const getStaticPaths = async () => {
   const allBlogPosts = await getCollection("blog");
   return allBlogPosts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { post },
   }));
 };
@@ -25,11 +25,11 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { Content, headings, remarkPluginFrontmatter } = await post.render();
+const { Content, headings, remarkPluginFrontmatter } = await render(post);
 
 const title = `${post.data.title} | ${SITE_TITLE}`;
 const description = post.data.description ?? remarkPluginFrontmatter.excerpt;
-const ogpImageUrl = new URL(`/blog/${post.slug}.ogp.png`, Astro.url).href;
+const ogpImageUrl = new URL(`/blog/${post.id}.ogp.png`, Astro.url).href;
 ---
 
 <BaseLayout
