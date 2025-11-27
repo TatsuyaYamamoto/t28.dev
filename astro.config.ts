@@ -32,10 +32,6 @@ export default defineConfig({
   },
   vite: {
     plugins: [svgr(), tailwindcss()],
-    resolve: {
-      // https://www.eliostruyf.com/symlink-content-astro-portability/
-      preserveSymlinks: true,
-    },
     optimizeDeps: {
       exclude: [
         // https://github.com/withastro/astro/issues/9722

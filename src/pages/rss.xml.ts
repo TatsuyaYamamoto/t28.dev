@@ -13,7 +13,11 @@ export const GET: APIRoute = async (context) => {
   const posts = await getCollection("blog");
 
   const rssFeedItems = await Promise.all(
-    posts.map(async ({ body, slug, data: { title, description, date } }) => {
+    posts.map(async ({ body, id, data: { title, description, date } }) => {
+      if (!body) {
+        throw new Error(`Blog post with id "${id}" has no body.`);
+      }
+
       const html = await marked.parse(body);
 
       return {
@@ -21,7 +25,7 @@ export const GET: APIRoute = async (context) => {
         description,
         pubDate: date,
         content: DOMPurify.sanitize(html),
-        link: `/blog/${slug}/`,
+        link: `/blog/${id}/`,
       } satisfies RSSFeedItem;
     }),
   );

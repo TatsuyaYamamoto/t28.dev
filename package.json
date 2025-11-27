@@ -17,8 +17,7 @@
     "vrt:shot": "playwright test --update-snapshots",
     "vrt:test": "playwright test --reporter html",
     "preview": "astro preview",
-    "prepare": "husky",
-    "postinstall": "ln -sfn $PWD/docs/blog $PWD/src/content/ && ln -sfn $PWD/docs/s-works-achievement $PWD/src/content/"
+    "prepare": "husky"
   },
   "lint-staged": {
     "*": "prettier --write --ignore-unknown"
