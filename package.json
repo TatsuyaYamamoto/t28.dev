@@ -32,7 +32,7 @@
     "@material/web": "2.2.0",
     "@react-three/fiber": "8.17.6",
     "@tailwindcss/vite": "4.1.17",
-    "astro": "5.7.10",
+    "astro": "5.16.1",
     "astro-seo": "0.8.4",
     "mind-ar": "1.2.5",
     "modern-css-reset": "1.4.0",
