@@ -1,6 +1,7 @@
 {
   "name": "t28.dev",
   "private": true,
+  "packageManager": "pnpm@10.23.0",
   "description": "t28.dev",
   "version": "0.1.0",
   "type": "module",
