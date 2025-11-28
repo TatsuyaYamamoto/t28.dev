@@ -27,11 +27,13 @@ jobs:
 
       # build and shot for `base` branch
       - run: git checkout ${{ github.base_ref }}
-      - run: pnpm i
-      - run: pnpm exec playwright install --with-deps
-      - run: pnpm exec astro preferences disable devToolbar # hide astro dev toolbar from screen
-      - run: pnpm run build
-      - run: pnpm run vrt:shot
+      - run: npm i
+      - run: ls -l node_modules
+      - run: npx playwright install --with-deps
+      - run: npx astro preferences disable devToolbar # hide astro dev toolbar from screen
+      - run: npm run build
+      - run: npm run vrt:shot
+      - run: rm package-lock.json
 
       # build and test for `head` branch
       - run: git checkout ${{ github.head_ref }}
