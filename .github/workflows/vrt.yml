@@ -12,10 +12,11 @@ jobs:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6
         with:
           node-version-file: ".nvmrc"
-          cache: "npm"
+          cache: "pnpm"
 
       # Installing node-canvas@2.x on ubuntu of GitHub Actions requires these system dependencies
       # https://github.com/Automattic/node-canvas/tree/v2.x?tab=readme-ov-file#compiling
@@ -26,21 +27,21 @@ jobs:
 
       # build and shot for `base` branch
       - run: git checkout ${{ github.base_ref }}
-      - run: npm i
-      - run: npx playwright install --with-deps
-      - run: npx astro preferences disable devToolbar # hide astro dev toolbar from screen
-      - run: npm run build
-      - run: npm run vrt:shot
+      - run: pnpm i
+      - run: pnpm exec playwright install --with-deps
+      - run: pnpm exec astro preferences disable devToolbar # hide astro dev toolbar from screen
+      - run: pnpm run build
+      - run: pnpm run vrt:shot
 
       # build and test for `head` branch
       - run: git checkout ${{ github.head_ref }}
-      - run: npm i
-      - run: npx playwright install --with-deps
-      - run: npx astro preferences disable devToolbar # hide astro dev toolbar from screen
-      - run: npm run build
+      - run: pnpm i
+      - run: pnpm exec playwright install --with-deps
+      - run: pnpm exec astro preferences disable devToolbar # hide astro dev toolbar from screen
+      - run: pnpm run build
       - id: vrt
         run: |
-          result=$(FORCE_COLOR=0 npm run vrt:test || true)
+          result=$(FORCE_COLOR=0 pnpm run vrt:test || true)
           shot_result=$(echo "$result" | head -n 30)
 
           echo "value<<EOF"   >> "$GITHUB_OUTPUT"
