@@ -4,6 +4,10 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  # run `marocchino/sticky-pull-request-comment` in PR triggered by dependabot
+  pull-requests: write
+
 jobs:
   vrt:
     runs-on: ubuntu-latest
