@@ -15,17 +15,37 @@ date: "2025-01-13"
 - [Microsoft](#microsoft)
 - [HackerOne](#hackerone) [^1]
 - [Google](#google)
+- [ATLASSIAN](#atlassian)
 - [GitLab](#gitlab)
+
+## 各ガイドのまとめ
+
+| 意見                                      | GitHub | Microsoft | Google | GitLab | HackerOne |
+| :---------------------------------------- | :----: | :-------: | :----: | :----: | :-------: |
+| 小さい (一貫性のある) pull request を作る |   ✅   |    ✅     |   ✅   |        |           |
+| Pull request をセルフレビューする         |   ✅   |           |        |        |           |
+| コンテキストとガイダンスを提供する        |   ✅   |           |        |        |           |
+| 関連する issue やプロジェクトへのリンク   |   ✅   |           |
+| 状態をラベルで強調表示する                |   ✅   |           |
+| ビルドを壊さない                          |        |    ✅     |
+| テストを含める                            |        |    ✅     |
+
+| 意見                                                     | GitHub | Microsoft | Google | GitLab | HackerOne |
+| :------------------------------------------------------- | :----: | :-------: | :----: | :----: | :-------: |
+| pull request の目的                                      |   ✅   |
+| 変更点の概要                                             |   ✅   |
+| 問題の追跡や以前の会話など、追加のコンテキストへのリンク |   ✅   |
+| レビューの仕方を説明する                                 |   ✅   |
 
 ## GitHub
 
 ### 自分の変更を他のユーザーが確認できるようにする
 
-[URL](https://docs.github.com/ja/pull-requests/collaborating-with-pull-requests/getting-started/helping-others-review-your-changes)
+https://docs.github.com/ja/pull-requests/collaborating-with-pull-requests/getting-started/helping-others-review-your-changes
 
 > レビューが容易でチームに常に情報を提供できる pull request を作成するためのベストプラクティス
 
-GitHub (のドキュメント) によるベストプラクティス:
+GitHub が謳うベストプラクティス:
 
 - 変更を簡単に確認できるようにする
   - 小さい PR を書き込む
@@ -60,11 +80,11 @@ pull request の本文:
 > (...)
 > pull request が複数のファイルに対する変更で構成されている場合は、ファイルをレビューする順序に関するガイダンスをレビュー担当者に提供します。
 
-「レビューの仕方」についても pull request で説明するべき。
+「どのようにレビューして欲しいか」についても pull request で説明するべき。
 
 ### Beginner’s guide to GitHub: Creating a pull request
 
-[URL](https://github.blog/developer-skills/github/beginners-guide-to-github-creating-a-pull-request/)
+https://github.blog/developer-skills/github/beginners-guide-to-github-creating-a-pull-request/
 
 > When you create pull requests going forward, here are a few best practices you should keep in mind.
 >
@@ -78,13 +98,13 @@ GitHub (のブログ) によるベストプラクティス:
 2. まず自分で pull request をレビューする
 3. コンテキストとガイダンスを提供する
 
--> `GitHub (のドキュメント) によるベストプラクティス` と同じ。
+-> 前述の GitHub の `自分の変更を他のユーザーが確認できるようにする` と同じ。
 
 ## Microsoft
 
 ### Engineering Fundamentals Playbook - Pull Requests
 
-[URL](https://microsoft.github.io/code-with-engineering-playbook/code-reviews/pull-requests/)
+https://microsoft.github.io/code-with-engineering-playbook/code-reviews/pull-requests/
 
 #### Size Guidance
 
@@ -96,11 +116,15 @@ GitHub (のブログ) によるベストプラクティス:
 - デプロイが容易 (頻繁にリリースする戦略と一致する)
 - コンフリクトや PR が古くなる可能性を抑える
 
-> We should always strive to have as small PRs as possible that still add value.
+> we should keep PRs focused - for example around a functional feature, optimization or code readability and avoid having PRs that include code that is without context or loosely coupled.
 
-価値を付加しつつ、できるだけ小さな PR を作る。
+機能追加、最適化、可読性などに焦点を当てた PR を作る。そして、文脈がない・疎結合なコードを PR に含めない。
 
-機能的な特徴、最適化、コードの読みやすさなどに焦点を当て、コンテキストのないコードや疎結合のコードを含む PR は避ける必要があります。
+（つまり「色々実現する」PR を作らないってこと🤔）
+
+> There is no right size, but keep in mind that a code review is a collaborative process, a big PRs could be difficult and therefore slower to review. We should always strive to have as small PRs as possible that still add value.
+
+「適切なサイズ」というものはないけれど、レビュワーのことを考えて、価値を付加できる範囲で出来るだけ小さい PR を作る。
 
 #### Best Practices
 
@@ -133,7 +157,7 @@ GitHub (のブログ) によるベストプラクティス:
 
 ### Pull Request Template
 
-[URL](https://microsoft.github.io/code-with-engineering-playbook/code-reviews/pull-request-template/)
+https://microsoft.github.io/code-with-engineering-playbook/code-reviews/pull-request-template/
 
 > ```markdown
 > # [Work Item ID](./link-to-the-work-item)
@@ -206,13 +230,15 @@ GitHub (のブログ) によるベストプラクティス:
 
 ### Writing A Great Pull Request Description
 
-[URL](https://www.pullrequest.com/blog/writing-a-great-pull-request-description/)
+https://www.pullrequest.com/blog/writing-a-great-pull-request-description/
 
 > The Pull Request (PR for short) is the method by which — specifically using Git and GitHub — you can loop interested parties into reviewing and then approving your change, then merging it into some branch (presumably the trunk). This is where you explain the “whats” and “whys” of your code.
 
 PR はコードの「内容」と「理由」を説明して、それを関係者に確認・承認してもらう。
 
 #### Your PR Description Matters
+
+(元記事は `<h1>` で囲うほどの強調をしている)
 
 > Here you’ll get to explain what you’ve done, why you’ve done it, and how to prove it is ready to be merged into the main trunk.
 
@@ -275,13 +301,19 @@ PR の diff が PR の how を説明しているとも言える。しかし、�
 - 「なぜループを使わない？」という議論が不要になる
 - 設計（「ループより再起メソッド」という決定）に対して議論ができる
 
+### Going Too Far
+
+> Short, concise and descriptive PRs get reviewer juices flowing, and ultimately move the process more smoothly along.
+
+短く簡潔で説明は review をスムーズにする。
+
 ## Google
 
 注記: "CL" は "changelist" の略で、Pull request に相当する [Google の社内用語](https://google.github.io/eng-practices/#terminology) らしい。この記事では引用文以外は pull request と書く。
 
 ### The Change Author’s Guide - Writing Good CL Descriptions
 
-[URL](https://google.github.io/eng-practices/review/developer/cl-descriptions.html)
+https://google.github.io/eng-practices/review/developer/cl-descriptions.html
 
 > 1. **What** change is being made? This should summarize the major changes such that readers have a sense of what is being changed without needing to read the entire CL.
 > 2. **Why** are these changes being made? What contexts did you have as an author when making this change? Were there decisions you made that aren’t reflected in the source code? etc.
@@ -336,7 +368,7 @@ Pull request (の実装) がレビュー中に大幅に変わった場合、pull
 
 ### The Change Author’s Guide - Small CLs
 
-[URL](https://google.github.io/eng-practices/review/developer/small-cls.html)
+https://google.github.io/eng-practices/review/developer/small-cls.html
 
 > Small, simple CLs are:
 
@@ -358,13 +390,49 @@ Pull request (の実装) がレビュー中に大幅に変わった場合、pull
 
 ### The (written) unwritten guide to pull requests
 
-[URL](https://www.atlassian.com/blog/git/written-unwritten-guide-pull-requests)
+https://www.atlassian.com/blog/git/written-unwritten-guide-pull-requests
+
+> Reviewing pull requests is hard
+
+> Make smaller pull requests
+
+> Write useful descriptions and titles
+
+> Have on-point commit messages
+
+> Add comments on your pull request to help guide the reviewer
+
+> Make it visual
 
 ## GitLab
 
 ### Code Review Guidelines
 
-[URL](https://docs.gitlab.com/ee/development/code_review.html)
+https://docs.gitlab.com/ee/development/code_review.html
+
+#### Acceptance checklist
+
+#### The responsibility of the merge request author
+
+#### Everyone
+
+#### Recommendations for MR authors to get their changes merged faster
+
+> 1. Make sure to follow best practices.
+
+> 2. Follow GitLab patterns, even if you think there’s a better way.
+
+> 3. Consider splitting big MRs into smaller ones. Around 200 lines is a good goal.
+
+> 4. Minimize the number of reviewers in a single MR.
+
+#### Having your merge request reviewed
+
+### Merge requests workflow
+
+https://docs.gitlab.com/ee/development/contributing/merge_request_workflow.html
+
+https://github.com/kubernetes/kubernetes/blob/release-1.5/docs/devel/faster_reviews.md
 
 [^1]: [Microsoft の文書が参照していた](https://microsoft.github.io/code-with-engineering-playbook/code-reviews/pull-requests/#:~:text=Writing%20a%20great%20pull%20request%20description)
 
