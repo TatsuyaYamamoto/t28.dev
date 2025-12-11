@@ -15,7 +15,6 @@ export default defineConfig({
   integrations: [react(), mdx(), sitemap()],
   markdown: {
     syntaxHighlight: {
-      type: "shiki",
       excludeLangs: ["mermaid"],
     },
     shikiConfig: {
