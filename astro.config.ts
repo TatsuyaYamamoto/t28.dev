@@ -3,10 +3,10 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
+import rehypeMermaid from "rehype-mermaid";
 import svgr from "vite-plugin-svgr";
 
 import { inferDescriptionMetaPlugin } from "./src/plugins/inferDescriptionMetaPlugin";
-import { mermaidRemarkPlugin } from "./src/plugins/mermaidRemarkPlugin.ts";
 
 export default defineConfig({
   site: "https://t28.dev",
@@ -14,11 +14,13 @@ export default defineConfig({
   trailingSlash: "ignore",
   integrations: [react(), mdx(), sitemap()],
   markdown: {
+    syntaxHighlight: {
+      excludeLangs: ["mermaid"],
+    },
     shikiConfig: {
       theme: "github-light",
     },
-    rehypePlugins: [inferDescriptionMetaPlugin],
-    remarkPlugins: [mermaidRemarkPlugin],
+    rehypePlugins: [inferDescriptionMetaPlugin, rehypeMermaid],
     remarkRehype: {
       footnoteLabelProperties: {
         className: [
