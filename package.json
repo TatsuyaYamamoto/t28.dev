@@ -31,7 +31,7 @@
     "@astrojs/rss": "4.0.7",
     "@astrojs/sitemap": "3.6.0",
     "@lit/react": "1.0.6",
-    "@material/web": "2.2.0",
+    "@material/web": "2.4.1",
     "@react-three/fiber": "8.17.6",
     "@tailwindcss/vite": "4.1.17",
     "astro": "5.16.5",
