@@ -10,4 +10,4 @@ export const AUTHOR_SUMMARY = `LLer and programmer.`;
 export const TWITTER_NAME = `@T28_tatsuya`;
 export const TWITTER_URL = `https://twitter.com/T28_tatsuya`;
 
-export const GTAG_ID = "G-BGKVY5GV23@@@";
+export const GTAG_ID = "G-BGKVY5GV23";
