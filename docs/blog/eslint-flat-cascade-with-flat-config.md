@@ -1,6 +1,6 @@
 ---
 title: "Flat config を書いて、ESLint の flat cascade のふるまいを実験してみる"
-date: "2023-05-01"
+date: 2023-05-01
 ---
 
 [ESLint の設定ファイルの形式が変わった](./eslint-blog-about-flat-config) ので、 flat config で書いた flat cascade が実際どのようにふるまうか実験してみる。

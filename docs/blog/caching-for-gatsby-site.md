@@ -1,6 +1,6 @@
 ---
 title: "Gatsby 製サイトの正しいキャッシュと Netlify に設置する場合にやること"
-date: "2022-02-01"
+date: 2022-02-01
 description: "Gatsby用のキャッシュ構成を整理してNetlifyで設定するあれこれに根拠を添えたメモ"
 ---
 

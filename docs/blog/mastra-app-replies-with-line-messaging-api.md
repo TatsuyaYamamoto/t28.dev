@@ -1,6 +1,6 @@
 ---
 title: "LINE Messaging API を使って Mastra アプリから LINE でリプライを受け取る"
-date: "2025-05-17"
+date: 2025-05-17
 ---
 
 [Fairy (AI エージェント) を作るメモまとめ](./ai-agent-fairy-making) > **LINE Messaging API を使って Mastra アプリから LINE でリプライを受け取る**

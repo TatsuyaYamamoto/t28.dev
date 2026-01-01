@@ -1,6 +1,6 @@
 ---
 title: "Emoji proposal を提出するためにガイドラインを読んだ"
-date: "2024-08-01"
+date: 2024-08-01
 ---
 
 [なんやかんや](https://x.com/T28_tatsuya/status/1779133467546329461)あって emoji proposal を提出したくなりました。

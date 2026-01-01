@@ -1,6 +1,6 @@
 ---
 title: "CircleCI Config SDK のGA版が出たので config app を書いてみる"
-date: "2022-09-24"
+date: 2022-09-24
 description: "GA リリースされた CircleCI Config SDK と TypeScript で CircleCI の設定を書いてみた"
 ---
 

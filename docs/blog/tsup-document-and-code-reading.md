@@ -1,6 +1,6 @@
 ---
 title: "tsup を使う理由をドキュメントと実装から調べた"
-date: "2023-07-01"
+date: 2023-07-01
 ---
 
 [tsup](https://www.npmjs.com/package/tsup) という TypeScript 製のライブラリ向けバンドラーが良さげ〜ってなったので、tsup がやってくれることを調べてみたメモ (v7.1.0 時点)。

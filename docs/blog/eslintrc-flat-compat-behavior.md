@@ -1,6 +1,6 @@
 ---
 title: "@eslint/eslintrc の FlatCompat がどれくらい compat なのか確認する"
-date: "2023-05-02"
+date: 2023-05-02
 ---
 
 [ESLint の設定ファイルの形式が変わった](./eslint-blog-about-flat-config)ことに際して、

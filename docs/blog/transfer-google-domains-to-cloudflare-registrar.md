@@ -1,6 +1,6 @@
 ---
 title: "Cloudflare のドメイン移管チェックリストを参考に Google domains から Cloudflare Registrar へドメインを移管する"
-date: 2023/10/15
+date: 2023-10-15
 ---
 
 ## Cloudflare のドメイン移管チェックリスト

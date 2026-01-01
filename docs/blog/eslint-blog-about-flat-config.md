@@ -1,6 +1,6 @@
 ---
 title: "ESLint の FlatConfig についての Blog を読んだ"
-date: "2023-04-28"
+date: 2023-04-28
 ---
 
 ## ESLint の設定ファイルの形式が変わった

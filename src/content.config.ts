@@ -6,10 +6,7 @@ const blog = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
-    date: z
-      .string()
-      .or(z.date())
-      .transform((val) => new Date(val)),
+    date: z.date(),
     category: z.string().default("Tech"),
   }),
 });
@@ -19,10 +16,7 @@ const sWorksAchievement = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      date: z
-        .string()
-        .or(z.date())
-        .transform((val) => new Date(val)),
+      date: z.date(),
       description: z.string(),
       project: z.union([
         z.literal("ラブライブ！シリーズ"),

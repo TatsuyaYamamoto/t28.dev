@@ -1,6 +1,6 @@
 ---
 title: "next-compose-plugins の代替スニペット"
-date: "2022-11-28"
+date: 2022-11-28
 ---
 
 ## 先に結論
