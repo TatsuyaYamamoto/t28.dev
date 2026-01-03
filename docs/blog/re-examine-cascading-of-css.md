@@ -1,6 +1,7 @@
 ---
 title: "CSS の C (Cascading) を見つめ直す"
 date: 2025-11-07
+modified: 2025-11-15
 ---
 
 カスケードレイヤー (`@layer`) は [Widely available になってから 1年以上経っている](https://github.com/web-platform-dx/web-features/blob/main/features/cascade-layers.yml.dist#L7)。
@@ -16,7 +17,7 @@ date: 2025-11-07
 [カスケードをより制御できるようになった](https://developer.mozilla.org/ja/docs/Web/CSS/Reference/At-rules/@layer#:~:text=%E3%82%A6%E3%82%A7%E3%83%96%E9%96%8B%E7%99%BA%E8%80%85%E3%81%AF%E3%82%AB%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%89%E3%82%92%E3%82%88%E3%82%8A%E5%88%B6%E5%BE%A1%E3%81%A7%E3%81%8D%E3%82%8B)が正確な理解である。
 「じゃあ CSS のカスケードってなに？」と言われると言葉が詰まるので、CSS の C (Cascading) を見つめ直してから、カスケードレイヤーのキャッチアップをすることにした。
 
-→ **2025/11/15 updated: "[仕様と照らし合わせながら CSS カスケードレイヤーのふるまいをメモする](./cascade-layer-behavior)"も書いた**
+→ **2025/11/15 更新: "[仕様と照らし合わせながら CSS カスケードレイヤーのふるまいをメモする](./cascade-layer-behavior)"も書いた**
 
 ## CSS カスケードアルゴリズム
 
