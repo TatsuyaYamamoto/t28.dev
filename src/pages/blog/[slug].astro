@@ -2,7 +2,9 @@
 import type { CollectionEntry } from "astro:content";
 import { getCollection, render } from "astro:content";
 
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import BaseLayout, {
+  type Props as BaseLayoutProps,
+} from "../../layouts/BaseLayout.astro";
 import Container from "../../components/Container";
 import BlogPost from "../../components/BlogPost";
 import Footer from "../../components/Footer";
@@ -30,6 +32,25 @@ const { Content, headings, remarkPluginFrontmatter } = await render(post);
 const title = `${post.data.title} | ${SITE_TITLE}`;
 const description = post.data.description ?? remarkPluginFrontmatter.excerpt;
 const ogpImageUrl = new URL(`/blog/${post.id}.ogp.png`, Astro.url).href;
+
+const structuredData: NonNullable<BaseLayoutProps["structuredData"]> = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  // The Google-supported properties/Recommended properties
+  // https://developers.google.com/search/docs/appearance/structured-data/article#article-types
+  author: {
+    "@type": "Person",
+    name: "YAMAMOTO Tatsuya",
+    sameAs: ["https://x.com/T28_tatsuya", "https://github.com/TatsuyaYamamoto"],
+  },
+  headline: title,
+  datePublished: post.data.date.toISOString(),
+  ...(post.data.modified && {
+    dateModified: post.data.modified?.toISOString(),
+  }),
+  // Other properties
+  description: description,
+};
 ---
 
 <BaseLayout
@@ -37,6 +58,7 @@ const ogpImageUrl = new URL(`/blog/${post.id}.ogp.png`, Astro.url).href;
   description={description}
   faviconType="t28.dev"
   ogpImageUrl={ogpImageUrl}
+  structuredData={structuredData}
 >
   <header class="my-12">
     <Container>
