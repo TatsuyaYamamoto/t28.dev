@@ -61,7 +61,7 @@ Google検索の場合、この情報でリッチリザルトを表示してい�
 上記の HTML に対して「この情報は特定の映画、場所、人物、または動画について説明しています」と伝えるタグを追加することで、
 コンピューターはコンテンツをより深く理解し、有用かつ関連性のある方法で表示できるようになる。
 `itemscope`、`itemtype`、`itemprop` は [HTML 標準である Microdata](https://html.spec.whatwg.org/multipage/microdata.html) で定義されている属性。
-これらの属性を用いて machine-readable なラベルを注釈として付けることができる。
+これらの属性を用いて machine-readable なラベルを注釈として付けられる。
 
 ```html
 <!-- 👇️ この div 全体が映画についての情報と分かる -->
@@ -94,6 +94,7 @@ Schema.org が定義する型とプロパティ ([vocabulary](https://schema.org
 - [JSON-LD](https://json-ld.org/) (Google が推奨している)
   - JSON で記述する方法。ユーザーに表示するマークアップとは別で記述するのでネストした情報を書きやすい。
   - 仕様: [JSON-LD 1.1 (W3C Recommendation)](https://www.w3.org/TR/json-ld11/)
+
   ```html
   <script type="application/ld+json">
     {
@@ -103,20 +104,23 @@ Schema.org が定義する型とプロパティ ([vocabulary](https://schema.org
     }
   </script>
   ```
+
 - Microdata
   - HTML の仕様に基づいた属性で記述する。
   - 仕様: [HTML Living Standard - 5. Microdata](https://html.spec.whatwg.org/#toc-microdata)
+
   ```html
   <div itemscope itemtype="https://schema.org/Movie">
     <h1 itemprop="name">Avatar</h1>
   </div>
   ```
+
 - [RDFa](https://rdfa.info/)
   - 仕様: [RDFa Lite 1.1 - Second Edition (W3C Recommendation)](https://www.w3.org/TR/rdfa-lite/#the-attributes)
 
 以下を理由に Google は JSON-LD を推奨しているため、このブログでも JSON-LD を使って実装する。
 
-> 一般的に、Google はサイトの設定で許容されている限り、JSON-LD を構造化データに使用することを推奨します。これは、ウェブサイトの所有者が実装と管理を最も容易に行うことができる（つまり、ユーザーエラーの発生する可能性が低い）ソリューションであるためです。
+> 一般的に、Google はサイトの設定で許容されている限り、JSON-LD を構造化データに使用することを推奨します。これは、ウェブサイトの所有者が実装と管理を最も容易に行える（つまり、ユーザーエラーの発生する可能性が低い）ソリューションであるためです。
 
 ## JSON-LD と Schema.org
 
@@ -166,7 +170,7 @@ Schema.org は Google、Bing、Yahoo! によるウェブページの構造化デ
 >
 > ref: [schema.org のご紹介: より便利なインターネットのための検索エンジンの取り組み](https://developers.google.com/search/blog/2011/06/introducing-schemaorg-search-engines?hl=ja)
 
-Schema.org は "誕生日" を `https://schema.org/birthDate` として定義しているため、宣言する人も、読む人も同じ意味で "誕生日" を宣言・理解することができる。
+Schema.org は "誕生日" を `https://schema.org/birthDate` として定義しているため、宣言する人も、読む人も同じ意味で "誕生日" を宣言・理解できる。
 
 ```json
 {
