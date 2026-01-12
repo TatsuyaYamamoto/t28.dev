@@ -32,7 +32,7 @@ date: 2026-01-04
 Google検索の場合、この情報でリッチリザルトを表示している。
 例えばレシピの作成者、材料、カロリー数、加熱時間などの詳細情報を記載すると、各要素がラベル付けされ、それらの情報でも検索できるようになる。
 
-> ![](./assets/fundamentals-of-structured-data/article-rich-result.png)
+> ![検索結果に表示された記事の例](./assets/fundamentals-of-structured-data/article-rich-result.png)
 >
 > ref: [Google 検索がサポートする構造化データ マークアップ](https://developers.google.com/search/docs/appearance/structured-data/search-gallery?hl=ja)
 
