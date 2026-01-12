@@ -86,8 +86,6 @@ Google検索の場合、この情報でリッチリザルトを表示してい�
 
 `itemtype` と `itemprop` に自由な文字列を入れてしまうとコンピューターは意味づけされた情報として理解できないため、
 Schema.org が定義する型とプロパティ ([vocabulary](https://schema.org/docs/gs.html#schemaorg)) を用いる。
-Schema.org は [Google、Microsoft、Yahoo、Yandex](https://schema.org/#:~:text=Founded%20by%20Google%2C%20Microsoft%2C%20Yahoo%20and%20Yandex) によって設立されており、
-各種検索エンジンは Schema.org の vocabulary を元に web ページを理解している。
 
 ## 構造化データを記述する手段
 
@@ -120,47 +118,113 @@ Schema.org は [Google、Microsoft、Yahoo、Yandex](https://schema.org/#:~:text
 
 > 一般的に、Google はサイトの設定で許容されている限り、JSON-LD を構造化データに使用することを推奨します。これは、ウェブサイトの所有者が実装と管理を最も容易に行うことができる（つまり、ユーザーエラーの発生する可能性が低い）ソリューションであるためです。
 
-## JSON-LD とは
+## JSON-LD と Schema.org
 
 JSON-LD は [Linked Data](https://en.wikipedia.org/wiki/Linked_data) を表現するための JSON ベースの形式で、
+"[JSON-LD 1.1](https://www.w3.org/TR/json-ld/)" で仕様化されている Web 標準である。
 
 > JSON-LD is a lightweight Linked Data format.
 >
 > ref: [JSON for Linking Data](https://json-ld.org/)
 
-https://www.w3.org/TR/json-ld/ で仕様化されている Web 標準である。
-
-```html
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Movie",
-    "name": "Avatar"
-  }
-</script>
-```
-
-Lined Data は 機械判読可読なデータのネットワークを作る方法。
+Linked Data は [IRI (Internationalized Resource
+Identifier)](https://datatracker.ietf.org/doc/html/rfc3987#section-2) とリンクを使って、Web 上のデータ同士を機械判読可読な (semantic と言っても良い) データでつなぐ方法。
 
 > Linked Data [LINKED-DATA] is a way to create a network of standards-based machine interpretable data across different documents and Web sites.
 >
 > ref: [JSON-LD 1.1 - 1. Introduction](https://www.w3.org/TR/json-ld/#introduction)
 
-ここで言う「データ」とは、JSON-LD において
+映画の情報を JSON で書くと、以下のような構造 [^2] になる (あくまで一例)。
 
-> a mechanism in which a value in a JSON object may refer to a resource on a different site on the Web,
+```json
+{
+  "name": "Avatar",
+  "director": {
+    "name": "James Cameron",
+    "birthDate": "1954-08-16"
+  },
+  "genre": "Science fiction",
+  "trailer": "../movies/avatar-theatrical-trailer.html"
+}
+```
 
-> It allows an application to start at one piece of Linked Data, and follow embedded links to other pieces of Linked Data that are hosted on different sites across the Web.
+映画の情報であることが人間には一目瞭然だが、機械にとっては単なる文字列の Key と Value なので直感的に理解できない。
+また人間にとっても曖昧さを残している情報である。
+例えば、 `birthDate` はルールに従った形式なのだろうか？`genre` は enum なのか free text なのか？ `trailer` は複数設定できるのか？など...
 
-> Generally speaking, the data model described by a JSON-LD document is a labeled, directed graph. The graph contains nodes, which are connected by directed-arcs. A node is either a resource with properties, or the data values of those properties including strings, numbers, typed values (like dates and times) and IRIs.
+JSON-LD は用語を [IRI (Internationalized Resource Identifier)](https://datatracker.ietf.org/doc/html/rfc3987#section-2) に拡張することで、
+各用語を識別し、用語の定義を取得し、誤用を防止する。
 
-> 一般的に、JSON-LD文書で記述されるデータモデルは、ラベル付きの有向グラフです。グラフには有向弧で接続されたノードが含まれます。ノードは、プロパティを持つリソース、またはそれらのプロパティのデータ値（文字列、数値、型付き値（日付や時刻など）、IRIなど）のいずれかです。
+> It is useful for terms, like name and homepage, to expand to IRIs so that developers don't accidentally step on each other's terms. Furthermore, developers and machines are able to use this IRI (by using a web browser, for instance) to go to the term and get a definition of what the term means.
+>
+> ref: [3. Basic Concepts](https://www.w3.org/TR/json-ld/#basic-concepts)
 
-## Schema.org とは
+JSON-LD の仕様上は IRI であれば良いが、[一般的に使用されている語彙として Schema.org を使って](https://www.w3.org/TR/json-ld/#basic-concepts:~:text=Leveraging%20the%20popular%20schema.org%20vocabulary%2C%20the%20example%20above%20could%20be%20unambiguously%20expressed%20as%20follows)例を記述している。
+Schema.org は Google、Bing、Yahoo! によるウェブページの構造化データのマークアップのための共通のタグセット。各種検索エンジンは Schema.org の語彙を元に web ページを理解している。
 
-Google、Bing、Yahoo! によるウェブページの構造化データのマークアップのための共通のタグセット
+> 今回は、Google、Bing、Yahoo! による新しい取り組みである schema.org をご紹介します。これは、ウェブページの構造化データのマークアップのための共通のタグセットをつくる取り組みです。
+>
+> ref: [schema.org のご紹介: より便利なインターネットのための検索エンジンの取り組み](https://developers.google.com/search/blog/2011/06/introducing-schemaorg-search-engines?hl=ja)
 
-https://developers.google.com/search/blog/2011/06/introducing-schemaorg-search-engines?hl=ja
+Schema.org は "誕生日" を https://schema.org/birthDate として定義しているため、宣言する人も、読む人も同じ意味で "誕生日" を宣言・理解することができる。
+
+```json
+{
+  "@type": "https://schema.org/Movie",
+  "https://schema.org/name": "Avatar",
+  "https://schema.org/director": {
+    "@type": "https://schema.org/Person",
+    "https://schema.org/name": "James Cameron",
+    "https://schema.org/birthDate": "1954-08-16"
+  },
+  "https://schema.org/genre": "Science fiction",
+  "https://schema.org/trailer": {
+    "https://schema.org/name": "Trailer",
+    "@id": "../movies/avatar-theatrical-trailer.html"
+  }
+}
+```
+
+都度 IRI を書くのは大変なので JSON-LD は [JSON を圧縮する方法](https://www.w3.org/TR/json-ld/#compacted-document-form)を定義している。
+@context に「どの IRI に結びつけるかのルール」を書くことで、`name` や `Movie` のような名前が IRI に展開され、内部的には完全な IRI として解釈される。
+
+```html
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Movie",
+    "name": "Avatar",
+    "director": {
+      "name": "James Cameron",
+      "birthDate": "1954-08-16"
+    },
+    "genre": "Science fiction",
+    "trailer": {
+      "name": "Trailer",
+      "url": "../movies/avatar-theatrical-trailer.html"
+    }
+  }
+</script>
+```
+
+`https://schema.org/` に対して curl してみると、`https://schema.org/docs/jsonldcontext.jsonld` に「どの IRI に結びつけるかのルール」が書かれていることを教えてくれた。
+
+```bash
+$ curl --silent --head https://schema.org | grep link
+link: </docs/jsonldcontext.jsonld>; rel="alternate"; type="application/ld+json"
+
+$ curl --silent https://schema.org/docs/jsonldcontext.jsonld | head -10
+{
+  "@context": {
+    "type": "@type",
+    "id": "@id",
+    "HTML": {
+      "@id": "rdf:HTML"
+    },
+    "@vocab": "http://schema.org/",
+    "brick": "https://brickschema.org/schema/Brick#",
+    "csvw": "http://www.w3.org/ns/csvw#",
+```
 
 ## Google における推奨プロパティ
 
@@ -179,17 +243,6 @@ JSON-LD はデータを記述する形式であり、 Schema.org はその形式
 > | `datePublished` | [`DateTime`](https://schema.org/DateTime)                                                         |
 > | `headline`      | [`Text`](https://schema.org/Text)                                                                 |
 > | `image`         | [`ImageObject`](https://schema.org/ImageObject) または [`URL`](https://schema.org/URL) の繰り返し |
-
-`author`
-
-現状の https://t28.dev にはプロフィールページがないので、`author.url` が指定できない。
-[`humans.txt`](https://humanstxt.org/) を作るのも良いかもしれない。
-
-`datePublished`/`dateModified`
-
-`headline`
-
-`image`
 
 ## Google を参考にする
 
@@ -346,3 +399,5 @@ https://schema.org/name が https://schema.org/headline の代わりになって
 を使って検証できる。
 
 [^1]: 一方、[なんでもかんでも構造化データにすれば良いわけではない](https://www.linkedin.com/feed/update/urn:li:activity:7308780217668378624?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A7308780217668378624%2C7309157919671939072%29&dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287309157919671939072%2Curn%3Ali%3Aactivity%3A7308780217668378624%29)という話もある。
+
+[^2]: 相対パスも IRI (reference) として宣言できる (ref: [1.4 Terminology](https://www.w3.org/TR/json-ld/#terminology))
