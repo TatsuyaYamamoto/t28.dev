@@ -35,7 +35,7 @@ const ogpImageUrl = new URL(`/blog/${post.id}.ogp.png`, Astro.url).href;
 
 const structuredData: NonNullable<BaseLayoutProps["structuredData"]> = {
   "@context": "https://schema.org",
-  "@type": "Blog",
+  "@type": "BlogPosting",
   // The Google-supported properties/Recommended properties
   // https://developers.google.com/search/docs/appearance/structured-data/article#article-types
   author: {

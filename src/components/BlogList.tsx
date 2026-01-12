@@ -8,7 +8,7 @@ interface Props {
     url: string;
     title: string;
     description: string;
-    date: Date;
+    publishedDate: Date;
     category: string;
   }[];
 }
@@ -29,7 +29,9 @@ const BlogList: FC<Props> = (props) => {
                   </a>
                 </h2>
                 <div className="flex">
-                  <span className="mr-2">{formatDisplayDate(post.date)}</span>
+                  <span className="mr-2">
+                    {formatDisplayDate(post.publishedDate)}
+                  </span>
                   <Chip>{post.category}</Chip>
                 </div>
               </header>

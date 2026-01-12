@@ -6,7 +6,9 @@ import {
   render,
 } from "astro:content";
 
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout, {
+  type Props as BaseLayoutProps,
+} from "../layouts/BaseLayout.astro";
 import BlogList from "../components/BlogList";
 import Bio from "../components/Bio";
 import Footer from "../components/Footer";
@@ -35,20 +37,56 @@ const blogPosts = await Promise.all(
     url: `/${post.collection}/${post.id}`,
     title: post.data.title,
     description: await getDescription(post),
-    date: post.data.date,
+    publishedDate: post.data.date,
+    modifiedDate: post.data.modified,
     category: post.data.category,
   })),
 );
 
 const sortedPosts = [...blogPosts].sort(
-  (a, b) => b.date.valueOf() - a.date.valueOf(),
+  (a, b) => b.publishedDate.valueOf() - a.publishedDate.valueOf(),
 );
+
+const allDates = blogPosts.flatMap((post) =>
+  post.modifiedDate
+    ? [post.publishedDate, post.modifiedDate]
+    : [post.publishedDate],
+);
+const newestDate = allDates.reduce((newest, current) =>
+  newest.getTime() < current.getTime() ? current : newest,
+);
+const oldestDate = allDates.reduce((oldest, current) =>
+  current.getTime() < oldest.getTime() ? current : oldest,
+);
+
+const structuredData: NonNullable<BaseLayoutProps["structuredData"]> = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  // The Google-supported properties/Recommended properties
+  // https://developers.google.com/search/docs/appearance/structured-data/article#article-types
+  author: {
+    "@type": "Person",
+    name: "YAMAMOTO Tatsuya",
+    image: "https://t28.dev/_astro/profile-pic.By1PFn3M.jpg",
+    sameAs: [
+      "https://twitter.com/T28_tatsuya",
+      "https://x.com/T28_tatsuya",
+      "https://github.com/TatsuyaYamamoto",
+    ],
+  },
+  headline: SITE_TITLE,
+  datePublished: oldestDate.toISOString(),
+  dateModified: newestDate.toISOString(),
+  // Other properties
+  description: SITE_DESCRIPTION,
+};
 ---
 
 <BaseLayout
   title={SITE_TITLE}
   description={SITE_DESCRIPTION}
   faviconType="t28.dev"
+  structuredData={structuredData}
 >
   <header class="my-12">
     <Container>
