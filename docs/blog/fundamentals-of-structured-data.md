@@ -97,7 +97,7 @@ Schema.org が定義する型とプロパティ ([vocabulary](https://schema.org
   ```html
   <script type="application/ld+json">
     {
-      "@context": "https://schema.org"
+      "@context": "https://schema.org",
       "@type": "Movie",
       "name": "Avatar"
     }
