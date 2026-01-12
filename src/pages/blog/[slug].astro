@@ -51,7 +51,7 @@ const structuredData: NonNullable<BaseLayoutProps["structuredData"]> = {
   headline: title,
   datePublished: post.data.date.toISOString(),
   ...(post.data.modified && {
-    dateModified: post.data.modified?.toISOString(),
+    dateModified: post.data.modified.toISOString(),
   }),
   // Other properties
   description: description,
