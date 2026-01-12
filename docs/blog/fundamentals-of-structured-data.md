@@ -338,7 +338,7 @@ JSON-LD はデータを記述する形式であり、 Schema.org はその形式
 
 <https://developers.google.com/search>
 
-このページも `haedline` だけ。そんなもんで良い...ってこと？🤔
+このページも `headline` だけ。そんなもんで良い...ってこと？🤔
 
 ```html
 <script type="application/ld+json">
