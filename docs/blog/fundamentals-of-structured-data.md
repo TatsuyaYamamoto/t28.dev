@@ -166,7 +166,7 @@ Schema.org は Google、Bing、Yahoo! によるウェブページの構造化デ
 >
 > ref: [schema.org のご紹介: より便利なインターネットのための検索エンジンの取り組み](https://developers.google.com/search/blog/2011/06/introducing-schemaorg-search-engines?hl=ja)
 
-Schema.org は "誕生日" を https://schema.org/birthDate として定義しているため、宣言する人も、読む人も同じ意味で "誕生日" を宣言・理解することができる。
+Schema.org は "誕生日" を `https://schema.org/birthDate` として定義しているため、宣言する人も、読む人も同じ意味で "誕生日" を宣言・理解することができる。
 
 ```json
 {
@@ -252,7 +252,7 @@ JSON-LD はデータを記述する形式であり、 Schema.org はその形式
 
 #### トップページ
 
-https://web.dev/
+<https://web.dev/>
 
 `Article` 型の node object では、headline が空文字 。
 [`Organization` 型の推奨プロパティ](https://developers.google.com/search/docs/appearance/structured-data/organization?hl=ja#structured-data-type-definitions) も大分足りていない気がするけれど、"必要に応じて" なプロパティが多いから、こっちはまあ良いのかな？
@@ -297,7 +297,7 @@ https://web.dev/
 
 #### 記事ページ
 
-https://web.dev/shows/web-dev-live-day-1/himvKu12YCY?hl=ja
+<https://web.dev/shows/web-dev-live-day-1/himvKu12YCY?hl=ja>
 
 こちらのページも `Article` 型の node object は自由って感じ。
 
@@ -336,7 +336,7 @@ https://web.dev/shows/web-dev-live-day-1/himvKu12YCY?hl=ja
 
 #### トップページ
 
-https://developers.google.com/search
+<https://developers.google.com/search>
 
 このページも `haedline` だけ。そんなもんで良い...ってこと？🤔
 
@@ -352,11 +352,11 @@ https://developers.google.com/search
 
 #### 記事ページ
 
-https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data
+<https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data>
 
 ここは [`パンくずリスト型`](https://schema.org/BreadcrumbList) の node object しかない不思議。
 `"position": 3` の ListItem の `name` が `<title>` と同じなので、
-https://schema.org/name が https://schema.org/headline の代わりになっているのかもしれない？🤔
+`https://schema.org/name` が `https://schema.org/headline` の代わりになっているのかもしれない？🤔
 
 ```html
 <script type="application/ld+json">
@@ -391,7 +391,7 @@ https://schema.org/name が https://schema.org/headline の代わりになって
 
 ## 構造化データをチェックする
 
-実装した構造化データのマークアップは https://developers.google.com/search/docs/appearance/structured-data?hl=ja で紹介されている
+実装した構造化データのマークアップは <https://developers.google.com/search/docs/appearance/structured-data?hl=ja> で紹介されている
 
 - リッチリザルト テスト
 - スキーママークアップ検証ツール
