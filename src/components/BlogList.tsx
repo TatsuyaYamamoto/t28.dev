@@ -8,7 +8,7 @@ interface Props {
     url: string;
     title: string;
     description: string;
-    date: Date;
+    publishedDate: Date;
     category: string;
   }[];
 }
@@ -21,24 +21,22 @@ const BlogList: FC<Props> = (props) => {
       {posts.map((post) => {
         return (
           <li key={post.url}>
-            <article
-              className="my-8"
-              itemScope
-              itemType="http://schema.org/Article"
-            >
+            <article className="my-8">
               <header className="mb-4">
                 <h2 className="mt-0 mb-2 text-(length:--fontSize-4) text-(--color-primary)">
-                  <a href={post.url} itemProp="url">
-                    <span itemProp="headline">{post.title}</span>
+                  <a href={post.url}>
+                    <span>{post.title}</span>
                   </a>
                 </h2>
                 <div className="flex">
-                  <span className="mr-2">{formatDisplayDate(post.date)}</span>
+                  <span className="mr-2">
+                    {formatDisplayDate(post.publishedDate)}
+                  </span>
                   <Chip>{post.category}</Chip>
                 </div>
               </header>
               <section>
-                <p itemProp="description">{post.description}</p>
+                <p>{post.description}</p>
               </section>
             </article>
           </li>

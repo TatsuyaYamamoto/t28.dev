@@ -2,14 +2,17 @@
 import "../styles/index.css";
 
 import { SEO } from "astro-seo";
+import type { WithContext, BlogPosting, WebSite } from "schema-dts";
+
 import GtagSnippet from "../components/GtagSnippet";
 import { DEFAULT_OGP_IMAGE_URL, TWITTER_NAME } from "../constants";
 
-interface Props {
+export interface Props {
   title: string;
   description: string;
   faviconType: "t28.dev" | "s-works";
   ogpImageUrl?: string;
+  structuredData?: WithContext<WebSite | BlogPosting>;
 }
 
 const faviconPathMap = {
@@ -17,7 +20,8 @@ const faviconPathMap = {
   "s-works": "/favicon-s-works.png",
 };
 
-const { title, description, faviconType, ogpImageUrl } = Astro.props;
+const { title, description, faviconType, ogpImageUrl, structuredData } =
+  Astro.props;
 const faviconPath = faviconPathMap[faviconType];
 const canonicalUrl = (() => {
   const baseUrl = Astro.url.href;
@@ -71,7 +75,18 @@ const canonicalUrl = (() => {
         ],
       }}
     />
+
+    {
+      structuredData && (
+        <script
+          type="application/ld+json"
+          is:inline
+          set:html={JSON.stringify(structuredData)}
+        />
+      )
+    }
   </head>
+
   <body>
     <slot />
   </body>
