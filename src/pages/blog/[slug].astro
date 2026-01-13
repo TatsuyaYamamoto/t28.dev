@@ -13,6 +13,7 @@ import BlogPostSideMenu from "../../components/BlogPostSideMenu";
 import { headingToTocItems } from "../../helpers/utils";
 
 import { SITE_TITLE } from "../../constants";
+import profilePic from "../../assets/images/profile-pic.jpg";
 
 export const getStaticPaths = async () => {
   const allBlogPosts = await getCollection("blog");
@@ -41,7 +42,7 @@ const structuredData: NonNullable<BaseLayoutProps["structuredData"]> = {
   author: {
     "@type": "Person",
     name: "YAMAMOTO Tatsuya",
-    image: "https://t28.dev/_astro/profile-pic.By1PFn3M.jpg",
+    image: new URL(profilePic.src, Astro.site).href,
     sameAs: [
       "https://twitter.com/T28_tatsuya",
       "https://x.com/T28_tatsuya",
