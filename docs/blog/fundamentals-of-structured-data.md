@@ -121,6 +121,8 @@ Schema.org が定義する型とプロパティ ([vocabulary](https://schema.org
 以下を理由に Google は JSON-LD を推奨しているため、このブログでも JSON-LD を使って実装する。
 
 > 一般的に、Google はサイトの設定で許容されている限り、JSON-LD を構造化データに使用することを推奨します。これは、ウェブサイトの所有者が実装と管理を最も容易に行える（つまり、ユーザーエラーの発生する可能性が低い）ソリューションであるためです。
+>
+> ref: [Google 検索における構造化データのマークアップの概要 - サポートされている形式](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data?hl=ja#supported-formats)
 
 ## JSON-LD と Schema.org
 
@@ -131,8 +133,7 @@ JSON-LD は [Linked Data](https://en.wikipedia.org/wiki/Linked_data) を表現�
 >
 > ref: [JSON for Linking Data](https://json-ld.org/)
 
-Linked Data は [IRI (Internationalized Resource
-Identifier)](https://datatracker.ietf.org/doc/html/rfc3987#section-2) とリンクを使って、Web 上のデータ同士を機械判読可読な (semantic と言っても良い) データでつなぐ方法。
+Linked Data は [IRI (Internationalized Resource Identifier)](https://datatracker.ietf.org/doc/html/rfc3987#section-2) とリンクを使って、Web 上のデータ同士を機械判読可読な (semantic と言っても良い) データでつなぐ方法。
 
 > Linked Data [LINKED-DATA] is a way to create a network of standards-based machine interpretable data across different documents and Web sites.
 >
