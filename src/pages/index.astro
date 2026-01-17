@@ -16,6 +16,13 @@ import Container from "../components/Container";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../constants";
 import profilePic from "../assets/images/profile-pic.jpg";
+import type {
+  Blog,
+  BlogPosting,
+  Graph,
+  WebSite,
+  WithContext,
+} from "schema-dts";
 
 const getDescription = async (
   post: CollectionEntry<"blog">,
@@ -80,6 +87,37 @@ const structuredData: NonNullable<BaseLayoutProps["structuredData"]> = {
   dateModified: newestDate.toISOString(),
   // Other properties
   description: SITE_DESCRIPTION,
+};
+
+const aaa: Graph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      name: "YAMAMOTO Tatsuya",
+      image: new URL(profilePic.src, Astro.site).href,
+      sameAs: [
+        "https://twitter.com/T28_tatsuya",
+        "https://x.com/T28_tatsuya",
+        "https://github.com/TatsuyaYamamoto",
+      ],
+      subjectOf: [
+        {
+          "@id": new URL("/humans.txt", Astro.site).href,
+        },
+      ],
+    },
+    {
+      "@type": "Blog",
+      blogPost: [
+        { "@id": "" },
+        { "@id": "" },
+        { "@id": "" },
+        { "@id": "" },
+        { "@id": "" },
+      ],
+    },
+  ],
 };
 ---
 
