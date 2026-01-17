@@ -1,0 +1,26 @@
+name: Code review by @mai
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+
+jobs:
+  reusable:
+    runs-on: ubuntu-latest
+    if: |
+      github.event.sender.type != 'Bot' &&
+      (
+        (
+          github.event_name == 'issue_comment' ||
+          github.event_name == 'pull_request_review_comment'
+        ) &&
+        contains(github.event.comment.body, '@mai')
+      )
+    steps:
+      - name: Run code review
+        uses: TatsuyaYamamoto/my-code-review-action@main
+        with:
+          anthropic-api-key: "${{ secrets.ANTHROPIC_API_KEY_CODE_REVIEW }}"
+          my-mized-prompt: ${{ vars.MY_MIZED_PROMPT }}
