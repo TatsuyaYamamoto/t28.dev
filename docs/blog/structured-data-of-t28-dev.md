@@ -147,12 +147,12 @@ IRI には fragment を含めてよい。
 
 `https://t28.dev` 配下には 4 種類のページがある。それぞれの 構造化データを考える。
 
-| ページ名               | パス                                                              |
-| :--------------------- | :---------------------------------------------------------------- |
-| トップページ           | https://t28.dev                                                   |
-| ブログ記事ページ       | https://t28.dev/blog/fundamentals-of-structured-data              |
-| s-works トップページ   | https://t28.dev/s-works                                           |
-| s-works 成果紹介ページ | https://t28.dev/s-works/achievement/lovelive-days-5th-anniversary |
+| ページ名               | パス                                                                |
+| :--------------------- | :------------------------------------------------------------------ |
+| トップページ           | <https://t28.dev>                                                   |
+| ブログ記事ページ       | <https://t28.dev/blog/fundamentals-of-structured-data>              |
+| s-works トップページ   | <https://t28.dev/s-works>                                           |
+| s-works 成果紹介ページ | <https://t28.dev/s-works/achievement/lovelive-days-5th-anniversary> |
 
 ## トップページ
 
