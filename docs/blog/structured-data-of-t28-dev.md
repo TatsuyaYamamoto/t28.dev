@@ -24,7 +24,7 @@ JSON-LD は
 > ref: [9. JSON-LD Grammar](https://www.w3.org/TR/json-ld11/?utm_source=chatgpt.com#json-ld-grammar)
 
 仕様上、推奨されている形式はない。
-複数の node object を含む場合、 `@graph` によって `@context` を共有することが出来るので便利なようだ。
+複数の node object を含む場合、 `@graph` によって `@context` を共有できるので便利なようだ。
 
 > This mechanism can be useful when a number of nodes exist at the document's top level that share the same context, which is, e.g., the case when a document is flattened. The @graph keyword collects such nodes in an array and allows the use of a shared context.
 >
