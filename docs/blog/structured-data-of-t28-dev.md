@@ -211,7 +211,7 @@ IRI には fragment を含めてよい。
             "@type": "ListItem",
             // required
             "position": 1,
-            "url": "",
+            "url": "https://t28.dev/blog/fundamentals-of-structured-data",
             // others
             "item": {
               "@type": "BlogPosting",
@@ -297,7 +297,7 @@ IRI には fragment を含めてよい。
 
 これも、またそのうちで...😂
 
-[^1]: https://www.google.com/search?q=%E3%83%80%E3%83%8B%E3%83%B3%E3%82%B0%E3%82%AF%E3%83%AB%E3%83%BC%E3%82%AC%E3%83%BC%E5%8A%B9%E6%9E%9C
+[^1]: <https://www.google.com/search?q=%E3%83%80%E3%83%8B%E3%83%B3%E3%82%B0%E3%82%AF%E3%83%AB%E3%83%BC%E3%82%AC%E3%83%BC%E5%8A%B9%E6%9E%9C>
 
 [^2]: HTTP Get が出来て、HTML 内に anchor がある
 
