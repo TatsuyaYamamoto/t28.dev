@@ -5,6 +5,7 @@ import {
   type CollectionEntry,
   render,
 } from "astro:content";
+import type { Graph, Thing } from "schema-dts";
 
 import BaseLayout, {
   type Props as BaseLayoutProps,
@@ -16,6 +17,12 @@ import Container from "../components/Container";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../constants";
 import profilePic from "../assets/images/profile-pic.jpg";
+import {
+  personJsonLd,
+  t28DevWebSiteJsonLd,
+  tatsuyaPersonJsonLd,
+  webSiteJsonLd,
+} from "../helpers/structuredData.ts";
 
 const getDescription = async (
   post: CollectionEntry<"blog">,
@@ -60,27 +67,60 @@ const oldestDate = allDates.reduce((oldest, current) =>
   current.getTime() < oldest.getTime() ? current : oldest,
 );
 
-const structuredData: NonNullable<BaseLayoutProps["structuredData"]> = {
+const structuredData = {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  // The Google-supported properties/Recommended properties
-  // https://developers.google.com/search/docs/appearance/structured-data/article#article-types
-  author: {
-    "@type": "Person",
-    name: "YAMAMOTO Tatsuya",
-    image: new URL(profilePic.src, Astro.site).href,
-    sameAs: [
-      "https://twitter.com/T28_tatsuya",
-      "https://x.com/T28_tatsuya",
-      "https://github.com/TatsuyaYamamoto",
-    ],
-  },
-  headline: SITE_TITLE,
-  datePublished: oldestDate.toISOString(),
-  dateModified: newestDate.toISOString(),
-  // Other properties
-  description: SITE_DESCRIPTION,
-};
+  "@graph": [
+    tatsuyaPersonJsonLd,
+    {
+      "@type": "WebSite",
+      "@id": "https://t28.dev/#website",
+      // Google required properties
+      // https://developers.google.com/search/docs/appearance/site-names?hl=ja#website
+      name: SITE_TITLE,
+      url: "https://t28.dev/",
+      // Google recommended properties
+      // https://developers.google.com/search/docs/appearance/site-names?hl=ja#website
+      // "alternateName": [],
+      // other properties
+      publisher: {
+        "@id": tatsuyaPersonJsonLd["@id"],
+      },
+      description: SITE_DESCRIPTION,
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://t28.dev/#collectionpage",
+      name: SITE_TITLE,
+      url: "https://t28.dev/",
+      publisher: {
+        "@id": tatsuyaPersonJsonLd["@id"],
+      },
+      datePublished: oldestDate.toISOString(),
+      dateModified: newestDate.toISOString(),
+      mainEntity: {
+        "@type": "ItemList",
+        // Google required properties
+        // https://developers.google.com/search/docs/appearance/structured-data/recipe?hl=ja#item-list
+        itemListElement: sortedPosts.map(
+          ({ title, publishedDate, modifiedDate, url }, index) => ({
+            "@type": "ListItem",
+            // required
+            position: index + 1,
+            url: `https://t28.dev${url}`,
+            // others
+            item: {
+              "@type": "BlogPosting",
+              url: `https://t28.dev${url}`,
+              headline: title,
+              datePublished: publishedDate.toISOString(),
+              ...(modifiedDate && { dateModified: modifiedDate.toISOString() }),
+            },
+          }),
+        ),
+      },
+    },
+  ],
+} satisfies Graph;
 ---
 
 <BaseLayout
