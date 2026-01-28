@@ -4,22 +4,16 @@ import { getCollection, render } from "astro:content";
 
 import type { Graph } from "schema-dts";
 
-import BaseLayout, {
-  type Props as BaseLayoutProps,
-} from "../../layouts/BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import Container from "../../components/Container";
 import BlogPost from "../../components/BlogPost";
 import Footer from "../../components/Footer";
 import BlogPostSideMenu from "../../components/BlogPostSideMenu";
 
 import { headingToTocItems } from "../../helpers/utils";
+import { tatsuyaPersonJsonLd } from "../../helpers/structuredData.ts";
 
 import { SITE_TITLE } from "../../constants";
-import profilePic from "../../assets/images/profile-pic.jpg";
-import {
-  t28DevWebSiteJsonLd,
-  tatsuyaPersonJsonLd,
-} from "../../helpers/structuredData.ts";
 
 export const getStaticPaths = async () => {
   const allBlogPosts = await getCollection("blog");

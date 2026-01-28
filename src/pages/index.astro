@@ -5,24 +5,16 @@ import {
   type CollectionEntry,
   render,
 } from "astro:content";
-import type { Graph, Thing } from "schema-dts";
+import type { Graph } from "schema-dts";
 
-import BaseLayout, {
-  type Props as BaseLayoutProps,
-} from "../layouts/BaseLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogList from "../components/BlogList";
 import Bio from "../components/Bio";
 import Footer from "../components/Footer";
 import Container from "../components/Container";
 
-import { SITE_TITLE, SITE_DESCRIPTION } from "../constants";
-import profilePic from "../assets/images/profile-pic.jpg";
-import {
-  personJsonLd,
-  t28DevWebSiteJsonLd,
-  tatsuyaPersonJsonLd,
-  webSiteJsonLd,
-} from "../helpers/structuredData.ts";
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from "../constants";
+import { tatsuyaPersonJsonLd } from "../helpers/structuredData.ts";
 
 const getDescription = async (
   post: CollectionEntry<"blog">,
@@ -73,11 +65,11 @@ const structuredData = {
     tatsuyaPersonJsonLd,
     {
       "@type": "WebSite",
-      "@id": "https://t28.dev/#website",
+      "@id": `${SITE_URL}/#website`,
       // Google required properties
       // https://developers.google.com/search/docs/appearance/site-names?hl=ja#website
       name: SITE_TITLE,
-      url: "https://t28.dev/",
+      url: `${SITE_URL}/`,
       // Google recommended properties
       // https://developers.google.com/search/docs/appearance/site-names?hl=ja#website
       // "alternateName": [],
@@ -89,9 +81,9 @@ const structuredData = {
     },
     {
       "@type": "CollectionPage",
-      "@id": "https://t28.dev/#collectionpage",
+      "@id": `${SITE_URL}/#collectionpage`,
       name: SITE_TITLE,
-      url: "https://t28.dev/",
+      url: `${SITE_URL}/`,
       publisher: {
         "@id": tatsuyaPersonJsonLd["@id"],
       },
@@ -106,11 +98,11 @@ const structuredData = {
             "@type": "ListItem",
             // required
             position: index + 1,
-            url: `https://t28.dev${url}`,
+            url: `${SITE_URL}${url}`,
             // others
             item: {
               "@type": "BlogPosting",
-              url: `https://t28.dev${url}`,
+              url: `${SITE_URL}${url}`,
               headline: title,
               datePublished: publishedDate.toISOString(),
               ...(modifiedDate && { dateModified: modifiedDate.toISOString() }),
