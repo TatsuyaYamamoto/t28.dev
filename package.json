@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@playwright/test": "1.57.0",
-    "@types/node": "22.15.3",
+    "@types/node": "25.1.0",
     "@types/react": "17.0.80",
     "@types/three": "0.161.2",
     "@vercel/og": "0.6.2",
