@@ -26,7 +26,7 @@ date: 2026-02-07
 <https://humanstxt.org> は `humans.txt` を [`rel="author"`](https://developer.mozilla.org/ja/docs/Web/HTML/Reference/Attributes/rel#author) で紐づけることを推奨している。
 
 ```html
-<link type="text/plain" rel="author" href="http://domain/humans.txt" />
+<link type="text/plain" rel="author" href="https://domain/humans.txt" />
 ```
 
 `rel="author"` は著者情報を示すための属性値で、[Web 標準として定義されている](https://html.spec.whatwg.org/multipage/links.html#link-type-author)。
