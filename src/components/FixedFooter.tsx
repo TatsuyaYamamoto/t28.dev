@@ -40,25 +40,40 @@ const FixedFooter = () => {
       style={{
         transform: isVisible ? "translateY(0)" : "translateY(100%)",
       }}
-      {...{ inert: isVisible ? undefined : "" }}
+      {
+        // TODO: see https://github.com/TatsuyaYamamoto/t28.dev/pull/244#discussion_r2793621706
+        ...{ inert: isVisible ? undefined : "" }
+      }
     >
       {/* main container */}
-      <div className="mx-auto flex h-12 max-w-[1200px] items-center px-4">
-        <div className="flex-1"></div>
+      <div className="mx-auto flex h-12 max-w-[1200px] items-center justify-end px-4">
         <div className="flex gap-4">
-          <a className="rounded-full p-1" href="https://x.com/T28_tatsuya">
+          <a
+            className="rounded-full p-1"
+            href="https://x.com/T28_tatsuya"
+            aria-label="Twitter"
+          >
             <TwitterSvg className="fill-twitter h-6 w-6 align-top" />
           </a>
           <a
             className="rounded-full p-1"
             href="https://github.com/TatsuyaYamamoto/t28.dev"
+            aria-label="GitHub"
           >
             <GitHubSvg className="fill-github h-6 w-6 align-top" />
           </a>
-          <a className="rounded-full p-1" href={`${SITE_URL}/rss.xml`}>
+          <a
+            className="rounded-full p-1"
+            href={`${SITE_URL}/rss.xml`}
+            aria-label="RSS Feed"
+          >
             <RssSvg className="fill-rss h-6 w-6 align-top" />
           </a>
-          <a className="rounded-full p-1" href={`${SITE_URL}/humans.txt`}>
+          <a
+            className="rounded-full p-1"
+            href={`${SITE_URL}/humans.txt`}
+            aria-label="humans.txt"
+          >
             <HumansTxtSvg className="h-6 w-6 align-top" />
           </a>
         </div>
