@@ -19,11 +19,12 @@
   }
 
   body {
-    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
-      "Hiragino Sans", Meiryo, sans-serif;
+    font-family:
+      "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+      Meiryo, sans-serif;
     font-size: var(--fontSize-1);
     color: var(--color-text);
-    background-color: rgba(242, 242, 248, 0.5);
+    background-color: var(--color-t28-dev-bg);
   }
 
   :where(h1, h2, h3, h4, h5, h6) {
@@ -105,6 +106,8 @@
   --color-heading-black: black;
   --color-accent: #d1dce5;
   --color-accent-soft: #e7ecef;
+  --color-t28-dev-bg: rgb(249 249 251);
+  --color-rss: #f26522;
 
   --color-s-works: #ffc69e;
   --color-twitter: #1da1f2;

@@ -12,6 +12,7 @@ import BlogList from "../components/BlogList";
 import Bio from "../components/Bio";
 import Footer from "../components/Footer";
 import Container from "../components/Container";
+import FixedFooter from "../components/FixedFooter";
 
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from "../constants";
 import { tatsuyaPersonJsonLd } from "../helpers/structuredData.ts";
@@ -128,6 +129,7 @@ const structuredData = {
       </h1>
     </Container>
   </header>
+  <FixedFooter client:idle />
   <Container>
     <Bio />
   </Container>
