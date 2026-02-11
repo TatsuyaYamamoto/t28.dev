@@ -40,6 +40,7 @@ const FixedFooter = () => {
       style={{
         transform: isVisible ? "translateY(0)" : "translateY(100%)",
       }}
+      {...{ inert: isVisible ? undefined : "" }}
     >
       {/* main section */}
       <div className="flex h-12 items-center px-4">
