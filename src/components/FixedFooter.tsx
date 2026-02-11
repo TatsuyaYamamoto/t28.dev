@@ -42,8 +42,8 @@ const FixedFooter = () => {
       }}
       {...{ inert: isVisible ? undefined : "" }}
     >
-      {/* main section */}
-      <div className="flex h-12 items-center px-4">
+      {/* main container */}
+      <div className="mx-auto flex h-12 max-w-[1200px] items-center px-4">
         <div className="flex-1"></div>
         <div className="flex gap-4">
           <a className="rounded-full p-1" href="https://x.com/T28_tatsuya">
