@@ -36,7 +36,7 @@ const BlogList: FC<Props> = (props) => {
                 </div>
               </header>
               <section>
-                <p>{post.description}</p>
+                <p className="wrap-anywhere">{post.description}</p>
               </section>
             </article>
           </li>
