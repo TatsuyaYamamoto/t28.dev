@@ -17,6 +17,8 @@ import FixedFooter from "../components/FixedFooter";
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from "../constants";
 import { tatsuyaPersonJsonLd } from "../helpers/structuredData.ts";
 
+import SworksLogoSvg from "../assets/images/s-works-logo.svg?react";
+
 const getDescription = async (
   post: CollectionEntry<"blog">,
 ): Promise<string> => {
@@ -124,9 +126,17 @@ const structuredData = {
 >
   <header class="my-12">
     <Container>
-      <h1 class="m-0 text-(length:--fontSize-7) text-(--color-primary)">
+      <h1
+        class="m-0 inline-block text-(length:--fontSize-7) text-(--color-primary)"
+      >
         <a href="/">{SITE_TITLE}</a>
       </h1>
+      <span class="inline-block text-lg">
+        {`/`}
+        <a href="https://t28.dev/s-works" class="inline-block">
+          <SworksLogoSvg className="h-4 w-auto" aria-label="s-works" />
+        </a>
+      </span>
     </Container>
   </header>
   <FixedFooter client:idle />

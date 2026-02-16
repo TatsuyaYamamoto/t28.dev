@@ -5,6 +5,7 @@ import GitHubSvg from "../assets/icons/fa/github.svg?react";
 import RssSvg from "../assets/icons/fa/rss.svg?react";
 import TwitterSvg from "../assets/icons/fa/twitter.svg?react";
 import HumansTxtSvg from "../assets/icons/humans-txt-org-logo.svg?react";
+import SworksIconSvg from "../assets/images/s-works-logo-icon.svg?react";
 
 const FixedFooter = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -48,6 +49,13 @@ const FixedFooter = () => {
       {/* main container */}
       <div className="mx-auto flex h-12 max-w-[1200px] items-center justify-end px-4">
         <div className="flex gap-4">
+          <a
+            className="rounded-full p-1"
+            href="https://t28.dev/s-works"
+            aria-label="s-works"
+          >
+            <SworksIconSvg className="h-6 w-6 align-top" />
+          </a>
           <a
             className="rounded-full p-1"
             href="https://x.com/T28_tatsuya"

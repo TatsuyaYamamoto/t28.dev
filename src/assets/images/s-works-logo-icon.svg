@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 488.6 304.3">
+  <defs>
+    <style>
+      .st0 {
+        fill: #ffc69e;
+      }
+    </style>
+  </defs>
+  <path class="st0" d="M381.2,141.3l101.4,120.7h0c6.4,7.7,7.9,18.4,3.6,27.4-4.2,9.1-13.3,14.9-23.3,14.9H25.7c-10,0-19.1-5.8-23.3-14.9-4.2-9.1-2.8-19.8,3.6-27.4l101.4-120.7L214.3,14h0c7.5-8.9,18.4-14,30-14s22.6,5.1,30,14l106.9,127.3h0Z" vector-effect="non-scaling-stroke"/>
+</svg>
