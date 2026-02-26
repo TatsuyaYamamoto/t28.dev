@@ -43,13 +43,13 @@
     "react-dom": "18.2.0",
     "schema-dts": "1.1.5",
     "tailwindcss": "4.1.17",
-    "three": "0.161.0"
+    "three": "0.182.0"
   },
   "devDependencies": {
     "@playwright/test": "1.57.0",
     "@types/node": "22.15.3",
     "@types/react": "17.0.80",
-    "@types/three": "0.161.2",
+    "@types/three": "0.182.0",
     "@vercel/og": "0.6.2",
     "husky": "9.1.5",
     "isomorphic-dompurify": "2.14.0",
