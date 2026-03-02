@@ -94,8 +94,8 @@ importers:
         specifier: 15.2.9
         version: 15.2.9
       marked:
-        specifier: 15.0.11
-        version: 15.0.11
+        specifier: 17.0.3
+        version: 17.0.3
       prettier:
         specifier: 3.7.4
         version: 3.7.4
@@ -2683,6 +2683,11 @@ packages:
   marked@15.0.11:
     resolution: {integrity: sha512-1BEXAU2euRCG3xwgLVT1y0xbJEld1XOrmRJpUwRCcy7rxhSCwMrmEu9LXoPhHSCJG41V7YcQ2mjKRr5BA3ITIA==}
     engines: {node: '>= 18'}
+    hasBin: true
+
+  marked@17.0.3:
+    resolution: {integrity: sha512-jt1v2ObpyOKR8p4XaUJVk3YWRJ5n+i4+rjQopxvV32rSndTJXvIzuUdWWIy/1pFQMkQmvTXawzDNqOH/CUmx6A==}
+    engines: {node: '>= 20'}
     hasBin: true
 
   mathjs@11.12.0:
@@ -7124,6 +7129,8 @@ snapshots:
   markdown-table@3.0.4: {}
 
   marked@15.0.11: {}
+
+  marked@17.0.3: {}
 
   mathjs@11.12.0:
     dependencies:
