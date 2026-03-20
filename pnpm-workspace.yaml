@@ -1,2 +1,4 @@
+# $schema: https://www.schemastore.org/pnpm-workspace.json
+strictPeerDependencies: true
 onlyBuiltDependencies:
   - puppeteer
