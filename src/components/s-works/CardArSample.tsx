@@ -14,10 +14,10 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import MindArRenderer from "../../helpers/mindAr/MindArRenderer.tsx";
 import { createMesh } from "../../helpers/mindAr/utils.ts";
 
-import sWorksPortfolioMemoryGame from "../../../docs/s-works-achievement/_assets/it_team_memory_game/hero.jpg";
-import sWorksPortfolioMachigaiSagashi from "../../../docs/s-works-achievement/_assets/lovelive-machigai-sagashi/hero.jpg";
-import sWorksPortfolioNijiyonAr from "../../../docs/s-works-achievement/_assets/nijigasaki-gamers-nijiyon-ar/hero.jpg";
-import sWorksPortfolioFlowerStand from "../../../docs/s-works-achievement/_assets/nijigasaki_flower_stand/hero.jpg";
+import sWorksPortfolioMemoryGame from "../../../docs/s-works-achievement/it_team_memory_game/hero.jpg";
+import sWorksPortfolioMachigaiSagashi from "../../../docs/s-works-achievement/lovelive-machigai-sagashi/hero.jpg";
+import sWorksPortfolioNijiyonAr from "../../../docs/s-works-achievement/nijigasaki-gamers-nijiyon-ar/hero.jpg";
+import sWorksPortfolioFlowerStand from "../../../docs/s-works-achievement/nijigasaki_flower_stand/hero.jpg";
 
 import leftPng from "../../assets/images/left.png";
 import dairiPng from "../../assets/images/profile-pic.jpg";

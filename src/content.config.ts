@@ -13,7 +13,7 @@ const blog = defineCollection({
 });
 
 const sWorksAchievement = defineCollection({
-  loader: glob({ pattern: "*.mdx", base: "./docs/s-works-achievement" }),
+  loader: glob({ pattern: "*/index.mdx", base: "./docs/s-works-achievement" }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
