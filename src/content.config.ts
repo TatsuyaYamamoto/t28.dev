@@ -22,6 +22,7 @@ const sWorksAchievement = defineCollection({
       project: z.union([
         z.literal("ラブライブ！シリーズ"),
         z.literal("ラブライブ！虹ヶ咲学園スクールアイドル同好会"),
+        z.literal("イキヅライブ！"),
         z.literal("こどものままでもママになりたい！"),
       ]),
       heroImage: image(),
