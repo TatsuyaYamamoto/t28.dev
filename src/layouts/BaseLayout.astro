@@ -13,6 +13,7 @@ export interface Props {
   faviconType: "t28.dev" | "s-works";
   ogpImageUrl?: string;
   structuredData?: Graph;
+  markdownUrl?: string;
 }
 
 const faviconPathMap = {
@@ -20,8 +21,14 @@ const faviconPathMap = {
   "s-works": "/favicon-s-works.png",
 };
 
-const { title, description, faviconType, ogpImageUrl, structuredData } =
-  Astro.props;
+const {
+  title,
+  description,
+  faviconType,
+  ogpImageUrl,
+  structuredData,
+  markdownUrl,
+} = Astro.props;
 const faviconPath = faviconPathMap[faviconType];
 const canonicalUrl = (() => {
   const baseUrl = Astro.url.href;
@@ -69,6 +76,9 @@ const canonicalUrl = (() => {
       }}
       extend={{
         link: [
+          ...(markdownUrl
+            ? [{ rel: "alternate", type: "text/markdown", href: markdownUrl }]
+            : []),
           {
             rel: "icon",
             href: faviconPath,

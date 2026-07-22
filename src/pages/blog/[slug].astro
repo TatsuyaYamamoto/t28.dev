@@ -2,8 +2,6 @@
 import type { CollectionEntry } from "astro:content";
 import { getCollection, render } from "astro:content";
 
-import type { Graph } from "schema-dts";
-
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Container from "../../components/Container";
 import BlogPost from "../../components/BlogPost";
@@ -11,9 +9,10 @@ import Footer from "../../components/Footer";
 import BlogPostSideMenu from "../../components/BlogPostSideMenu";
 
 import { headingToTocItems } from "../../helpers/utils";
-import { tatsuyaPersonJsonLd } from "../../helpers/structuredData.ts";
 
 import { SITE_TITLE } from "../../constants";
+
+import { createJsonLd } from "./_jsonLd.ts";
 
 export const getStaticPaths = async () => {
   const allBlogPosts = await getCollection("blog");
@@ -32,51 +31,16 @@ const { Content, headings, remarkPluginFrontmatter } = await render(post);
 
 const title = `${post.data.title} | ${SITE_TITLE}`;
 const description = post.data.description ?? remarkPluginFrontmatter.excerpt;
-const pageUrl = new URL(`/blog/${post.id}`, Astro.url).href;
-const ogpImageUrl = new URL(`/blog/${post.id}.ogp.png`, Astro.url).href;
+const pageUrl = new URL(`/blog/${post.id}`, Astro.site).href;
+const ogpImageUrl = new URL(`/blog/${post.id}.ogp.png`, Astro.site).href;
+const markdownUrl = new URL(`/blog/${post.id}/index.md`, Astro.site).href;
 
-const structuredData: Graph = {
-  "@context": "https://schema.org",
-  "@graph": [
-    tatsuyaPersonJsonLd,
-    {
-      "@type": "WebPage",
-      "@id": `${pageUrl}#webpage`,
-      url: pageUrl,
-      publisher: {
-        "@id": tatsuyaPersonJsonLd["@id"],
-      },
-      datePublished: post.data.date.toISOString(),
-      ...(post.data.modified && {
-        dateModified: post.data.modified.toISOString(),
-      }),
-      mainEntity: {
-        "@id": `${pageUrl}#blogposting`,
-      },
-    },
-    {
-      "@type": "BlogPosting",
-      "@id": `${pageUrl}#blogposting`,
-      url: pageUrl,
-      // Google recommended properties
-      // https://developers.google.com/search/docs/appearance/structured-data/article#article-types
-      author: {
-        "@id": tatsuyaPersonJsonLd["@id"],
-      },
-      headline: post.data.title,
-      datePublished: post.data.date.toISOString(),
-      ...(post.data.modified && {
-        dateModified: post.data.modified.toISOString(),
-      }),
-      image: ogpImageUrl,
-      // other properties
-      mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
-      articleSection: post.data.category,
-      inLanguage: "ja",
-      description,
-    },
-  ],
-};
+const structuredData = createJsonLd({
+  pageUrl,
+  post,
+  ogpImageUrl,
+  description,
+});
 ---
 
 <BaseLayout
@@ -85,6 +49,7 @@ const structuredData: Graph = {
   faviconType="t28.dev"
   ogpImageUrl={ogpImageUrl}
   structuredData={structuredData}
+  markdownUrl={markdownUrl}
 >
   <header class="my-12">
     <Container>
@@ -100,6 +65,7 @@ const structuredData: Graph = {
         publishedDate={post.data.date}
         modifiedDate={post.data.modified}
         category={post.data.category}
+        markdownUrl={markdownUrl}
       >
         <div class="blog-post-content">
           <Content />

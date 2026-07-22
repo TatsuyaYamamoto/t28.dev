@@ -10,6 +10,7 @@ export interface Props {
   publishedDate: Date;
   modifiedDate?: Date | undefined;
   category: string;
+  markdownUrl: string;
 }
 
 const BlogPost: FC<PropsWithChildren<Props>> = ({
@@ -17,6 +18,7 @@ const BlogPost: FC<PropsWithChildren<Props>> = ({
   publishedDate,
   modifiedDate,
   category,
+  markdownUrl,
   children,
 }) => {
   const publishedDateText = formatDisplayDate(publishedDate);
@@ -32,6 +34,14 @@ const BlogPost: FC<PropsWithChildren<Props>> = ({
             {modifiedDateText && `・${modifiedDateText}に更新`}
           </span>
           <Chip>{category}</Chip>
+          <div className="flex-1"></div>
+          <a
+            className="hover:bg-accent no-underline"
+            href={markdownUrl}
+            target="_blank"
+          >
+            Markdown で見る
+          </a>
         </div>
       </header>
       {children}
